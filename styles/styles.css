@@ -1,0 +1,15 @@
+#logo {
+    height: 50px;
+    width: 50px;
+    float:left;
+}
+
+#mainHeader{
+    text-align: right;
+}
+.headerRight {
+    display: inline-block;
+}
+.menuBar{
+    display: inline-block;
+    text-align: center;
