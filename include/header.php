@@ -9,7 +9,7 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid topHeader">
             <div class="row topMenuBar">
                 <div class="col-xs-4">
                     <a href="../index.php"><img id="logo" src="images/apple-158419_960_720.png" alt="Apple"/></a> 
@@ -24,7 +24,7 @@
                 <div class="col-xs-4">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><button class="btn btn-warning" id="Menu">Menu</button></a>
                         <ul class="dropdown-menu">
-                            <li>Summary</li>
+                            <a href="../summary.php"><li>Summary</li></a>
                             <li>Add Food</li>
                         </ul>
                 </div>

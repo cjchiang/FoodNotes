@@ -19,3 +19,14 @@ html{
 #Menu {
     width: 100%;
 }
+.footer {
+    vertical-align: 0%;
+}
+hr {
+    color: lightgreen;
+    height: 1px;
+    background-color: gray;
+}
+.bottomRow {
+    background-color: lightgreen;
+}
