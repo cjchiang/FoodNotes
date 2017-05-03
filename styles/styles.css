@@ -1,20 +1,18 @@
-html{
-    background-color: lightgreen;
-}
-.topMenuBar{
-    background-color: lightgreen;
+body {
+    font-family: Calibri;
+    color: black;
 }
 #logo {
-    height: 50px;
-    width: 50px;
+    height: 100%;
+    width: 100%;
 }
 .logAndSign{
     text-align: right;
 }
 
 .menuBar {
-    background-color: lightgoldenrodyellow;
     text-align: center;
+    background-color: lightgray;
 }
 #Menu {
     width: 100%;
@@ -27,6 +25,29 @@ hr {
     height: 1px;
     background-color: gray;
 }
-.bottomRow {
+.meats {
+    background-color: coral;
+}
+.veggies{
     background-color: lightgreen;
+}
+.fruits {
+    background-color: orange;
+}
+.dairies {
+    background-color: beige;
+}
+.grains {
+    background-color: burlywood;
+}
+
+.bottomRow {
+    text-align: center;
+}
+
+.costs{
+    text-align: right;
+}
+.ourContent {
+    text-align: center;
 }
