@@ -7,8 +7,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
     <body>
-        <a href="../index.php"><img id="logo" src="images/apple-158419_960_720.png" alt="Apple"/></a>
-        
+        <a href="../index.php"><img id="logo" src="images/apple.png" alt="Apple"/></a>
+        <h1><i>Food Notes</i></h1>
+        <style>
+            body{
+                background-image: url(images/mindb.gif);
+                background-repeat: repeat;
+                background-size: 200px;
+            }
+        </style>
         <!--can use a php statement to see if user is already logged in or not and display stuff-->
         <div id="mainHeader">
             <p class="headerRight"><button class="warning">Login</button></p>
