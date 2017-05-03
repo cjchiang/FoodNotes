@@ -1,3 +1,9 @@
+
+#slant {
+    font-style: italic;
+    color: green;
+}
+
 #logo {
     height: 50px;
     width: 50px;
@@ -13,3 +19,4 @@
 .menuBar{
     display: inline-block;
     text-align: center;
+}
