@@ -1,15 +1,21 @@
+html{
+    background-color: lightgreen;
+}
+.topMenuBar{
+    background-color: lightgreen;
+}
 #logo {
     height: 50px;
     width: 50px;
-    float:left;
 }
-
-#mainHeader{
+.logAndSign{
     text-align: right;
 }
-.headerRight {
-    display: inline-block;
-}
-.menuBar{
-    display: inline-block;
+
+.menuBar {
+    background-color: lightgoldenrodyellow;
     text-align: center;
+}
+#Menu {
+    width: 100%;
+}
