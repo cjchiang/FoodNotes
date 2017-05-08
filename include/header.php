@@ -10,13 +10,13 @@
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </head>
     <body>
-        <div class="container-fluid topHeader">
+        <!--<div class="container-fluid topHeader">
             <div class="row topMenuBar">
                 <div class="col-xs-4">
                     <a href="../index.php"><img id="logo" src="images/logo.png" alt="Apple"/></a> 
                 </div>
                 <div class="col-xs-8 logAndSign">
-                    <!--can use a php statement to see if user is already logged in or not and display stuff-->
+                    can use a php statement to see if user is already logged in or not and display stuff
                     <a href="../login.php"><button class="btn btn-warning" id="login">Login</button></a>
                     <a href="../signup.php"><button class="btn btn-success" id="signUp">Sign Up</button></a>
                 </div>
@@ -36,4 +36,4 @@
                     <p>Nothing Here Yet2</p>
                 </div>
             </div>
-        </div>
+        </div>-->
