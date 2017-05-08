@@ -1,0 +1,77 @@
+body {
+    font-family: Calibri;
+    color: black;
+}
+#logo {
+    height: 100%;
+    width: 100%;
+}
+.logAndSign{
+    text-align: right;
+}
+
+.menuBar {
+    text-align: center;
+    background-color: lightgray;
+}
+#Menu {
+    width: 100%;
+}
+.footer {
+    vertical-align: 0%;
+}
+hr {
+    color: lightgreen;
+    height: 1px;
+    background-color: gray;
+}
+.meats {
+    background-color: coral;
+}
+.veggies{
+    background-color: lightgreen;
+}
+.fruits {
+    background-color: orange;
+}
+.dairies {
+    background-color: beige;
+}
+.grains {
+    background-color: burlywood;
+}
+
+.bottomRow {
+    text-align: center;
+}
+
+.costs{
+    text-align: right;
+}
+.ourContent {
+    text-align: center;
+}
+
+.bottomNavi {
+    position: fixed;
+    bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    left: 0;
+    right: 0;
+    background-color: gray;
+}
+
+.buttonHolder {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navImg {
+    height: 50%;
+    width: 50%;
+}
+.bottomButton{
+    padding-left: 20%;
+    padding-right: 20%;
+}
