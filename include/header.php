@@ -14,7 +14,11 @@
             <div class="row menuBar">
                 <div class="col-xs-4">
                     <p><a href="../index.php"><button class="btn btn-warning topMenu" id="goBackHome">Home</button></a></p>
+<<<<<<< HEAD
                 </div> 
+=======
+                </div>
+>>>>>>> 2477b027d1c232d17013e0f3b2e7733a7e210b61
 				<div class="col-xs-4">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><button class="btn btn-warning topMenu">Menu</button></a>
                         <ul class="dropdown-menu">
