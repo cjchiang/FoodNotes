@@ -20,6 +20,7 @@
                         <ul class="dropdown-menu">
                             <a href="../summary.php"><li>Summary</li></a>
                             <a href="../addFood.php"><li>Add Food</li></a>
+                             <a href="../RelatedApps.php"><li>Related Apps</li></a>
                             <a href="../login.php"><li>Log In</li></a>
                             <a href="../signup.php"><li>Sign Up</li></a>
                         </ul>

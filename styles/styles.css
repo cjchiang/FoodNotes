@@ -75,3 +75,8 @@ hr {
     padding-left: 20%;
     padding-right: 20%;
 }
+
+table, td, tr, th {
+	border: 1px solid red;
+	text-align: center;
+}
