@@ -9,6 +9,7 @@
 <?php include("include/header.php"); ?>
 </br>
 <body>
+    <p align="center" style="color: red; font-size: 20px"><i>Here are some other cool apps that you can check out!</i></p>
     <table align="center">
         <tr>
             <th>Name Of Apps</th>
