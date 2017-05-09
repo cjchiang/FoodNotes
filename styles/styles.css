@@ -25,6 +25,10 @@ hr {
     height: 1px;
     background-color: gray;
 }
+
+.used {
+  height: 100%;
+}
 .meats {
     background-color: coral;
 }
