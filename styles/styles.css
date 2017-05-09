@@ -15,8 +15,8 @@ body {
     text-align: center;
     background-color: lightgray;
 }
-#Menu {
-    width: 100%;
+.topMenu {
+  width:100%;
 }
 .footer {
     vertical-align: 0%;
