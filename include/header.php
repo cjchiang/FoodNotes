@@ -7,20 +7,7 @@
     <link rel="stylesheet" href="../styles/bootstrap.min.css"/>
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        //firebase init code, DON'T TOUCH!
-        var config = {
-            apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
-            authDomain: "food-notes-test.firebaseapp.com",
-            databaseURL: "https://food-notes-test.firebaseio.com",
-            projectId: "food-notes-test",
-            storageBucket: "food-notes-test.appspot.com",
-            messagingSenderId: "106608811518"
-        };
-        firebase.initializeApp(config);
-    </script>
 </head>
     <body>
         <!--<div class="container-fluid topHeader">
