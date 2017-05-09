@@ -1,0 +1,13 @@
+USE comp2910;
+
+CREATE TABLE IF NOT EXISTS User(
+	UserID INTEGER(8) NOT NULL AUTO_INCREMENT,
+	UserName VARCHAR(20) NOT NULL,
+	Password VARCHAR(256) NOT NULL,
+	PRIMARY KEY(UserID)
+);
+
+
+
+
+INSERT INTO User VALUES(NULL, 'testuser','$2y$12$5o.79yobBOq3wFmx./bkf.JnJN499ttolwV9/opwxxXzjzyh.984u');

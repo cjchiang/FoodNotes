@@ -81,16 +81,14 @@ if ($_POST) {
           </label>
         </div>
        
-        <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit" id="loginBtn">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit" id="registerBtn">Sign up</button>
       
       </div>
       <script type="text/javascript">
-		$("#loginBtn").click(function(){
-			//error logging code
-			firebase.auth().signInWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
-			//location.replace("main1.php");
+		$("#registerBtn").click(function(){
+			firebase.auth().createUserWithEmailAndPassword($("#emailTxt").val(), $("#pwTxt").val());
 		});
-
+		
 		firebase.auth().onAuthStateChanged(function(firebaseUser){
 			if (firebaseUser) {
 				alert("Signed in!");
@@ -99,6 +97,7 @@ if ($_POST) {
 				console.log(firebaseUser + " is not a valid user");
 			}
 		});	
+
 
 	</script>
     </div> <!-- /container -->

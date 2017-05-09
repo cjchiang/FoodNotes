@@ -1,0 +1,216 @@
+img{max-width:100%;
+    height:auto;}
+ul{list-style-type:none;}
+figcaption{color:#a66c3f;}
+
+p{text-align:justify;
+  line-height:150%;
+  margin-right:2em;
+  margin-left:2.5em;
+  color:#5c3c23;}
+.alignpara ol{margin-left:2.5em;}
+
+#backtotop{margin-left:2.5em;}
+#backtotop:hover{color:#5c3c23;}
+	
+body{background-color:#cccccc;
+     color:#330000;
+	 font-family:Verdana,Arial,sans-serif;
+	 }
+			   
+.mininav li{display:inline; padding-right:35px;
+            text-decoration:underline;
+          }	
+h1{color:#5c3c23;
+   text-align:center;
+   font-size:20px;
+   padding-top:1.5em;}
+
+
+
+nav{float:left;
+    width:150px;
+	background-color:#cccccc;}
+nav ul{margin-left:-0.5em;
+       margin-right:1em;
+	   padding-left:1.5em;
+	   width:8em;}
+nav a { text-decoration: none;
+ display: block;
+ padding: 20px 5px 20px 39px;
+ background-color: #a6a6a6;
+ color:#33001a;
+ font-weight:bold;
+ border-bottom: 1px solid #333333;
+ background-image: url(images/sprites.png);
+ background-repeat: no-repeat;
+ background-position: left 0;
+ background-size:50px 50px; }
+ a:hover{color:white;}
+
+
+aside{float:right;
+       width:200px;
+	   background-color:#cccccc;
+      }
+aside a{color:#33001a;}
+aside h5{text-align:center;}
+
+footer{background-color:#29293d;
+       padding-top:0.1px;
+	   padding-bottom:0.1px;
+       color:white;
+	   font-size:.75em;
+	   text-align:center;
+	   clear:both;}
+footer p{color:white;}
+footer a{padding-left:2em;
+         text-decoration:none;
+		 color:white;}
+	 
+main{margin:0 210px 0 160px;
+     background-color:#f1e4da;
+       color:#000000;
+	 }
+	 
+
+
+.wholefloat{float:right;
+            }
+			
+.staff ul{float:right;
+           margin-right:9em;}
+ul .name{font-weight:bold}
+#map img{margin-left:9.5em;
+         margin-bottom:1em;}
+
+#comment{width:70%;
+         margin:auto;
+		 margin-top:1em;}
+#comment textarea{width:85%;
+                  padding-bottom:5em;
+				  margin-left:-1.3em;
+				  padding-right:9.7em;}
+#submit{width:20%;
+        margin:auto;
+		margin-top:1.5em;}
+.nameemail{margin-left:8em;;
+           width:70%;
+		   margin:auto;
+		  margin-bottom:1em;}
+
+.home_menu{position:absolute;
+           left:central;
+		   top:central;
+           }
+.main_menu{position:relative;
+           }
+.submenu{display:none;
+         position:absolute;
+		 left:6em;
+		 top:2.5em;
+		 z-index:100;
+		 }
+.main_menu:hover .submenu {display: inline-block;
+                                  }
+.submenu a{padding-bottom:0.7em;
+           width:8.5em;}
+
+.asidelinks a{text-decoration:none;}
+.asidesitemap {margin-bottom:-0.5em;
+               margin-right:1.5em;}
+.sitemap a{ text-decoration:none;
+          background-color: #ff9966;
+          color:#33001a;
+          border: 1px solid #333333;
+		  }
+.sitemap{margin-top:1.3em;
+            font-size:large;
+			font-weight:bold;
+		 margin-left:8em;}
+.indent{font-size:medium;
+        margin-left:12em;
+         font-style:italic;
+		 margin-top:0.5em;}
+.indent a{ text-decoration:none;
+          background-color: #86b300;
+          color:#33001a;
+          border: 1px solid #333333;
+		  }
+#sitemapbar{position:relative;
+            margin-bottom:1em;}
+#sitemapbar ul{position:absolute;
+               top:0em;
+			   left:1.5em;}
+#sitemapbar img{margin-left:8em;}
+
+/*for page of our story*/
+   #gallery{width:90%;
+            
+             margin:auto;
+			 }
+ 
+   #gallery ul{width:300px;
+               float:left;}
+   #gallery li{float:left;
+               display:inline;
+			   padding:16px;}
+   #gallery figure{padding-top:30px;
+                   text-align:center;
+				   }
+   #gallery figcaption{font-weight:bold;
+                       font-size:1.1em;}
+   #gallery span{display:none;}
+   
+/*for page of services*/
+ .services li{display:inline-block;
+              max-width:300px;
+			  height:auto;
+			  text-align:center;
+			 margin-left:-1.2em;
+			 padding-right:1em;
+			 }
+ .services a{text-decoration:none;
+             color:#5c3c23;}
+/*for page of dog walking*/	
+h2{color:#a66c3f;
+   font-size:1em;
+   font-weight:bold;
+   text-indent:2.5em;}
+.dogwalking{list-style-type:square;
+            margin-left:2em;
+			color:#5c3c23;
+			line-height:150%;}
+.dogwalking ul{list-style-type:circle;}
+.dogwalking_program{color:#5c3c23;
+			line-height:150%;
+			margin-left:2em;
+			margin-right:2em;}
+.dogwalking_float1{float:right; 
+                    margin-right:2em;}
+.dogwalking_float3{float:left;
+                   margin-left:1.2em;}
+.dogwalkgps_float{float:right; box-shadow: 2px 4px 14px 6px rgba(0, 0, 0, 0.2), -3px -1px 20px 5px rgba(0, 0, 0, 0.19);
+                   margin-right:2em;}
+.obesity_float{float:left;
+               margin-left:1.7em;}
+/*for page of dog food*/
+.food_float{float:left;
+             margin-left:1.5em;}
+			
+ .toggle-link:after {
+	font-family: "Glyphicons Halflings";
+	content: "\e114";
+	float: right;
+	margin-left: 15px;
+}
+/* Icon when the collapsible content is hidden */
+.toggle-link.collapsed:after {
+    content: "\e080";
+}
+
+
+			   
+		 
+
+	
