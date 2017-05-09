@@ -14,7 +14,7 @@ body {
     text-align: center;
     background-color: lightgray;
 }
-#Menu {
+.topMenu {
     width: 100%;
 }
 .footer {
