@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include("include/header.php"); ?>
     <!-- main body will go here, body tags are already distributed to header and footer-->
 <!DOCTYPE html>
@@ -22,7 +23,7 @@
 		</div>
 
 	</div>
-	
+
 	<div class="row">
 		<div class="col-sm-2 col-xs-6">
 			<div id="div_meat" class="food-category">
@@ -36,23 +37,23 @@
 		</div>
 		<div class="col-sm-2 col-xs-6">
 			<div id="div_veggies" class="food-category">
-				<label class="h3"> Veggies </label>			
+				<label class="h3"> Veggies </label>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-xs-12">
 			<button>Finalize</button>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<label class="h2">Added items</label>
 	</div>
 </div>
 </body>
-</html>	
+</html>
     <p>filler functions</p>
     <!--<div class="container-fluid ourContent">
         <div id="canvasSelect col-xs-12">
@@ -61,4 +62,3 @@
     </div>-->
 
 <?php include("include/footer.php"); ?>
-
