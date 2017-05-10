@@ -59,27 +59,28 @@ hr {
 
 .bottomNavi {
     position: fixed;
-    bottom: 0;
     margin-left: 0;
     margin-right: 0;
     left: 0;
     right: 0;
+    bottom: 0%;
+    background-color: lightgray;
 }
 
 .buttonHolder {
     padding-left: 0px;
-    padding-right: 0px;  
+    padding-right: 0px; 
 }
 
 .bottomButton{
     padding-left: 20%;
     padding-right: 20%;
-    
+    background-color: lightgray;
 }
 .specialButton {
     width: 100%;
     border-radius: 75%;
-    background-color: aquamarine;
+    background-color: aqua;
 }
 table, td, tr, th {
 	border: 1px solid red;
@@ -87,7 +88,11 @@ table, td, tr, th {
 }
 .navImg {  
     width: 100%;
+    height: 100%;
 }
-#mainButtonPlus {
-    background-color: lightgray;
+#specialNavi {
+    position: fixed;
+    bottom: 0;
+    left: 38%;
+    right: 38%;
 }
