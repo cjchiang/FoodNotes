@@ -16,8 +16,13 @@
       </div>
   </div>
   <div class="row">
-      <div class="col-xs-12">
-          <p>Your potential savings: $__________</p>
+      <div class="col-xs-12 text-center">
+          <h1>Your potential savings:</h1>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12 text-center">
+          <h1>%_____</h1>
       </div>
   </div>
     <div class="container-fluid meats">
@@ -27,22 +32,26 @@
               <div class="col-xs-6 costs"><h2>$10.00</h2></div>
           </div>
       </div>
-      <div class="collapse" id="meatNavBar" >
-          <div class="row">
-              <div class="col-xs-6">
-                  <p>Moist Juicy Steak</p>
-              </div>
-              <div class="col-xs-6 costs">
-                  <p>$6.00</p>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-xs-6">
-                  <p>Amazing Salami</p>
-              </div>
-              <div class="col-xs-6 costs">
-                  <p>$6.00</p>
-              </div>
+      <div class="collapse" id="meatNavBar">
+          <div class="row used">
+              <div class="col-xs-7">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="radio-inline">
+                      <input type="radio" name="percent">25%
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="percent">50%
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="percent">75%
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="percent">100%
+                    </label>
+                </div>
+              </form>
+            </div>
           </div>
       </div>
     </div>
@@ -78,18 +87,6 @@
           <h2>Dairy</h2>
       </div>
       <div class="collapse" id="dairyNavBar">
-        <ul>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container-fluid grains">
-      <div data-toggle="collapse" data-target="#grainNavBar" href="#"  class="toggleMe" aria-expanded="false">
-          <h2>Grains</h2>
-      </div>
-      <div class="collapse" id="grainNavBar">
         <ul>
           <li><a href="#">Page 1</a></li>
           <li><a href="#">Page 2</a></li>
