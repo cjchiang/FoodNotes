@@ -1,3 +1,8 @@
+html {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 body {
     font-family: Calibri;
     color: black;
@@ -54,23 +59,19 @@ hr {
 
 .bottomNavi {
     position: fixed;
-    bottom: 0;
     margin-left: 0;
     margin-right: 0;
     left: 0;
     right: 0;
-    background-color: gray;
+    bottom: 0%;
+    background-color: lightgray;
 }
 
 .buttonHolder {
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 0px; 
 }
 
-.navImg {
-    height: 50%;
-    width: 50%;
-}
 .bottomButton{
     padding-left: 20%;
     padding-right: 20%;
@@ -113,4 +114,24 @@ input[type=submit]:hover {
 
 .submit0 {
     text-align: center;
+    background-color: lightgray;
+}
+.specialButton {
+    width: 100%;
+    border-radius: 75%;
+    background-color: aqua;
+}
+table, td, tr, th {
+	border: 1px solid red;
+	text-align: center;
+}
+.navImg {  
+    width: 100%;
+    height: 100%;
+}
+#specialNavi {
+    position: fixed;
+    bottom: 0;
+    left: 38%;
+    right: 38%;
 }
