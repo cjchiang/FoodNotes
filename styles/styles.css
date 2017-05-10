@@ -75,6 +75,45 @@ hr {
 .bottomButton{
     padding-left: 20%;
     padding-right: 20%;
+}
+
+table, td, tr, th {
+	border: 1px solid black;
+	text-align: center;
+}
+
+input[type=text],textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    color: white;
+}
+
+input[type=submit] {
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+    background-color: grey;
+}
+
+.container {
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    padding: 20px;  
+}
+
+.submit0 {
+    text-align: center;
     background-color: lightgray;
 }
 .specialButton {
