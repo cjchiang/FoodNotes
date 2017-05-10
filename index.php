@@ -12,6 +12,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
+		    authDomain: "food-notes-test.firebaseapp.com",
+		    databaseURL: "https://food-notes-test.firebaseio.com",
+		    projectId: "food-notes-test",
+		    storageBucket: "food-notes-test.appspot.com",
+		    messagingSenderId: "106608811518"
+		  };
+		  firebase.initializeApp(config);
+		 </script>
+
 </head>
 <body>
   <header>
@@ -19,22 +33,53 @@
 	   <div class="row">
 			<img class="img-responsive center-block" src="images/FoodNotes.jpg" alt="background image of pets" height="50" width="100">
 	   </div>
-       <div class="row">
-         <div class="col-sm-1 col-xs-12 col-sm-offset-10 text-right" >
-         	<a href="Register.php">Register</a>
-         </div>
-         <div class="col-sm-1 col-xs-12 text-right" >
-		 <?php 
+	   <div class="row">
+	       <div id="login" class="col-sm-1 col-xs-12 col-sm-offset-1 text-right" ></div>
+	       <div id="logout" class="col-sm-1 col-xs-12 text-right" ></div>
+	       <script type="text/javascript">
+				firebase.auth().onAuthStateChanged(function(firebaseUser){
+					if (firebaseUser) {
+						$("#logout").append('<button class="btn btn-lg btn-primary" value="Login" type="submit" ' + 'id="logoutBtn">Sign out ' + '</button>' ); 
+
+						$("#logoutBtn").ready(function(){
+							$("#logoutBtn").click(function(){
+								firebase.auth().signOut();
+								alert("Signed out!");
+								$("#logout").empty();
+							});
+						});
+					} else {
+						$("#login").append("<button class='btn btn-lg btn-primary' value='Login' " +
+						" type='submit' id ='loginBtn'>Sign In</button>"  ); 
+						$("#login").append('<button class="btn btn-lg btn-primary" value="Login" type="submit" '
+						 + 'id="registerBtn">Sign Up' + '</button>' );
+
+						$("#loginBtn").ready(function(){
+							$("#loginBtn").click(function(){
+								location.replace("login.php");	
+							});
+						});
+
+						$("#registerBtn").ready(function(){
+							$("#registerBtn").click(function(){
+								location.replace("register.php");	
+							});
+						});
+
+					}	
+				});
+			</script>
+
+		 <?php /*
 		 if (isset($_SESSION['username']))
 			 echo $_SESSION['username'] .'<a href="logout.php">Logout</a>';
 		 
 		 else 
-			 echo '<a href="login.php">Login</a>';
+			 echo '<a href="login.php">Login</a>'; */
 		 ?>
-		 </div>
-       </div>
-	 </div>
-       
+
+		</div>	
+	</div>
   </header>
 <div class="container-fluid">
   <h1>Total Potential Savings:10$</h1>
