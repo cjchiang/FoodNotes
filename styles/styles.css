@@ -60,6 +60,7 @@ hr {
     left: 0;
     right: 0;
     background-color: gray;
+    height: 10%;
 }
 
 .buttonHolder {
@@ -67,10 +68,6 @@ hr {
     padding-right: 0px;
 }
 
-.navImg {
-    height: 50%;
-    width: 50%;
-}
 .bottomButton{
     padding-left: 20%;
     padding-right: 20%;
