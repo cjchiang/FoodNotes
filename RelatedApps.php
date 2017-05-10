@@ -2,7 +2,7 @@
 <html>
 <?php include("include/header.php"); ?>
 <div class="container-fluid" style="text-align:center; width:auto; height: auto">
-        <a href="../index.php"><img class="img-responsive" src="images/logo.png" align="middle"></img>
+        <a href="../index.php"><img class="img-responsive" src="images/logo.png"></img>
         </a>
         <h1>Related Apps</h1>
 </div>
