@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -69,7 +70,7 @@ hr {
 
 .buttonHolder {
     padding-left: 0px;
-    padding-right: 0px; 
+    padding-right: 0px;
 }
 
 .bottomButton{
@@ -99,7 +100,7 @@ input[type=submit] {
     color: white;
     padding: 12px 20px;
     cursor: pointer;
-    
+
 }
 
 input[type=submit]:hover {
@@ -109,7 +110,7 @@ input[type=submit]:hover {
 .container {
     border-radius: 5px;
     background-color:#f2f2f2;
-    padding: 20px;  
+    padding: 20px;
 }
 
 .submit0 {
@@ -125,7 +126,7 @@ table, td, tr, th {
 	border: 1px solid red;
 	text-align: center;
 }
-.navImg {  
+.navImg {
     width: 100%;
     height: 100%;
 }
