@@ -1,77 +1,86 @@
 body {
-    font-family: Calibri;
-    color: black;
+  font-family: Calibri;
+  color: black;
 }
 #logo {
-    height: 100%;
-    width: 100%;
+  left:0;
+  right:0;
+  height: 100%;
+  width: 100%;
 }
 .logAndSign{
-    text-align: right;
+  text-align: right;
 }
 
 .menuBar {
-    text-align: center;
-    background-color: lightgray;
+  text-align: center;
+  background-color: lightgray;
 }
 #Menu {
-    width: 100%;
+  width: 100%;
 }
 .footer {
-    vertical-align: 0%;
+  vertical-align: 0%;
+}
+.used {
+  margin: 0px;
+  display: inline-block;
+}
+.radio {
+  margin: auto;
 }
 hr {
-    color: lightgreen;
-    height: 1px;
-    background-color: gray;
+  color: lightgreen;
+  height: 1px;
+  background-color: gray;
 }
 .meats {
-    background-color: coral;
+  background-color: coral;
 }
 .veggies{
-    background-color: lightgreen;
+  background-color: lightgreen;
 }
 .fruits {
-    background-color: orange;
+  background-color: orange;
 }
 .dairies {
-    background-color: beige;
+  background-color: beige;
 }
 .grains {
-    background-color: burlywood;
+  background-color: burlywood;
 }
 
 .bottomRow {
-    text-align: center;
+  text-align: center;
 }
 
 .costs{
-    text-align: right;
+  text-align: right;
 }
 .ourContent {
-    text-align: center;
+  text-align: center;
 }
 
 .bottomNavi {
-    position: fixed;
-    bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    left: 0;
-    right: 0;
-    background-color: gray;
+  position: fixed;
+  bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  left: 0;
+  right: 0;
+  background-color: gray;
 }
 
 .buttonHolder {
-    padding-left: 0px;
-    padding-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .navImg {
-    height: 50%;
-    width: 50%;
+  height: 50%;
+  width: 50%;
 }
 .bottomButton{
-    padding-left: 20%;
-    padding-right: 20%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
