@@ -1,3 +1,8 @@
+html {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 body {
     font-family: Calibri;
     color: black;
@@ -69,10 +74,9 @@ hr {
 .bottomButton{
     padding-left: 20%;
     padding-right: 20%;
-
+    
 }
 .specialButton {
-    height: 100%;
     width: 100%;
     border-radius: 75%;
     background-color: aquamarine;
@@ -83,4 +87,7 @@ table, td, tr, th {
 }
 .navImg {  
     width: 100%;
+}
+#mainButtonPlus {
+    background-color: lightgray;
 }
