@@ -62,6 +62,7 @@ hr {
     position: fixed;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 0;
     left: 0;
     right: 0;
     bottom: 0%;
@@ -69,13 +70,13 @@ hr {
 }
 
 .buttonHolder {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left:0px;
+    padding-right:0px;
 }
 
-.bottomButton{
-    padding-left: 20%;
-    padding-right: 20%;
+.bottomButton {
+  width: 100%;
+  margin-left: 0;
 }
 
 table, td, tr, th {

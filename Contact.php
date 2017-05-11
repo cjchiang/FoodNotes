@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include("include/header.php"); ?>
-    
+
      <head>
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,7 +23,7 @@
         <form>
             <label for="firstname">First Name</label>
                 <input type="text" id="fname" name="first_name" placeholder="First Name..">
-            
+
             <label for="lastname">Last Name</label>
                 <input type="text" id="lname" name="last_name" placeholder="Last Name..">
             <label for="email">Email</label>
