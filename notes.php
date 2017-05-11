@@ -1,60 +1,5 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<head>
-	<title>Playground</title>
-      
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="styles/materialize.min.css"/>
-	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <style type="text/css">
-    	img {
-    		width: 70px;
-			padding-right: 10px;
-    	}
-
-    	label {
-    		margin: 30px;
-    	}
-
-    	.collapsible-body  {
-    		font-size: 4ex;
-    	}
-
-    	.collapsible-header {
-    		padding-top: 15px;
-    		font-size: 5ex;
-    	}
-
-    	.alt-right{
-    		text-align: right;
-    	}
-
-    	.largo_svg {
-    		transform: scale(3);
-    	}
-
-    	.largo_material_icon {
-    		font-size: 10px
-    	}
-
-    	/*.s1{
-    		background-color: red;
-    	}
-    	.s3{
-    		background-color: yellow;
-    	}
-    	.s4{
-    		background-color: orange;
-    	}*/
-    </style>
-    </head>
-</head>
-<body>
-
+<?php include("include/header.php"); ?>
 	<h3>Collapsible Type 3</h3>
-
 	<ul class="collapsible" data-collapsible="expandable">
 		<li>
 			<div class="collapsible-header">
@@ -63,10 +8,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s3">
-						<span>Meat</span>	
+						<span>Meat</span>
 					</div>
 					<div class="col s8 alt-right">
-						<span class="alt-right" > $ __ </span>		
+						<span class="alt-right" > $ __ </span>
 					</div>
 				</div>
 			</div>
@@ -80,9 +25,9 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-						
+
 						<div class="col s4">
-						<img src="img/chicken_drumstick_reit.svg">
+						<img src="img/chicken_drumstick_reit.svg" class="svg">
 							<span>Chicken</span>
 						</div>
 						<div class="col s2"><input id="test1" type="radio" name="group1" checked ><label class="largo_svg" for="test1">&nbsp</label></div>
@@ -95,7 +40,7 @@
 					<div class="row">
 
 						<div class="col s4">
-							<img src="img/ham_reit_grey.svg">
+							<img src="img/ham_reit_grey.svg" class="svg">
 							<span>Ham</span>
 						</div>
 						<div class="col s2"><input id="test4" type="radio" name="group2" checked><label class="largo_svg" for="test4" >&nbsp</label></div>
@@ -106,10 +51,10 @@
 						</div>
 					</div>
 					<div class="row">
-						
+
 						<!-- indented coding style -->
 						<div class="col s4">
-							<img src="img/steak_reit.svg">
+							<img src="img/steak_reit.svg" class="svg">
 							<span>Steak</span>
 						</div>
 						<div class="col s2">
@@ -135,10 +80,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s3">
-						<span>Fruits</span>	
+						<span>Fruits</span>
 					</div>
 					<div class="col s8 alt-right">
-						<span class="alt-right" > $ __ </span>		
+						<span class="alt-right" > $ __ </span>
 					</div>
 				</div>
 			</div>
@@ -152,9 +97,9 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-						
+
 						<div class="col s4">
-						<img src="img/apple_reit.svg">
+						<img src="img/apple_reit.svg" class="svg">
 							<span>Apple</span>
 						</div>
 						<div class="col s2"><input id="test10" type="radio" name="group4" checked><label class="largo_svg" for="test10">&nbsp</label></div>
@@ -167,7 +112,7 @@
 					<div class="row">
 
 						<div class="col s4">
-							<img src="img/orange_reit.svg">
+							<img src="img/orange_reit.svg" class="svg">
 							<span>Orange</span>
 						</div>
 						<div class="col s2"><input id="test13" type="radio" name="group5" checked><label class="largo_svg" for="test13" >&nbsp</label></div>
@@ -178,10 +123,10 @@
 						</div>
 					</div>
 					<div class="row">
-						
+
 						<!-- indented coding style -->
 						<div class="col s4">
-							<img src="img/watermelon_grey.svg">
+							<img src="img/watermelon_grey.svg" class="svg">
 							<span>Watermelon</span>
 						</div>
 						<div class="col s2">
@@ -204,10 +149,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s3">
-						<span>Veggies</span>	
+						<span>Veggies</span>
 					</div>
 					<div class="col s8 alt-right">
-						<span class="alt-right" > $ __ </span>		
+						<span class="alt-right" > $ __ </span>
 					</div>
 				</div>
 			</div>
@@ -221,9 +166,9 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-						
+
 						<div class="col s4">
-						<img src="img/carrot_reit_grey.svg">
+						<img src="img/carrot_reit_grey.svg" class="svg">
 							<span>Carrot</span>
 						</div>
 						<div class="col s2"><input id="test19" type="radio" name="group7" checked><label class="largo_svg" for="test19">&nbsp</label></div>
@@ -236,7 +181,7 @@
 					<div class="row">
 
 						<div class="col s4">
-							<img src="img/turnip_reit.svg">
+							<img src="img/turnip_reit.svg" class="svg">
 							<span>Turnip</span>
 						</div>
 						<div class="col s2"><input id="test22" type="radio" name="group8" checked><label class="largo_svg" for="test22" >&nbsp</label></div>
@@ -247,10 +192,10 @@
 						</div>
 					</div>
 					<div class="row">
-						
+
 						<!-- indented coding style -->
 						<div class="col s4">
-							<img src="img/tomato_grey.svg">
+							<img src="img/tomato_grey.svg" class="svg">
 							<span>Tomato</span>
 						</div>
 						<div class="col s2">
@@ -268,5 +213,4 @@
     	</li>
 	</ul>
 
-</body>
-</html>
+<?php include("include/footer.php"); ?>

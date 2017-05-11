@@ -14,7 +14,35 @@ body {
 .logAndSign{
     text-align: right;
 }
+img.svg {
+  width: 70px;
+  padding-right: 10px;
+}
 
+label.largo_svg {
+  margin: 30px;
+}
+
+.collapsible-body  {
+  font-size: 4ex;
+}
+
+.collapsible-header {
+  padding-top: 15px;
+  font-size: 5ex;
+}
+
+.alt-right{
+  text-align: right;
+}
+
+.largo_svg {
+  transform: scale(3);
+}
+
+.largo_material_icon {
+  font-size: 10px
+}
 .menuBar {
     text-align: center;
     background-color: lightgray;
