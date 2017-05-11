@@ -22,28 +22,6 @@
       </ul>
     </div>
   </nav>
-<<<<<<< HEAD
-  <h1 style="text-align: center"><strong>CONTACT US</strong></h1>
-  <div class="container green lighten-1">
-    <form>
-      <label for="firstname" class="active">First Name</label>
-      <input type="text" id="fname"  name="first_name" placeholder="First Name..">
-      <label for="lastname" style="color :white">Last Name</label>
-      <input type="text" id="lname" name="last_name" placeholder="Last Name..">
-      <label for="email" style="color :white">Email</label>
-      <input type="text" id="email" name="email" placeholder="email">
-      <label for="subject" style="color :white">Subject</label>
-      <textarea id="subject" name="subject" placeholder="Comment/Question" style="height:200px"></textarea>
-      <div class="center-align">
-      <a style=" background-color: #4CAF50;">
-        <input type="submit" id="submit1" value="Submit" style=" background-color: #4CAF50;">
-      </a>
-    </div>
-    </form>
-  </div>
-
-  <?php include("include/footer.php"); ?>
-=======
 
   <div class="container green lighten-1 ">
     <div class="row white-text center-align">
@@ -82,4 +60,3 @@
     </div>
   </div>
 <?php include("include/footer.php"); ?>
->>>>>>> eba04d0d61509d6dcfa674ed17d39bb3e1dad552
