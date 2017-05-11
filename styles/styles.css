@@ -68,6 +68,48 @@ hr {
 .input-field label {
   color:white;
 }
+/*default format of the input type text*/
+.input-field input[type=text]{
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type text*/
+.input-field input[type=text]:focus + label {
+  color:white;
+}
+/*focus format of the input type text*/
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/*default format of the input type email*/
+.input-field input[type=email] {
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type email*/
+.input-field input[type=email]:focus + label {
+  color: white;
+}
+/*focus format of the input type email*/
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/*default format of the textarea*/
+textarea.materialize-textarea {
+  border-bottom: 1px solid white;
+}
+/*focus format of the input type textarea*/
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/*focus format of the label type textarea*/
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color:white;
+}
 .buttonHolder {
     padding-left: 0px;
     padding-right: 0px;
