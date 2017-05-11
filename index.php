@@ -1,34 +1,13 @@
 <?php include("include/header.php"); ?>
-<div class="row">
-  <div class="col s12 center-align">
-    <a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple"/></a>
-  </div>
+    <!-- main body will go here, body tags are already distributed to header and footer-->
+<div style="background-color: lightgreen;">
+    <p>I am home</p>
+    <p>I am home</p>
+    <p>I am home</p>
+    <p>I am home</p>
+    <p>I am home</p>
+    <p>I am home</p>
+    <p>I am home</p>
 </div>
-<div class="row">
-  <div class="col s6 left-align">
-    <a class="btn waves-effect waves-light green">Login</a>
-  </div>
-  <div class="col s6 right-align">
-    <a class="btn waves-effect waves-light green">Sign Up</a>
-  </div>
-</div>
-<nav class="green">
-  <div class="nav-wrapper">
-    <ul id="nav-mobile" class="left">
-      <li><a href="index.php">Home</a><li>
-      <li><a href="aboutUs.php">About Us</a></li>
-      <li><a href="Contact.php">Contact Us</a></li>
-      <li><a href="RelatedApps.php">Related Apps</a></li>
-    </ul>
-  </div>
-</nav>
-  <!-- main body will go here, body tags are already distributed to header and footer-->
-  <div class="green lighten-1">
-    <div class="row">
-      <div class="col s12">
-        <p>This is where information about foodNotes goes.<p>
-      </div>
-    </div>
-  </div>
 
 <?php include("include/footer.php"); ?>

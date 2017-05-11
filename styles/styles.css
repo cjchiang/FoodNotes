@@ -1,9 +1,5 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 html {
-=======
-html {
->>>>>>> cb394037f397719a72595e0cfa735cbd49aaa791
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -64,7 +60,8 @@ hr {
 
 .bottomNavi {
     position: fixed;
-    margin: 0px;
+    margin-left: 0;
+    margin-right: 0;
     left: 0;
     right: 0;
     bottom: 0%;
