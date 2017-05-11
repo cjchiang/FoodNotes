@@ -25,17 +25,17 @@
 
   <div class="container green lighten-1 ">
     <div class="row white-text center-align">
-      <h2><strong>CONTACT US</strong></h2>
+      <h2><strong>Contact Us</strong></h2>
     </div>
     <div class="row">
       <form class ="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" id="first_name" class="validate">
+            <input type="text" id="first_name">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" class="validate">
+            <input type="text" id="last_name">
             <label for="last_name">Last Name</label>
           </div>
         </div>
