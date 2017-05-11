@@ -65,7 +65,9 @@ hr {
     bottom: 0%;
     background-color: lightgray;
 }
-
+.input-field label {
+  color:white;
+}
 .buttonHolder {
     padding-left: 0px;
     padding-right: 0px;
