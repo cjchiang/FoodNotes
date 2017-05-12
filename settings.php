@@ -32,10 +32,10 @@
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
-                <label>SUBMIT ME<input type="submit"></label>
+                <label>SUBMIT <input type="submit"></label>
             </div>
             <div class="col s6">
-                <label>LOGOUT<input type="submit"></label>
+                <label>LOGOUT <input value="LogOut" type="submit"></label>
             </div>
         </div>
     </div>
