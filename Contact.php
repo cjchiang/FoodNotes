@@ -27,7 +27,7 @@
           <label for="textarea1">Subject</label>
         </div>
       </div>
-      <div class="left-align">
+      <div class="center-align">
         <a class="waves-effect waves-light btn green lighten-3">
           <input type="submit" id="submit1" value="Submit">
         </a>
