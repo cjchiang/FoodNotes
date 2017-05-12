@@ -40,7 +40,7 @@
 
 	<div class="row">
 		<div class="col s12 center-align">
-			<button>Finalize</button>
+			<button><a href="summary.php">Finalize</button>
 		</div>
 	</div>
 
@@ -55,7 +55,7 @@
 
 					<div class="row">
 						<div class="col s12">
-							<h5>May 9, 2017</h5>
+							<h5 class="dateBorder">May 9, 2017</h5>
 						</div>
 						<div class="col s12">
 							<h5>Meat</h5>
@@ -73,16 +73,16 @@
 							<p>$30.90</p>
 						</div>						
 						<div class="col s12">
-							<h5>Dairy</h5>
+							<h5>Fruits</h5>
 						</div>
 						<div class="col s6">
-							<p>Butter</p>
+							<p>Apple</p>
 						</div>
 						<div class="col s6">
 							<p>$23.90</p>
 						</div>	
 						<div class="col s6">
-							<p>Homogenized milk</p>
+							<p>Orange</p>
 						</div>
 						<div class="col s6">
 							<p>$20.90</p>

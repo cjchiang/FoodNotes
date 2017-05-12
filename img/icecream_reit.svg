@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Icecream</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="stroked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Kitchen" sketch:type="MSLayerGroup" transform="translate(-247.000000, -1318.000000)" stroke="#535353" stroke-width="2" stroke-linejoin="round">
+            <g id="Icecreamy" transform="translate(261.000000, 1321.000000)" sketch:type="MSShapeGroup">
+                <path d="M2,29 L27,29 L23,56 L6,56 L2,29 Z" id="Rectangle-799" stroke-linecap="round"></path>
+                <path d="M18,30 L24.3245554,36.3245554" id="Line" stroke-linecap="round"></path>
+                <path d="M6,46 L15,55" id="Line" stroke-linecap="round"></path>
+                <path d="M11,30 L23.5099964,42.5099964" id="Line" stroke-linecap="round"></path>
+                <path d="M5,31 L23,49" id="Line" stroke-linecap="round"></path>
+                <path d="M4,37 L22,55" id="Line"></path>
+                <path d="M0,30 L28.0178509,30" id="Line" stroke-linecap="round"></path>
+                <path d="M0,24.7715335 C0,21.5840036 2.54770884,19.4121028 5.6909838,19.8961299 C5.6909838,19.8961299 13.5959481,21.2756484 17.8731937,21.2756484 C20.2647222,21.2756484 23.5704974,20.2044597 23.5704974,20.2044597 C26.0168441,19.539255 28,21.0628736 28,23.6051941 L28,27.0041738 C28,29.2110077 26.2058797,31 24.0031611,31 L3.99683887,31 C1.78944571,31 0,29.2034788 0,27.0041738 L0,24.7715335 Z" id="Rectangle-800" stroke-linecap="round"></path>
+                <path d="M2.7895623,21.2031665 C2.7895623,21.2031665 0.0780933967,16.8521724 2.20299205,14.7272735 C4.32789071,12.6023746 9.77746051,13.5536699 14.4799791,14.1404717 C19.1824977,14.7272735 21.9868953,11.7765601 23.9713084,13.6503556 C25.9557216,15.5241512 24.7622077,21.2031665 24.7622077,21.2031665" id="Path-1750" stroke-linecap="round"></path>
+                <path d="M5.41437063,13.380975 C5.41437063,13.380975 2.14023148,8.22992772 5.88353231,6.21426498 C9.62683313,4.19860224 15.0666689,6.5976473 16.1057302,1.79882371 C17.1447916,-2.99999989 23.8012064,3.63949791 22.5466961,12.9230249" id="Path-1751" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

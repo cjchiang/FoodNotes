@@ -1,50 +1,39 @@
-<!DOCTYPE html>
-<html>
-<?php include("include/header.php"); ?>
-    
-     <head>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-
-    <body>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-    <h1 style="text-align: center"><strong>CONTACT US</strong></h1>
-
-    <div class="container green lighten-1 ">
-        <form>
-            <label for="firstname">First Name</label>
-                <input type="text" id="fname" name="first_name" placeholder="First Name..">
-            
-            <label for="lastname">Last Name</label>
-                <input type="text" id="lname" name="last_name" placeholder="Last Name..">
-            <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="email">
-            <label for="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Comment/Question" style="height:200px"></textarea>
-            <div class="submit0">
-                <input type="submit" id="submit1" value="Submit">
-            </div>
-        </form>
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <?php include("include/footer.php"); ?>
-
-</html>
+<?php include("include/menuHeader.php"); ?>
+<!--Contact Us form for users-->
+<div class="container green lighten-1 ">
+  <div class="row white-text center-align">
+    <h2><strong>Contact Us</strong></h2>
+  </div>
+  <div class="row">
+    <form class ="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="text" id="first_name">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" id="last_name">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Subject</label>
+        </div>
+      </div>
+      <div class="center-align">
+        <a class="waves-effect waves-light btn green lighten-3">
+          <input type="submit" id="submit1" value="Submit">
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+<?php include("include/footer.php"); ?>
