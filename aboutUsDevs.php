@@ -2,7 +2,7 @@
 <div class="container green lighten-1 white-text">
     <div class="row center-align">
         <div class="col s12">
-          <h1 style="font-size: 10vw;">About the Developers</h1>
+          <h3 style="font-size: 10vw;">About the Developers</h3>
         </div>
     </div>
     <!--Descriptions about the developers-->
@@ -14,7 +14,7 @@
                 <p>Nate</p>
                 <p>Nate is cool guy who likes to code</p>
             </div>
-            <div class="col s6">    
+            <div class="col s6">
                 <p>Alex</p>
                 <p>Alex likes to code and Mango Bubble Tea</p>
             </div>

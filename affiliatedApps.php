@@ -1,7 +1,7 @@
 <?php include("include/menuHeader.php"); ?>
 <div class="container green lighten-1 white-text">
   <div class="row center-align">
-    <div class="col s12"><h1>Affiliates</h1></div>
+    <div class="col s12"><h3>Affiliates</h3></div>
   </div>
   <!--Logos for the links of the other apps-->
   <div class="row">

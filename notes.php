@@ -5,7 +5,7 @@
 			<h3>Total Waste:</h3>
 		</div>
 		<div class="row center-align">
-			<h3>%_____</h3>
+			<h3>%___</h3>
 		</div>
 	<h4 class ="center-align">Current Cycle</h4>
 	<ul class="collapsible" data-collapsible="expandable">

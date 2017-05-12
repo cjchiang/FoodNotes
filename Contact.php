@@ -2,7 +2,7 @@
 <!--Contact Us form for users-->
 <div class="container green lighten-1 ">
   <div class="row white-text center-align">
-    <h2><strong>Contact Us</strong></h2>
+    <h3><strong>Contact Us</strong></h3>
   </div>
   <div class="row">
     <form class ="col s12">
