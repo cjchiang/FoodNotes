@@ -3,3 +3,9 @@
 	height: 50px;
 	border: 1px solid black;
 }
+.border2 {
+	background-color: #c6ffb3;
+}
+.dateBorder {
+	border-bottom: 1px solid grey;
+}

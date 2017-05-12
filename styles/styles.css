@@ -1,18 +1,21 @@
 html {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 body {
-    font-family: Calibri;
-    color: black;
+  font-family: Calibri;
+  color: black;
 }
 #logo {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 .logAndSign{
-    text-align: right;
+  text-align: right;
+}
+h2 {
+  padding-left: 10%;
 }
 img.svg {
   width: 70px;
@@ -21,15 +24,26 @@ img.svg {
 
 label.largo_svg {
   margin: 30px;
+  color: #43a047;
 }
 
 .collapsible-body  {
   font-size: 4ex;
 }
 
+.note_body {
+  font-size: 8vw;
+  padding: 0px;
+}
+
+.record_body  {
+  font-size: 6vw;
+  /*margin-left: 0px;*/
+}
 .collapsible-header {
   padding-top: 15px;
-  font-size: 5ex;
+  font-size: 10vw;
+  background-color: #66bb6a;
 }
 
 .alt-right{
@@ -37,61 +51,62 @@ label.largo_svg {
 }
 
 .largo_svg {
-  transform: scale(3);
+  padding-top: 60px;
+  transform: scale(2);
 }
 
 .largo_material_icon {
   font-size: 10px
 }
 .menuBar {
-    text-align: center;
-    background-color: lightgray;
+  text-align: center;
+  background-color: lightgray;
 }
 .topMenu {
-    width: 100%;
+  width: 100%;
 }
 .footer {
-    vertical-align: 0%;
+  vertical-align: 0%;
 }
 hr {
-    color: lightgreen;
-    height: 1px;
-    background-color: gray;
+  color: lightgreen;
+  height: 1px;
+  background-color: gray;
 }
 .meats {
-    background-color: coral;
+  background-color: coral;
 }
 .veggies{
-    background-color: lightgreen;
+  background-color: lightgreen;
 }
 .fruits {
-    background-color: orange;
+  background-color: orange;
 }
 .dairies {
-    background-color: beige;
+  background-color: beige;
 }
 .grains {
-    background-color: burlywood;
+  background-color: burlywood;
 }
 
 .bottomRow {
-    text-align: center;
+  text-align: center;
 }
 
 .costs{
-    text-align: right;
+  text-align: right;
 }
 .ourContent {
-    text-align: center;
+  text-align: center;
 }
 
 .bottomNavi {
-    position: fixed;
-    margin: 0px;
-    left: 0;
-    right: 0;
-    bottom: 0%;
-    background-color: lightgray;
+  position: fixed;
+  margin: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0%;
+  background-color:#a5d6a7;
 }
 .input-field label {
   color:white;
@@ -139,70 +154,76 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   color:white;
 }
 .buttonHolder {
-    padding-left: 0px;
-    padding-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .bottomButton{
-    padding-left: 20%;
-    padding-right: 20%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 table, td, tr, th {
-	border: 1px solid black;
-	text-align: center;
+  border: 1px solid black;
+  text-align: center;
+}
+.col.s6.food_group > .btn {
+  width: 100%;
+}
+i.icon-white {
+  color:white;
 }
 
 input[type=text],textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid black;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    color: white;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  color: white;
 }
 
 input[type=submit] {
-    background-color: green;
-    color: white;
-    padding: 12px 20px;
-    cursor: pointer;
+  background-color: green;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
 
 }
 
 input[type=submit]:hover {
-    background-color: grey;
+  background-color: grey;
 }
 
 .container {
-    border-radius: 5px;
-    background-color:#f2f2f2;
-    padding: 20px;
+  border-radius: 5px;
+  background-color:#f2f2f2;
+  padding: 20px;
 }
 
 .submit0 {
-    text-align: center;
-    background-color: lightgray;
+  text-align: center;
+  background-color: lightgray;
 }
 .specialButton {
-    width: 100%;
-    border-radius: 75%;
-    background-color: aqua;
+  width: 100%;
+  border-radius: 75%;
+  background-color:#a5d6a7;
 }
 table, td, tr, th {
-	border: 1px solid red;
-	text-align: center;
+  border: 1px solid red;
+  text-align: center;
 }
 .navImg {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 #specialNavi {
-    position: fixed;
-    bottom: 0;
-    left: 38%;
-    right: 38%;
+  position: fixed;
+  bottom: 0;
+  left: 38%;
+  right: 38%;
 }

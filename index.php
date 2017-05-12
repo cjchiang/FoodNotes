@@ -1,5 +1,5 @@
 <?php include("include/menuHeader.php"); ?>
-<!-- main body will go here, body tags are already distributed to header and footer-->
+<!--About Us-->
 <div class="container green lighten-1 white-text">
   <div class="row">
     <div class="col s12 center-align">
