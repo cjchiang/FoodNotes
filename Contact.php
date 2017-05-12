@@ -1,6 +1,7 @@
 <?php include("include/header.php"); ?>
 <div class="row">
   <div class="col s12 center-align">
+      </br>
     <a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple"/></a>
   </div>
 </div>
@@ -22,7 +23,7 @@
       </ul>
     </div>
   </nav>
-
+    </br>
   <div class="container green lighten-1 ">
     <div class="row white-text center-align">
       <h2><strong>Contact Us</strong></h2>

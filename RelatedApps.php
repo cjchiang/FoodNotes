@@ -1,6 +1,7 @@
 <?php include("include/header.php"); ?>
 <div class="row">
   <div class="col s12 center-align">
+      <br>
     <a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple"/></a>
   </div>
 </div>
