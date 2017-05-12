@@ -8,7 +8,9 @@
     <link type="text/css" rel="stylesheet" href="styles/materialize.min.css"/>
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="script/login.js" type="text/javascript"></script>
 	</head>
     <body>
 		</br>
@@ -18,11 +20,14 @@
 					</div>
 			</div>
 			<div class="row">
-					<div class="col s6 left-align">
-							<a class="btn waves-effect waves-light green">Login</a>
+					<div id="loginBtn" class="col s6 left-align">
+							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
 					</div>
-					<div class="col s6 right-align">
-							<a class="btn waves-effect waves-light green">Sign Up</a>
+					<div id="signupBtn" class="col s6 right-align">
+							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
+					</div>
+					<div id="logoutBtn" class="col s12 right-align" hidden>
+							<a id="signout btn" class="btn waves-effect waves-light green">Sign Out</a>
 					</div>
 			</div>
 			<nav class="green">
