@@ -65,13 +65,13 @@
                             </div>
                             <div class="col s6">
                                 <p>$23.90</p>
-                            </div>	
+                            </div>
                             <div class="col s6">
                                 <p>round stick</p>
                             </div>
                             <div class="col s6">
                                 <p>$30.90</p>
-                            </div>						
+                            </div>
                             <div class="col s12">
                                 <h5>Dairy</h5>
                             </div>
@@ -80,13 +80,13 @@
                             </div>
                             <div class="col s6">
                                 <p>$23.90</p>
-                            </div>	
+                            </div>
                             <div class="col s6">
                                 <p>Homogenized milk</p>
                             </div>
                             <div class="col s6">
                                 <p>$20.90</p>
-                            </div>		
+                            </div>
                             <div class="col s12">
                                 <h5>Veggies</h5>
                             </div>
@@ -95,13 +95,13 @@
                             </div>
                             <div class="col s6">
                                 <p>$23.90</p>
-                            </div>	
+                            </div>
                             <div class="col s6">
                                 <p>Tomatoes</p>
                             </div>
                             <div class="col s6">
                                 <p>$20.90</p>
-                            </div>								
+                            </div>
                         </div>
                     </li>
 

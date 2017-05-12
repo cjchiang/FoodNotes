@@ -8,7 +8,7 @@
     <!--Settings for the Cycle-->
         <div class="row">
             <label>Cycle Duration</label>
-            <div class="input-field col s12  z-depth-2"> 
+            <div class="input-field col s12  z-depth-2">
                 <select class="browser-default">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">Weekly</option>
@@ -42,6 +42,6 @@
    <script>
     $(document).ready(function() {
         $('select').material_select();
-        }); 
+        });
     </script>
 <?php include("include/footer.php"); ?>

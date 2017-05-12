@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php include("include/menuHeader.php"); ?>
 <!--About Us-->
 <div class="container green lighten-1 white-text">
@@ -17,3 +19,4 @@
   </div>
 </div>
 <?php include("include/footer.php"); ?>
+>>>>>>> develop
