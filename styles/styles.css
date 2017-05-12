@@ -190,7 +190,7 @@ input[type=submit]:hover {
 .specialButton {
     width: 100%;
     border-radius: 75%;
-    background-color: aqua;
+    background-color:#a5d6a7;
 }
 table, td, tr, th {
 	border: 1px solid red;

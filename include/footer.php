@@ -1,9 +1,13 @@
+<br/>
 <div class="container-fluid bottomRow">
     <hr/>
     <div class="row">
         <p>&copy;Group 13</p>
     </div>
 </div>
+<br/>
+<br/>
+<br/>
     <div class="row bottomNavi">
         <div style="padding:0px" class="col s2 buttonHolder">
           <a href="../index.php"><button class="bottomButton"><img class="navImg" src="images/home.png" alt="home"/></button></a>
