@@ -23,4 +23,4 @@
     <p class="center-align">WasteNot WantNot will help you waste less food!</p>
   </div>
 </div>
-<?php inc0lude("include/footer.php"); ?>
+<?php include("include/footer.php"); ?>
