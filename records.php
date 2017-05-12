@@ -1,5 +1,6 @@
 <?php include("include/header.php"); ?>
-    <h2>Previous Cycles</h2>
+<div class="white-text green lighten-1">
+    <h4 class="center-align">Previous Cycles</h4>
     <ul class="collapsible" data-collapsible="expandable">
     <li>
         <div class="collapsible-header">
@@ -12,10 +13,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Meat</span>   
+                            <span>Meat</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -28,7 +29,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4" style="padding-left: 0">
                                 Chicken
                             </div>
@@ -52,7 +53,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Steak</span>
                             </div>
@@ -76,10 +77,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Fruits</span> 
+                            <span>Fruits</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Apple</span>
                             </div>
@@ -116,7 +117,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Banana</span>
                             </div>
@@ -137,10 +138,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Veggies</span>    
+                            <span>Veggies</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -153,7 +154,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Carrot</span>
                             </div>
@@ -177,7 +178,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Tomato</span>
                             </div>
@@ -208,10 +209,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Meat</span>   
+                            <span>Meat</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -224,7 +225,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4" style="padding-left: 0">
                                 Chicken
                             </div>
@@ -248,7 +249,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Steak</span>
                             </div>
@@ -272,10 +273,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Fruits</span> 
+                            <span>Fruits</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -288,7 +289,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Apple</span>
                             </div>
@@ -312,7 +313,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Banana</span>
                             </div>
@@ -333,10 +334,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Veggies</span>    
+                            <span>Veggies</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -349,7 +350,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Carrot</span>
                             </div>
@@ -373,7 +374,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Tomato</span>
                             </div>
@@ -394,7 +395,7 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header"> 
+        <div class="collapsible-header">
             <i class="material-icons large" style="font-size: 45px">keyboard_arrow_down</i> March 7 2017
         </div>
         <div class="collapsible-body">
@@ -403,10 +404,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Meat</span>   
+                            <span>Meat</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -419,7 +420,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4" style="padding-left: 0">
                                 Chicken
                             </div>
@@ -443,7 +444,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Steak</span>
                             </div>
@@ -467,10 +468,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Fruits</span> 
+                            <span>Fruits</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -483,7 +484,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Apple</span>
                             </div>
@@ -507,7 +508,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Banana</span>
                             </div>
@@ -528,10 +529,10 @@
                 <div class="collapsible-header">
                     <div class="row">
                         <div class="col s8">
-                            <span>Veggies</span>    
+                            <span>Veggies</span>
                         </div>
                         <div class="col s4 alt-right">
-                            <span class="alt-right" > $ __ </span>      
+                            <span class="alt-right" > $ __ </span>
                         </div>
                     </div>
                 </div>
@@ -544,7 +545,7 @@
                             <div class="col s2"><i class="material-icons" style="font-size: 25px; padding-left: 10px">monetization_on</i></div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Carrot</span>
                             </div>
@@ -568,7 +569,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                             <div class="col s4">
                                 <span>Tomato</span>
                             </div>
@@ -585,9 +586,9 @@
                         </div>
                 </div>
             </li>
-        </ul>            
+        </ul>
         </div>
     </li>
     </ul>
-
+</div>
 <?php include("include/footer.php"); ?>

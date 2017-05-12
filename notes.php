@@ -1,8 +1,13 @@
 <?php include("include/header.php"); ?>
-		
+<div class="white-text green lighten-1">
 	<div id="notes">
-
-	<h2>Current Cycle</h2>
+		<div class="row center-align">
+			<h3>Total Waste:</h3>
+		</div>
+		<div class="row center-align">
+			<h3>%_____</h3>
+		</div>
+	<h4 class ="center-align">Current Cycle</h4>
 	<ul class="collapsible" data-collapsible="expandable">
 		<li>
 			<div class="collapsible-header">
@@ -11,10 +16,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s4">
-						<span>Meat</span>	
+						<span>Meat</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" > $ __ </span>		
+						<span class="alt-right" > $ __ </span>
 					</div>
 				</div>
 			</div>
@@ -27,11 +32,10 @@
 						<div class="col s2"><i class="material-icons" style="font-size: 55px">monetization_on</i></div>
 					</div>
 					<div class="row">
-						
 						<div class="col s4">
 							<span>Chicken</span>
 						</div>
-						<div class="col s2"><input id="test1" type="radio" name="group1" checked ><label class="largo_svg" for="test1">&nbsp</label></div>
+						<div class="col s2"><input id="test1" type="radio" name="group1" checked><label class="largo_svg" for="test1">&nbsp</label></div>
 						<div class="col s2"><input id="test2" type="radio" name="group1"><label class="largo_svg" for="test2">&nbsp</label></div>
 						<div class="col s2"><input id="test3" type="radio" name="group1"><label class="largo_svg" for="test3">&nbsp</label></div>
 						<div class="col s2">
@@ -39,7 +43,6 @@
 						</div>
 					</div>
 					<div class="row">
-
 						<div class="col s4">
 							<span>Ham</span>
 						</div>
@@ -51,7 +54,6 @@
 						</div>
 					</div>
 					<div class="row">
-						
 						<!-- indented coding style -->
 						<div class="col s4">
 							<span>Steak</span>
@@ -79,10 +81,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s4">
-						<span>Fruits</span>	
+						<span>Fruits</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" > $ __ </span>		
+						<span class="alt-right" > $ __ </span>
 					</div>
 				</div>
 			</div>
@@ -96,7 +98,7 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-						
+
 						<div class="col s4">
 							<span>Apple</span>
 						</div>
@@ -120,7 +122,7 @@
 						</div>
 					</div>
 					<div class="row">
-						
+
 						<!-- indented coding style -->
 						<div class="col s4">
 							<span>Banana</span>
@@ -145,10 +147,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s4">
-						<span>Veggies</span>	
+						<span>Veggies</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" > $ __ </span>		
+						<span class="alt-right" > $ __ </span>
 					</div>
 				</div>
 			</div>
@@ -162,7 +164,7 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-						
+
 						<div class="col s4">
 							<span>Carrot</span>
 						</div>
@@ -186,7 +188,7 @@
 						</div>
 					</div>
 					<div class="row">
-						
+
 						<!-- indented coding style -->
 						<div class="col s4">
 							<span>Tomato</span>
@@ -206,6 +208,7 @@
     	</li>
 	</ul>
 	</div>
+</div>
 <?php include("include/footer.php");?>
 <!-- </body>
 </html> -->

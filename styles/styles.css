@@ -24,6 +24,7 @@ img.svg {
 
 label.largo_svg {
   margin: 30px;
+  color: #43a047;
 }
 
 .collapsible-body  {
@@ -42,6 +43,7 @@ label.largo_svg {
 .collapsible-header {
   padding-top: 15px;
   font-size: 10vw;
+  background-color: #66bb6a;
 }
 
 .alt-right{

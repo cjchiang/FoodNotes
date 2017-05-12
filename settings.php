@@ -1,15 +1,15 @@
 <?php include("include/header.php"); ?>
-    <div class="row green">
+    <div class="container green lighten-1 white-text">
+    <div class="row">
         <div class="col s12 center">
             <h1>Settings</h1>
         </div>
     </div>
-    <div class="container">
     <!--Settings for the Cycle-->
         <div class="row">
-            <label>Cycle Duration</label>
+            <label class="white-text">Cycle Duration</label>
             <div class="input-field col s12  z-depth-2">
-                <select class="browser-default">
+                <select>
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">Weekly</option>
                     <option value="2">Biweekly</option>
@@ -19,9 +19,9 @@
         </div>
     <!--Settings for Theme-->
         <div class="row">
-            <label>Theme</label>
+            <label class ="white-text">Theme</label>
             <div class="input-field col s12  z-depth-2">
-            <select class="browser-default">
+            <select>
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">Gray</option>
                 <option value="2">Pink</option>
@@ -32,10 +32,14 @@
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
-                <label>SUBMIT <input type="submit"></label>
+              <a class="waves-effect waves-light btn green lighten-3">
+                <input type="submit">
+              </a>
             </div>
             <div class="col s6">
-                <label>LOGOUT <input value="LogOut" type="submit"></label>
+              <a class="waves-effect waves-light btn green lighten-3">
+                <input value="LogOut" type="submit">
+              </a>
             </div>
         </div>
     </div>
