@@ -1,3 +1,5 @@
+<!-- This page contains information about other similar others web application. It contains logo and brief description about web application that users can use -->
+
 <?php include("include/header.php"); ?>
 <body>
   <div class="container-fluid" style="text-align: justify-all; width: 60%; height: auto">

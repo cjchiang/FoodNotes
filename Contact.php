@@ -1,3 +1,5 @@
+<!-- This page is about Contact us. Users can enter their First Name, Last Name, email and subject. After they finish everything, they can press submit button -->
+
 <?php include("include/menuHeader.php"); ?>
 <div class="container green lighten-1 ">
   <div class="row white-text center-align">
