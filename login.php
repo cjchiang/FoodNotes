@@ -1,3 +1,11 @@
+<!-- A temporary login page, based off made to be
+	demonstrated during the sprint presentation.
+	It's based off the login.php page I derived.
+
+	It has awful styling and conventions, but it works;
+	user can connect to firebase after signing in, and will 
+	return to index.php as a logged-in user.
+ -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,6 +13,7 @@
 		<title>Login</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <style type="text/css">
+		
 		body {
 		padding-top: 15%;
 		padding-bottom: 40px;
