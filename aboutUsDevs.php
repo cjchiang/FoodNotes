@@ -6,10 +6,10 @@
         </div>
     </div>
     <!--Descriptions about the developers-->
-    <div class="row center-align">
+    <div class="row center-align flow-text">
         This app was made by BCIT CST students for COMP 2910. The purpose for creating this app is to help address food waste problems by helping users identify the amount of potential savings that could have been saved if the food was not consumed.
     </div>
-        <div class="row center-align">
+        <div class="row center-align flow-text">
             <div class="col s6">
                 <p>Nate</p>
                 <p>Nate is cool guy who likes to code</p>
