@@ -14,6 +14,9 @@ body {
 .logAndSign{
     text-align: right;
 }
+h2 {
+  padding-left: 10%;
+}
 img.svg {
   width: 70px;
   padding-right: 10px;
@@ -27,9 +30,18 @@ label.largo_svg {
   font-size: 4ex;
 }
 
+.note_body {
+  font-size: 8vw;
+  padding: 0px;
+}
+
+.record_body  {
+  font-size: 6vw;
+  /*margin-left: 0px;*/
+}
 .collapsible-header {
   padding-top: 15px;
-  font-size: 5ex;
+  font-size: 10vw;
 }
 
 .alt-right{
@@ -37,7 +49,8 @@ label.largo_svg {
 }
 
 .largo_svg {
-  transform: scale(3);
+  padding-top: 60px;
+  transform: scale(2);
 }
 
 .largo_material_icon {
