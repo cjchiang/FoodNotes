@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<!-- Add 4 categories -->
 <div class="container white-text green lighten-1">
 	<div class="row">
 		<div class="col s12">
@@ -36,13 +37,13 @@
 			</a>
 	</div>
 </div>
-
+<!-- For submitting -->
 	<div class="row">
 		<div class="col s12 center-align">
 			<a href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
 			</div>
 		</div>
-
+<!-- Added items -->
 		<div class="row">
 			<div class="col s12 center-align">
 				<h4>Added items</h4>
