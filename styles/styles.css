@@ -1,22 +1,33 @@
+/*Makes sure that objects are not set to default browser objects*/
 html {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
+
+/*Standardized font for all pages*/
 body {
   font-family: Calibri;
   color: black;
 }
+
+/*Sets the logo size*/
 #logo {
   height: 100%;
   width: 100%;
 }
+
+/*Aligns the login and signup text*/
 .logAndSign{
   text-align: right;
 }
+
+/*Sets heading*/
 h2 {
   padding-left: 10%;
 }
+
+/**/
 img.svg {
   width: 70px;
   padding-right: 10px;
@@ -58,48 +69,71 @@ label.largo_svg {
 .largo_material_icon {
   font-size: 10px
 }
+
+/*Aligns menubar for the bottons*/
 .menuBar {
   text-align: center;
   background-color: lightgray;
 }
+
+/*Sets div width to 100%*/
 .topMenu {
   width: 100%;
 }
+
+/*Sets footer to 0% align*/
 .footer {
   vertical-align: 0%;
 }
+
+/*Gives horizontal bar properties*/
 hr {
   color: lightgreen;
   height: 1px;
   background-color: gray;
 }
+
+/*Sets meat bar color*/
 .meats {
   background-color: coral;
 }
+
+/*Sets veggies bar color*/
 .veggies{
   background-color: lightgreen;
 }
+
+/*Sets fruits bar color*/
 .fruits {
   background-color: orange;
 }
+
+/*Sets dairies bar color*/
 .dairies {
   background-color: beige;
 }
+
+/*Sets grain bar color*/
 .grains {
   background-color: burlywood;
 }
 
+/*Sets bottom row alignment for navigation*/
 .bottomRow {
   text-align: center;
 }
 
+/*Aligns costs to the right*/
 .costs{
   text-align: right;
 }
+
+/*Sets contents to center*/
 .ourContent {
   text-align: center;
 }
 
+/*Sets the bottom navigation bar to the bottom and colors it*/
 .bottomNavi {
   position: fixed;
   margin: 0px;
@@ -108,6 +142,8 @@ hr {
   bottom: 0%;
   background-color:#a5d6a7;
 }
+
+/*Sets the input fields*/
 .input-field label {
   color:white;
 }
@@ -153,11 +189,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
 textarea.materialize-textarea:focus:not([readonly]) + label {
   color:white;
 }
+
+/*settings for button holder bar*/
 .buttonHolder {
   padding-left: 0px;
   padding-right: 0px;
 }
 
+/*settings for the button paddings*/
 .bottomButton{
   padding-left: 20%;
   padding-right: 20%;
@@ -208,6 +247,8 @@ input[type=submit]:hover {
   text-align: center;
   background-color: lightgray;
 }
+
+/*Targets main + button in the navigation bar on the bottom and gives it styling*/
 .specialButton {
   width: 100%;
   border-radius: 75%;
@@ -217,10 +258,14 @@ table, td, tr, th {
   border: 1px solid red;
   text-align: center;
 }
+
+/*Sets image size*/
 .navImg {
   width: 100%;
   height: 100%;
 }
+
+/*targets bottom button and sets size for it*/
 #specialNavi {
   position: fixed;
   bottom: 0;
