@@ -8,10 +8,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s3">
-						<span>Meat</span>
+						<span>Meat</span>	
 					</div>
 					<div class="col s8 alt-right">
-						<span class="alt-right" > $ __ </span>
+						<span class="alt-right" > $ __ </span>		
 					</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-
+						
 						<div class="col s4">
 						<img src="img/chicken_drumstick_reit.svg" class="svg">
 							<span>Chicken</span>
@@ -51,7 +51,7 @@
 						</div>
 					</div>
 					<div class="row">
-
+						
 						<!-- indented coding style -->
 						<div class="col s4">
 							<img src="img/steak_reit.svg" class="svg">
@@ -80,10 +80,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s3">
-						<span>Fruits</span>
+						<span>Fruits</span>	
 					</div>
 					<div class="col s8 alt-right">
-						<span class="alt-right" > $ __ </span>
+						<span class="alt-right" > $ __ </span>		
 					</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-
+						
 						<div class="col s4">
 						<img src="img/apple_reit.svg" class="svg">
 							<span>Apple</span>
@@ -123,7 +123,7 @@
 						</div>
 					</div>
 					<div class="row">
-
+						
 						<!-- indented coding style -->
 						<div class="col s4">
 							<img src="img/watermelon_grey.svg" class="svg">
@@ -149,10 +149,10 @@
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
 					</div>
 					<div class="col s3">
-						<span>Veggies</span>
+						<span>Veggies</span>	
 					</div>
 					<div class="col s8 alt-right">
-						<span class="alt-right" > $ __ </span>
+						<span class="alt-right" > $ __ </span>		
 					</div>
 				</div>
 			</div>
@@ -166,7 +166,7 @@
 					</div>
 						<!-- 1-line coding style -->
 					<div class="row">
-
+						
 						<div class="col s4">
 						<img src="img/carrot_reit_grey.svg" class="svg">
 							<span>Carrot</span>
@@ -192,7 +192,7 @@
 						</div>
 					</div>
 					<div class="row">
-
+						
 						<!-- indented coding style -->
 						<div class="col s4">
 							<img src="img/tomato_grey.svg" class="svg">
@@ -212,5 +212,6 @@
 			</div>
     	</li>
 	</ul>
-
-<?php include("include/footer.php"); ?>
+<?php include("include/footer.php");?>
+<!-- </body>
+</html> -->
