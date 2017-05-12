@@ -2,28 +2,18 @@
 <html>
 <head>
 	<title>FoodNotes</title>
-    <link rel="stylesheet" href="..styles/boostrap/min.css"/>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="styles/materialize.min.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
+	</head>
     <body>
-        <a href="../index.php"><img id="logo" src="images/apple-158419_960_720.png" alt="Apple"/></a>
-        
-        <!--can use a php statement to see if user is already logged in or not and display stuff-->
-        <div id="mainHeader">
-            <p class="headerRight"><button class="warning">Login</button></p>
-            <p class="headerRight"><button class="warning">Sign up</button></p>
-        </div>
-    <hr/>
-        <!-- menu should be around here -->
-        <!--<form method="post">
-            <input list="searchForFood"/>
-                <datalist id="searchForFood">
-                    <option value="Beef"></option>
-                    <option value="Apple"></option>
-                    <option value="Banana"></option>
-                </datalist>
-        </form>-->
-        
-        
-    <hr/>
+		</br>
+		<div class="row">
+				<div class="col s12 center-align">
+						<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
+				</div>
+		</div>
