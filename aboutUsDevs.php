@@ -1,4 +1,4 @@
-<?php include("include/header.php"); ?>
+<?php include("include/menuHeader.php"); ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col s12 green"><h1 style="font-size: 10vw;">About the Developers</h1></div>

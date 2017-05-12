@@ -1,4 +1,4 @@
-<?php include("include/header.php"); ?>
+<?php include("include/menuHeader.php"); ?>
     <div class="row green center">
         <div class="col s12"><h1>Affiliates</h1></div>
     </div>
