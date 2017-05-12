@@ -167,6 +167,12 @@ table, td, tr, th {
   border: 1px solid black;
   text-align: center;
 }
+.col.s6.food_group > .btn {
+  width: 100%;
+}
+i.icon-white {
+  color:white;
+}
 
 input[type=text],textarea {
   width: 100%;
