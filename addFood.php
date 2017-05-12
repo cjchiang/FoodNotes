@@ -1,5 +1,5 @@
 <?php include("include/header.php"); ?>
-    <!-- main body will go here, body tags are already distributed to header and footer-->
+    <!--Filters food categories for users and finalize-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
