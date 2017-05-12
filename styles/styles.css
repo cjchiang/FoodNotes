@@ -27,45 +27,47 @@ h2 {
   padding-left: 10%;
 }
 
-/**/
-img.svg {
-  width: 70px;
-  padding-right: 10px;
-}
-
+/*increase size of drop down chevron*/
 label.largo_svg {
   margin: 30px;
   color: #43a047;
 }
 
+/*increase size of dropdown content body*/
 .collapsible-body  {
   font-size: 4ex;
 }
 
+/*notes.php font size increase*/
 .note_body {
   font-size: 8vw;
   padding: 0px;
 }
 
+/*record.php font size increase*/
 .record_body  {
   font-size: 6vw;
-  /*margin-left: 0px;*/
 }
+
+/*increase size of dropdown header*/
 .collapsible-header {
   padding-top: 15px;
   font-size: 10vw;
   background-color: #66bb6a;
 }
 
+/*align prices to right side fo screen*/
 .alt-right{
   text-align: right;
 }
 
+/*increase size of food item images*/
 .largo_svg {
   padding-top: 60px;
   transform: scale(2);
 }
 
+/*increase size of materialize material icon*/
 .largo_material_icon {
   font-size: 10px
 }
