@@ -24,8 +24,8 @@
 		</div>
 		<div class="col s6 m2">
 			<div id="div_dairy" class="food-category center-align">
-				<a href="addDairy.php">
-					<h4> Dairy </h4>
+				<a href="addFruits.php">
+					<h4> Fruits </h4>
 				</a>
 			</div>
 		</div>
@@ -46,7 +46,7 @@
 
 	<div class="row">
 		<div class="col s12">
-			<h4>Added items</h4>
+			<h4 class="border2">Added items</h4>
 		</div>
 		
 		<div class="col s12">
@@ -55,7 +55,7 @@
 
 					<div class="row">
 						<div class="col s12">
-							<h5>May 9 2017</h5>
+							<h5>May 9, 2017</h5>
 						</div>
 						<div class="col s12">
 							<h5>Meat</h5>
