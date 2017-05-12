@@ -71,6 +71,9 @@
 						</div>
 						<div class="col s6">
 							<p>$30.90</p>
+						</div>
+                        <div class="col s12">
+							<h5 class="dateBorder">May 15, 2017</h5>
 						</div>						
 						<div class="col s12">
 							<h5>Fruits</h5>
