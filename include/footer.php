@@ -9,7 +9,7 @@
           <a href="../index.php"><button class="bottomButton"><img class="navImg" src="images/home.png" alt="home"/></button></a>
         </div>
         <div style="padding:0px" class="col s2 buttonHolder">
-            <a href="../summary.php"><button class="bottomButton"><img class="navImg" src="images/list.png" alt="list"/></button></a>
+            <a href="../notes.php"><button class="bottomButton"><img class="navImg" src="images/list.png" alt="list"/></button></a>
         </div>
         <div style="padding:0px" class="col s2 offset-s4 buttonHolder">
             <a href="../records.php"><button class="bottomButton"><img class="navImg" src="images/records.png" alt="records"/></button></a>
