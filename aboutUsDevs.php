@@ -23,18 +23,18 @@
                 <p>Ron</p>
                 <p>Ron goes shopping at CostCo</p>
             </div>
-            <div class="col s6">    
+            <div class="col s6">
                 <p>Lanlan</p>
                 <p>Lanlan likes thinking outside the box</p>
             </div>
-        </div>    
+        </div>
         <div class="row center-align">
             <div class="col s12">
                 <p>Quincy</p>
                 <p>Quincy is a Pizza Hut Guy</p>
             </div>
         </div>
-       
+
     </div>
 </div>
 <?php include("include/footer.php"); ?>

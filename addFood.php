@@ -1,9 +1,9 @@
 <?php include("include/header.php"); ?>
-    <!-- main body will go here, body tags are already distributed to header and footer-->
+<!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<div class="container">
+<div class="container">
 	<div class="row">
 		<div class="col s12">
 			<h4><a href="summary.php"><i class="small material-icons">arrow_left</i> Cancel</a> </h4>
@@ -41,81 +41,80 @@
 	<div class="row">
 		<div class="col s12 center-align">
 			<button><a href="summary.php">Finalize</button>
+			</div>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col s12">
-			<h4 class="border2">Added items</h4>
+		<div class="row">
+			<div class="col s12">
+				<h4 class="border2">Added items</h4>
+			</div>
+
+			<div class="col s12">
+				<ul class="collection">
+					<li class="collection-item avatar">
+						<div class="row">
+							<div class="col s12">
+								<h5 class="dateBorder">May 9, 2017</h5>
+							</div>
+							<div class="col s12">
+								<h5>Meat</h5>
+							</div>
+							<div class="col s6">
+								<p>beef</p>
+							</div>
+							<div class="col s6">
+								<p>$23.90</p>
+							</div>
+							<div class="col s6">
+								<p>round stick</p>
+							</div>
+							<div class="col s6">
+								<p>$30.90</p>
+							</div>
+							<div class="col s12">
+								<h5 class="dateBorder">May 15, 2017</h5>
+							</div>
+							<div class="col s12">
+								<h5>Fruits</h5>
+							</div>
+							<div class="col s6">
+								<p>Apple</p>
+							</div>
+							<div class="col s6">
+								<p>$23.90</p>
+							</div>
+							<div class="col s6">
+								<p>Orange</p>
+							</div>
+							<div class="col s6">
+								<p>$20.90</p>
+							</div>
+							<div class="col s12">
+								<h5>Veggies</h5>
+							</div>
+							<div class="col s6">
+								<p>Onions</p>
+							</div>
+							<div class="col s6">
+								<p>$23.90</p>
+							</div>
+							<div class="col s6">
+								<p>Tomatoes</p>
+							</div>
+							<div class="col s6">
+								<p>$20.90</p>
+							</div>
+						</div>
+					</li>
+
+				</ul>
+			</div>
 		</div>
-		
-		<div class="col s12">
-			<ul class="collection">
-				<li class="collection-item avatar">
 
-					<div class="row">
-						<div class="col s12">
-							<h5 class="dateBorder">May 9, 2017</h5>
-						</div>
-						<div class="col s12">
-							<h5>Meat</h5>
-						</div>
-						<div class="col s6">
-							<p>beef</p>
-						</div>
-						<div class="col s6">
-							<p>$23.90</p>
-						</div>	
-						<div class="col s6">
-							<p>round stick</p>
-						</div>
-						<div class="col s6">
-							<p>$30.90</p>
-						</div>
-                        <div class="col s12">
-							<h5 class="dateBorder">May 15, 2017</h5>
-						</div>						
-						<div class="col s12">
-							<h5>Fruits</h5>
-						</div>
-						<div class="col s6">
-							<p>Apple</p>
-						</div>
-						<div class="col s6">
-							<p>$23.90</p>
-						</div>	
-						<div class="col s6">
-							<p>Orange</p>
-						</div>
-						<div class="col s6">
-							<p>$20.90</p>
-						</div>		
-						<div class="col s12">
-							<h5>Veggies</h5>
-						</div>
-						<div class="col s6">
-							<p>Onions</p>
-						</div>
-						<div class="col s6">
-							<p>$23.90</p>
-						</div>	
-						<div class="col s6">
-							<p>Tomatoes</p>
-						</div>
-						<div class="col s6">
-							<p>$20.90</p>
-						</div>								
-					</div>
-				</li>
-			
-		  </ul>
+		<!--<div class="container-fluid ourContent">
+		<div id="canvasSelect col-xs-12">
+		<canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>
 	</div>
-</div>
-
-    <!--<div class="container-fluid ourContent">
-        <div id="canvasSelect col-xs-12">
-            <canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>
-        </div>
-    </div>-->
+</div>-->
 
 <?php include("include/footer.php"); ?>
