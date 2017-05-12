@@ -1,0 +1,208 @@
+html {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+body {
+    font-family: Calibri;
+    color: black;
+}
+#logo {
+    height: 100%;
+    width: 100%;
+}
+.logAndSign{
+    text-align: right;
+}
+img.svg {
+  width: 70px;
+  padding-right: 10px;
+}
+
+label.largo_svg {
+  margin: 30px;
+}
+
+.collapsible-body  {
+  font-size: 4ex;
+}
+
+.collapsible-header {
+  padding-top: 15px;
+  font-size: 5ex;
+}
+
+.alt-right{
+  text-align: right;
+}
+
+.largo_svg {
+  transform: scale(3);
+}
+
+.largo_material_icon {
+  font-size: 10px
+}
+.menuBar {
+    text-align: center;
+    background-color: lightgray;
+}
+.topMenu {
+    width: 100%;
+}
+.footer {
+    vertical-align: 0%;
+}
+hr {
+    color: lightgreen;
+    height: 1px;
+    background-color: gray;
+}
+.meats {
+    background-color: coral;
+}
+.veggies{
+    background-color: lightgreen;
+}
+.fruits {
+    background-color: orange;
+}
+.dairies {
+    background-color: beige;
+}
+.grains {
+    background-color: burlywood;
+}
+
+.bottomRow {
+    text-align: center;
+}
+
+.costs{
+    text-align: right;
+}
+.ourContent {
+    text-align: center;
+}
+
+.bottomNavi {
+    position: fixed;
+    margin: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0%;
+    background-color:#a5d6a7;
+}
+.input-field label {
+  color:white;
+}
+/*default format of the input type text*/
+.input-field input[type=text]{
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type text*/
+.input-field input[type=text]:focus + label {
+  color:white;
+}
+/*focus format of the input type text*/
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/*default format of the input type email*/
+.input-field input[type=email] {
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type email*/
+.input-field input[type=email]:focus + label {
+  color: white;
+}
+/*focus format of the input type email*/
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/*default format of the textarea*/
+textarea.materialize-textarea {
+  border-bottom: 1px solid white;
+}
+/*focus format of the input type textarea*/
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/*focus format of the label type textarea*/
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color:white;
+}
+.buttonHolder {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.bottomButton{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+table, td, tr, th {
+	border: 1px solid black;
+	text-align: center;
+}
+
+input[type=text],textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    color: white;
+}
+
+input[type=submit] {
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+
+}
+
+input[type=submit]:hover {
+    background-color: grey;
+}
+
+.container {
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    padding: 20px;
+}
+
+.submit0 {
+    text-align: center;
+    background-color: lightgray;
+}
+.specialButton {
+    width: 100%;
+    border-radius: 75%;
+    background-color:#a5d6a7;
+}
+table, td, tr, th {
+	border: 1px solid red;
+	text-align: center;
+}
+.navImg {
+    width: 100%;
+    height: 100%;
+}
+#specialNavi {
+    position: fixed;
+    bottom: 0;
+    left: 38%;
+    right: 38%;
+}
