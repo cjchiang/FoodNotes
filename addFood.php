@@ -6,7 +6,7 @@
 	<div class="container">
         <div class="row">
             <div class="col s12">
-                <h4><a href="summary.php"><i class="small material-icons">arrow_left</i> Cancel</a> </h4>
+                <h4><a href="notes.php"><i class="small material-icons">arrow_left</i> Cancel</a> </h4>
             </div>
             <div class="col s12">
                 <h4>Select a food category</h4>

@@ -8,7 +8,7 @@
 <br/>
 <br/>
 <br/>
-    <div class="row bottomNavi">
+    <div class="row bottomNavi" style="z-index: 2;">
         <div style="padding:0px" class="col s2 buttonHolder">
           <a href="../index.php"><button class="btn waves-effect waves-slide green lighten-3 bottomButton" style="height:100%"><img class="navImg" src="images/home.png" alt="home"/></button></a>
         </div>
@@ -22,7 +22,7 @@
             <a href="../settings.php"><button class="btn waves-effect waves-slide green lighten-3 bottomButton" style="height:100%"><img class="navImg" src="images/settings.png" alt="settings"/></button></a>
         </div>
     </div>
-    <div id="specialNavi">
+    <div id="specialNavi" style="z-index: 3;">
         <a href="../addFood.php"><button class="btn-float waves-effect waves-slide green lighten-3 specialButton"><img class="navImg" src="images/add.png" alt="add"/></button></a>
     </div>
   </div>
