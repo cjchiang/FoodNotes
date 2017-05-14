@@ -4,10 +4,11 @@
 
 <div class="container">
 	<div class="row">
+	<!-- for the icon arrow -->
 		<div class="col s12">
 			<h4><a href="addFood.php"><i class="small material-icons">arrow_left</i> Back </a> </h4>
 		</div>
-		
+<!-- for the heading "Add Fruits" and its image-->		
 		<div class="col s12 center-align">
 			<h4> Add Fruits </h4>
 		</div>
@@ -26,7 +27,7 @@
 			</div>
 		</form>
 	</div>
-	
+<!-- List the items of fruits for the users to choose and enter the price-->		
 	<div class="row">
 		<form action="#" class="col s12">
 			<div class="row">

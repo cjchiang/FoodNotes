@@ -1,4 +1,10 @@
 <?php include("include/header.php"); ?>
+<!-- Notes.php is the record page for the current cycle.
+	After user added their items, those items will show up here.
+	Before the current cycle ends, user can document how much of a specified item
+	is left over. 
+	Currently has hardcoded placeholder items.
+-->
 <div class="white-text green lighten-1">
 	<div id="notes">
 		<div class="row center-align">
