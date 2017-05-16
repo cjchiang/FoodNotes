@@ -126,7 +126,7 @@
 
 
 		$("#registerBtn").click(function(){
-			firebase.auth().createUserWithEmailAndPassword($("#emailTxt").val(), $("#pwTxt").val());
+			firebase.auth().createUserWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
 		});
 		
 
