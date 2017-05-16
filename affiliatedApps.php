@@ -1,3 +1,5 @@
+<!-- This page contains information about other similar others web application. It contains logo and brief description about web application that users can use -->
+
 <?php include("include/menuHeader.php"); ?>
 <div class="container green lighten-1 white-text">
   <div class="row center-align">

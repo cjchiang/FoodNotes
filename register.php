@@ -1,3 +1,12 @@
+<!-- A temporary sign up page, made to be
+	demonstrated during the sprint presentation.
+	It's based off an old version of an unused login page Lanlan made,
+	meant to SQL, that I converted to use firebase.
+
+	It has awful styling and conventions, but it works;
+	user can connect to firebase after signing up, and will 
+	return to index.php as a logged-in user.
+ -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -117,7 +126,7 @@
 
 
 		$("#registerBtn").click(function(){
-			firebase.auth().createUserWithEmailAndPassword($("#emailTxt").val(), $("#pwTxt").val());
+			firebase.auth().createUserWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
 		});
 		
 
