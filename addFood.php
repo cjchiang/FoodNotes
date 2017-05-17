@@ -2,6 +2,8 @@
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="script/addfood.js"></script>
+
 
 <!-- Add 4 categories -->
 <div class="container white-text green lighten-1">
@@ -40,7 +42,7 @@
 <!-- For submitting -->
 	<div class="row">
 		<div class="col s12 center-align">
-			<a href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
+			<a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
 			</div>
 		</div>
 <!-- Added items -->

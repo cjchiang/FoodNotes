@@ -1,6 +1,7 @@
 <?php include("include/header.php"); ?>
     <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="script/addfood.js"></script>
 
 <div class="container">
 	<div class="row">
@@ -29,7 +30,7 @@
 	</div>
 <!-- List the items of meat for the users to choose and enter the price-->	
 	<div class="row">
-		<form action="#" class="col s12">
+		<form action="#" class="col s12 orange" id="form_add_meat_items">
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="checkbox" id="check_round_steak"/>		
@@ -63,8 +64,6 @@
    		</form>
 
 	</div>
-
-
 
 </div>
     <!--<div class="container-fluid ourContent">
