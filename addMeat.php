@@ -29,7 +29,6 @@
 	<!-- List the items of meat for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12">
-
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="checkbox" class="check_tick" id="check_round_steak"/>

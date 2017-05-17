@@ -21,25 +21,25 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s6 food_group">
-			<a href="addMeat.php" class="btn waves-effect waves-light green">
+		<div class="col s6 food_group ">
+			<a href="addMeat.php" class="btn waves-effect waves-light red accent-4">
 				Meat
 			</a>
 		</div>
 		<div class="col s6 food_group">
-			<a href="addFruits.php" class="btn waves-effect waves-light green">
+			<a href="addFruits.php" class="btn waves-effect waves-light orange accent-4">
 				Fruits
 			</a>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col s6 food_group">
-			<a href="addVeggies.php" class="btn waves-effect waves-light green">
+			<a href="addVeggies.php" class="btn waves-effect waves-light light-green accent-4">
 				Veggies
 			</a>
 		</div>
 		<div class="col s6 food_group">
-			<a class="btn waves-effect waves-light green">
+			<a class="btn waves-effect waves-light yellow accent-4">
 				Dairy
 			</a>
 		</div>
@@ -51,8 +51,8 @@
 		</div>
 	</div>
 	<ul class="collapsible" data-collapsible="expandable">
-		<li>
-			<div class="collapsible-header">
+		<li class="red accent-4">
+			<div class="collapsible-header red accent-4">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
@@ -92,8 +92,8 @@
 				</div>
 			</div>
 		</li>
-		<li>
-			<div class="collapsible-header">
+		<li class="orange accent-4">
+			<div class="collapsible-header orange accent-4">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
@@ -133,8 +133,8 @@
 				</div>
 			</div>
 		</li>
-		<li>
-			<div class="collapsible-header">
+		<li class="light-green accent-4">
+			<div class="collapsible-header light-green accent-4">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
@@ -174,8 +174,8 @@
 				</div>
 			</div>
 		</li>
-		<li>
-			<div class="collapsible-header">
+		<li class="yellow accent-4">
+			<div class="collapsible-header yellow accent-4">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
