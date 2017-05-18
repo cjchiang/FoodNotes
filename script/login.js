@@ -19,15 +19,27 @@ $("#logoutBtn").ready(function(){
 
 $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(firebaseUser){
-	   if (firebaseUser) {
-		  $("#logoutBtn").css("display", "block");
-		  $("#loginBtn").css("display", "none");
-		  $("#signupBtn").css("display", "none");
-          $("#specialNavi").css("display","block");
-          $("#allbtn").css("display","block");
+	   	if (firebaseUser) {
+			$("#logoutBtn").css("display", "block");
+			$("#loginBtn").css("display", "none");
+			$("#signupBtn").css("display", "none");
+			$("#specialNavi").css("display","block");
+			$("#allbtn").css("display","block");
 
-		  alert("Signed in!");
-	   } else {
+			alert("Signed in!");
+			//queries to makes sure user key is same as user ID,
+			//if not, replaces it with one
+			var db = firebase.database();
+    		db.ref("users").orderByChild("email").equalTo(firebaseUser.email).on('child_added', function(snap){
+			   	var childKey = snap.key;
+			   	var userID = firebaseUser.uid;
+				if( childKey != userID) {
+					var child = db.ref("users").child(childKey);
+				  	db.ref("users").child(userID).set(snap.val());
+				  	child.remove();
+				}
+			});
+	   	} else {
 		  $("#logoutBtn").css("display", "none");
           $("#loginBtn").css("display", "block");
  		  $("#signupBtn").css("display", "block");
