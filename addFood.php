@@ -19,7 +19,11 @@
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	    console.log("logged in");
-	    start();
+	    createCycle();
+
+	    /*can't seem to access user outside this function,
+		 add trigger function here for add Item if needed*/
+
 	  } else {
 	    console.log("not logged in");
 	    // TODO: before pushing to gitHub, uncomment below:
@@ -28,21 +32,53 @@
 	  }
 	});
 
-	function start() {
+	function createCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
 		
 		userNode.once("value", function(snap){
 			var count = snap.val().cycleCount;
-			var cycleIndex = "cycle".concat(String(count));
+			// var cycleIndex = "cycle".concat(String(count));
+
+			var cycleIndex = "cycle" + count;
+
 			userNode.child("cycleCount").set(++count);
 			userNode.child(cycleIndex).update({
-					"cycle" : true,
-					"fruits" : "placeholder",
-					"vegetables" : "placeholder",
-					"meats" : "placeholder"
+				"cycle" : true,
+				"fruits" : "placeholder",
+				"vegetables" : "placeholder",
+				"meats" : "placeholder"
 			});
 		});
+	}
+
+	function addFood(foodCategory){
+		//quincy add ur PHP stuff here
+		var FOODS_FROM_POST_OR_SESSION = null;
+		var userNode = users.child(user.uid);
+
+		// filters out just the cycle nodes, leaves out email and other junk
+		userNode.orderByChild("cycle").equalTo(true).once("value", function(snap){
+		// may add date checker, but for now, just add to last cycle
+			var count = snap.val().cycleCount - 1;
+			var cycleIndex = "cycle" + count;
+			var currentUserNode = userNode.child(cycleIndex);
+
+			// access all child, cause its hard to do "SELECT" clause here
+			currentUserNode.on("value", function(childSnap){
+				var FOODS_FROM_PHP_AS_JSON = {
+					/*
+					FOODS_FROM_POST_OR_SESSION[0].name : FOODS_FROM_POST_OR_SESSION[0].values
+					...
+					*/
+				}
+
+				currentUserNode.child(foodCategory).update({
+					FOODS_FROM_PHP_AS_JSON
+				}) 
+			});
+		});		
+
 	}
 </script>
 <!-- Add 4 categories -->
