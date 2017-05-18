@@ -20,11 +20,24 @@
 							<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
 					</div>
 			</div>
-			<div class="row">
-					<div id="loginBtn" class="col s6 left-align">
+			<div  id="easterEggSearch" class="container white-text green">
+				<div class="row">
+					<div class="input-field col s12">
+						<label for="easterEgg"><i class="material-icons">search</i></label>
+						<input id="easterEgg" type="search"/>
+					</div>
+				</div>
+				<audio id="easterAudio" src="images/9000.wav"></audio>
+			</div>
+		</br>
+			<div class="row" id="navButtons">
+					<div id="loginBtn" class="col s4 left-align">
 							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
 					</div>
-					<div id="signupBtn" class="col s6 right-align">
+					<div id="easterEggBtn" class="col s4 center-align">
+							<a class="btn waves-effect waves-light green">Start</a>
+					</div>
+					<div id="signupBtn" class="col s4 right-align">
 							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
 					</div>
 			</div>
