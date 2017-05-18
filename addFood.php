@@ -1,7 +1,9 @@
-<?php include("include/header.php"); ?>
+<?php include("include/header.php"); session_start();?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="script/addfood.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script type="text/javascript">
 	var config = {
 	    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
@@ -15,7 +17,7 @@
 
 	const database = firebase.database();
 	const users = database.ref("users");
-	
+
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	    console.log("logged in");
@@ -35,7 +37,7 @@
 	function createCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
-		
+
 		userNode.once("value", function(snap){
 			var count = snap.val().cycleCount;
 			// var cycleIndex = "cycle".concat(String(count));
@@ -75,9 +77,9 @@
 
 				currentUserNode.child(foodCategory).update({
 					FOODS_FROM_PHP_AS_JSON
-				}) 
+				})
 			});
-		});		
+		});
 
 	}
 </script>
@@ -90,7 +92,7 @@
 		</div>
 		<!-- For submitting -->
 		<div class="col s6 right-align">
-			<a href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
+			<a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
@@ -144,31 +146,24 @@
 				</div>
 			</div>
 			<div class="collapsible-body note_body center-align">
-				<div class="row">
-					<div class="col s8">
-						<span>Chicken</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
+                <?php
+                    $counter = 0;
+                    foreach($_SESSION['OnOffHolder'] as $nameMe) {
+                    foreach($_SESSION['storeMyPrices'] as $nameTwo) {
+                        if(strcmp($nameMe, $nameTwo) == 0) {
+                        echo
+                        '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
+                            </div>
+                            <div class="col s4">
+                                <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
+                            </div>
+                        </div>';
+                    }
+                    $counter = $counter + 1;
+                    }
+                    $counter = 0;
+                }?>
 				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Ham</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Steak</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-			</div>
 		</li>
 		<li class="orange accent-4">
 			<div class="collapsible-header orange accent-4">

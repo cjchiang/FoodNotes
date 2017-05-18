@@ -18,14 +18,14 @@
 			var foodName = removeSpaces(snapData.product);
 			var newFoodBlock = document.getElementById(snap.key);
 			console.log(foodName);
-		
+
 		    if (!newFoodBlock) {
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
 					'<a id="click_' + foodName +'"></a>'+
-				'<div class="input-field col s6" >' +
+				'<div class="input-field col s6" class="input_BackGround">' +
 					'<input type="checkbox" id="check_' + foodName + '"/>' +		
-					'<label class="check_background" for="check_' + foodName+ '"">' + snapData.product + '</label>' +
+					'<label for="check_' + foodName+ '"">' + snapData.product + '</label>' +
 				'</div>' +
 				'<div class="input-field col s6">' +
 					'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price + 
@@ -38,7 +38,7 @@
 	}
 
 	// queries for a specific product, based on search term (name) and category
-	// then hides everything else 
+	// then hides everything else
 	function filterProducts( searchTerm, searchCategory ) {
 		foods.orderByChild("category").equalTo(searchCategory).on("child_added", function(snap){
 			var snapData = snap.val();
@@ -47,7 +47,7 @@
 				hideme(snap.key, true);
 			} else {
 				hideme(snap.key, false);
-			}	
+			}
 		});
 	}
 
