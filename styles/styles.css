@@ -22,7 +22,23 @@ body {
 input[type=range]::-webkit-slider-thumb {
   background-color: white;
 }
->>>>>>> develop
+<<<<<<< HEAD
+
+/* set the opacity of the easter egg button dissapear*/
+#easterEggBtn {
+  opacity:0;
+}
+
+/*Set the search bar to not display*/
+#easterEggSearch {
+  display:none;
+}
+
+/*Set the search bar for the easter egg white at the bottom*/
+#easterEgg {
+  border-bottom: 1px solid white;
+}
+
 input[type=range]::-moz-range-thumb {
   background-color: white;
 }
