@@ -1,11 +1,18 @@
 <?php include("include/header.php"); ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script src="settings.js"></script>
 =======
     <script type="text/javascript"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script src="script/login.js" type="text/javascript"></script>
 >>>>>>> b0ff1c926620a0166c1cc246ebd7712be06b2237
+=======
+    <script type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="script/login.js" type="text/javascript"></script>
+    <script src="settings.js"></script>
+>>>>>>> 320830130f31d868ffd7854c02a433680d01b155
     <div class="container green lighten-1 white-text">
     <div class="row">
         <div class="col s12 center">

@@ -1,4 +1,4 @@
-<?php include("include/header.php"); session_start()?>
+<?php include("include/header.php"); session_start();?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
