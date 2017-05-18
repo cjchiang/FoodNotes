@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  $("#easterEgg").dblClick(function() {
-    $("#easterEgg").css("opacity","1");
+  $("#easterEggBtn").click(function() {
+    $("#navButtons").fadeOut();
+    $("#easterEggSearch").fadeIn(500);
   });
 });

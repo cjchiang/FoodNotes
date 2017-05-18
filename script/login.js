@@ -20,8 +20,7 @@ $("#logoutBtn").ready(function(){
 $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(firebaseUser){
 	   	if (firebaseUser) {
-			$("#loginBtn").css("display", "none");
-			$("#signupBtn").css("display", "none");
+			$("#navButtons").css("display", "none");
 			$("#specialNavi").css("display","block");
 			$("#allbtn").css("display","block");
 
@@ -39,8 +38,7 @@ $(document).ready(function() {
 				}
 			});
 	   	} else {
-          $("#loginBtn").css("display", "block");
- 		  $("#signupBtn").css("display", "block");
+          $("#navButtons").css("display", "block");
           $("#specialNavi").css("display","none");
           $("#allbtn").css("display","none");
 
