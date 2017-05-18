@@ -20,13 +20,14 @@
 							<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
 					</div>
 			</div>
-			<div  id="easterEggSearch" class="container white-text green lighten-1">
+			<div  id="easterEggSearch" class="container white-text green">
 				<div class="row">
 					<div class="input-field col s12">
 						<label for="easterEgg"><i class="material-icons">search</i></label>
 						<input id="easterEgg" type="search"/>
 					</div>
 				</div>
+				<audio id="easterAudio" src="images/9000.wav"></audio>
 			</div>
 		</br>
 			<div class="row" id="navButtons">
