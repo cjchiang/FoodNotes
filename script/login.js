@@ -16,17 +16,37 @@ $("#logoutBtn").ready(function(){
 	});
 });
 
-firebase.auth().onAuthStateChanged(function(firebaseUser){
-	if (firebaseUser) {
-		$("#logoutBtn").css("display", "block");
-		$("#loginBtn").css("display", "none");
-		$("#signupBtn").css("display", "none");
-		alert("Signed in!");
-	} else {
-		$("#logoutBtn").css("display", "none");
-		$("#loginBtn").css("display", "block");
-		$("#signupBtn").css("display", "block");
 
-		console.log(firebaseUser + " is not a valid user");
-	}
-});	
+$(document).ready(function() {
+    firebase.auth().onAuthStateChanged(function(firebaseUser){
+	   	if (firebaseUser) {
+			$("#logoutBtn").css("display", "block");
+			$("#loginBtn").css("display", "none");
+			$("#signupBtn").css("display", "none");
+			$("#specialNavi").css("display","block");
+			$("#allbtn").css("display","block");
+
+			alert("Signed in!");
+			//queries to makes sure user key is same as user ID,
+			//if not, replaces it with one
+			var db = firebase.database();
+    		db.ref("users").orderByChild("email").equalTo(firebaseUser.email).on('child_added', function(snap){
+			   	var childKey = snap.key;
+			   	var userID = firebaseUser.uid;
+				if( childKey != userID) {
+					var child = db.ref("users").child(childKey);
+				  	db.ref("users").child(userID).set(snap.val());
+				  	child.remove();
+				}
+			});
+	   	} else {
+		  $("#logoutBtn").css("display", "none");
+          $("#loginBtn").css("display", "block");
+ 		  $("#signupBtn").css("display", "block");
+          $("#specialNavi").css("display","none");
+          $("#allbtn").css("display","none");
+
+		  console.log(firebaseUser + " is not a valid user");
+	   }
+    });
+});
