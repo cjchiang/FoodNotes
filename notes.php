@@ -21,7 +21,6 @@
 </script>
 
 <div class="white-text green lighten-1">
->>>>>>> develop
 	<div id="notes">
 		<div class="row center-align">
 			<h3>Total Waste:</h3>
