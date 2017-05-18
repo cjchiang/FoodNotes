@@ -27,9 +27,6 @@
 					<div id="signupBtn" class="col s6 right-align">
 							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
 					</div>
-					<div id="logoutBtn" class="col s12 right-align" hidden>
-							<a id="signout btn" class="btn waves-effect waves-light green">Sign Out</a>
-					</div>
 			</div>
 			<nav class="green">
 					<div class="nav-wrapper">
