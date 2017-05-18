@@ -1,11 +1,5 @@
-<?php session_start();
-$_SESSION['OnOffHolder'];
-$_SESSION['storeMyPrices'];
-$_SESSION['storeMyValues'];
-
-
-?>
 <!DOCTYPE html>
+<?php session_start();?>
 <html>
 <head>
 	<title>FoodNotes</title>
