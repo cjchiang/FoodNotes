@@ -16,17 +16,25 @@ $("#logoutBtn").ready(function(){
 	});
 });
 
-firebase.auth().onAuthStateChanged(function(firebaseUser){
-	if (firebaseUser) {
-		$("#logoutBtn").css("display", "block");
-		$("#loginBtn").css("display", "none");
-		$("#signupBtn").css("display", "none");
-		alert("Signed in!");
-	} else {
-		$("#logoutBtn").css("display", "none");
-		$("#loginBtn").css("display", "block");
-		$("#signupBtn").css("display", "block");
 
-		console.log(firebaseUser + " is not a valid user");
-	}
-});	
+$(document).ready(function() {
+    firebase.auth().onAuthStateChanged(function(firebaseUser){
+	   if (firebaseUser) {
+		  $("#logoutBtn").css("display", "block");
+		  $("#loginBtn").css("display", "none");
+		  $("#signupBtn").css("display", "none");
+          $("#specialNavi").css("display","block");
+          $("#allbtn").css("display","block");
+
+		  alert("Signed in!");
+	   } else {
+		  $("#logoutBtn").css("display", "none");
+          $("#loginBtn").css("display", "block");
+ 		  $("#signupBtn").css("display", "block");
+          $("#specialNavi").css("display","none");
+          $("#allbtn").css("display","none");
+
+		  console.log(firebaseUser + " is not a valid user");
+	   }
+    });
+});
