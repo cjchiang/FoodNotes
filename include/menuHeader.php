@@ -11,6 +11,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="script/login.js" type="text/javascript"></script>
+		<script src="script/easterEgg.js" type="text/javascript"></script>
 	</head>
     <body>
 		</br>
@@ -20,14 +21,14 @@
 					</div>
 			</div>
 			<div class="row">
-					<div id="loginBtn" class="col s6 left-align">
+					<div id="loginBtn" class="col s4 left-align">
 							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
 					</div>
-					<div id="signupBtn" class="col s6 right-align">
-							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
+					<div id="easterEgg" class="col s4 center-align">
+							<a class="btn">Hello</a>
 					</div>
-					<div id="logoutBtn" class="col s12 right-align" hidden>
-							<a id="signout btn" class="btn waves-effect waves-light green">Sign Out</a>
+					<div id="signupBtn" class="col s4 right-align">
+							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
 					</div>
 			</div>
 			<nav class="green">

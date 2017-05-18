@@ -96,6 +96,10 @@ label.largo_svg {
   text-align: right;
 }
 
+#easterEgg {
+  opacity: 0;
+}
+
 /*increase size of food item images*/
 .largo_svg {
   padding-top: 60px;
