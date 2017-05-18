@@ -1,7 +1,9 @@
 <?php include("include/header.php"); ?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="script/addfood.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script type="text/javascript">
 	var config = {
 	    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
@@ -15,7 +17,7 @@
 
 	const database = firebase.database();
 	const users = database.ref("users");
-	
+
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	    console.log("logged in");
@@ -35,7 +37,7 @@
 	function createCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
-		
+
 		userNode.once("value", function(snap){
 			var count = snap.val().cycleCount;
 			// var cycleIndex = "cycle".concat(String(count));
@@ -75,9 +77,9 @@
 
 				currentUserNode.child(foodCategory).update({
 					FOODS_FROM_PHP_AS_JSON
-				}) 
+				})
 			});
-		});		
+		});
 
 	}
 </script>
@@ -90,7 +92,7 @@
 		</div>
 		<!-- For submitting -->
 		<div class="col s6 right-align">
-			<a href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
+			<a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
