@@ -1,95 +1,23 @@
-
+var foodItems = [];
 $(document).ready(function(){
-
-	var meatItems = [
-	{   
-		"category": "Meat",
-		"product" : "Round steak",
-		"spent": "0"
-
-	 },
-	{
-		"category": "Meat",
-		"product" : "Sirloin steak",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Prime rib roast",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Blade roast",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Stewing beef",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Ground beef",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Pork chops",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Chicken",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Bacon",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Wieners",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Canned sockeye salmon",
-		"spent": "0"
-	},
-	{
-		"category": "Meat",
-		"product" : "Eggs",
-		"spent": "0"
-	}
-
-	]
-
-	if (typeof(Storage) !== "undefined") {
-		//console.log("ready");
-		if (localStorage.meatItems) { 
-			//console.log(localStorage.meatItems);
-			meatItems = jQuery.parseJSON(localStorage.meatItems);
-			//console.log(meatItems);
-
-		} else {
-			localStorage.setItem("meatItems",JSON.stringify(meatItems));
-		}
-	} else {
-		alert("Browser does not support");
-    }
-
-	generate_add_meat_form(meatItems);
+	$.getJSON("FoodList.json", function(data){
+		//console.log(data);
+		foodItems = data;
+		meatItems = foodItems.filter(function(record) {
+			return record.Category == "Meat"
+		});
+		//console.log(foodItems);
+		generate_add_meat_form(meatItems);
 
 	$("#link_finalize").click(function(){
 		/* add to database before cleaning. */
 		localStorage.removeItem(localStorage.meatItems);
 	});
 
-	$(".checkbox").change(function(){
+	$(".checkbox").on("change", function(){
+		console.log("clicked");
 		var input ="#" + this.id.replace("check", "input");
-		//console.log(input);
+		console.log(input);
 		if (this.checked) {
 			$(input).prop("disabled", false);
 		} else {
@@ -106,16 +34,15 @@ $(document).ready(function(){
 
 		var spent = $(this).val();
 		for (var i = 0; i < meatItems.length; ++i) {
-			if (meatItems[i]['product'] == product) {
-			meatItems[i]['spent'] = spent;
+			if (meatItems[i]['Products'] == product) {
+			meatItems[i]['My Subtotal'] = spent;
 			break;
 			}
 		}
-		localStorage.setItem("meatItems",JSON.stringify(meatItems));
+		//localStorage.setItem("meatItems",JSON.stringify(meatItems));
 		console.log(meatItems);
-		
 	});
-
+});
 });
 
 function generate_add_meat_form(meatItems){
@@ -129,14 +56,14 @@ function generate_add_meat_form(meatItems){
 }
 
 function generate_row(item){
-	var id= item.product;
+	var id= item.Products;
 	id = id.replace(new RegExp(' ','g'), '_');
-	console.log(id);
+	//console.log(id);
 
 	var element ='<div class="row">'
 				+ '<div class="input-field col s6">'
 			    + '<input type="checkbox" class="checkbox" id="check_' + id + '"/>'
-				+ '<label for="check_' + id +'">' + item.product + '</label>' 
+				+ '<label for="check_' + id +'">' + item.Products + '</label>' 
 				+ '</div>'
 				+ '<div class="input-field col s6">'
 			    + '<input type="text" id="input_' + id  + '" disabled placeholder="$00.00"/>'
