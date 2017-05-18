@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php 
+$_COOKIE['OnOffHolder'] = null;
+$_COOKIE['storeMyPrices'] = null;
+$_COOKIE['storeMyValues'] = null;
+?>
 <html>
 <head>
 	<title>FoodNotes</title>
