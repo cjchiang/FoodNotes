@@ -11,6 +11,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="script/login.js" type="text/javascript"></script>
+		<script src="script/easterEgg.js" type="text/javascript"></script>
 	</head>
     <body>
 		</br>
