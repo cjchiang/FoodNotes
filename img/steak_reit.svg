@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Meat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="stroked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Kitchen" sketch:type="MSLayerGroup" transform="translate(-367.000000, -1318.000000)" stroke="#535353" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g id="Porkmeat" transform="translate(398.500000, 1347.025732) rotate(-11.000000) translate(-398.500000, -1347.025732) translate(373.000000, 1328.525732)" sketch:type="MSShapeGroup">
+                <path d="M0.583129741,19.9397002 C0.171974279,16.5289049 3.14401773,7.48050135 16.5351851,2.61048623 C29.9263525,-2.25952889 40.48332,1.18754593 46.0507215,5.28184908 C51.6181231,9.37615224 52.2763424,19.1677135 48.2218909,20.4326264 C44.1674395,21.6975394 31.5225122,18.3233004 26.8516752,21.5271432 C22.1808381,24.7309859 20.0398958,29.3494273 15.2516506,30.2809954 C10.4634054,31.2125635 0.994285204,23.3504954 0.583129741,19.9397002 Z" id="Path-1752"></path>
+                <path d="M0.577250024,18.8094606 C0.577250024,18.8094606 -0.0266227259,27.4193782 0.974556436,29.8105201 C1.9757356,32.2016621 11.5368001,37.8371424 16.6737782,36.3469396 C21.8107562,34.8567368 27.021191,27.0778134 29.5896806,26.3075507 C32.1581702,25.5372879 38.5503764,25.4601804 43.1719537,25.4601804 C47.793531,25.4601805 50.3774391,18.1212098 50.3774391,18.1212098" id="Path-1753"></path>
+                <ellipse id="Oval-751" transform="translate(10.000000, 15.500000) rotate(-35.000000) translate(-10.000000, -15.500000) " cx="10" cy="15.5" rx="4" ry="3.5"></ellipse>
+                <path d="M29.7037951,4.44574644 L26.7037951,15.4457464" id="Line"></path>
+                <path d="M33.6303038,5.20898242 L30.6303038,16.2089824" id="Line-238"></path>
+                <path d="M24.1681138,7.00901 L36.3568402,12.4344083" id="Line"></path>
+            </g>
+        </g>
+    </g>
+</svg>
