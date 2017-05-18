@@ -1,4 +1,4 @@
-<?php include("include/header.php");?>
+<?php include("include/header.php"); session_start();?>
 <?php 
 $storeOnOrOff = array();
 $storePrices = array();
@@ -26,10 +26,6 @@ foreach($_POST as $foodName => $value)
 $_SESSION['OnOffHolder'] = $storeOnOrOff;
 $_SESSION['storeMyPrices'] = $storePrices;
 $_SESSION['storeMyValues'] = $storeValues;
-$a = true;
-if($a) {
-    header('Location: addFood.php');
-    exit();
-}
+header('Location: addFood.php');
 ?>
 <?php include("include/footer.php"); ?>
