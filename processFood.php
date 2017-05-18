@@ -1,4 +1,4 @@
-<?php include("include/header.php"); session_start();?>
+<?php include("include/header.php");?>
 <?php 
 $storeOnOrOff = array();
 $storePrices = array();

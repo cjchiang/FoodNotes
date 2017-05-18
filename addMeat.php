@@ -1,4 +1,4 @@
-<?php include("include/header.php"); session_start()?>
+<?php include("include/header.php"); ?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
