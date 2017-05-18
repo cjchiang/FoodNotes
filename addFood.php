@@ -1,8 +1,88 @@
-<?php include("include/header.php"); ?>
+<?php include("include/header.php"); session_start();?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="script/addfood.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script type="text/javascript">
+	var config = {
+	    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
+	    authDomain: "food-notes-test.firebaseapp.com",
+	    databaseURL: "https://food-notes-test.firebaseio.com",
+	    projectId: "food-notes-test",
+	    storageBucket: "food-notes-test.appspot.com",
+	    messagingSenderId: "106608811518"
+	  };
+	  firebase.initializeApp(config);
 
+	const database = firebase.database();
+	const users = database.ref("users");
+
+	firebase.auth().onAuthStateChanged(function(user) {
+	  if (user != null) {
+	    console.log("logged in");
+	    createCycle();
+
+	    /*can't seem to access user outside this function,
+		 add trigger function here for add Item if needed*/
+
+	  } else {
+	    console.log("not logged in");
+	    // TODO: before pushing to gitHub, uncomment below:
+		// alert("You're not logged in you hacker! Go home!");
+		// location.replace("index.php");
+	  }
+	});
+
+	function createCycle() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+
+		userNode.once("value", function(snap){
+			var count = snap.val().cycleCount;
+			// var cycleIndex = "cycle".concat(String(count));
+
+			var cycleIndex = "cycle" + count;
+
+			userNode.child("cycleCount").set(++count);
+			userNode.child(cycleIndex).update({
+				"cycle" : true,
+				"fruits" : "placeholder",
+				"vegetables" : "placeholder",
+				"meats" : "placeholder"
+			});
+		});
+	}
+
+	function addFood(foodCategory){
+		//quincy add ur PHP stuff here
+		var FOODS_FROM_POST_OR_SESSION = null;
+		var userNode = users.child(user.uid);
+
+		// filters out just the cycle nodes, leaves out email and other junk
+		userNode.orderByChild("cycle").equalTo(true).once("value", function(snap){
+		// may add date checker, but for now, just add to last cycle
+			var count = snap.val().cycleCount - 1;
+			var cycleIndex = "cycle" + count;
+			var currentUserNode = userNode.child(cycleIndex);
+
+			// access all child, cause its hard to do "SELECT" clause here
+			currentUserNode.on("value", function(childSnap){
+				var FOODS_FROM_PHP_AS_JSON = {
+					/*
+					FOODS_FROM_POST_OR_SESSION[0].name : FOODS_FROM_POST_OR_SESSION[0].values
+					...
+					*/
+				}
+
+				currentUserNode.child(foodCategory).update({
+					FOODS_FROM_PHP_AS_JSON
+				})
+			});
+		});
+
+	}
+</script>
 <!-- Add 4 categories -->
 <div class="container white-text green lighten-1">
 	<div class="row">
@@ -12,7 +92,7 @@
 		</div>
 		<!-- For submitting -->
 		<div class="col s6 right-align">
-			<a href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
+			<a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
@@ -66,31 +146,24 @@
 				</div>
 			</div>
 			<div class="collapsible-body note_body center-align">
-				<div class="row">
-					<div class="col s8">
-						<span>Chicken</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
+                <?php
+                    $counter = 0;
+                    foreach($_SESSION['OnOffHolder'] as $nameMe) {
+                    foreach($_SESSION['storeMyPrices'] as $nameTwo) {
+                        if(strcmp($nameMe, $nameTwo) == 0) {
+                        echo
+                        '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
+                            </div>
+                            <div class="col s4">
+                                <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
+                            </div>
+                        </div>';
+                    }
+                    $counter = $counter + 1;
+                    }
+                    $counter = 0;
+                }?>
 				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Ham</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Steak</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-			</div>
 		</li>
 		<li class="orange accent-4">
 			<div class="collapsible-header orange accent-4">

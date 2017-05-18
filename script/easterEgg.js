@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#easterEgg").hover(function() {
+  $("#easterEgg").dblClick(function() {
     $("#easterEgg").css("opacity","1");
   });
 });

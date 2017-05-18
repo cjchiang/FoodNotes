@@ -4,7 +4,7 @@
 	meant to SQL, that I converted to use firebase.
 
 	It has awful styling and conventions, but it works;
-	user can connect to firebase after signing up, and will 
+	user can connect to firebase after signing up, and will
 	return to index.php as a logged-in user.
  -->
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
 		padding: 15px 35px 45px;
 		margin: 0 auto;
 		background-color: #fff;
-		border: 1px solid rgba(0,0,0,0.1);  
+		border: 1px solid rgba(0,0,0,0.1);
 		}
 		.form-signin .form-signin-heading,
 		.form-signin .checkbox {
@@ -36,7 +36,7 @@
 		.form-signin .checkbox {
 		font-weight: normal;
 		font-size: 23px;
-		}	
+		}
 		.form-signin .form-control {
 		position: relative;
 		height: auto;
@@ -60,7 +60,7 @@
 		border-top-right-radius: 0;
 		}
 
-		.container {	
+		.container {
 		margin-top: 80px;
 		margin-bottom: 80px;
 		}
@@ -73,13 +73,13 @@
         </style>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		
+
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		
+
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		
+
 		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 		<script>
 		  // Initialize Firebase
@@ -100,35 +100,38 @@
     <div class="col-sm-9">
       <div class="form-signin" action="login.php" method="POST">
         <h3 class="form-signin-heading">Create your free account :</h2>
-      
+
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-		
+
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        
+
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-       
+
        <div class="col-sm-6">
         <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit" id="registerBtn">Sign up</button>
        	</div>
-      
+
       <div class="col-sm-6">
         <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit" id="cancelBtn">Cancel</button>
        	</div>
-       	
+
       </div>
       <script type="text/javascript">
 
-
+      	// creates a new user, and a new child with their email in database
 		$("#registerBtn").click(function(){
-			firebase.auth().createUserWithEmailAndPassword($("#emailTxt").val(), $("#pwTxt").val());
+			firebase.auth().createUserWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
+			firebase.database().ref("users").push({
+				"email" : $("#inputUsername").val()
+			});
 		});
-		
+
 
 		$("#cancelBtn").click(function(){
 			location.replace("index.php");
@@ -141,11 +144,11 @@
 			} else {
 				console.log(firebaseUser + " is not a valid user");
 			}
-		});	
+		});
 
 
 	</script>
-    </div> 
+    </div>
     </div>
     <footer class="navbar-fixed-bottom">Copyright &#9400; 2017 Riolet Corporation</footer>
 	</body>

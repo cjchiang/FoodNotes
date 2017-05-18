@@ -21,13 +21,10 @@
 					</div>
 			</div>
 			<div class="row">
-					<div id="loginBtn" class="col s4 left-align">
+					<div id="loginBtn" class="col s6 left-align">
 							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
 					</div>
-					<div id="easterEgg" class="col s4 center-align">
-							<a class="btn">Hello</a>
-					</div>
-					<div id="signupBtn" class="col s4 right-align">
+					<div id="signupBtn" class="col s6 right-align">
 							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
 					</div>
 			</div>
