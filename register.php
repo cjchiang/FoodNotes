@@ -124,9 +124,12 @@
       </div>
       <script type="text/javascript">
 
-
+      	// creates a new user, and a new child with their email in database
 		$("#registerBtn").click(function(){
 			firebase.auth().createUserWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
+			firebase.database().ref("users").push({
+				"email" : $("#inputUsername").val()
+			});
 		});
 		
 

@@ -1,8 +1,50 @@
 <?php include("include/header.php"); ?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<script type="text/javascript">
+	var config = {
+	    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
+	    authDomain: "food-notes-test.firebaseapp.com",
+	    databaseURL: "https://food-notes-test.firebaseio.com",
+	    projectId: "food-notes-test",
+	    storageBucket: "food-notes-test.appspot.com",
+	    messagingSenderId: "106608811518"
+	  };
+	  firebase.initializeApp(config);
 
+	const database = firebase.database();
+	const users = database.ref("users");
+	
+	firebase.auth().onAuthStateChanged(function(user) {
+	  if (user != null) {
+	    console.log("logged in");
+	    start();
+	  } else {
+	    console.log("not logged in");
+	    // TODO: before pushing to gitHub, uncomment below:
+		// alert("You're not logged in you hacker! Go home!");
+		// location.replace("index.php");
+	  }
+	});
+
+	function start() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+		
+		userNode.once("value", function(snap){
+			var count = snap.val().cycleCount;
+			var cycleIndex = "cycle".concat(String(count));
+			userNode.child("cycleCount").set(++count);
+			userNode.child(cycleIndex).update({
+					"cycle" : true,
+					"fruits" : "placeholder",
+					"vegetables" : "placeholder",
+					"meats" : "placeholder"
+			});
+		});
+	}
+</script>
 <!-- Add 4 categories -->
 <div class="container white-text green lighten-1">
 	<div class="row">
