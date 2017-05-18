@@ -22,6 +22,7 @@ body {
 input[type=range]::-webkit-slider-thumb {
   background-color: white;
 }
+
 input[type=range]::-moz-range-thumb {
   background-color: white;
 }
@@ -29,7 +30,7 @@ input[type=range]::-ms-thumb {
   background-color: white;
 }
 
-/***** These are to edit the thumb and the text inside the thumb *****/
+/*These are to edit the thumb and the text inside the thumb for sliders */
 input[type=range] + .thumb {
   background-color: #616161;
 }
