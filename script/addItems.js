@@ -18,28 +18,28 @@
 			var foodName = removeSpaces(snapData.product);
 			var newFoodBlock = document.getElementById(snap.key);
 			console.log(foodName);
-		
+
 		    if (!newFoodBlock) {
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
 					'<a href="#' + foodName + '" id="click_' + foodName +'"></a>'+
 					'<a name="' + foodName + '"></a>'+
 				'<div class="input-field col s6">' +
-					'<input type="checkbox" id="check_' + foodName + '"/>' +		
+					'<input type="checkbox" id="check_' + foodName + '"' + 'name="name' + foodName + '"' + '/>' +
 					'<label for="check_' + foodName+ '"">' + snapData.product + '</label>' +
 				'</div>' +
 				'<div class="input-field col s6">' +
-					'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price + 
-					'"/>' +
-				'</div>' +		
+					'<input type="text" id="' + foodName + '_bought" value="' + snapData.price + '" name ="price' + foodName + '"'+
+					'/>' +
+				'</div>' +
 				'</div> '
-				); 
+				);
 		    }
 		});
 	}
 
 	// queries for a specific product, based on search term (name) and category
-	// then hides everything else 
+	// then hides everything else
 	function filterProducts( searchTerm, searchCategory ) {
 		foods.orderByChild("category").equalTo(searchCategory).on("child_added", function(snap){
 			var snapData = snap.val();
@@ -48,7 +48,7 @@
 				hideme(snap.key, true);
 			} else {
 				hideme(snap.key, false);
-			}	
+			}
 		});
 	}
 

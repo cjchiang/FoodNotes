@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 $("#logoutBtn").ready(function(){
 	$("#logoutBtn").click(function(){
 		firebase.auth().signOut();
-		alert("Signed out!");
+		console.log("signed out");
 	});
 });
 
@@ -20,13 +20,12 @@ $("#logoutBtn").ready(function(){
 $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(firebaseUser){
 	   	if (firebaseUser) {
-			$("#logoutBtn").css("display", "block");
 			$("#loginBtn").css("display", "none");
 			$("#signupBtn").css("display", "none");
 			$("#specialNavi").css("display","block");
 			$("#allbtn").css("display","block");
 
-			alert("Signed in!");
+			console.log("user signed in");
 			//queries to makes sure user key is same as user ID,
 			//if not, replaces it with one
 			var db = firebase.database();
@@ -40,7 +39,6 @@ $(document).ready(function() {
 				}
 			});
 	   	} else {
-		  $("#logoutBtn").css("display", "none");
           $("#loginBtn").css("display", "block");
  		  $("#signupBtn").css("display", "block");
           $("#specialNavi").css("display","none");

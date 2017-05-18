@@ -1,5 +1,11 @@
 <?php include("include/header.php"); ?>
+<<<<<<< HEAD
     <script src="settings.js"></script>
+=======
+    <script type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="script/login.js" type="text/javascript"></script>
+>>>>>>> b0ff1c926620a0166c1cc246ebd7712be06b2237
     <div class="container green lighten-1 white-text">
     <div class="row">
         <div class="col s12 center">
@@ -39,7 +45,7 @@
             </div>
             <div class="col s6">
               <a class="waves-effect waves-light btn green lighten-3">
-                <input value="LogOut" type="submit">
+                <input value="LogOut" type="submit" id="logoutBtn">
               </a>
             </div>
         </div>
@@ -48,6 +54,10 @@
    <script>
     $(document).ready(function() {
         $('select').material_select();
+        });
+
+        $(" :submit").click(function(){
+            location.replace("index.php");
         });
     </script>
 <?php include("include/footer.php"); ?>
