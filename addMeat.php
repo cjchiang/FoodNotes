@@ -1,4 +1,4 @@
-<?php include("include/header.php"); ?>
+<?php include("include/header.php"); session_start()?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
@@ -16,7 +16,6 @@
 
 
 </script>
-
 <div class="container white-text green lighten-1">
 	<div class="row">
 		<!-- for the icon arrow -->
@@ -36,14 +35,23 @@
 			<div class="row">
 				<div class="input-field col s12">
 					<label for="search"><i class="material-icons">search</i></label>
-					<input id="search" type="search">
+					<input id="search" type="search"/>
 				</div>
 			</div>
 		</form>
 	</div>
 	<!-- List the items of meat for the users to choose and enter the price-->
 	<div class="row">
-		<form action="#" class="col s12" id="anchor_head">
+		<form action="processFood.php" method="POST" class="col s12" id="anchor_head">
+            <input type="submit"  value="Add"/>
+            <div class="row center">
+                <div class="col s6">
+                    Product Name
+                </div>
+                <div class="col s6">
+                    ($)
+                </div>
+            </div>
 		</form>
 
 	</div>
@@ -57,4 +65,6 @@
 </div>
 </div>-->
 
-<?php include("include/footer.php"); ?>
+<!--<?php include("include/footer.php"); ?>-->
+</body>
+</html>

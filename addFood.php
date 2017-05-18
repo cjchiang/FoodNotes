@@ -1,4 +1,4 @@
-<?php include("include/header.php"); ?>
+<?php include("include/header.php"); session_start()?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -66,7 +66,24 @@
 				</div>
 			</div>
 			<div class="collapsible-body note_body center-align">
-				<div class="row">
+                <?php
+                    $counter = 0; 
+                    foreach($_SESSION['OnOffHolder'] as $nameMe) {
+                    foreach($_SESSION['storeMyPrices'] as $nameTwo) {
+                        if(strcmp($nameMe, $nameTwo) == 0) {
+                        echo
+                        '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
+                            </div>
+                            <div class="col s4">
+                                <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
+                            </div>
+                        </div>';
+                    }
+                    $counter = $counter + 1;
+                    }
+                    $counter = 0;
+                }?>
+				<!--<div class="row">
 					<div class="col s8">
 						<span>Chicken</span>
 					</div>
@@ -89,7 +106,7 @@
 					<div class="col s4">
 						<span>$__ </span>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</li>
 		<li class="orange accent-4">

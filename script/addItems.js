@@ -25,12 +25,12 @@
 					'<a href="#' + foodName + '" id="click_' + foodName +'"></a>'+
 					'<a name="' + foodName + '"></a>'+
 				'<div class="input-field col s6">' +
-					'<input type="checkbox" id="check_' + foodName + '"/>' +		
+					'<input type="checkbox" id="check_' + foodName + '"' + 'name="name' + foodName + '"' + '/>' +		
 					'<label for="check_' + foodName+ '"">' + snapData.product + '</label>' +
 				'</div>' +
 				'<div class="input-field col s6">' +
-					'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price + 
-					'"/>' +
+					'<input type="text" id="' + foodName + '_bought" value="' + snapData.price + '" name ="price' + foodName + '"'+
+					'/>' +
 				'</div>' +		
 				'</div> '
 				); 
