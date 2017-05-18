@@ -1,4 +1,10 @@
-<?php session_start();?>
+<?php session_start();
+$_SESSION['OnOffHolder'];
+$_SESSION['storeMyPrices'];
+$_SESSION['storeMyValues'];
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
