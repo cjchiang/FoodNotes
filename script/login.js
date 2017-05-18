@@ -12,23 +12,33 @@ firebase.initializeApp(config);
 $("#logoutBtn").ready(function(){
 	$("#logoutBtn").click(function(){
 		firebase.auth().signOut();
-		alert("Signed out!");
+		console.log("signed out");
 	});
 });
 
 
 $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(firebaseUser){
-	   if (firebaseUser) {
-		  $("#logoutBtn").css("display", "block");
-		  $("#loginBtn").css("display", "none");
-		  $("#signupBtn").css("display", "none");
-          $("#specialNavi").css("display","block");
-          $("#allbtn").css("display","block");
+	   	if (firebaseUser) {
+			$("#loginBtn").css("display", "none");
+			$("#signupBtn").css("display", "none");
+			$("#specialNavi").css("display","block");
+			$("#allbtn").css("display","block");
 
-		  alert("Signed in!");
-	   } else {
-		  $("#logoutBtn").css("display", "none");
+			console.log("user signed in");
+			//queries to makes sure user key is same as user ID,
+			//if not, replaces it with one
+			var db = firebase.database();
+    		db.ref("users").orderByChild("email").equalTo(firebaseUser.email).on('child_added', function(snap){
+			   	var childKey = snap.key;
+			   	var userID = firebaseUser.uid;
+				if( childKey != userID) {
+					var child = db.ref("users").child(childKey);
+				  	db.ref("users").child(userID).set(snap.val());
+				  	child.remove();
+				}
+			});
+	   	} else {
           $("#loginBtn").css("display", "block");
  		  $("#signupBtn").css("display", "block");
           $("#specialNavi").css("display","none");

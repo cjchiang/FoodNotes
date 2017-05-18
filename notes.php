@@ -2,10 +2,25 @@
 <!-- Notes.php is the record page for the current cycle.
 	After user added their items, those items will show up here.
 	Before the current cycle ends, user can document how much of a specified item
-	is left over.
-	Currently has hardcoded placeholder items.
 -->
 <div class="container white-text green lighten-1">
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script type="text/javascript">
+	var config = {
+	    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
+	    authDomain: "food-notes-test.firebaseapp.com",
+	    databaseURL: "https://food-notes-test.firebaseio.com",
+	    projectId: "food-notes-test",
+	    storageBucket: "food-notes-test.appspot.com",
+	    messagingSenderId: "106608811518"
+	  };
+	  firebase.initializeApp(config);
+	const database = firebase.database();
+	const foods = database.ref("foods");
+
+</script>
+
+<div class="white-text green lighten-1">
 	<div id="notes">
 		<div class="row center-align">
 			<h3>Total Waste:</h3>
@@ -29,7 +44,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body">
+			<div class="collapsible-body note_body" id="meat_body">
 					<div class="row">
 						<div class="col s8 center-align">
 							<span>Chicken</span>
@@ -74,7 +89,6 @@
 								</p>
 							</form>
 						</div>
-					</div>
 			</div>
 		</li>
 		<li class= "orange accent-4">
@@ -91,7 +105,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body">
+			<div class="collapsible-body note_body" id="fruit_body">
 					<div class="row">
 						<div class="col s8 center-align">
 							<span>Apple</span>
@@ -153,7 +167,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body">
+			<div class="collapsible-body note_body" id="dairy_body">
 					<div class="row">
 						<div class="col s8 center-align">
 							<span>Asparagus</span>
