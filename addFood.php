@@ -147,22 +147,25 @@
 			</div>
 			<div class="collapsible-body note_body center-align">
                 <?php
-                    $counter = 0;
-                    foreach($_SESSION['OnOffHolder'] as $nameMe) {
-                    foreach($_SESSION['storeMyPrices'] as $nameTwo) {
-                        if(strcmp($nameMe, $nameTwo) == 0) {
-                        echo
-                        '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
-                            </div>
-                            <div class="col s4">
-                                <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
-                            </div>
-                        </div>';
+                    if (!is_null($_SESSION['OnOffHolder'][0])) {
+                        $counter = 0;
+                        foreach($_SESSION['OnOffHolder'] as $nameMe) {
+                        foreach($_SESSION['storeMyPrices'] as $nameTwo) {
+                            if(strcmp($nameMe, $nameTwo) == 0) {
+                            echo
+                            '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
+                                </div>
+                                <div class="col s4">
+                                    <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
+                                </div>
+                            </div>';
+                        }
+                        $counter = $counter + 1;
+                        }
+                        $counter = 0;
                     }
-                    $counter = $counter + 1;
-                    }
-                    $counter = 0;
-                }?>
+                }
+                ?>
 				</div>
 		</li>
 		<li class="orange accent-4">
