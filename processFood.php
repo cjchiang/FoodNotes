@@ -28,8 +28,13 @@ $_SESSION['storeMyPrices'] = $storePrices;
 $_SESSION['storeMyValues'] = $storeValues;
 $a = true;
 if($a) {
-    header('Location: addFood.php');
-    exit();
+    echo $_SESSION['OnOffHolder'][0];
+    echo "<font></font>";
 }
 ?>
+<script type="text/javascript">
+    $("font").ready(function(){
+        location.replace("addFood.php");
+    });
+</script>
 <?php include("include/footer.php"); ?>

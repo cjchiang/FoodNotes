@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start();?>
 <html>
 <head>
 	<title>FoodNotes</title>
