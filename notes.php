@@ -84,7 +84,7 @@
 							'<span>' + foodName + '</span>' +
 						'</div>'+
 						'<div class="col s4">'+
-							'<span id="' + foodName + '_price">$' + price + '</span>' +
+							'<span id="' + foodName + '_price" name="' + price +'" >' + price + '</span>' +
 						'</div>' +
 						'<div class="col s10 offset-s1">' +
 							'<form action="#">' +
@@ -98,25 +98,19 @@
 			});
 		});
 	}
-
+  
+  
 		function moveMe(src) {
 			$(this).trigger('change');
 	    	console.log( $(src).val() );
 	    	console.log( src.id );
 	    	var leftPercent = $(src).val() * 0.01;
 	    	var foodName = src.id.replace("slider_", "");
-	    	// var price = $("#" + foodName + "_price" ).val();
-	    	var price = $("#Apples_price").val();
+	    	var origPrice = $("#" + foodName + "_price").attr("name");
+	    	// newPrice = parseFloat ( $("#" + foodName + "_price").text() );
 
-	    	console.log("l%: " + leftPercent );
-	    	console.log("fn: " + foodName);
-	    	console.log("p$: " + price);
-	    	$("#" + foodName + "_price" ).val( price - (leftPercent * price) );
-	    	// var leftPercent = $(this).val() * 0.01;
-	    	// var foodName = $(this).id.replace("slider_", "");
-	    	// var price = $( foodName + "_price" ).val();
-
-	    	// $( foodName + "_price" ).val( price - (leftPercent * price) );
+	    	var newPrice = (1 -leftPercent ) * origPrice;
+	    	$("#" + foodName + "_price" ).text( ( newPrice ).toFixed(2) );
 		}
 	// });
 </script>
