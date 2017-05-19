@@ -1,7 +1,7 @@
 <?php include("include/header.php"); ?>
     <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -39,7 +39,7 @@
 				tempCycle.child("cycle").set(true);
 				tempCycle.child("fruits").push({
 					foodName,
-					"price" : 3.5 
+					"price" : 3.5
 				});
 			});
 		});
@@ -65,7 +65,7 @@
 	function noCyclesFound(){
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
-		
+
 		var count;
 		userNode.on("value", function(snap){
 			var count = snap.val().cycleCount;
@@ -95,18 +95,17 @@
 	});
 </script>
 
-<div class="container">
+<div class="container white-text green lighten-1">
 	<div class="row">
-	<!-- for the icon arrow -->
-		<div class="col s12">
-			<h4><a href="addFood.php"><i class="small material-icons">arrow_left</i> Back </a> </h4>
+		<!-- for the icon arrow -->
+		<div class="col s6 left-align">
+			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
 		</div>
-	<!-- for the heading "Add Fruits" and its image-->		
+	</div>
+	<div class="row">
+	<!-- for the heading "Add Fruits" and its image-->
 		<div class="col s12 center-align">
 			<h4> Add Fruits </h4>
-		</div>
-		<div class="col s12 center-align">
-			<img src="/images/fruits.png">
 		</div>
 	</div>
 	<!-- Search bar -->
@@ -120,10 +119,10 @@
 			</div>
 		</form>
 	</div>
-<!-- List the items of fruits for the users to choose and enter the price-->		
+<!-- List the items of fruits for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
-			<input type="submit" value="Add" id="submitBtn"/>
+			<input type="submit" value="Add" id="submitBtn" hidden/>
             <div class="row center">
                 <div class="col s6">
                     Product Name
