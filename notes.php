@@ -98,6 +98,8 @@
 			});
 		});
 	}
+  
+  
 		function moveMe(src) {
 			$(this).trigger('change');
 	    	console.log( $(src).val() );
