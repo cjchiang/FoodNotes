@@ -31,13 +31,13 @@
 			</div>
 		</br>
 			<div class="row" id="navButtons">
-					<div id="loginBtn" class="col s4 left-align">
+					<div id="loginBtn" class="col s5 left-align">
 							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
 					</div>
-					<div id="easterEggBtn" class="col s4 center-align">
-							<a class="btn waves-effect waves-light green">Start</a>
+					<div id="easterEggBtn" class="col s2 center-align">
+							<a class="btn waves-effect waves-light green"></a>
 					</div>
-					<div id="signupBtn" class="col s4 right-align">
+					<div id="signupBtn" class="col s5 right-align">
 							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
 					</div>
 			</div>
