@@ -2,7 +2,7 @@
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-<script src="script/addItems.js" type="text/javascript"></script>
+<script src="script/addItemsForMeat.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 	/*When search bar is loaded, populate page with a list of meats
@@ -43,10 +43,10 @@
 	<!-- List the items of meat for the users to choose and enter the price-->
 	<div class="row">
 		<form action="processFood.php" method="POST" class="col s12" id="anchor_head">
-						<div class="row center-align">
-	            <input type="submit"  value="Add" class="btn waves-effect waves-light green"/>
-							<br/>
-						</div>
+            <div class="row center-align">
+            <input type="submit"  value="Add" class="btn waves-effect waves-light green"/>
+                <br/>
+            </div>
             <div class="row center">
                 <div class="col s6">
                     Product Name
