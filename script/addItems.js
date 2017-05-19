@@ -36,9 +36,9 @@
 				'</div>' +		
 				'</div> '
 				); 
+		    	$("#"+foodName+"_bought").val(snapData.price);
 		    }
 
-		    $("#"+foodName+"_bought").val(snapData.price);
 		});
 	}
 
