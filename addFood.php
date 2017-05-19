@@ -33,7 +33,7 @@
 		// location.replace("index.php");
 	  }
 	});
-
+/*
 	function createCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
@@ -53,7 +53,7 @@
 			});
 		});
 	}
-
+*/
 	function addFood(foodCategory){
 		//quincy add ur PHP stuff here
 		var FOODS_FROM_POST_OR_SESSION = null;
