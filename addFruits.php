@@ -9,11 +9,90 @@
 		$(document).keyup( function(key) {
 			filterProducts($("#search").val(), "Fruit");
 		});
-
 		populateList("Fruit");
 	});
 
-	
+	function logMe(elem) {
+		var input = elem.id.replace("check", "input");
+		var foodName = input.split("_").join(" ") ;
+		console.log("logged: " + input);
+		if ($(elem).is(':checked')) {
+			// $(input).prop("disabled", false);
+			appendItem(foodName);
+		} else {
+			// $(input).prop("disabled", true);
+		}
+	}
+
+	//append item to temporary list
+	function appendItem(foodName){
+		var currentUser = firebase.auth().currentUser;
+		var currentUserNode = users.child(currentUser.uid);
+
+		currentUserNode.once("value", function(snap){
+
+			var tempCycle = currentUserNode.child("temp");
+
+			tempCycle.once("value", function(snap){
+				var price = $("#" + foodName + "_bought").val();
+
+				tempCycle.child("cycle").set(true);
+				tempCycle.child("fruits").push({
+					foodName,
+					"price" : 3.5 
+				});
+			});
+		});
+	}
+
+	firebase.auth().onAuthStateChanged(function(user) {
+	  if (user != null) {
+	    console.log("logged in");
+	    if ( noCyclesFound() ) {
+	    	console.log("creating cycle");
+	    	setUpCycleCount();
+	    } else {
+	    	console.log("cycle exists");
+	    }
+	  } else {
+	    console.log("not logged in");
+	    // TODO: before pushing to gitHub, uncomment below:
+		// alert("You're not logged in you hacker! Go home!");
+		// location.replace("index.php");
+	  }
+	});
+
+	function noCyclesFound(){
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+		
+		var count;
+		userNode.on("value", function(snap){
+			var count = snap.val().cycleCount;
+		});
+		console.log(count);
+		return count;
+	}
+	function setUpCycleCount() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+
+		userNode.once("value", function(snap){
+			// var count = snap.val().cycleCount;
+			userNode.child("cycleCount").set(1);
+			// userNode.child(cycleIndex).update({
+			// 	"cycle" : true,
+			// 	"fruits" : "placeholder",
+			// 	"vegetables" : "placeholder",
+			// 	"meats" : "placeholder"
+			// });
+		});
+	}
+
+
+	$("submitBtn").click(function(){
+		$()
+	});
 </script>
 
 <div class="container">
@@ -44,6 +123,15 @@
 <!-- List the items of fruits for the users to choose and enter the price-->		
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
+			<input type="submit" value="Add" id="submitBtn"/>
+            <div class="row center">
+                <div class="col s6">
+                    Product Name
+                </div>
+                <div class="col s6">
+                    ($)
+                </div>
+            </div>
    		</form>
 	</div>
 </div>

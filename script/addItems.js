@@ -9,6 +9,7 @@
 	  firebase.initializeApp(config);
 	const database = firebase.database();
 	const foods = database.ref("foods");
+	const users = database.ref("users");
 
 	/*Populates a drop down with fruit food itemns, based on text inside search bar*/
 	function populateList(foodCategory) {
@@ -23,9 +24,11 @@
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
 					'<a id="click_' + foodName +'"></a>'+
-				'<div class="input-field col s6" class="input_BackGround">' +
-					'<input type="checkbox" id="check_' + foodName + '"/>' +		
-					'<label for="check_' + foodName+ '"">' + snapData.product + '</label>' +
+				'<div class="input-field col s6 ">' +
+					'<input id="' + foodName + '" type="checkbox" '+
+					'onchange="logMe(this);"'
+					+'name="checkbox"/>' +		
+					'<label for="' + foodName+ '">' + snapData.product + '</label>' +
 				'</div>' +
 				'<div class="input-field col s6">' +
 					'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price + 
@@ -34,6 +37,8 @@
 				'</div> '
 				); 
 		    }
+
+		    $("#"+foodName+"_bought").val(snapData.price);
 		});
 	}
 
@@ -80,3 +85,5 @@
 	        scrollTop: $("#click_" + elemID).offset().top
 	    }, scrollSpeed);
 	}
+
+	
