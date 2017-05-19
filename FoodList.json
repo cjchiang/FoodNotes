@@ -1,0 +1,572 @@
+[
+  {
+    "Products": "Round steak",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 17.7,
+    "Category": "Meat",
+    "My Price": 17.7,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Sirloin steak",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 22.57,
+    "Category": "Meat",
+    "My Price": 22.57,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Prime rib roast",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 31.58,
+    "Category": "Meat",
+    "My Price": 31.58,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Blade roast",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 16.19,
+    "Category": "Meat",
+    "My Price": 16.19,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Stewing beef",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 15.7,
+    "Category": "Meat",
+    "My Price": 15.7,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Ground beef",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 12.21,
+    "Category": "Meat",
+    "My Price": 12.21,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Pork chops",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 11.86,
+    "Category": "Meat",
+    "My Price": 11.86,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Chicken",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 7.17,
+    "Category": "Meat",
+    "My Price": 7.17,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Bacon",
+    "Price Amount": 500,
+    "Units": "grams",
+    "Average Price": 6.69,
+    "Category": "Meat",
+    "My Price": 6.69,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Wieners",
+    "Price Amount": 450,
+    "Units": "grams",
+    "Average Price": 4.26,
+    "Category": "Meat",
+    "My Price": 4.26,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Canned sockeye salmon",
+    "Price Amount": 213,
+    "Units": "grams",
+    "Average Price": 4.38,
+    "Category": "Meat",
+    "My Price": 4.38,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Homogenized milk",
+    "Price Amount": 1,
+    "Units": "litre",
+    "Average Price": 2.48,
+    "Category": "Dairy",
+    "My Price": 2.48,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Partly skimmed milk",
+    "Price Amount": 1,
+    "Units": "litre",
+    "Average Price": 2.33,
+    "Category": "Dairy",
+    "My Price": 2.33,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Butter",
+    "Price Amount": 454,
+    "Units": "grams",
+    "Average Price": 4.9,
+    "Category": "Dairy",
+    "My Price": 4.9,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Processed cheese food slices",
+    "Price Amount": 250,
+    "Units": "grams",
+    "Average Price": 2.75,
+    "Category": "Dairy",
+    "My Price": 2.75,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Evaporated milk",
+    "Price Amount": 385,
+    "Units": "millilitres",
+    "Average Price": 1.86,
+    "Category": "Dairy",
+    "My Price": 1.86,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Eggs",
+    "Price Amount": 1,
+    "Units": "dozen",
+    "Average Price": 3.08,
+    "Category": "Meat",
+    "My Price": 3.08,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Bread",
+    "Price Amount": 675,
+    "Units": "grams",
+    "Average Price": 2.81,
+    "Category": "Grain",
+    "My Price": 2.81,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Soda crackers",
+    "Price Amount": 450,
+    "Units": "grams",
+    "Average Price": 3.09,
+    "Category": "Grain",
+    "My Price": 3.09,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Macaroni",
+    "Price Amount": 500,
+    "Units": "grams",
+    "Average Price": 1.48,
+    "Category": "Grain",
+    "My Price": 1.48,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Flour",
+    "Price Amount": 2.5,
+    "Units": "kilograms",
+    "Average Price": 4.91,
+    "Category": "Grain",
+    "My Price": 4.91,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Corn flakes",
+    "Price Amount": 675,
+    "Units": "grams",
+    "Average Price": 4.61,
+    "Category": "Grain",
+    "My Price": 4.61,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Apples",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 3.85,
+    "Category": "Fruit",
+    "My Price": 3.85,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Bananas",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 1.58,
+    "Category": "Fruit",
+    "My Price": 1.58,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Grapefruits",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 3.74,
+    "Category": "Fruit",
+    "My Price": 3.74,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Oranges",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 3.32,
+    "Category": "Fruit",
+    "My Price": 3.32,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Apple juice",
+    "Price Amount": 1.36,
+    "Units": "litres",
+    "Average Price": 2.07,
+    "Category": "Fruit",
+    "My Price": 2.07,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Orange juice",
+    "Price Amount": 1,
+    "Units": "litre",
+    "Average Price": 4.14,
+    "Category": "Fruit",
+    "My Price": 4.14,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Carrots",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 2.03,
+    "Category": "Vegetable",
+    "My Price": 2.03,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Celery",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 2.71,
+    "Category": "Vegetable",
+    "My Price": 2.71,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Mushrooms",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 8.31,
+    "Category": "Other",
+    "My Price": 8.31,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Onions",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 1.93,
+    "Category": "Vegetable",
+    "My Price": 1.93,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Potatoes",
+    "Price Amount": 4.54,
+    "Units": "kilograms",
+    "Average Price": 6.58,
+    "Category": "Vegetable",
+    "My Price": 6.58,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "French fried potatoes",
+    "Price Amount": 1,
+    "Units": "kilogram",
+    "Average Price": 2.56,
+    "Category": "Vegetable",
+    "My Price": 2.56,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Baked beans",
+    "Price Amount": 398,
+    "Units": "millilitres",
+    "Average Price": 1.3,
+    "Category": "Vegetable",
+    "My Price": 1.3,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Tomatoes",
+    "Price Amount": 796,
+    "Units": "millilitres",
+    "Average Price": 1.54,
+    "Category": "Vegetable",
+    "My Price": 1.54,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Tomato juice",
+    "Price Amount": 1.36,
+    "Units": "litres",
+    "Average Price": 2.44,
+    "Category": "Vegetable",
+    "My Price": 2.44,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Ketchup",
+    "Price Amount": 1,
+    "Units": "litre",
+    "Average Price": 3.21,
+    "Category": "Other",
+    "My Price": 3.21,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Sugar",
+    "Price Amount": 2,
+    "Units": "kilograms",
+    "Average Price": 2.83,
+    "Category": "Other",
+    "My Price": 2.83,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Coffee",
+    "Price Amount": 300,
+    "Units": "grams",
+    "Average Price": 6.44,
+    "Category": "Other",
+    "My Price": 6.44,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Coffee",
+    "Price Amount": 200,
+    "Units": "grams",
+    "Average Price": 6.85,
+    "Category": "Other",
+    "My Price": 6.85,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Tea",
+    "Price Amount": 72,
+    "Units": "Bags",
+    "Average Price": 4.53,
+    "Category": "Other",
+    "My Price": 4.53,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Cooking or salad oil",
+    "Price Amount": 1,
+    "Units": "litre",
+    "Average Price": 3.99,
+    "Category": "Other",
+    "My Price": 3.99,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Soup",
+    "Price Amount": 284,
+    "Units": "millilitres",
+    "Average Price": 1.12,
+    "Category": "Other",
+    "My Price": 1.12,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Baby food",
+    "Price Amount": 128,
+    "Units": "millilitres",
+    "Average Price": 0.99,
+    "Category": "Other",
+    "My Price": 0.99,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Peanut butter",
+    "Price Amount": 500,
+    "Units": "grams",
+    "Average Price": 3.43,
+    "Category": "Other",
+    "My Price": 3.43,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Fruit flavoured crystals",
+    "Price Amount": 2.25,
+    "Units": "litres",
+    "Average Price": 1.93,
+    "Category": "Other",
+    "My Price": 1.93,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Soft drinks",
+    "Price Amount": 2,
+    "Units": "litres",
+    "Average Price": 2.03,
+    "Category": "Other",
+    "My Price": 2.03,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Soft drinks",
+    "Price Amount": 2,
+    "Units": "litres",
+    "Average Price": 1.94,
+    "Category": "Other",
+    "My Price": 1.94,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Paper towels",
+    "Price Amount": 2,
+    "Units": "Rolls",
+    "Average Price": 2.69,
+    "Category": "Other",
+    "My Price": 2.69,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Facial tissue",
+    "Price Amount": 200,
+    "Units": "Tissues",
+    "Average Price": 2.68,
+    "Category": "Other",
+    "My Price": 2.68,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Bathroom tissue",
+    "Price Amount": 4,
+    "Units": "Rolls",
+    "Average Price": 2.54,
+    "Category": "Other",
+    "My Price": 2.54,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Shampoo",
+    "Price Amount": 300,
+    "Units": "millilitres",
+    "Average Price": 4.05,
+    "Category": "Other",
+    "My Price": 4.05,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Deodorant",
+    "Price Amount": 60,
+    "Units": "grams",
+    "Average Price": 4.69,
+    "Category": "Other",
+    "My Price": 4.69,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Toothpaste",
+    "Price Amount": 100,
+    "Units": "millilitres",
+    "Average Price": 2.67,
+    "Category": "Other",
+    "My Price": 2.67,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Cigarettes",
+    "Price Amount": 200,
+    "Units": "-",
+    "Average Price": 103.92,
+    "Category": "Other",
+    "My Price": 103.92,
+    "My Amount": 0,
+    "My Subtotal": 0
+  },
+  {
+    "Products": "Regular",
+    "Price Amount": "-",
+    "Units": "-",
+    "Average Price": 106,
+    "Category": "Other",
+    "My Price": 106,
+    "My Amount": 0,
+    "My Subtotal": 0
+  }
+]
