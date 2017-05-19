@@ -1,4 +1,4 @@
-<?php include("include/header.php");?>
+<?php include("include/header.php"); session_start();?>
 <?php 
 $storeOnOrOff = array();
 $storePrices = array();
@@ -26,11 +26,15 @@ foreach($_POST as $foodName => $value)
 $_SESSION['OnOffHolder'] = $storeOnOrOff;
 $_SESSION['storeMyPrices'] = $storePrices;
 $_SESSION['storeMyValues'] = $storeValues;
+<<<<<<< HEAD
 $a = true;
 if($a) {
     echo $_SESSION['OnOffHolder'][0];
     echo "<font></font>";
 }
+=======
+header('Location: addFood.php');
+>>>>>>> aad885df71c3fdb17addbfe49e8dce87b1e79b79
 ?>
 <script type="text/javascript">
     $("font").ready(function(){

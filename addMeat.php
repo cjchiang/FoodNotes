@@ -1,7 +1,7 @@
-<?php include("include/header.php"); ?>
+<?php include("include/header.php"); session_start()?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -59,10 +59,4 @@
 
 
 </div>
-<!--<div class="container-fluid ourContent">
-<div id="canvasSelect col-xs-12">
-<canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>
-</div>
-</div>-->
-
 <?php include("include/footer.php"); ?>
