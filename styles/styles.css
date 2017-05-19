@@ -15,6 +15,58 @@ body {
 #logo {
   height: 100%;
   width: 100%;
+  max-width: 700px;
+  max-height: 200px;
+}
+/*Sets the color of the slider */
+input[type=range]::-webkit-slider-thumb {
+  background-color: white;
+}
+
+/* set the opacity of the easter egg button dissapear*/
+#easterEggBtn {
+  opacity:0;
+}
+
+/*Set the search bar to not display*/
+#easterEggSearch {
+  display:none;
+}
+
+/*Set the search bar for the easter egg white at the bottom*/
+#easterEgg {
+  border-bottom: 1px solid white;
+}
+
+/* Color of the slider */
+input[type=range]::-moz-range-thumb {
+  background-color: white;
+}
+input[type=range]::-ms-thumb {
+  background-color: white;
+}
+
+/*These are to edit the thumb and the text inside the thumb for sliders */
+input[type=range] + .thumb {
+  background-color: #616161;
+}
+input[type=range] + .thumb.active .value {
+  color: white;
+}
+
+/* Changes the color of bottom border of search bar*/
+#search {
+  border-bottom: 1px solid white;
+}
+
+/* Change the color of the tick for the checkboxes */
+.check_tick:checked + label:before {
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.check_tick + label:before {
+  border: 2px solid white;
 }
 
 /*Aligns the login and signup text*/

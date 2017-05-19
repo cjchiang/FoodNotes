@@ -11,6 +11,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="script/login.js" type="text/javascript"></script>
+		<script src="script/easterEgg.js" type="text/javascript"></script>
 	</head>
     <body>
 		</br>
@@ -19,15 +20,25 @@
 							<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
 					</div>
 			</div>
-			<div class="row">
-					<div id="loginBtn" class="col s6 left-align">
+			<div  id="easterEggSearch" class="container white-text green">
+				<div class="row">
+					<div class="input-field col s12">
+						<label for="easterEgg"><i class="material-icons">search</i></label>
+						<input id="easterEgg" type="search"/>
+					</div>
+				</div>
+				<audio id="easterAudio" src="images/9000.wav"></audio>
+			</div>
+		</br>
+			<div class="row" id="navButtons">
+					<div id="loginBtn" class="col s5 left-align">
 							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
 					</div>
-					<div id="signupBtn" class="col s6 right-align">
-							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
+					<div id="easterEggBtn" class="col s2 center-align">
+							<a class="btn waves-effect waves-light green"></a>
 					</div>
-					<div id="logoutBtn" class="col s12 right-align" hidden>
-							<a id="signout btn" class="btn waves-effect waves-light green">Sign Out</a>
+					<div id="signupBtn" class="col s5 right-align">
+							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
 					</div>
 			</div>
 			<nav class="green">
