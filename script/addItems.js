@@ -25,15 +25,15 @@
 				'<div class="row" id ="' + snap.key + '">' +
 					'<a id="click_' + foodName +'"></a>'+
 				'<div class="input-field col s6 ">' +
-					'<input id="' + foodName + '" type="checkbox" '+
+					'<input class="check_tick" id="' + foodName + '" type="checkbox" '+
 					'onchange="logMe(this);"'
-					+'name="checkbox"/>' +		
+					+'name="checkbox"/>' +
 					'<label for="' + foodName+ '">' + snapData.product + '</label>' +
 				'</div>' +
 				'<div class="input-field col s6">' +
-					'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price + 
+					'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price +
 					'"/>' +
-				'</div>' +		
+				'</div>' +
 				'</div> '
 				); 
 		    	$("#"+foodName+"_bought").val(snapData.price);
@@ -85,5 +85,3 @@
 	        scrollTop: $("#click_" + elemID).offset().top
 	    }, scrollSpeed);
 	}
-
-	
