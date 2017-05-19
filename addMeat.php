@@ -43,7 +43,10 @@
 	<!-- List the items of meat for the users to choose and enter the price-->
 	<div class="row">
 		<form action="processFood.php" method="POST" class="col s12" id="anchor_head">
-            <input type="submit"  value="Add"/>
+						<div class="row center-align">
+	            <input type="submit"  value="Add" class="btn waves-effect waves-light green"/>
+							<br/>
+						</div>
             <div class="row center">
                 <div class="col s6">
                     Product Name
