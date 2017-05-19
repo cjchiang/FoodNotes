@@ -33,7 +33,7 @@
 		// location.replace("index.php");
 	  }
 	});
-/*
+
 	function createCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
@@ -53,7 +53,7 @@
 			});
 		});
 	}
-*/
+
 	function addFood(foodCategory){
 		//quincy add ur PHP stuff here
 		var FOODS_FROM_POST_OR_SESSION = null;
@@ -147,7 +147,7 @@
 			</div>
 			<div class="collapsible-body note_body center-align">
                 <?php
-                    if (isset($_SESSION['OnOffHolder']) && !is_null($_SESSION['OnOffHolder'][0])) {
+                    if (!is_null($_SESSION['OnOffHolder'][0])) {
                         $counter = 0;
                         foreach($_SESSION['OnOffHolder'] as $nameMe) {
                         foreach($_SESSION['storeMyPrices'] as $nameTwo) {
