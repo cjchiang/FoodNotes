@@ -1,7 +1,7 @@
 <?php include("include/header.php"); ?>
     <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -15,13 +15,12 @@
 	});
 
 </script>
-<div class="container">
 	<div class="row">
 	<!-- for the icon arrow -->
 		<div class="col s12">
 			<h4><a href="addFood.php"><i class="small material-icons">arrow_left</i> Back </a> </h4>
 		</div>
-	<!-- for the heading "Add Veggies" and its image-->		
+	<!-- for the heading "Add Veggies" and its image-->
 		<div class="col s12 center-align">
 			<h4> Add Viggies </h4>
 		</div>
@@ -41,7 +40,7 @@
 			</div>
 		</form>
 	</div>
-<!-- List the items of veggies for the users to choose and enter the price-->		
+<!-- List the items of veggies for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
    		</form>

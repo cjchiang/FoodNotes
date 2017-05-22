@@ -4,7 +4,6 @@ The current cycle does not show up here, but all non-100%
 used items from the past show up here. Items here are added to
 the running count of total items wasted
 -->
-<div class=" container white-text green lighten-1">
   <h4 class="center-align">Previous Cycles</h4>
   <ul class="collapsible" data-collapsible="expandable">
     <li>
@@ -186,5 +185,4 @@ the running count of total items wasted
           </li>
         </ul>
       </ul>
-    </div>
     <?php include("include/footer.php"); ?>

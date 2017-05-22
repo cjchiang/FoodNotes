@@ -3,7 +3,6 @@
 	After user added their items, those items will show up here.
 	Before the current cycle ends, user can document how much of a specified item
 -->
-<div class="container white-text green lighten-1">
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script type="text/javascript">
 	var config = {
@@ -115,7 +114,6 @@
 	// });
 </script>
 
-<div class="white-text green lighten-1">
 	<div id="notes">
 		<div class="row center-align">
 			<h3>Total Waste:</h3>
@@ -329,8 +327,6 @@
 		</li>
 	</ul>
 	</div>
-</div>
-</div>
 <?php include("include/footer.php");?>
 <!-- </body>
 </html> -->

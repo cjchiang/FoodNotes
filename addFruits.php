@@ -94,8 +94,6 @@
 		$()
 	});
 </script>
-
-<div class="container white-text green lighten-1">
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
@@ -133,7 +131,6 @@
             </div>
    		</form>
 	</div>
-</div>
     <!--<div class="container-fluid ourContent">
         <div id="canvasSelect col-xs-12">
             <canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>

@@ -1,3 +1,4 @@
+</div>
 <br/>
 <div class="container-fluid bottomRow">
     <hr/>
