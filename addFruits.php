@@ -39,7 +39,7 @@
 				tempCycle.child("cycle").set(true);
 				tempCycle.child("fruits").push({
 					foodName,
-					"price" : 3.5
+					"price" : price 
 				});
 			});
 		});
@@ -94,7 +94,6 @@
 		$()
 	});
 </script>
-
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">

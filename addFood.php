@@ -1,5 +1,6 @@
-<?php include("include/header.php"); session_start();?>
+<?php include("include/header.php"); ?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
+
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="script/addfood.js"></script>
@@ -21,38 +22,13 @@
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	    console.log("logged in");
-	    createCycle();
-
-	    /*can't seem to access user outside this function,
-		 add trigger function here for add Item if needed*/
-
+	    findTemp();
 	  } else {
 	    console.log("not logged in");
-	    // TODO: before pushing to gitHub, uncomment below:
 		// alert("You're not logged in you hacker! Go home!");
 		// location.replace("index.php");
 	  }
 	});
-
-	function createCycle() {
-		var user = firebase.auth().currentUser;
-		var userNode = users.child(user.uid);
-
-		userNode.once("value", function(snap){
-			var count = snap.val().cycleCount;
-			// var cycleIndex = "cycle".concat(String(count));
-
-			var cycleIndex = "cycle" + count;
-
-			userNode.child("cycleCount").set(++count);
-			userNode.child(cycleIndex).update({
-				"cycle" : true,
-				"fruits" : "placeholder",
-				"vegetables" : "placeholder",
-				"meats" : "placeholder"
-			});
-		});
-	}
 
 	function addFood(foodCategory){
 		//quincy add ur PHP stuff here
@@ -80,7 +56,113 @@
 				})
 			});
 		});
+	}
 
+	function findTemp(){
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+		
+		userNode.on("child_added", function(snap){
+		if (snap.key == "temp")
+			populateTempList("fruits", userNode.child("temp"));
+		});
+	}
+
+	function populateTempList(foodCategory, tempCycleRef) {
+		tempCycleRef.on("value", function(snap){
+			var snapData = snap.val();
+			var fruits = tempCycleRef.child(foodCategory);
+			fruits.on("child_added", function(childSnap){
+				var childSnapData = childSnap.val();
+				var foodName = childSnapData.foodName;
+				var price = childSnapData.price;
+				console.log(childSnapData.foodName);
+
+				$("#anchor_head_fruit").append(
+					'<div class="row">' +
+						'<div class="col s8">' +
+							'<span>' + foodName + '</span>' +
+						'</div>' +
+						'<div class="col s4">' +
+							'<span>' + price + '</span>' +
+						'</div>' +
+					'</div>	'
+				);
+			});
+		});
+	}
+
+	function finalize() {
+		addCycle();
+		ctrl_x_temp();
+		location.replace("notes.php");
+		
+		// var user = firebase.auth().currentUser;
+		// var userNode = users.child(user.uid);
+		// var lastCycle = getLastCycle(userNode);
+		// lastCycle.update({"cycle" : true});
+	}
+
+	// function ctrl_x_temp() {
+	// 	var user = firebase.auth().currentUser;
+	// 	var userNode = users.child(user.uid);
+	// 	var lastCycle = getLastCycle(userNode);
+		
+	// 	// var t = 
+	// 	userNode.on("value", function(){
+	// 		var tempCycleRef = userNode.child("temp");
+
+	// 		tempCycleRef.on("child_added", function(snap){
+				
+	// 			tempCycleRef.remove();
+	// 			lastCycle.set(snap.val());	
+	// 			});
+	// 		});
+	// }
+	var tempNode;
+	var lastCycle;
+	function ctrl_x_temp() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+		lastCycle = getLastCycle(userNode);
+		tempNode = database.ref("users/"+user.uid+"/temp");
+
+		tempNode.on("value", copyMe);
+		tempNode.off("value", copyMe);
+		tempNode.remove();
+	}
+
+	function copyMe(snap){
+		lastCycle.set(snap.val());
+	}
+	function getLastCycle(userNode) {
+		// var count = userNode.cycleCount - 1;
+		var count;  
+		userNode.once("value", function(snap){
+			console.log("inner cycleIndex: " + snap.val().cycleCount);
+			count = snap.val().cycleCount;
+		});	
+		var cycleIndex = "cycle" + count;
+		console.log("outter cycleIndex: " + count);
+		return userNode.child(cycleIndex);
+	}
+
+	function addCycle() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+
+		userNode.once("value", function(snap){
+			var count = snap.val().cycleCount;
+			var cycleIndex = "cycle" + count;
+			count++;
+			userNode.child("cycleCount").set(count);
+			// userNode.child(cycleIndex).update({
+			// 	// "cycle" : true,
+			// 	"fruits" : "placeholder",
+			// 	"vegetables" : "placeholder",
+			// 	"meats" : "placeholder"
+			// });
+		});
 	}
 </script>
 <!-- Add 4 categories -->
@@ -91,7 +173,8 @@
 		</div>
 		<!-- For submitting -->
 		<div class="col s6 right-align">
-			<a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
+			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
+			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
@@ -146,7 +229,7 @@
 			</div>
 			<div class="collapsible-body note_body center-align">
                 <?php
-                    if (!is_null($_SESSION['OnOffHolder'][0])) {
+                    if (isset($_SESSION['OnOffHolder']) && !is_null($_SESSION['OnOffHolder'][0])) {
                         $counter = 0;
                         foreach($_SESSION['OnOffHolder'] as $nameMe) {
                         foreach($_SESSION['storeMyPrices'] as $nameTwo) {
@@ -181,31 +264,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body center-align">
-				<div class="row">
-					<div class="col s8">
-						<span>Peach</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Banana</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Apple</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
+			<div class="collapsible-body note_body center-align" id="anchor_head_fruit">
 			</div>
 		</li>
 		<li class="light-green accent-4">

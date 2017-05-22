@@ -16,7 +16,102 @@
 	  firebase.initializeApp(config);
 	const database = firebase.database();
 	const foods = database.ref("foods");
+	const users = database.ref("users");
 
+	firebase.auth().onAuthStateChanged(function(user) {
+	  if (user != null) {
+	    console.log("logged in");
+	    setUpNodes();
+	  } else {
+	    console.log("not logged in");
+		// alert("You're not logged in you hacker! Go home!");
+		// location.replace("index.php");
+	  }
+	});
+
+	var user;
+	var userNode;
+	var lastCycle;
+	var lastCycleNode;
+	function setUpNodes(){
+		user = firebase.auth().currentUser;
+		userNode = users.child(user.uid);
+
+		getLastCycle(userNode);
+		// lastCycleNode = getLastCycle(userNode);
+		// setTimeout(findCurrentList, 500);		
+	}
+	
+	function getLastCycle(userNode) {
+		var count;  
+		userNode.on("value", function(snap){
+			console.log("inner cycleIndex: " + snap.val().cycleCount);
+			count = snap.val().cycleCount;
+
+			var cycleIndex = "cycle" + count;
+			lastCycleNode = userNode.child(cycleIndex);
+			lastCycle = database.ref("users/"+user.uid+"/" + lastCycleNode.key);
+			findCurrentList();
+		});	
+	}
+	function findCurrentList(){
+		// lastCycle = database.ref("users/"+user.uid+"/" + lastCycleNode.key);
+		if (lastCycle)
+			populateCurrentList("fruits", lastCycleNode);
+		else
+			console.log("no cycles in record");
+	}
+
+
+	function populateCurrentList(foodCategory) {
+
+		lastCycleNode.once("value", function(snap){
+			var snapData = snap.val();
+			var cycleFoods = lastCycleNode.child(foodCategory);
+
+			cycleFoods.on("child_added", function(childSnap){
+
+				console.log(49)
+				var childSnapData = childSnap.val();
+				var foodName = childSnapData.foodName;
+				var price = childSnapData.price;
+				console.log("some st: " + childSnapData.foodName);
+
+				// console.log("found something");
+				$("#" + foodCategory + "_body").append( '<div class="row">' +
+						'<div class="col s8 center-align">' +
+							'<span>' + foodName + '</span>' +
+						'</div>'+
+						'<div class="col s4">'+
+							'<span id="' + foodName + '_price" name="' + price +'" >' + price + '</span>' +
+						'</div>' +
+						'<div class="col s10 offset-s1">' +
+							'<form action="#">' +
+								'<p class="range-field">' +
+									'<input class="nodeSlider" onchange="moveMe(this)" type="range" id="slider_'+ foodName + '" min="0" max="100" value="0" step="10"/>' +
+								'</p>' +
+							'</form>' +
+						'</div>'+
+					'</div>'
+				);
+			});
+		});
+	}
+  
+  
+		function moveMe(src) {
+			$(this).trigger('change');
+	    	console.log( $(src).val() );
+	    	console.log( src.id );
+	    	var leftPercent = $(src).val() * 0.01;
+	    	var foodName = src.id.replace("slider_", "");
+	    	var origPrice = $("#" + foodName + "_price").attr("name");
+	    	// newPrice = parseFloat ( $("#" + foodName + "_price").text() );
+
+	    	var newPrice = (1 -leftPercent ) * origPrice;
+	    	$("#" + foodName + "_price" ).text( ( newPrice ).toFixed(2) );
+		}
+	// });
 </script>
 
 	<div id="notes">
@@ -42,7 +137,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body" id="meat_body">
+			<div class="collapsible-body note_body" id="meats_body">
 					<div class="row">
 						<div class="col s8 center-align">
 							<span>Chicken</span>
@@ -53,7 +148,7 @@
 						<div class="col s10 offset-s1">
 							<form action="#">
 								<p class="range-field">
-									<input type="range" id="slider" min="0" max="100" value="0" step="10"/>
+									<input type="range" id="slider_Chicken" min="0" max="100" value="0" step="10"/>
 								</p>
 							</form>
 						</div>
@@ -103,52 +198,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body" id="fruit_body">
-					<div class="row">
-						<div class="col s8 center-align">
-							<span>Apple</span>
-						</div>
-						<div class="col s4">
-							<span>$__ </span>
-						</div>
-						<div class="col s10 offset-s1">
-							<form action="#">
-								<p class="range-field">
-									<input type="range" id="slider" min="0" max="100" value="0" step="10"/>
-								</p>
-							</form>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s8 center-align">
-							<span>Pear</span>
-						</div>
-						<div class="col s4">
-							<span>$__ </span>
-						</div>
-						<div class="col s10 offset-s1">
-							<form action="#">
-								<p class="range-field">
-									<input type="range" id="slider" min="0" max="100" value="0" step="10"/>
-								</p>
-							</form>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s8 center-align">
-							<span>Watermelon</span>
-						</div>
-						<div class="col s4">
-							<span>$__ </span>
-						</div>
-						<div class="col s10 offset-s1">
-							<form action="#">
-								<p class="range-field">
-									<input type="range" id="slider" min="0" max="100" value="0" step="10"/>
-								</p>
-							</form>
-						</div>
-					</div>
+			<div class="collapsible-body note_body" id="fruits_body">
 			</div>
 		</li>
 		<li class= "light-green accent-4">
