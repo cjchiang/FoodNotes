@@ -16,7 +16,6 @@
 
 
 </script>
-<div class="container white-text green lighten-1">
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
@@ -58,5 +57,4 @@
 
 
 
-</div>
 <?php include("include/footer.php"); ?>

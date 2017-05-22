@@ -84,7 +84,6 @@
 	}
 </script>
 <!-- Add 4 categories -->
-<div class="container white-text green lighten-1">
 	<div class="row">
 		<!-- For cancelling purchase -->
 		<div class="col s6 left-align">
@@ -96,8 +95,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s12">
-			<h4>Select a food category</h4>
+		<div class="col s12 center-align">
+			<h4>Select a category</h4>
 		</div>
 	</div>
 	<div class="row">
@@ -292,5 +291,4 @@
 			</div>
 		</li>
 	</ul>
-</div>
 <?php include("include/footer.php"); ?>

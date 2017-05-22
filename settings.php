@@ -3,7 +3,6 @@
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script src="script/login.js" type="text/javascript"></script>
     <script src="settings.js"></script>
-    <div class="container green lighten-1 white-text">
     <div class="row">
         <div class="col s12 center">
             <h1>Settings</h1>
@@ -36,17 +35,16 @@
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
-              <a class="waves-effect waves-light btn green lighten-3">
+              <a class="waves-effect waves-light btn green accent-4">
                 <input type="submit" onclick="checkOption()">
               </a>
             </div>
             <div class="col s6">
-              <a class="waves-effect waves-light btn green lighten-3">
+              <a class="waves-effect waves-light btn green accent-4">
                 <input value="LogOut" type="submit" id="logoutBtn">
               </a>
             </div>
         </div>
-    </div>
     <div id ="test"></div>
    <script>
     $(document).ready(function() {
