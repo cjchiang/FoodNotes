@@ -128,7 +128,8 @@
 		$("#registerBtn").click(function(){
 			firebase.auth().createUserWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
 			firebase.database().ref("users").push({
-				"email" : $("#inputUsername").val()
+				"email" : $("#inputUsername").val(),
+				"cycleCount" : 0
 			});
 		});
 

@@ -22,7 +22,6 @@ body {
 input[type=range]::-webkit-slider-thumb {
   background-color: white;
 }
-<<<<<<< HEAD
 
 /* set the opacity of the easter egg button dissapear*/
 #easterEggBtn {
@@ -39,6 +38,7 @@ input[type=range]::-webkit-slider-thumb {
   border-bottom: 1px solid white;
 }
 
+/* Color of the slider */
 input[type=range]::-moz-range-thumb {
   background-color: white;
 }
