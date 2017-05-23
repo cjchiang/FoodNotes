@@ -44,14 +44,6 @@ input[type=range]::-webkit-slider-thumb {
 #easterEgg {
   border-bottom: 1px solid white;
 }
-
-.flattenMe {
-  padding-top: 0px ;
-  padding-bottom: 0px; 
-  margin-top: 0px;
-  margin-top: 0px;
-}
-
 /* Color of the slider */
 input[type=range]::-moz-range-thumb {
   background-color: white;
@@ -86,11 +78,6 @@ input[type=range] + .thumb.active .value {
 /*Aligns the login and signup text*/
 .logAndSign{
   text-align: right;
-}
-
-/*Sets heading*/
-h2 {
-  padding-left: 10%;
 }
 
 /*Border for the nav bar*/
@@ -252,6 +239,11 @@ hr {
   box-shadow: 1px 1px 1px 1px white;
 }
 
+/*Adds a the look for the container*/
+.container {
+   border-radius: 5px;
+   padding: 15px;
+ }
 
 /*default format of the input type email*/
 .input-field input[type=email] {
