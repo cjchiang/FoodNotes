@@ -11,6 +11,12 @@ body {
   color: black;
 }
 
+#login_form{
+  display: inline-block;
+  padding: 32px 48px 0px 48px;
+  border: 1px solid #EEE;
+}
+
 /*Sets the logo size*/
 #logo {
   height: 100%;
@@ -79,6 +85,10 @@ h2 {
   padding-left: 10%;
 }
 
+/*Border for the nav bar*/
+#nav_mobile {
+  border: 2px solid black;
+}
 /*increase size of drop down chevron*/
 label.largo_svg {
   margin: 30px;
@@ -289,12 +299,6 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: grey;
-}
-
-.container {
-  border-radius: 5px;
-  background-color:#f2f2f2;
-  padding: 20px;
 }
 
 .submit0 {
