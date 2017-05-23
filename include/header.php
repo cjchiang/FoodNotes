@@ -9,6 +9,9 @@
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="icon" href="../images/favicon.png"/>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="../script/amIsignedIn.js"></script>
 	</head>
     <body background="images/lined_paper.png">
 		</br>
