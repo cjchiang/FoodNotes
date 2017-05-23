@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="script/login.js" type="text/javascript"></script>
 		<script src="script/easterEgg.js" type="text/javascript"></script>
+    <link rel="icon" href="../images/favicon.png"/>
 	</head>
     <body background="images/lined_paper.png">
 		</br>
