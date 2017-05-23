@@ -11,6 +11,7 @@ body {
   color: black;
 }
 
+/*Login form to be a block*/
 #login_form{
   display: inline-block;
   padding: 32px 48px 0px 48px;
@@ -240,6 +241,21 @@ hr {
   border-bottom: 1px solid white;
   box-shadow: 0 1px 0 0 white;
 }
+
+/*default format of the input type password*/
+.input-field input[type=password] {
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type password*/
+.input-field input[type=password]:focus + label {
+  color: white;
+}
+/*focus format of the input type password*/
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
 /*default format of the textarea*/
 textarea.materialize-textarea {
   border-bottom: 1px solid white;
