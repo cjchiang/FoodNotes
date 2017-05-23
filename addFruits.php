@@ -12,34 +12,34 @@
 		populateList("Fruit");
 	});
 
-	function logMe(elem) {
-		var input = elem.id.replace("check", "input");
-		var foodName = input.split("_").join(" ") ;
-		console.log("logged: " + input);
-		if ($(elem).is(':checked')) {
-			// $(input).prop("disabled", false);
-			appendItem(foodName);
-		} else {
-			// $(input).prop("disabled", true);
-		}
-	}
-
+	var currentUser;
+	var currentUserNode;
 	//append item to temporary list
-	function appendItem(foodName){
-		var currentUser = firebase.auth().currentUser;
-		var currentUserNode = users.child(currentUser.uid);
+	function appendItem(foodName, refKey){
+		
+		var quantity;
+		var quantity_set = $("#" + foodName + "_quantity").val();
+		var quantity_default = $("#" + foodName + "_quantity").attr("placeholder");
+		var price;
+		var unit_price = $("#" + foodName + "_bought").val();
+		
+		if (quantity_set == "") {
+			price = (parseFloat(quantity_default) * unit_price ).toFixed(2);
+			quantity = quantity_default;
+		} else {
+			price = (parseFloat(quantity_set) * unit_price ).toFixed(2);
+			quantity = quantity_default
+		}
 
-		currentUserNode.once("value", function(snap){
-
+		currentUserNode.once("value", function(){
 			var tempCycle = currentUserNode.child("temp");
-
-			tempCycle.once("value", function(snap){
-				var price = $("#" + foodName + "_bought").val();
-
-				tempCycle.child("cycle").set(true);
-				tempCycle.child("fruits").push({
-					foodName,
-					"price" : price 
+			tempCycle.once("value", function(){
+				var item = foods.child(refKey);
+				item.once("value", function(snap){
+					var newKey = tempCycle.push( snap.val() ).key;
+					tempCycle.child(newKey).update({"your_price" : price});
+					tempCycle.child(newKey).update({"price" : unit_price});
+					tempCycle.child(newKey).update({"default_quantity" : quantity});
 				});
 			});
 		});
@@ -47,6 +47,9 @@
 
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
+	  	currentUser = firebase.auth().currentUser;
+		currentUserNode = users.child(currentUser.uid);
+
 	    console.log("logged in");
 	    if ( noCyclesFound() ) {
 	    	console.log("creating cycle");
@@ -63,36 +66,19 @@
 	});
 
 	function noCyclesFound(){
-		var user = firebase.auth().currentUser;
-		var userNode = users.child(user.uid);
-
 		var count;
-		userNode.on("value", function(snap){
-			var count = snap.val().cycleCount;
+		currentUserNode.on("value", function(snap){
+			count = snap.val().cycleCount;
 		});
 		console.log(count);
 		return count;
 	}
 	function setUpCycleCount() {
-		var user = firebase.auth().currentUser;
-		var userNode = users.child(user.uid);
-
-		userNode.once("value", function(snap){
-			// var count = snap.val().cycleCount;
+		currentUserNode.once("value", function(snap){
 			userNode.child("cycleCount").set(1);
-			// userNode.child(cycleIndex).update({
-			// 	"cycle" : true,
-			// 	"fruits" : "placeholder",
-			// 	"vegetables" : "placeholder",
-			// 	"meats" : "placeholder"
-			// });
 		});
 	}
 
-
-	$("submitBtn").click(function(){
-		$()
-	});
 </script>
 
 <div class="container white-text green lighten-1">
@@ -124,11 +110,14 @@
 		<form action="#" class="col s12" id="anchor_head">
 			<input type="submit" value="Add" id="submitBtn" hidden/>
             <div class="row center">
-                <div class="col s6">
+                <div class="col s4">
                     Product Name
                 </div>
-                <div class="col s6">
-                    ($)
+                <div class="col s4">
+                    Quantity
+                </div>
+                <div class="col s4">
+                    Unit Price $ 
                 </div>
             </div>
    		</form>

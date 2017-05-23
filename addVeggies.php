@@ -44,8 +44,19 @@
 <!-- List the items of veggies for the users to choose and enter the price-->		
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
+			<input type="submit" value="Add" id="submitBtn" hidden/>
+            <div class="row center">
+                <div class="col s4">
+                    Product Name
+                </div>
+                <div class="col s4">
+                    Quantity
+                </div>
+                <div class="col s4">
+                    Unit Price $ 
+                </div>
+            </div>
    		</form>
-
 	</div>
 </div>
 <script type="text/javascript">
