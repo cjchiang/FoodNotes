@@ -80,7 +80,8 @@
 			var foodNameID = foodName.split(' ').join('_');
 			var price = snapData.your_price;
 			var wasted = snapData.wasted;
-
+			console.log("foodNameID:" + foodNameID);
+			console.log("val wasted" + wasted);
 			$("#" + foodCategory + "_body").append(
 				'<div class="row">' +
 					'<div class="col s8 center-align">' +
@@ -108,6 +109,7 @@
 				'</div>'
 				);
 				sum += parseFloat( price);
+				$("#slider_" + foodNameID).val( parseInt(wasted) );
 			});
 		lastCycleNode.child(foodCategory + "_total").set(sum);
 		$("#" + foodCategory + "_body_total").text("$ " + sum.toFixed(2) );
