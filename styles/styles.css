@@ -44,7 +44,6 @@ input[type=range]::-webkit-slider-thumb {
 #easterEgg {
   border-bottom: 1px solid white;
 }
-
 /* Color of the slider */
 input[type=range]::-moz-range-thumb {
   background-color: white;
@@ -79,11 +78,6 @@ input[type=range] + .thumb.active .value {
 /*Aligns the login and signup text*/
 .logAndSign{
   text-align: right;
-}
-
-/*Sets heading*/
-h2 {
-  padding-left: 10%;
 }
 
 /*Border for the nav bar*/
@@ -228,6 +222,29 @@ hr {
   border-bottom: 1px solid white;
   box-shadow: 0 1px 0 0 white;
 }
+
+/*default format of the input type text*/
+.input-field input[type=number]{
+  border: 1px solid white;
+  border-radius: 5px;
+  }
+/*focus format of the label type number*/
+.input-field input[type=number]:focus + label {
+  color:white;
+}
+/*focus format of the input type number*/
+.input-field input[type=number]:focus {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  box-shadow: 1px 1px 1px 1px white;
+}
+
+/*Adds a the look for the container*/
+.container {
+   border-radius: 5px;
+   padding: 15px;
+ }
+
 /*default format of the input type email*/
 .input-field input[type=email] {
   border-bottom: 1px solid white;
@@ -255,7 +272,13 @@ hr {
   border-bottom: 1px solid white;
   box-shadow: 0 1px 0 0 white;
 }
-
+/**/
+.input-field input[type=number]{
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom: 1px solid white;
+}
 /*default format of the textarea*/
 textarea.materialize-textarea {
   border-bottom: 1px solid white;
