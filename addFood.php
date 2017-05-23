@@ -76,7 +76,7 @@
 	function findTemp(){
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
-		
+
 		userNode.on("child_added", function(snap){
 		if (snap.key == "temp")
 			// bug here, if fruit isn't first, it repeats 4x, idk y
@@ -133,11 +133,11 @@
 		lastCycle.set(snap.val());
 	}
 	function getLastCycle(userNode) {
-		var count;  
+		var count;
 		userNode.once("value", function(snap){
 			console.log("inner cycleIndex: " + snap.val().cycleCount);
 			count = snap.val().cycleCount;
-		});	
+		});
 		var cycleIndex = "cycle" + count;
 		console.log("outter cycleIndex: " + count);
 		return userNode.child(cycleIndex);
@@ -207,7 +207,7 @@
 			<div class="collapsible-header red accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Meat</span>
@@ -244,7 +244,7 @@
 			<div class="collapsible-header orange accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Fruit</span>
@@ -261,7 +261,7 @@
 			<div class="collapsible-header light-green accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Veggies</span>
@@ -278,7 +278,7 @@
 			<div class="collapsible-header yellow accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Dairy</span>

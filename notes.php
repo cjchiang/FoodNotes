@@ -39,11 +39,11 @@
 
 		getLastCycle(userNode);
 		// lastCycleNode = getLastCycle(userNode);
-		// setTimeout(findCurrentList, 500);		
+		// setTimeout(findCurrentList, 500);
 	}
-	
+
 	function getLastCycle(userNode) {
-		var count;  
+		var count;
 		userNode.on("value", function(snap){
 			console.log("inner cycleIndex: " + snap.val().cycleCount);
 			count = snap.val().cycleCount;
@@ -52,7 +52,7 @@
 			lastCycleNode = userNode.child(cycleIndex);
 			lastCycle = database.ref("users/"+user.uid+"/" + lastCycleNode.key);
 			findCurrentList();
-		});	
+		});
 	}
 	var once = true;
 	function findCurrentList(){
@@ -125,35 +125,35 @@
 	function updatePercentInDB() {
 		lastCycle.update({ "total_waste" : $("#total_waste_percent").text().replace("%", "") });
 	}
-	function updatePercentOnPage(snap) {	
-		var snapData = snap.val();	
+	function updatePercentOnPage(snap) {
+		var snapData = snap.val();
 		var old_meat_total = snapData.Meat_total
 			if (typeof old_meat_total === "undefined")
 				old_meat_total = 0
 		var old_fruit_total = snapData.Fruit_total
 			if (typeof old_fruit_total === "undefined")
-				old_fruit_total = 0		
+				old_fruit_total = 0
 		var old_veg_total = snapData.Vegetable_total
 			if (typeof old_veg_total === "undefined")
-				old_veg_total = 0		
+				old_veg_total = 0
 		var old_dairy_total = snapData.Dairy_total
 			if (typeof old_dairy_total === "undefined")
-				old_dairy_total = 0		
-		var current_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+				old_dairy_total = 0
+		var current_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
-		
+
 		console.log("old" + old_fruit_total)
 		console.log("current" + current_fruit_total)
 		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
 		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
 		var percent = (curr_sum / orig_sum) * 100
-		
+
 		$("#total_waste_percent").text( percent.toFixed(2) + "%" )
 		// lastCycle.child("total_waste").set($("#total_waste_percent").text().replace("%", ""))
 	}
-  
+
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
     	console.log("moved:" + src.id );
@@ -172,7 +172,7 @@
     	var newPrice = (1 -leftPercent ) * origPrice;
     	$("#" + foodName + "_price" ).text( ( newPrice ).toFixed(2) );
     	// updateTotal();
-    	
+
     	var parentID = $(src).parents(".row").parent().attr("id");
     	console.log("me:" + $(src).parents(".row").parent().attr("id") );
     	updateTotal(parentID)
@@ -184,7 +184,7 @@
 		$("#"+foodGroupID).ready(function(){
 			$("[id$='_price']").each(function() {
 				var itemPriceStr = $("#" + this.id).text();
-				var itemPrice = parseFloat(itemPriceStr); 
+				var itemPrice = parseFloat(itemPriceStr);
 				sum += itemPrice;
 			})
 		});
@@ -198,7 +198,7 @@
 		console.log("sum: " + sum);
 		$("#" + foodGroupID + "_total").text( "$" + sum.toFixed(2) );
 		updatePercent()
-	}		
+	}
 </script>
 
 	<div id="notes">
@@ -214,7 +214,7 @@
 			<div class="collapsible-header red accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Meat</span>
@@ -231,7 +231,7 @@
 			<div class="collapsible-header orange accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Fruits</span>
@@ -248,7 +248,7 @@
 			<div class="collapsible-header light-green accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Veggies</span>
@@ -258,14 +258,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body" id="Vegetable_body">	
+			<div class="collapsible-body note_body" id="Vegetable_body">
 			</div>
 		</li>
 		<li class= "yellow accent-4">
 			<div class="collapsible-header yellow accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Dairy</span>
@@ -281,5 +281,3 @@
 	</ul>
 	</div>
 <?php include("include/footer.php");?>
-<!-- </body>
-</html> -->
