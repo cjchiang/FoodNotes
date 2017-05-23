@@ -133,7 +133,11 @@
 		lastCycle.set(snap.val());
 	}
 	function getLastCycle(userNode) {
+<<<<<<< HEAD
 		var count;
+=======
+		var count;  
+>>>>>>> 0afe292b4a4e04b4214c9b68ddb7c215f32f3c9b
 		userNode.once("value", function(snap){
 			console.log("inner cycleIndex: " + snap.val().cycleCount);
 			count = snap.val().cycleCount;

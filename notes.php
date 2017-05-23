@@ -143,7 +143,6 @@
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
-
 		console.log("old" + old_fruit_total)
 		console.log("current" + current_fruit_total)
 		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
