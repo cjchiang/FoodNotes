@@ -11,6 +11,13 @@ body {
   color: black;
 }
 
+/*Login form to be a block*/
+#login_form{
+  display: inline-block;
+  padding: 32px 48px 0px 48px;
+  border: 1px solid #EEE;
+}
+
 /*Sets the logo size*/
 #logo {
   height: 100%;
@@ -86,6 +93,10 @@ h2 {
   padding-left: 10%;
 }
 
+/*Border for the nav bar*/
+#nav_mobile {
+  border: 2px solid black;
+}
 /*increase size of drop down chevron*/
 label.largo_svg {
   margin: 30px;
@@ -255,6 +266,20 @@ hr {
   border-bottom: 1px solid white;
   box-shadow: 0 1px 0 0 white;
 }
+
+/*default format of the input type password*/
+.input-field input[type=password] {
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type password*/
+.input-field input[type=password]:focus + label {
+  color: white;
+}
+/*focus format of the input type password*/
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
 /**/
 .input-field input[type=number]{
   border-top:none;
@@ -321,12 +346,6 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: grey;
-}
-
-.container {
-  border-radius: 5px;
-  background-color:#f2f2f2;
-  padding: 20px;
 }
 
 .submit0 {
