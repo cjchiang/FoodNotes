@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles/styles.css" />
   <script src="script/login.js" type="text/javascript"></script>
   <script src="script/easterEgg.js" type="text/javascript"></script>
+  <link rel="icon" href="../images/favicon.png"/>
   <script type="text/javascript">
   	var attempted = false;
 	firebase.auth().onAuthStateChanged(function(firebaseUser){
@@ -60,8 +61,8 @@
               <button id="loginBtn" name='btn_login' class='col s12 btn btn-large waves-effect green accent-4'>Login</button>
               </div>
               <div class="row">
-              <button id="registerBtn" name='btn_register' class='col s12 btn btn-large waves-effect green accent-4'>Sign up</button>
-            </div>
+                <a href="register.php" class='col s12 btn btn-large waves-effect green accent-4'>Sign Up</a>
+              </div>
           </center>
         <!-- </form> -->
       </div>
