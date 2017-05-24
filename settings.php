@@ -1,7 +1,6 @@
 <?php include("include/header.php"); ?>
     <script type="text/javascript"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <!-- <script src="script/login.js" type="text/javascript"></script> -->
     <script src="settings.js"></script>
     <div class="row">
         <div class="col s12 center">

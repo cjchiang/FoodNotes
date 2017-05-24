@@ -38,6 +38,7 @@
   <div class="container white-text center-align">
     <div id="login_form" class="z-depth-1 green darken-2">
       <div class="row">
+        <h5>Please enter the email linked with your account</h5>
         <!-- <form class="col s12" method="post"> -->
           <div class='row'>
             <div class='input-field col s12'>
@@ -45,24 +46,10 @@
               <label for='email'>Enter your email</label>
             </div>
           </div>
-
-          <div class='row'>
-            <div class='input-field col s12'>
-              <input class='validate' type='password' name='password' id='password' />
-              <label for='password'>Enter your password</label>
-            </div>
-            <label style='float: right;'>
-              <!-- <a class='white-text' href='#!'><b>Forgot Password?</b></a> -->
-            </label>
-          </div>
           <br />
           <center>
             <div class='row'>
-              <button id="loginBtnSubmit" name='btn_login' class='col s12 btn btn-large waves-effect green accent-4'>Login</button>
-              </div>
-              <div class="row">
-                <a href="resetPW.php" ="forgotPWBtn" class='col s12 btn btn-large waves-effect green accent-4'>Forgot your password</a>
-              </div>
+              <a id="forgotPWBtn" class='col s12 btn btn-large waves-effect green accent-4'>Reset Password</a>
           </center>
         <!-- </form> -->
       </div>
