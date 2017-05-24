@@ -59,7 +59,11 @@ $(function(){
 
 	$("#loginBtn").click(function(){
 		attempted = true;
-		firebase.auth().signInWithEmailAndPassword($("#email").val(), $("#password").val());
+		var email = $("#email").val() 
+		var password = $("#password").val() 
+
+		var promise = firebase.auth().signInWithEmailAndPassword(email, password);
+		promise.catch(function(e){ alert(e.message); });
 	});
 
 	$("#cancelBtn").click(function(){
