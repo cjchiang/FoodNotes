@@ -41,7 +41,7 @@
 		var quantity_default = $("#" + foodName + "_quantity").attr("placeholder");
 		var price;
 		var unit_price = $("#" + foodName + "_bought").val();
-		
+
 		if (quantity_set == "") {
 			price = (parseFloat(quantity_default) * unit_price ).toFixed(2);
 			quantity = quantity_default;
@@ -72,7 +72,7 @@
 		var quantity_default = $("#" + foodNameID + "_quantity").attr("placeholder");
 		var price;
 		var unit_price = $("#" + foodNameID + "_bought").val();
-		
+
 		if (quantity_set == "") {
 			price = parseFloat(quantity_default) * unit_price ;
 			quantity = quantity_default;
@@ -119,7 +119,7 @@
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
 			<!-- <a href="addFood.php" class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a> -->
-			<a class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a>
+			<a class="btn waves-effect waves-light green accent-4" onclick="logAllItems()">Back</a>
 		</div>
 	</div>
 	<div class="row">
@@ -151,7 +151,7 @@
                     Quantity
                 </div>
                 <div class="col s4">
-                    Unit Price $ 
+                    Unit Price $
                 </div>
             </div>
    		</form>
