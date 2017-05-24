@@ -118,7 +118,6 @@
 		$("#" + foodCategory + "_body_total").attr("name", sum.toFixed(2) );
 		updatePercent();
 	}
-	
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
     	console.log("moved:" + src.id );
@@ -134,7 +133,6 @@
     	var origPriceStr = $("#" + foodName + "_price").text().replace("$", "");
     	var origPrice = parseFloat( origPriceStr );
     	var newPrice = (1 -leftPercent ) * origPrice;
-
     	$("#" + foodName + "_price").css("name", newPrice.toFixed(2) );
     	console.log(foodName + " updated " + newPrice.toFixed(2))
 
