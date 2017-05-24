@@ -1,32 +1,20 @@
-// var config = {
-//     apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
-//     authDomain: "food-notes-test.firebaseapp.com",
-//     databaseURL: "https://food-notes-test.firebaseio.com",
-//     projectId: "food-notes-test",
-//     storageBucket: "food-notes-test.appspot.com",
-//     messagingSenderId: "106608811518"
-//   };
-// firebase.initializeApp(config);
+var config = {
+    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
+    authDomain: "food-notes-test.firebaseapp.com",
+    databaseURL: "https://food-notes-test.firebaseio.com",
+    projectId: "food-notes-test",
+    storageBucket: "food-notes-test.appspot.com",
+    messagingSenderId: "106608811518"
+  };
+firebase.initializeApp(config);
 
-var currentUser;
-firebase.auth().onAuthStateChanged(function(user) {
-      if (user != null) {
-        currentUser = firebase.auth().currentUser;
-        console.log("logged in");
-      } else {
-        console.log("not logged in");
-        // TODO: before pushing to gitHub, uncomment below:
-        // alert("You're not logged in you hacker! Go home!");
-        // location.replace("index.php");
-      }
-});
-
-$(function(){ 
+$(document).ready(function(){ 
     $("#logoutBtn").click(function(){
         firebase.auth().signOut();
         console.log("signed out");
     });
-})
+});
+
 function checkOption() {
     var duration;
     var canLeave = false;

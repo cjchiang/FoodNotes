@@ -15,9 +15,6 @@ $(function(){
 	firebase.auth().onAuthStateChanged(function(user) {
       if (user != null) {
         console.log("logged in");
-        $("#navButtons").css("display", "none");
-		$("#specialNavi").css("display","block");
-		$("#allbtn").css("display","block");
 		
 		var db = firebase.database()	;
 		db.ref("users").orderByChild("email").equalTo(user.email).on('child_added', function(snap){
@@ -31,9 +28,6 @@ $(function(){
 		});	
       } else {
         console.log("not logged in");
-		$("#navButtons").css("display", "block");
-		$("#specialNavi").css("display","none");
-		$("#allbtn").css("display","none");
       }
 	});
 
