@@ -8,12 +8,20 @@ var config = {
   };
 firebase.initializeApp(config);
 
-$(document).ready(function(){ 
+firebase.auth().onAuthStateChanged(function(firebaseUser){
+    if (!firebaseUser) {
+        alert("Not logged in");
+        location.replace("index.php");
+   } 
+});
+
+$(function(){ 
     $("#logoutBtn").click(function(){
         firebase.auth().signOut();
         console.log("signed out");
     });
 });
+
 
 function checkOption() {
     var duration;
