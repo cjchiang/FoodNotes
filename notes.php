@@ -84,17 +84,20 @@
 			console.log("val wasted" + wasted);
 			$("#" + foodCategory + "_body").append(
 				'<div class="row">' +
-					'<div class="col s8 center-align">' +
+					'<div class="col s4 push-s1">' +
 						'<span>' + foodName + '</span>' +
 					'</div>'+
-					'<div class="col s4">'+
+					'<div class="col s3 push-s2">'+
+						'<span>price:</span>' + 
+					'</div>' +
+					'<div class="col s4 push-s2">'+ //store new value in name v
 						'<span id="' + foodNameID + '_price" name="' + price +'" >' + price + '</span>' +
 					'</div>' +
-					'<div class="col s1 push-s1">'+
+					'<div class="col s2 push-s1">'+
 						'<span>0%</span>' +
 					'</div>' +
 					'<div class="col s6 push-s2">'+
-						'<span>Amt. used</span>' +
+						'<span>Wasted</span>' +
 					'</div>' +
 					'<div class="col s1 push-s1">'+
 						'<span>100%</span>' +
@@ -112,48 +115,15 @@
 				$("#slider_" + foodNameID).val( parseInt(wasted) );
 			});
 		lastCycleNode.child(foodCategory + "_total").set(sum);
-		$("#" + foodCategory + "_body_total").text("$ " + sum.toFixed(2) );
+		$("#" + foodCategory + "_body_total").text( sum.toFixed(2) );
+		$("#" + foodCategory + "_body_total").attr("name", sum.toFixed(2) );
 		updatePercent();
 	}
-
-	function updatePercent() {
-		lastCycle.on("value", updatePercentOnPage);
-		lastCycle.off("value", updatePercentOnPage);
-		setTimeout(updatePercentInDB, 10000);
-	}
-
-	function updatePercentInDB() {
-		lastCycle.update({ "total_waste" : $("#total_waste_percent").text().replace("%", "") });
-	}
-	function updatePercentOnPage(snap) {
-		var snapData = snap.val();
-		var old_meat_total = snapData.Meat_total
-			if (typeof old_meat_total === "undefined")
-				old_meat_total = 0
-		var old_fruit_total = snapData.Fruit_total
-			if (typeof old_fruit_total === "undefined")
-				old_fruit_total = 0
-		var old_veg_total = snapData.Vegetable_total
-			if (typeof old_veg_total === "undefined")
-				old_veg_total = 0
-		var old_dairy_total = snapData.Dairy_total
-			if (typeof old_dairy_total === "undefined")
-				old_dairy_total = 0
-		var current_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
-		var current_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
-		var current_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
-		var current_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
-
-		console.log("old" + old_fruit_total)
-		console.log("current" + current_fruit_total)
-		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
-		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
-		var percent = (curr_sum / orig_sum) * 100
-
-		$("#total_waste_percent").text( percent.toFixed(2) + "%" )
-		// lastCycle.child("total_waste").set($("#total_waste_percent").text().replace("%", ""))
-	}
-
+	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
     	console.log("moved:" + src.id );
@@ -161,18 +131,21 @@
     	var foodName = src.id.replace("slider_", "");
     	var foodKey;
     	var pl;
-    	console.log(foodName)
-
     	lastCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
     		foodKey = snap.key;
     	})
     	lastCycle.child(foodKey).update({ "wasted" : $(src).val() });
 
-    	var origPrice = $("#" + foodName + "_price").attr("name");
+    	var origPriceStr = $("#" + foodName + "_price").text().replace("$", "");
+    	var origPrice = parseFloat( origPriceStr );
     	var newPrice = (1 -leftPercent ) * origPrice;
-    	$("#" + foodName + "_price" ).text( ( newPrice ).toFixed(2) );
-    	// updateTotal();
 
+<<<<<<< HEAD
+=======
+    	$("#" + foodName + "_price").css("name", newPrice.toFixed(2) );
+    	console.log(foodName + " updated " + newPrice.toFixed(2))
+
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
     	var parentID = $(src).parents(".row").parent().attr("id");
     	console.log("me:" + $(src).parents(".row").parent().attr("id") );
     	updateTotal(parentID)
@@ -183,32 +156,58 @@
 		// $("#"+foodGroupID).children("[id$='_price']").each(function(){
 		$("#"+foodGroupID).ready(function(){
 			$("[id$='_price']").each(function() {
-				var itemPriceStr = $("#" + this.id).text();
-				var itemPrice = parseFloat(itemPriceStr);
+
+				var itemPriceStr = $("#" + this.id).attr("name");
+				var itemPrice = parseFloat(itemPriceStr); 
 				sum += itemPrice;
 			})
 		});
-		// // lastCycle.once("value", function(snap){
-  // //   		 = snap.key;
-  // //   	})
-  // 		var foodGroupKey = foodGroupID.replace("_", " ");
-  //   	lastCycle.child( foodGroupKey ).update({ "wasted" : sum });
-
 		console.log("foodGroupID:" +  foodGroupID)
 		console.log("sum: " + sum);
-		$("#" + foodGroupID + "_total").text( "$" + sum.toFixed(2) );
+		$("#" + foodGroupID + "_body_total").css("name", sum.toFixed(2) );
 		updatePercent()
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
+
+	function updatePercent() {
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
+		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
+		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
+
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
+		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
+		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
+		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
+		
+		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
+		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
+		var percent = (1 - curr_sum / orig_sum) * 100
+		$("#total_waste_percent").text( percent.toFixed(2) + "%" )	
+		$("#orig_total").text( "$" + orig_sum );
+		$("#curr_total").text( "$" + (curr_sum - orig_sum) );
+	}	
+<<<<<<< HEAD
+=======
+
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
 </script>
 
 	<div id="notes">
 		<div class="row center-align">
-			<h3>Potential Savings:</h3>
-		</div>
-		<div class="row center-align">
+			<h3>Wasted this cycle:</h3>
 			<h3 id="total_waste_percent">0 %</h3>
 		</div>
-	<h4 class ="center-align">Current Cycle</h4>
+		<div class="row center-align">
+			<h4 class="col s6">Spent</h4>
+			<h4 class="col s6">Wasted</h4>
+			<h4 class="col s6" id="orig_total">$100</h4>
+			<h4 class="col s6" id="curr_total">$0</h4>
+		</div>
+	<h4 class ="row center-align">Cycle items</h4>
 	<ul class="collapsible" data-collapsible="expandable">
 		<li class= "red accent-4">
 			<div class="collapsible-header red accent-4">
@@ -220,7 +219,7 @@
 						<span>Meat</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span id="Meat_body_total" class="alt-right" > $ 0.00 </span>
+						<span id="Meat_body_total" class="alt-right" name="0"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
@@ -237,7 +236,7 @@
 						<span>Fruits</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span id="Fruit_body_total" class="alt-right" > $ 0.00 </span>
+						<span id="Fruit_body_total" class="alt-right" name="0"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
@@ -254,7 +253,7 @@
 						<span>Veggies</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span id="Vegetable_body_total" class="alt-right"> $ 0.00 </span>
+						<span id="Vegetable_body_total" class="alt-right" name="0"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
@@ -271,7 +270,7 @@
 						<span>Dairy</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span id="Dairy_body_total" class="alt-right"> $ 0.00 </span>
+						<span id="Dairy_body_total" class="alt-right" name="0"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
