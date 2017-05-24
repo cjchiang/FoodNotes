@@ -120,6 +120,10 @@
 		updatePercent();
 	}
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
     	console.log("moved:" + src.id );
@@ -136,6 +140,12 @@
     	var origPrice = parseFloat( origPriceStr );
     	var newPrice = (1 -leftPercent ) * origPrice;
 
+<<<<<<< HEAD
+=======
+    	$("#" + foodName + "_price").css("name", newPrice.toFixed(2) );
+    	console.log(foodName + " updated " + newPrice.toFixed(2))
+
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
     	var parentID = $(src).parents(".row").parent().attr("id");
     	console.log("me:" + $(src).parents(".row").parent().attr("id") );
     	updateTotal(parentID)
@@ -157,6 +167,10 @@
 		$("#" + foodGroupID + "_body_total").css("name", sum.toFixed(2) );
 		updatePercent()
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
 
 	function updatePercent() {
 		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
@@ -176,6 +190,10 @@
 		$("#orig_total").text( "$" + orig_sum );
 		$("#curr_total").text( "$" + (curr_sum - orig_sum) );
 	}	
+<<<<<<< HEAD
+=======
+
+>>>>>>> 711b3516a1e7823c4255269762f36435b218b6b5
 </script>
 
 	<div id="notes">
