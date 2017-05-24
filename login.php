@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<a href="http://www.freepik.com" hidden>Background Courtesy of kstudio / Freepik</a>
 		<meta charset="utf-8">
 		<title>Login</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,6 +18,7 @@
 		body {
 		padding-top: 15%;
 		padding-bottom: 40px;
+		background-image: url(images/food_background3.jpg)
 		background-color: #aaa;
 		background-size: 100%;
 		transform: scale(2.5);
