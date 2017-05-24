@@ -58,7 +58,7 @@
           <br />
           <center>
             <div class='row'>
-              <button id="loginBtn" name='btn_login' class='col s12 btn btn-large waves-effect green accent-4'>Login</button>
+              <button id="loginBtnSubmit" name='btn_login' class='col s12 btn btn-large waves-effect green accent-4'>Login</button>
               </div>
               <div class="row">
                 <a href="register.php" class='col s12 btn btn-large waves-effect green accent-4'>Sign Up</a>

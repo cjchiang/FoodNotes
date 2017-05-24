@@ -4,6 +4,26 @@
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
+	firebase.auth().onAuthStateChanged(function(user) {
+	  if (user != null) {
+	  	currentUser = firebase.auth().currentUser;
+		currentUserNode = users.child(currentUser.uid);
+
+	    console.log("logged in");
+	    if ( noCyclesFound() ) {
+	    	console.log("creating cycle");
+	    	setUpCycleCount();
+	    } else {
+	    	console.log("cycle exists");
+	    }
+	  } else {
+	    console.log("not logged in");
+	    // TODO: before pushing to gitHub, uncomment below:
+		// alert("You're not logged in you hacker! Go home!");
+		// location.replace("index.php");
+	  }
+	});
+
 
 	$("#search").ready(function(){
 		$(document).keyup( function(key) {
@@ -79,26 +99,6 @@
 			});
 		});
 	}
-
-	firebase.auth().onAuthStateChanged(function(user) {
-	  if (user != null) {
-	  	currentUser = firebase.auth().currentUser;
-		currentUserNode = users.child(currentUser.uid);
-
-	    console.log("logged in");
-	    if ( noCyclesFound() ) {
-	    	console.log("creating cycle");
-	    	setUpCycleCount();
-	    } else {
-	    	console.log("cycle exists");
-	    }
-	  } else {
-	    console.log("not logged in");
-	    // TODO: before pushing to gitHub, uncomment below:
-		// alert("You're not logged in you hacker! Go home!");
-		// location.replace("index.php");
-	  }
-	});
 
 	function noCyclesFound(){
 		var count;
