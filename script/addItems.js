@@ -105,9 +105,10 @@
 
 		if (!alreadyInCycle(foodName) ) {
 			console.log("logged:" + foodName);
-			appendItem(foodName, ancestorKey);
+			addItem(foodName, ancestorKey);
 		} else {
-			console.log("already logged");
+			console.log("already logged, appending");
+			appendItem(foodName, ancestorKey);
 		}
 	}
 
