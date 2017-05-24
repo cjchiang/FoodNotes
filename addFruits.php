@@ -83,7 +83,8 @@
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
-			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
+			<!-- <a href="addFood.php" class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a> -->
+			<a class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a>
 		</div>
 	</div>
 	<div class="row">
@@ -106,7 +107,7 @@
 <!-- List the items of fruits for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
-			<input type="submit" value="Add" id="submitBtn" hidden/>
+			<!-- <input type="submit" value="Add" id="submitBtn" hidden/> -->
             <div class="row center">
                 <div class="col s4">
                     Product Name
@@ -120,10 +121,5 @@
             </div>
    		</form>
 	</div>
-    <!--<div class="container-fluid ourContent">
-        <div id="canvasSelect col-xs-12">
-            <canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>
-        </div>
-    </div>-->
 
 <?php include("include/footer.php"); ?>
