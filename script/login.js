@@ -42,17 +42,28 @@ $(function(){
 	});
 
 	$("#registerBtn").click(function(){
-		firebase.auth().createUserWithEmailAndPassword($("#email").val(), $("#password").val());
-		firebase.database().ref("users").push({
-			"email" : $("#email").val(),
-			"cycleCount" : 0
-		});
+		var email = $("#email").val()
+		var password = $("#password").val()
+		var valid = true
+		var promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+		promise.catch(function(e){ alert(e.message); valid = false; });
+
+		if ( valid ) {		
+			firebase.database().ref("users").push({
+				"email" : email,
+				"cycleCount" : 0
+			});
+		}
 	});
 
 
 	$("#loginBtn").click(function(){
 		attempted = true;
-		firebase.auth().signInWithEmailAndPassword($("#email").val(), $("#password").val());
+		var email = $("#email").val() 
+		var password = $("#password").val() 
+
+		var promise = firebase.auth().signInWithEmailAndPassword(email, password);
+		promise.catch(function(e){ alert(e.message); });
 	});
 
 	$("#cancelBtn").click(function(){
