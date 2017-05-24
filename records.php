@@ -10,7 +10,7 @@ the running count of total items wasted
       <div class="collapsible-header">
         <div class="row">
           <div class ="col s2">
-            <i class="material-icons large" style="font-size: 45px">keyboard_arrow_down</i>
+            <i class="material-icons" style="font-size: 40px">add_circle</i>
           </div>
           <div class ="col s10">
             <span>Cycle 1 %_<span>
@@ -23,7 +23,7 @@ the running count of total items wasted
             <div class="collapsible-header red accent-4">
               <div class="row">
                 <div class="col s2">
-                  <i class="material-icons" style="font-size: 45px">keyboard_arrow_down</i>
+                  <i class="material-icons" style="font-size: 30px">add_circle</i>
                 </div>
                 <div class="col s4">
                   <span>Meat</span>
@@ -64,7 +64,7 @@ the running count of total items wasted
             <div class="collapsible-header orange accent-4">
               <div class="row">
                 <div class="col s2">
-                  <i class="material-icons" style="font-size: 45px">keyboard_arrow_down</i>
+                  <i class="material-icons" style="font-size: 30px">add_circle</i>
                 </div>
                 <div class="col s4">
                   <span>Fruit</span>
@@ -105,7 +105,7 @@ the running count of total items wasted
             <div class="collapsible-header light-green accent-4">
               <div class="row">
                 <div class="col s2">
-                  <i class="material-icons" style="font-size: 45px">keyboard_arrow_down</i>
+                  <i class="material-icons" style="font-size: 30px">add_circle</i>
                 </div>
                 <div class="col s4">
                   <span>Veggies</span>
@@ -146,7 +146,7 @@ the running count of total items wasted
             <div class="collapsible-header yellow accent-4">
               <div class="row">
                 <div class="col s2">
-                  <i class="material-icons" style="font-size: 45px">keyboard_arrow_down</i>
+                  <i class="material-icons" style="font-size: 30px">add_circle</i>
                 </div>
                 <div class="col s4">
                   <span>Dairy</span>
