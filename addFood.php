@@ -54,7 +54,7 @@
 		if (snap.key == "temp") {
 			tempCycle = userNode.child("temp");
 			// bug here, if fruit isn't first, it repeats 4x, idk y
-			
+
 			populateTempList("Fruit", userNode.child("temp"));
 			populateTempList("Vegetable", userNode.child("temp"));
 			populateTempList("Diary", userNode.child("temp"));
@@ -126,10 +126,10 @@
 			$("#" + foodKey).remove();
 			// $(this).remove();
 		// });
-		
+
 		//delete entry from db as well
-		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){ 
-				tempCycle.child(snap.key).remove(); 			
+		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
+				tempCycle.child(snap.key).remove();
 				updateTotal(ancestorKey, foodName);
 			}
 		);
@@ -139,8 +139,8 @@
 		var sum = 0;
 		var foodGroupPriceKey = foodGroupID.replace("anchor_head_", "");
 		$("#"+foodGroupID).find("[id$='_price']").each(function(){
-			var itemPriceStr = $(this).text();	
-			var itemPrice = parseFloat( itemPriceStr.replace("$", "") ); 
+			var itemPriceStr = $(this).text();
+			var itemPrice = parseFloat( itemPriceStr.replace("$", "") );
 			sum += itemPrice;
 		});
 		console.log("foodGroupID:" +  foodGroupID)
@@ -176,7 +176,7 @@
 	<div class="row">
 		<!-- For cancelling purchase -->
 		<div class="col s4 left-align">
-			<a href="notes.php" class="btn waves-effect waves-light green">Cancel</a>
+			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
 		</div>
 		<div class="col s3 center-align" style="color: black">
 			<button onclick="finalize()">Kill cycle</button>
@@ -184,7 +184,7 @@
 		<!-- For submitting -->
 		<div class="col s4 right-align">
 			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
-			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green">Finalize</a>
+			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green accent-4">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
