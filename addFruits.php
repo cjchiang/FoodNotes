@@ -14,9 +14,8 @@
 
 	var currentUser;
 	var currentUserNode;
-	//append item to temporary list
-	function appendItem(foodName, refKey){
-		
+	//add new item to temporary list
+	function addItem(foodName, refKey){
 		var quantity;
 		var quantity_set = $("#" + foodName + "_quantity").val();
 		var quantity_default = $("#" + foodName + "_quantity").attr("placeholder");
@@ -41,6 +40,42 @@
 					tempCycle.child(newKey).update({"price" : unit_price});
 					tempCycle.child(newKey).update({"default_quantity" : quantity});
 				});
+			});
+		});
+	}
+
+	//add more of an existing item to temporary list
+	function appendItem(foodNameID, refKey){
+		var foodName = foodNameID.split("_").join(" ");
+		var quantity;
+		var quantity_set = $("#" + foodNameID + "_quantity").val();
+		var quantity_default = $("#" + foodNameID + "_quantity").attr("placeholder");
+		var price;
+		var unit_price = $("#" + foodNameID + "_bought").val();
+		
+		if (quantity_set == "") {
+			price = parseFloat(quantity_default) * unit_price ;
+			quantity = quantity_default;
+		} else {
+			price = parseFloat(quantity_set) * unit_price ;
+			quantity = quantity_default
+		}
+
+		currentUserNode.once("value", function(){
+			var tempCycle = currentUserNode.child("temp");
+			tempCycle.orderByChild("product").equalTo( foodName ).on("child_added", function(snap){
+				var snapData = snap.val();
+				var appendTarget = tempCycle.child(snap.key);
+				var old_price = parseFloat( snapData.your_price) ;
+				var old_quantity = parseInt(snapData.default_quantity);
+				var old_unit_price = parseFloat(snapData.price);
+
+				price = (price + old_price).toFixed(2);
+				quantity = quantity + old_quantity;
+
+				appendTarget.update({"your_price" : price });
+				appendTarget.update({"price" : unit_price });
+				appendTarget.update({"default_quantity" : quantity });
 			});
 		});
 	}
@@ -83,7 +118,8 @@
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
-			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
+			<!-- <a href="addFood.php" class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a> -->
+			<a class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a>
 		</div>
 	</div>
 	<div class="row">
@@ -106,7 +142,7 @@
 <!-- List the items of fruits for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
-			<input type="submit" value="Add" id="submitBtn" hidden/>
+			<!-- <input type="submit" value="Add" id="submitBtn" hidden/> -->
             <div class="row center">
                 <div class="col s4">
                     Product Name
@@ -120,10 +156,5 @@
             </div>
    		</form>
 	</div>
-    <!--<div class="container-fluid ourContent">
-        <div id="canvasSelect col-xs-12">
-            <canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>
-        </div>
-    </div>-->
 
 <?php include("include/footer.php"); ?>

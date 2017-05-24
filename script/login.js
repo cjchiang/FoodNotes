@@ -8,41 +8,55 @@ messagingSenderId: "106608811518"
 };
 
 firebase.initializeApp(config);
+firebase.auth().onAuthStateChanged(function(user) {
+      if (user != null) {
+        console.log("logged in");
+        $("#navButtons").css("display", "none");
+		$("#specialNavi").css("display","block");
+		$("#allbtn").css("display","block");
+		
+		var db = firebase.database()	;
+		db.ref("users").orderByChild("email").equalTo(user.email).on('child_added', function(snap){
+		   	var childKey = snap.key;
+		   	var userID = user.uid;
+			if( childKey != userID) {
+				var child = db.ref("users").child(childKey);
+			  	db.ref("users").child(userID).set(snap.val());
+			  	child.remove();
+			}
+		});	
+      } else {
+        console.log("not logged in");
+		$("#navButtons").css("display", "block");
+		$("#specialNavi").css("display","none");
+		$("#allbtn").css("display","none");
+      }
+});
 
-$("#logoutBtn").ready(function(){
+$(function(){
+//main function: runs onload
+	
 	$("#logoutBtn").click(function(){
 		firebase.auth().signOut();
 		console.log("signed out");
 	});
-});
+
+	$("#registerBtn").click(function(){
+		firebase.auth().createUserWithEmailAndPassword($("#email").val(), $("#password").val());
+		firebase.database().ref("users").push({
+			"email" : $("#email").val(),
+			"cycleCount" : 0
+		});
+	});
 
 
-$(document).ready(function() {
-    firebase.auth().onAuthStateChanged(function(firebaseUser){
-	   	if (firebaseUser) {
-			$("#navButtons").css("display", "none");
-			$("#specialNavi").css("display","block");
-			$("#allbtn").css("display","block");
+	$("#loginBtn").click(function(){
+		attempted = true;
+		firebase.auth().signInWithEmailAndPassword($("#email").val(), $("#password").val());
+	});
 
-			console.log("user signed in");
-			//queries to makes sure user key is same as user ID,
-			//if not, replaces it with one
-			var db = firebase.database();
-    		db.ref("users").orderByChild("email").equalTo(firebaseUser.email).on('child_added', function(snap){
-			   	var childKey = snap.key;
-			   	var userID = firebaseUser.uid;
-				if( childKey != userID) {
-					var child = db.ref("users").child(childKey);
-				  	db.ref("users").child(userID).set(snap.val());
-				  	child.remove();
-				}
-			});
-	   	} else {
-          $("#navButtons").css("display", "block");
-          $("#specialNavi").css("display","none");
-          $("#allbtn").css("display","none");
+	$("#cancelBtn").click(function(){
+		location.replace("index.php");
+	});
 
-		  console.log(firebaseUser + " is not a valid user");
-	   }
-    });
 });

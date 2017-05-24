@@ -25,12 +25,11 @@
 		    if (!newFoodBlock) {
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
-					'<a id="click_' + foodName +'"></a>'+
 					//food name col
 					'<div class="input-field col s4 ">' +
 						'<input class="check_tick" id="' + foodName + '" type="checkbox" '+
-						'onchange="logMe(this);"'
-						+'name="checkbox"/>' +
+						// 'onchange="logMe(this);"'+
+						'name="checkbox"/>' +
 						'<label for="' + foodName+ '">' + snapData.product + '</label>' +
 					'</div>' +
 						//quantity col
@@ -101,19 +100,24 @@
 	    }, scrollSpeed);
 	}
 
-	function logMe(elem) {
-		var foodName = elem.id;
-		console.log("logged: " + foodName);
-		var ancestorKey = $("#" + elem.id).parents(".row").attr("id");
-		console.log("ancestor:" + ancestorKey);
-		if ($(elem).is(':checked') && !alreadyInCycle(foodName) ) {
-			//TODO: add check to see if item already in cycle
-			appendItem(foodName, ancestorKey);
+	function logMe(foodName) {
+		var ancestorKey = $("#" + foodName).parents(".row").attr("id");
+
+		if (!alreadyInCycle(foodName) ) {
+			console.log("logged:" + foodName);
+			addItem(foodName, ancestorKey);
 		} else {
-			console.log("already logged");
+			console.log("already logged, appending");
+			appendItem(foodName, ancestorKey);
 		}
 	}
 
+	function logAllItems() {
+		$(":checked").each(function(){
+			logMe(this.id);
+		});
+		location.replace("addFood.php");
+	}
 	function alreadyInCycle(foodName) {
 		var currentUser = firebase.auth().currentUser;
 		var tempCycle = database.ref("users/" + currentUser.uid + "/temp");
@@ -121,6 +125,8 @@
 	}
 
 	function queryForItem(cycle, foodName) {
+		if (typeof cycle === "undefined")
+			return false;
 		var bool = false;
 		cycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
 			bool = true;

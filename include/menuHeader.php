@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="script/login.js" type="text/javascript"></script>
 		<script src="script/easterEgg.js" type="text/javascript"></script>
+    <link rel="icon" href="../images/favicon.png"/>
 	</head>
     <body background="images/lined_paper.png">
 		</br>
@@ -32,13 +33,13 @@
 		</br>
 			<div class="row" id="navButtons">
 					<div id="loginBtn" class="col s5 left-align">
-							<a href="login.php" class="btn waves-effect waves-light teal darken-1">Login</a>
+							<a href="login.php" class="btn waves-effect waves-light teal darken-1" hidden>Login</a>
 					</div>
 					<div id="easterEggBtn" class="col s2 center-align">
 							<a class="btn waves-effect waves-light green"></a>
 					</div>
 					<div id="signupBtn" class="col s5 right-align">
-							<a href="register.php" class="btn waves-effect waves-light teal darken-1">Sign Up</a>
+							<a href="register.php" class="btn waves-effect waves-light teal darken-1" hidden>Sign Up</a>
 					</div>
 			</div>
 			<nav class="green darken-2">

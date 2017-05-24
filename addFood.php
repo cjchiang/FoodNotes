@@ -20,6 +20,7 @@
 
 	const database = firebase.database();
 	const users = database.ref("users");
+	var tempCycle;
 
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
@@ -45,45 +46,20 @@
 		});
 	}
 
-	function addFood(foodCategory){
-		//quincy add ur PHP stuff here
-		var FOODS_FROM_POST_OR_SESSION = null;
-		var userNode = users.child(user.uid);
-
-		// filters out just the cycle nodes, leaves out email and other junk
-		userNode.orderByChild("cycle").equalTo(true).once("value", function(snap){
-		// may add date checker, but for now, just add to last cycle
-			var count = snap.val().cycleCount - 1;
-			var cycleIndex = "cycle" + count;
-			var currentUserNode = userNode.child(cycleIndex);
-
-			// access all child, cause its hard to do "SELECT" clause here
-			currentUserNode.on("value", function(childSnap){
-				var FOODS_FROM_PHP_AS_JSON = {
-					/*
-					FOODS_FROM_POST_OR_SESSION[0].name : FOODS_FROM_POST_OR_SESSION[0].values
-					...
-					*/
-				}
-
-				currentUserNode.child(foodCategory).update({
-					FOODS_FROM_PHP_AS_JSON
-				})
-			});
-		});
-	}
-
 	function findTemp(){
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
 
 		userNode.on("child_added", function(snap){
-		if (snap.key == "temp")
+		if (snap.key == "temp") {
+			tempCycle = userNode.child("temp");
 			// bug here, if fruit isn't first, it repeats 4x, idk y
+			
 			populateTempList("Fruit", userNode.child("temp"));
 			populateTempList("Vegetable", userNode.child("temp"));
 			populateTempList("Diary", userNode.child("temp"));
 			populateTempList("Meat", userNode.child("temp"));
+		}
 		});
 	}
 
@@ -93,15 +69,20 @@
 		tempCycleRef.orderByChild("category").equalTo(foodCategory).on("child_added", function(snap){
 			var snapData = snap.val();
 			var foodName = snapData.product;
+			var foodNameID = foodName.split(' ').join('_');;
 			var price = snapData.your_price;
 
 			$("#anchor_head_"+ foodCategory).append(
-				'<div class="row">' +
-					'<div class="col s8">' +
+				'<div class="row" id="'+ foodNameID +'">' +
+					'<div class="col s6">' +
 						'<span>' + foodName + '</span>' +
 					'</div>' +
-					'<div class="col s4">' +
-						'<span>' + price + '</span>' +
+					'<div class="col s3">' +
+						'<span id="' + foodNameID + '_price">' + price + '</span>' +
+					'</div>' +
+					'<div class="col s2">' +
+						'<i class="medium material-icons" id="delete_' +
+						foodNameID +'" onclick="deleteMe(this)">delete_forever</i>' +
 					'</div>' +
 				'</div>	'
 			);
@@ -132,12 +113,43 @@
 	function copyMe(snap){
 		lastCycle.set(snap.val());
 	}
+
+	//delete a food item from temp list
+	function deleteMe(src) {
+		var foodKey = src.id.replace("delete_", "");
+		var foodName = foodKey.split("_").join(" ");
+		var ancestorKey = $("#" + src.id).parents("[id^='anchor_head_']").attr("id");
+		console.log("deleted: " + foodKey);
+		console.log("deleted: " + foodName);
+		//delete entry from page, with animation
+		// $("#" + foodKey).fadeOut(500, function(){
+			$("#" + foodKey).remove();
+			// $(this).remove();
+		// });
+		
+		//delete entry from db as well
+		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){ 
+				tempCycle.child(snap.key).remove(); 			
+				updateTotal(ancestorKey, foodName);
+			}
+		);
+	}
+
+	function updateTotal(foodGroupID, childID) {
+		var sum = 0;
+		var foodGroupPriceKey = foodGroupID.replace("anchor_head_", "");
+		$("#"+foodGroupID).find("[id$='_price']").each(function(){
+			var itemPriceStr = $(this).text();	
+			var itemPrice = parseFloat( itemPriceStr.replace("$", "") ); 
+			sum += itemPrice;
+		});
+		console.log("foodGroupID:" +  foodGroupID)
+		console.log("sum: " + sum);
+		$("#" + foodGroupPriceKey + "_total").text("$ " + sum.toFixed(2) );
+	}
+
 	function getLastCycle(userNode) {
-<<<<<<< HEAD
 		var count;
-=======
-		var count;  
->>>>>>> 0afe292b4a4e04b4214c9b68ddb7c215f32f3c9b
 		userNode.once("value", function(snap){
 			console.log("inner cycleIndex: " + snap.val().cycleCount);
 			count = snap.val().cycleCount;
@@ -158,15 +170,19 @@
 			userNode.child("cycleCount").set(count);
 		});
 	}
+
 </script>
 <!-- Add 4 categories -->
 	<div class="row">
 		<!-- For cancelling purchase -->
-		<div class="col s6 left-align">
+		<div class="col s4 left-align">
 			<a href="notes.php" class="btn waves-effect waves-light green">Cancel</a>
 		</div>
+		<div class="col s3 center-align" style="color: black">
+			<button onclick="finalize()">Kill cycle</button>
+		</div>
 		<!-- For submitting -->
-		<div class="col s6 right-align">
+		<div class="col s4 right-align">
 			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
 			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green">Finalize</a>
 		</div>
@@ -221,28 +237,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body center-align">
-                <?php
-                    if (isset($_SESSION['OnOffHolder']) && !is_null($_SESSION['OnOffHolder'][0])) {
-                        $counter = 0;
-                        foreach($_SESSION['OnOffHolder'] as $nameMe) {
-                        foreach($_SESSION['storeMyPrices'] as $nameTwo) {
-                            if(strcmp($nameMe, $nameTwo) == 0) {
-                            echo
-                            '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
-                                </div>
-                                <div class="col s4">
-                                    <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
-                                </div>
-                            </div>';
-                        }
-                        $counter = $counter + 1;
-                        }
-                        $counter = 0;
-                    }
-                }
-                ?>
-				</div>
+			<div class="collapsible-body note_body center-align" id="anchor_head_Meat">
+			</div>
 		</li>
 		<li class="orange accent-4">
 			<div class="collapsible-header orange accent-4">
