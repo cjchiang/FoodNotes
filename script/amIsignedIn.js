@@ -12,6 +12,6 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
     if (!firebaseUser) {
         alert("Not logged in");
         location.replace("index.php");
-   }
+   } 
 });
 

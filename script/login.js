@@ -8,7 +8,11 @@ messagingSenderId: "106608811518"
 };
 
 firebase.initializeApp(config);
-firebase.auth().onAuthStateChanged(function(user) {
+
+//main function: runs onload
+$(function(){
+	
+	firebase.auth().onAuthStateChanged(function(user) {
       if (user != null) {
         console.log("logged in");
         $("#navButtons").css("display", "none");
@@ -31,15 +35,20 @@ firebase.auth().onAuthStateChanged(function(user) {
 		$("#specialNavi").css("display","none");
 		$("#allbtn").css("display","none");
       }
+	});
+
+	firebase.auth().onAuthStateChanged(function(user) {
+      if (user != null) {
+        $("#navButtons").css("display", "none");
+		$("#specialNavi").css("display","block");
+		$("#allbtn").css("display","block");
+      } else {
+		$("#navButtons").css("display", "block");
+		$("#specialNavi").css("display","none");
+		$("#allbtn").css("display","none");
+      }
 });
 
-$(function(){
-//main function: runs onload
-	
-	$("#logoutBtn").click(function(){
-		firebase.auth().signOut();
-		console.log("signed out");
-	});
 
 	$("#registerBtn").click(function(){
 		var email = $("#email").val()
@@ -57,7 +66,7 @@ $(function(){
 	});
 
 
-	$("#loginBtn").click(function(){
+	$("#loginBtnSubmit").click(function(){
 		attempted = true;
 		var email = $("#email").val() 
 		var password = $("#password").val() 
