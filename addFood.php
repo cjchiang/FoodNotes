@@ -1,5 +1,8 @@
-<?php include("include/header.php"); session_start();?>
+<?php include("include/header.php");
+	session_start();
+?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
+
 <link rel="stylesheet" href="/styles/addFood.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="script/addfood.js"></script>
@@ -17,87 +20,176 @@
 
 	const database = firebase.database();
 	const users = database.ref("users");
+	var tempCycle;
 
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	    console.log("logged in");
-	    createCycle();
-
-	    /*can't seem to access user outside this function,
-		 add trigger function here for add Item if needed*/
-
+	    confirmUserAccountReadyForCycles(user);
+	    findTemp();
 	  } else {
 	    console.log("not logged in");
-	    // TODO: before pushing to gitHub, uncomment below:
 		// alert("You're not logged in you hacker! Go home!");
 		// location.replace("index.php");
 	  }
 	});
 
-	function createCycle() {
+	function confirmUserAccountReadyForCycles(user) {
+		users.orderByChild("email").equalTo(user.email).on('child_added', function(snap){
+		   	var childKey = snap.key;
+		   	var userID = user.uid;
+			if( childKey != userID) {
+				var child = db.ref("users").child(childKey);
+			  	db.ref("users").child(userID).set(snap.val());
+			  	child.remove();
+			}
+		});
+	}
+
+	function findTemp(){
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+
+		userNode.on("child_added", function(snap){
+		if (snap.key == "temp") {
+			tempCycle = userNode.child("temp");
+			// bug here, if fruit isn't first, it repeats 4x, idk y
+
+			populateTempList("Fruit", userNode.child("temp"));
+			populateTempList("Vegetable", userNode.child("temp"));
+			populateTempList("Diary", userNode.child("temp"));
+			populateTempList("Meat", userNode.child("temp"));
+		}
+		});
+	}
+
+	function populateTempList(foodCategory, tempCycleRef) {
+		var total = 0;
+		// tempCycleRef.orderByChild("category").equalTo(foodCategory).once("child_added", function(snap){
+		tempCycleRef.orderByChild("category").equalTo(foodCategory).on("child_added", function(snap){
+			var snapData = snap.val();
+			var foodName = snapData.product;
+			var foodNameID = foodName.split(' ').join('_');;
+			var price = snapData.your_price;
+
+			$("#anchor_head_"+ foodCategory).append(
+				'<div class="row" id="'+ foodNameID +'">' +
+					'<div class="col s6">' +
+						'<span>' + foodName + '</span>' +
+					'</div>' +
+					'<div class="col s3">' +
+						'<span id="' + foodNameID + '_price">' + price + '</span>' +
+					'</div>' +
+					'<div class="col s2">' +
+						'<i class="medium material-icons" id="delete_' +
+						foodNameID +'" onclick="deleteMe(this)">delete_forever</i>' +
+					'</div>' +
+				'</div>	'
+			);
+			total += parseFloat( price) ;
+		});
+		$("#"+foodCategory+"_total").text("$ " + total.toFixed(2));
+	}
+
+	function finalize() {
+		addCycle();
+		ctrl_x_temp();
+		location.replace("notes.php");
+	}
+
+	var tempNode;
+	var lastCycle;
+	function ctrl_x_temp() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+		lastCycle = getLastCycle(userNode);
+		tempNode = database.ref("users/"+user.uid+"/temp");
+
+		tempNode.on("value", copyMe);
+		tempNode.off("value", copyMe);
+		tempNode.remove();
+	}
+
+	function copyMe(snap){
+		lastCycle.set(snap.val());
+	}
+
+	//delete a food item from temp list
+	function deleteMe(src) {
+		var foodKey = src.id.replace("delete_", "");
+		var foodName = foodKey.split("_").join(" ");
+		var ancestorKey = $("#" + src.id).parents("[id^='anchor_head_']").attr("id");
+		console.log("deleted: " + foodKey);
+		console.log("deleted: " + foodName);
+		//delete entry from page, with animation
+		// $("#" + foodKey).fadeOut(500, function(){
+			$("#" + foodKey).remove();
+			// $(this).remove();
+		// });
+
+		//delete entry from db as well
+		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
+				tempCycle.child(snap.key).remove();
+				updateTotal(ancestorKey, foodName);
+			}
+		);
+	}
+
+	function updateTotal(foodGroupID, childID) {
+		var sum = 0;
+		var foodGroupPriceKey = foodGroupID.replace("anchor_head_", "");
+		$("#"+foodGroupID).find("[id$='_price']").each(function(){
+			var itemPriceStr = $(this).text();
+			var itemPrice = parseFloat( itemPriceStr.replace("$", "") );
+			sum += itemPrice;
+		});
+		console.log("foodGroupID:" +  foodGroupID)
+		console.log("sum: " + sum);
+		$("#" + foodGroupPriceKey + "_total").text("$ " + sum.toFixed(2) );
+	}
+
+	function getLastCycle(userNode) {
+		var count;
+		userNode.once("value", function(snap){
+			console.log("inner cycleIndex: " + snap.val().cycleCount);
+			count = snap.val().cycleCount;
+		});
+		var cycleIndex = "cycle" + count;
+		console.log("outter cycleIndex: " + count);
+		return userNode.child(cycleIndex);
+	}
+
+	function addCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
 
 		userNode.once("value", function(snap){
 			var count = snap.val().cycleCount;
-			// var cycleIndex = "cycle".concat(String(count));
-
 			var cycleIndex = "cycle" + count;
-
-			userNode.child("cycleCount").set(++count);
-			userNode.child(cycleIndex).update({
-				"cycle" : true,
-				"fruits" : "placeholder",
-				"vegetables" : "placeholder",
-				"meats" : "placeholder"
-			});
+			count++;
+			userNode.child("cycleCount").set(count);
 		});
 	}
 
-	function addFood(foodCategory){
-		//quincy add ur PHP stuff here
-		var FOODS_FROM_POST_OR_SESSION = null;
-		var userNode = users.child(user.uid);
-
-		// filters out just the cycle nodes, leaves out email and other junk
-		userNode.orderByChild("cycle").equalTo(true).once("value", function(snap){
-		// may add date checker, but for now, just add to last cycle
-			var count = snap.val().cycleCount - 1;
-			var cycleIndex = "cycle" + count;
-			var currentUserNode = userNode.child(cycleIndex);
-
-			// access all child, cause its hard to do "SELECT" clause here
-			currentUserNode.on("value", function(childSnap){
-				var FOODS_FROM_PHP_AS_JSON = {
-					/*
-					FOODS_FROM_POST_OR_SESSION[0].name : FOODS_FROM_POST_OR_SESSION[0].values
-					...
-					*/
-				}
-
-				currentUserNode.child(foodCategory).update({
-					FOODS_FROM_PHP_AS_JSON
-				})
-			});
-		});
-
-	}
 </script>
 <!-- Add 4 categories -->
-<div class="container white-text green lighten-1">
 	<div class="row">
 		<!-- For cancelling purchase -->
-		<div class="col s6 left-align">
-			<a href="notes.php" class="btn waves-effect waves-light green">Cancel</a>
+		<div class="col s4 left-align">
+			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
+		</div>
+		<div class="col s3 center-align" style="color: black">
+			<button onclick="finalize()">Kill cycle</button>
 		</div>
 		<!-- For submitting -->
-		<div class="col s6 right-align">
-			<a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a>
+		<div class="col s4 right-align">
+			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
+			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green accent-4">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col s12">
-			<h4>Select a food category</h4>
+		<div class="col s12 center-align">
+			<h4>Select a category</h4>
 		</div>
 	</div>
 	<div class="row">
@@ -135,162 +227,69 @@
 			<div class="collapsible-header red accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Meat</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" > $ __ </span>
+						<span class="alt-right" id="total_Meat"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body center-align">
-                <?php
-                    if (!is_null($_SESSION['OnOffHolder'][0])) {
-                        $counter = 0;
-                        foreach($_SESSION['OnOffHolder'] as $nameMe) {
-                        foreach($_SESSION['storeMyPrices'] as $nameTwo) {
-                            if(strcmp($nameMe, $nameTwo) == 0) {
-                            echo
-                            '<div class="row"><div class="col s8"><span>' . $nameMe . '</span>
-                                </div>
-                                <div class="col s4">
-                                    <span>' ."$". $_SESSION['storeMyValues'][$counter] . '</span>
-                                </div>
-                            </div>';
-                        }
-                        $counter = $counter + 1;
-                        }
-                        $counter = 0;
-                    }
-                }
-                ?>
-				</div>
+			<div class="collapsible-body note_body center-align" id="anchor_head_Meat">
+			</div>
 		</li>
 		<li class="orange accent-4">
 			<div class="collapsible-header orange accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Fruit</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" > $ __ </span>
+						<span class="alt-right" id="Fruit_total"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body center-align">
-				<div class="row">
-					<div class="col s8">
-						<span>Peach</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Banana</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Apple</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
+			<div class="collapsible-body note_body center-align" id="anchor_head_Fruit">
 			</div>
 		</li>
 		<li class="light-green accent-4">
 			<div class="collapsible-header light-green accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Veggies</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" > $ __ </span>
+						<span class="alt-right" id="Vegetable_total" > $ 0.00 </span>
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body center-align">
-				<div class="row">
-					<div class="col s8">
-						<span>Asparagus</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Broccoli</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Eggplant</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
+			<div class="collapsible-body note_body center-align" id="anchor_head_Vegetable">
 			</div>
 		</li>
 		<li class="yellow accent-4">
 			<div class="collapsible-header yellow accent-4">
 				<div class="row">
 					<div class="col s2">
-						<i class="material-icons" style="font-size: 55px">keyboard_arrow_down</i>
+						<i class="material-icons" style="font-size: 40px">add_circle</i>
 					</div>
 					<div class="col s4">
 						<span>Dairy</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="right-align" > $ __ </span>
+						<span class="right-align" id="Dairy_total"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
-			<div class="collapsible-body note_body center-align">
-				<div class="row">
-					<div class="col s8">
-						<span >Milk</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Eggs</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s8">
-						<span>Cheese</span>
-					</div>
-					<div class="col s4">
-						<span>$__ </span>
-					</div>
-				</div>
+			<div class="collapsible-body note_body center-align" id="anchor_head_Dairy">
 			</div>
 		</li>
 	</ul>
-</div>
 <?php include("include/footer.php"); ?>

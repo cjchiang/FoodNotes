@@ -1,5 +1,4 @@
 <?php include("include/menuHeader.php"); ?>
-<div class="container green lighten-1 white-text">
     <div class="row center-align">
         <div class="col s12">
           <h3 style="font-size: 10vw;">About the Developers</h3>
@@ -34,7 +33,5 @@
                 <p>Quincy is a Pizza Hut Guy</p>
             </div>
         </div>
-
     </div>
-</div>
 <?php include("include/footer.php"); ?>

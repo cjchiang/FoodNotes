@@ -1,7 +1,7 @@
 <?php include("include/header.php"); ?>
     <!-- main body will go here, body tags are already distributed to header and footer-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>	
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -15,13 +15,12 @@
 	});
 
 </script>
-<div class="container">
 	<div class="row">
 	<!-- for the icon arrow -->
 		<div class="col s12">
 			<h4><a href="addFood.php"><i class="small material-icons">arrow_left</i> Back </a> </h4>
 		</div>
-	<!-- for the heading "Add Veggies" and its image-->		
+	<!-- for the heading "Add Veggies" and its image-->
 		<div class="col s12 center-align">
 			<h4> Add Viggies </h4>
 		</div>
@@ -41,16 +40,53 @@
 			</div>
 		</form>
 	</div>
-<!-- List the items of veggies for the users to choose and enter the price-->		
+<!-- List the items of veggies for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
+			<input type="submit" value="Add" id="submitBtn" hidden/>
+            <div class="row center">
+                <div class="col s4">
+                    Product Name
+                </div>
+                <div class="col s4">
+                    Quantity
+                </div>
+                <div class="col s4">
+                    Unit Price $ 
+                </div>
+            </div>
    		</form>
-
 	</div>
-
-
-
 </div>
+<script type="text/javascript">
+	
+	$(".checkbox").on("change", function(){
+		console.log("clicked");
+		var input ="#" + this.id.replace("check", "");
+		console.log(input);
+		// if (this.checked) {
+		// 	$(input).prop("disabled", false);
+		// } else {
+		// 	$(input).val("");
+		// 	$(input).prop("disabled", true);
+		// }
+
+	});
+		// $( "input:checkbox" ).ready(function(){
+		// console.log("me weddy");
+
+			// var foodName = this.id.replace("check_", "");
+			// console.log(input);
+		// if (this.checked) {
+		// 	$(input).prop("disabled", false);
+		// } else {
+		// 	$(input).val("");
+		// 	$(input).prop("disabled", true);
+		// }
+		// });
+	// });
+
+</script>
     <!--<div class="container-fluid ourContent">
         <div id="canvasSelect col-xs-12">
             <canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>

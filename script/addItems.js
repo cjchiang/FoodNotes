@@ -9,6 +9,7 @@
 	  firebase.initializeApp(config);
 	const database = firebase.database();
 	const foods = database.ref("foods");
+	const users = database.ref("users");
 
 	/*Populates a drop down with fruit food itemns, based on text inside search bar*/
 	function populateList(foodCategory) {
@@ -16,24 +17,35 @@
 		foods.orderByChild("category").equalTo(foodCategory).on("child_added", function(snap){
 			var snapData = snap.val();
 			var foodName = removeSpaces(snapData.product);
+			var quantity = snapData.default_quantity;
+			var unit = snapData.default_unit;
 			var newFoodBlock = document.getElementById(snap.key);
 			console.log(foodName);
 
 		    if (!newFoodBlock) {
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
-					'<a href="#' + foodName + '" id="click_' + foodName +'"></a>'+
-					'<a name="' + foodName + '"></a>'+
-				'<div class="input-field col s6">' +
-					'<input type="checkbox" id="check_' + foodName + '"' + 'name="name' + foodName + '"' + '/>' +
-					'<label for="check_' + foodName+ '"">' + snapData.product + '</label>' +
-				'</div>' +
-				'<div class="input-field col s6">' +
-					'<input type="text" id="' + foodName + '_bought" value="' + snapData.price + '" name ="price' + foodName + '"'+
-					'/>' +
-				'</div>' +
+					//food name col
+					'<div class="input-field col s4 ">' +
+						'<input class="check_tick" id="' + foodName + '" type="checkbox" '+
+						// 'onchange="logMe(this);"'+
+						'name="checkbox"/>' +
+						'<label for="' + foodName+ '">' + snapData.product + '</label>' +
+					'</div>' +
+						//quantity col
+					'<div class="input-field col s4" >' +
+						'<input type="number" id="' + foodName + '_quantity" '+
+						'" min="1" max="100" placeholder="' + quantity + ' ' + unit + '" name="' + unit + '"/>' +
+					'</div>' +
+						//unit price col
+					'<div class="input-field col s4">' +
+						'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price +
+						'"/>' +
+					'</div>' +
 				'</div> '
-				);
+				); 
+		    	$("#"+foodName+"_bought").val(snapData.price);
+		    	$("#"+foodName+"_quanity").val(1);
 		    }
 		});
 	}
@@ -69,9 +81,15 @@
 		return false;
 	}
 
-	// replace strings in item with underscores, used to create css IDs
+	// replace spaces in string with underscores, used to create css IDs
 	function removeSpaces(str){
 		var newStr = str.split(' ').join('_');
+		return newStr;
+	}
+
+	// replace spaces in string with spaces, used for names that will be displayed
+	function readdSpaces(str){
+		var newStr = str.split('_').join(' ');
 		return newStr;
 	}
 
@@ -80,4 +98,38 @@
 	    $('html, body').animate({
 	        scrollTop: $("#click_" + elemID).offset().top
 	    }, scrollSpeed);
+	}
+
+	function logMe(foodName) {
+		var ancestorKey = $("#" + foodName).parents(".row").attr("id");
+
+		if (!alreadyInCycle(foodName) ) {
+			console.log("logged:" + foodName);
+			addItem(foodName, ancestorKey);
+		} else {
+			console.log("already logged, appending");
+			appendItem(foodName, ancestorKey);
+		}
+	}
+
+	function logAllItems() {
+		$(":checked").each(function(){
+			logMe(this.id);
+		});
+		location.replace("addFood.php");
+	}
+	function alreadyInCycle(foodName) {
+		var currentUser = firebase.auth().currentUser;
+		var tempCycle = database.ref("users/" + currentUser.uid + "/temp");
+		return queryForItem(tempCycle, foodName);
+	}
+
+	function queryForItem(cycle, foodName) {
+		if (typeof cycle === "undefined")
+			return false;
+		var bool = false;
+		cycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
+			bool = true;
+		});
+		return bool;
 	}

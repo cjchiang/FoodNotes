@@ -1,155 +1,72 @@
-<!-- A temporary sign up page, made to be
-	demonstrated during the sprint presentation.
-	It's based off an old version of an unused login page Lanlan made,
-	meant to SQL, that I converted to use firebase.
-
-	It has awful styling and conventions, but it works;
-	user can connect to firebase after signing up, and will
-	return to index.php as a logged-in user.
- -->
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Login</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <style type="text/css">
-		body {
-		padding-top: 15%;
-		padding-bottom: 40px;
-		background-color: #aaa;
-		background-size: 100%;
-		transform: scale(2.5);
-		}
-
-		.form-signin {
-		max-width: 380px;
-		padding: 15px 35px 45px;
-		margin: 0 auto;
-		background-color: #fff;
-		border: 1px solid rgba(0,0,0,0.1);
-		}
-		.form-signin .form-signin-heading,
-		.form-signin .checkbox {
-		margin-bottom: 10px;
-		}
-		.form-signin .checkbox {
-		font-weight: normal;
-		font-size: 23px;
-		}
-		.form-signin .form-control {
-		position: relative;
-		height: auto;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		    box-sizing: border-box;
-		padding: 10px;
-		font-size: 23px;
-		}
-		.form-signin .form-control:focus {
-		z-index: 2;
-		}
-		.form-signin input[type="username"] {
-		margin-bottom: -1px;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-		}
-		.form-signin input[type="password"] {
-		margin-bottom: 10px;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-		}
-
-		.container {
-		margin-top: 80px;
-		margin-bottom: 80px;
-		}
-
-		footer {
-		position: fixed;
-		bottom: 0;
-		width: 100%;
-		}
-        </style>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-		<script>
-		  // Initialize Firebase
-		  var config = {
-		    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
-		    authDomain: "food-notes-test.firebaseapp.com",
-		    databaseURL: "https://food-notes-test.firebaseio.com",
-		    projectId: "food-notes-test",
-		    storageBucket: "food-notes-test.appspot.com",
-		    messagingSenderId: "106608811518"
-		  };
-		  firebase.initializeApp(config);
-		 </script>
-	</head>
-	<body>
-    <div class="container">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-9">
-      <div class="form-signin" action="login.php" method="POST">
-        <h3 class="form-signin-heading">Create your free account :</h2>
-
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-
-       <div class="col-sm-6">
-        <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit" id="registerBtn">Sign up</button>
-       	</div>
-
-      <div class="col-sm-6">
-        <button class="btn btn-lg btn-primary btn-block" value="Login" type="submit" id="cancelBtn">Cancel</button>
-       	</div>
-
-      </div>
-      <script type="text/javascript">
-
-      	// creates a new user, and a new child with their email in database
-		$("#registerBtn").click(function(){
-			firebase.auth().createUserWithEmailAndPassword($("#inputUsername").val(), $("#inputPassword").val());
-			firebase.database().ref("users").push({
-				"email" : $("#inputUsername").val()
-			});
-		});
-
-
-		$("#cancelBtn").click(function(){
+<head>
+	<title>FoodNotes</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="styles/materialize.min.css"/>
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+	<link rel="stylesheet" href="styles/styles.css" />
+	<script src="script/login.js" type="text/javascript"></script>
+	<script src="script/easterEgg.js" type="text/javascript"></script>
+	<link rel="icon" href="../images/favicon.png"/>
+	<script type="text/javascript">
+	var attempted = false;
+	firebase.auth().onAuthStateChanged(function(firebaseUser){
+		if (firebaseUser) {
+			console.log("signed in")
 			location.replace("index.php");
-		});
-
-		firebase.auth().onAuthStateChanged(function(firebaseUser){
-			if (firebaseUser) {
-				alert("Signed in!");
-				location.replace("index.php");
-			} else {
-				console.log(firebaseUser + " is not a valid user");
-			}
-		});
-
+		} else if (attempted) {
+			alert("Invalid username or password!");
+		} else {
+			console.log(firebaseUser + " is not a valid user");
+		}
+	});
 
 	</script>
-    </div>
-    </div>
-    <footer class="navbar-fixed-bottom">Copyright &#9400; 2017 Riolet Corporation</footer>
-	</body>
+</head>
+<body style="background-image: url(images/food_background3.jpg); background-size: 100%">
+	<br/>
+	<div class ="row">
+		<div class="col s12 center-align">
+			<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Logo"/></a>
+		</div>
+	</div>
+	<div class="container white-text center-align">
+		<div id="login_form" class="z-depth-1 green darken-2">
+			<div class="row">
+				<!-- <form class="col s12" method="post"> -->
+				<div class='row'>
+					<div class='input-field col s12'>
+						<input class='validate' type='email' name='email' id='email' />
+						<label for='email'>Enter your email</label>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='input-field col s12'>
+						<input class='validate' type='password' name='password' id='password' />
+						<label for='password'>Enter your password</label>
+					</div>
+				</div>
+				<div class='row'>
+					<div class='input-field col s12'>
+						<input class='validate' type='password' name='password' id='password' />
+						<label for='password'>Confirm your password</label>
+					</div>
+				</div>
+				<br />
+				<center>
+					<div class='row'>
+						<button id="registerBtn" name='btn_register' class='col s12 btn btn-large waves-effect green accent-4'>Sign Up</button>
+					</div>
+				</center>
+				<!-- </form> -->
+			</div>
+		</div>
+	</div>
+</body>
 </html>

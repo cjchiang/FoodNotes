@@ -12,15 +12,16 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="script/login.js" type="text/javascript"></script>
 		<script src="script/easterEgg.js" type="text/javascript"></script>
+    <link rel="icon" href="../images/favicon.png"/>
 	</head>
-    <body>
+    <body background="images/lined_paper.png">
 		</br>
 			<div class="row">
 					<div class="col s12 center-align">
 							<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
 					</div>
 			</div>
-			<div  id="easterEggSearch" class="container white-text green">
+			<div  id="easterEggSearch" class="container white-text green darken-2">
 				<div class="row">
 					<div class="input-field col s12">
 						<label for="easterEgg"><i class="material-icons">search</i></label>
@@ -31,24 +32,25 @@
 			</div>
 		</br>
 			<div class="row" id="navButtons">
-					<div id="loginBtn" class="col s4 left-align">
-							<a href="login.php" class="btn waves-effect waves-light green">Login</a>
+					<div id="loginBtn" class="col s5 left-align">
+							<a href="login.php" class="btn waves-effect waves-light green accent-4" hidden>Login</a>
 					</div>
-					<div id="easterEggBtn" class="col s4 center-align">
-							<a class="btn waves-effect waves-light green">Start</a>
+					<div id="easterEggBtn" class="col s2 center-align">
+							<a class="btn waves-effect waves-light green"></a>
 					</div>
-					<div id="signupBtn" class="col s4 right-align">
-							<a href="register.php" class="btn waves-effect waves-light green">Sign Up</a>
+					<div id="signupBtn" class="col s5 right-align">
+							<a href="register.php" class="btn waves-effect waves-light green accent-4" hidden>Sign Up</a>
 					</div>
 			</div>
-			<nav class="green">
+			<nav class="green darken-2">
 					<div class="nav-wrapper">
 							<ul id="nav-mobile" class="left">
 									<li><a href="index.php">Home</a><li>
 									<li><a href="aboutUsDevs.php">About Us</a></li>
 									<li><a href="Contact.php">Contact Us</a></li>
-									<li><a href="affiliatedApps.php">Related Apps</a></li>
+									<li><a href="affiliatedApps.php">Affiliates</a></li>
 							</ul>
 					</div>
 			</nav>
 	</br>
+	<div class="container green darken-2 white-text">
