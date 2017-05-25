@@ -232,7 +232,7 @@
 			</a>
 		</div>
 		<div class="col s6 food_group">
-			<a class="btn waves-effect waves-light yellow accent-4">
+			<a href="addDairy.php" class="btn waves-effect waves-light yellow accent-4">
 				Dairy
 			</a>
 		</div>
