@@ -112,7 +112,7 @@
 				$("#slider_" + foodNameID).val( parseInt(wasted) );
 			});
 		// update foodCategory total in db
-		lastCycleNode.child(foodCategory + "_total").set(sum);
+		// lastCycleNode.child(foodCategory + "_total").set(sum);
 
 		// update text of foodCategory total on page
 		$("#" + foodCategory + "_body_total").text("$ " + sum.toFixed(2) );

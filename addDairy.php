@@ -24,26 +24,25 @@
 	Also make search bar responsive to dynamic keyboard input. */
 	$("#search").ready(function(){
 		$(document).keyup(function(key){
-			filterProducts($("#search").val(), "Vegetable" );
+			filterProducts($("#search").val(), "Dairy" );
 		});
-		populateList("Vegetable");
+		populateList("Dairy");
 	});
+
 
 </script>
 	<div class="row">
-	<!-- for the icon arrow -->
-		<div class="col s12">
-			<h4><a href="addFood.php"><i class="small material-icons">arrow_left</i> Back </a> </h4>
-		</div>
-	<!-- for the heading "Add Veggies" and its image-->
-		<div class="col s12 center-align">
-			<h4> Add Veggies </h4>
-		</div>
-		<div class="col s12 center-align">
-			<img src="/images/veggie.png">
+		<!-- for the icon arrow -->
+		<div class="col s6 left-align">
+			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
 		</div>
 	</div>
-
+	<div class="row">
+	<!-- for the heading "Add Dairy" and its image-->
+		<div class="col s12 center-align">
+			<h4> Add Dairy </h4>
+		</div>
+	</div>
 	<!-- Search bar -->
 	<div class="row">
 		<form action="#" class="col s12">
@@ -51,32 +50,26 @@
 				<div class="input-field col s12">
 					<label for="search"><i class="material-icons">search</i></label>
 					<input id="search" type="search">
-				</div>
+				<div>
 				<div class="col s12 center-align">
 					<a class="btn waves-effect waves-light green" onclick="logAllItems()">Add Items</a>
 				</div>
 			</div>
 		</form>
 	</div>
-<!-- List the items of veggies for the users to choose and enter the price-->
+<!-- List the dairy items for the users to choose and enter the price-->
 	<div class="row">
 		<form action="#" class="col s12" id="anchor_head">
-			<input type="submit" value="Add" id="submitBtn" hidden/>
+			<!-- <input type="submit" value="Add" id="submitBtn" hidden/> -->
             <div class="row center">
-                <div class="col s4">
+                <div class="col s6">
                     Product Name
                 </div>
-                <div class="col s4">
-                    Quantity
-                </div>
-                <div class="col s4">
-                    Unit Price $ 
+                <div class="col s6">
+                    Price $ 
                 </div>
             </div>
    		</form>
 	</div>
-</div>
-
-</script>
 
 <?php include("include/footer.php"); ?>

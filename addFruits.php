@@ -20,7 +20,6 @@
 	} 
 	});
 
-
 	$("#search").ready(function(){
 		$(document).keyup( function(key) {
 			filterProducts($("#search").val(), "Fruit");
@@ -28,98 +27,11 @@
 		populateList("Fruit");
 	});
 
-	//add new item to temporary list
-	function addItem(foodNameID, refKey){
-		var foodName = foodNameID.split("_").join(" ");
-		var price;
-
-		var priceStr = $("#" + foodNameID + "_bought").attr("placeholder");
-		var price_default = priceStr.replace("$", "");	
-		
-		var price_set = $("#" + foodNameID + "_bought").val();
-		// use default price if set price is empty string or not numeric
-		if (price_set == "" || !isNumeric(price_set) ) {
-			price = parseFloat(price_default) ;
-		} else {
-			price = parseFloat(price_set) ;
-		}
-
-		currentUserNode.once("value", function(){
-			var tempCycle = currentUserNode.child("temp");
-			tempCycle.update({ "cycle": true });
-
-			tempCycle.once("value", function(){
-				var item = foods.child(refKey);
-				item.once("value", function(snap){
-					var newKey = tempCycle.push( snap.val() ).key;
-
-					tempCycle.child(newKey).update({"your_price" : price});
-				});
-			});
-		});
-	}
-
-	//add more of an existing item to temporary list
-	function appendItem(foodNameID, refKey){
-
-		var foodName = foodNameID.split("_").join(" ");
-		var price;
-
-		var priceStr = $("#" + foodNameID + "_bought").attr("placeholder");
-		var price_default = priceStr.replace("$", "");	
-		
-		var price_set = $("#" + foodNameID + "_bought").val();
-		// use default price if set price is empty string or not numeric
-		if (price_set == "" || !isNumeric(price_set) ) {
-			price = parseFloat(price_default) ;
-		} else {
-			price = parseFloat(price_set) ;
-		}
-
-		currentUserNode.once("value", function(){
-			var tempCycle = currentUserNode.child("temp");
-			tempCycle.update({ "cycle": true });
-			
-			tempCycle.orderByChild("product").equalTo( foodName ).on("child_added", function(snap){
-				var snapData = snap.val();
-				var appendTarget = tempCycle.child(snap.key);
-				var old_price = parseFloat( snapData.your_price ) ;
-
-				price = (price + old_price).toFixed(2);
-
-				appendTarget.update({"your_price" : price });
-			});
-		});
-	}
-
-	// function i pulled from stack overflow(not mine):
-	// https://stackoverflow.com/questions/18082/validate-decimal-numbers-in-javascript-isnumeric
-	function isNumeric(n) {
-	  return !isNaN(parseFloat(n)) && isFinite(n);
-	}
-
-	function noCyclesFound(){
-		var count;
-		currentUserNode.on("value", function(snap){
-			count = snap.val().cycleCount;
-		});
-		console.log(count);
-		return count;
-	}
-	function setUpCycleCount() {
-		currentUserNode.once("value", function(snap){
-			userNode.child("cycleCount").set(1);
-		});
-	}
-
 </script>
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
 			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
-		</div>
-		<div class="col s6 right-align">
-			<a class="btn waves-effect waves-light green" onclick="logAllItems()">Add Items</a>
 		</div>
 	</div>
 	<div class="row">
@@ -135,6 +47,9 @@
 				<div class="input-field col s12">
 					<label for="search"><i class="material-icons">search</i></label>
 					<input id="search" type="search">
+				</div>
+				<div class="col s12 center-align">
+					<a class="btn waves-effect waves-light green" onclick="logAllItems()">Add Items</a>
 				</div>
 			</div>
 		</form>
