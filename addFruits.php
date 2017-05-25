@@ -19,7 +19,7 @@
 		}
 	} 
 	});
-
+  
 	$("#search").ready(function(){
 		$(document).keyup( function(key) {
 			filterProducts($("#search").val(), "Fruit");

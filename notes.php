@@ -85,7 +85,7 @@
 						'<span>' + foodName + '</span>' +
 					'</div>'+
 					'<div class="col s3 push-s2">'+
-						'<span>price:</span>' + 
+						'<span>price:</span>' +
 					'</div>' +
 					'<div class="col s4 push-s2">'+ 
 						'<span id="' + foodNameID + '_price" name="' + wastedPrice +'" >' + price + '</span>' +
@@ -180,16 +180,16 @@
 	}
 
 	function updatePercent() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
 		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
 
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
-		
+
 		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
 		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
 		var percent = (curr_sum / orig_sum) * 100
@@ -333,14 +333,16 @@
 			</div>
 		</li>
 	</ul>
-	<div class="row center-align">
+	<div class="container center-align green z-depth-5">
+		<div class="row">
 		<h4 class="col s6">Spent</h4>
 		<h4 class="col s6">Wasted</h4>
 		<h5 class="col s6" id="orig_total">$100</h5>
 		<h5 class="col s6" id="curr_total">$0</h5>
-		<h5 class="col s6" style="font-size: 5vw">This cycle ends on:</h5>
+		<h5 class="col s6" style="font-size: 5vw">Cycle ends on:</h5>
 		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 	</div>
+</div>
 
 	</div>
 <?php include("include/footer.php");?>
