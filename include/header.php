@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <link rel="icon" href="../images/favicon.png"/>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script type="text/javascript" src="../script/amIsignedIn.js"></script>
+    <!-- <script type="text/javascript" src="../script/amIsignedIn.js"></script> -->
 	</head>
     <body background="images/lined_paper.png">
 		</br>
