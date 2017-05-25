@@ -200,7 +200,14 @@ hr {
   left: 0;
   right: 0;
   bottom: 0%;
-  background-color:#00c853;
+  background-color:#b71c1c;
+}
+.affLogo {
+  max-height:100px;
+  max-width:300px;
+}
+#navButtons {
+  display:none;
 }
 
 /*Sets the input fields*/
@@ -370,13 +377,12 @@ table, td, tr, th {
   left: 38%;
   right: 38%;
 }
-
 #clearMe {
     display: block;
     margin: 15%;
     visibility: hidden;
 }
-@media only screen and (min-width:768px) {
+@media screen and (min-width:768px) {
     html{
         border: 1px solid;
         margin: auto;
@@ -394,11 +400,11 @@ table, td, tr, th {
       margin: 0% auto;
       left: 0;
       right: 0;
-    }   
+    }
     .specialButton {
         width: 75%;
     }
     .collapsible-header:nth-child(n){
         font-size: 25px;
-    
+
 }
