@@ -52,11 +52,11 @@
 		//bug here
 		if (typeof lastCycle !== "undefined") {
 			populateCurrentList("Fruit");
+			populateCurrentList("Meat");
+			populateCurrentList("Vegetable");
+			populateCurrentList("Dairy");
 			once = false;
-			// populateCurrentList("Meat");
-			// populateCurrentList("Vegetable");
-			// populateCurrentList("Dairy");
-			setDate();
+	    	setDate();
 		} else {
 			console.log("no cycles in record");
 		}
@@ -122,9 +122,33 @@
 	function setDate() {
 		lastCycleNode.once("value", function(snap){
 			var deadline = snap.val().cycleEndDate;
-			if (typeof deadline !== "undefined")
-				displayDate(deadline);
+			if (typeof deadline !== "undefined") {
+				var todayIsTheDeadline = checkDeadline(deadline);
+				if (todayIsTheDeadline)
+					finalize();
+				if (!todayIsTheDeadline)
+					displayDate(deadline);				
+			}
 		});
+	}
+
+	function checkDeadline(timeObj) {
+		var today = new Date();
+		var deadline = new Date(timeObj);
+		var deadline_dd = deadline.getDate();
+		var deadline_mm = deadline.getMonth(); 
+		var deadline_yyyy = deadline.getFullYear();
+		var deadline_str = deadline_dd + "," + deadline_mm + "," + deadline_yyyy;
+		
+		var today_dd = today.getDate();
+		var today_mm = today.getMonth(); 
+		var today_yyyy = today.getFullYear();
+		var today_str = today_dd + "," + today_mm + "," + today_yyyy;
+		console.log("todayStr:" + today_str)
+		console.log("deadlineStr:" + deadline_str) 
+		if ( today_str == deadline_str)
+			return true;
+		return false;
 	}
 
 	function displayDate(timeObj) {
@@ -203,7 +227,7 @@
 	function finalize() {
 		finalizeStats();
 		addCycle();
-		// location.replace("records.php");
+		location.replace("records.php");
 	}
 
 	function finalizeStats() {
