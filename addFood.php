@@ -55,9 +55,9 @@
 			tempCycle = userNode.child("temp");
 			// bug here, if fruit isn't first, it repeats 4x, idk y
 
+			populateTempList("Dairy", userNode.child("temp"));
 			populateTempList("Fruit", userNode.child("temp"));
 			populateTempList("Vegetable", userNode.child("temp"));
-			populateTempList("Diary", userNode.child("temp"));
 			populateTempList("Meat", userNode.child("temp"));
 		}
 		});
@@ -75,7 +75,7 @@
 			$("#anchor_head_"+ foodCategory).append(
 				'<div class="row" id="'+ foodNameID +'">' +
 					'<div class="col s6">' +
-						'<span>' + foodName + '</span>' +
+						'<span class="truncate" style="font-size: responsive">' + foodName + '</span>' +
 					'</div>' +
 					'<div class="col s3">' +
 						'<span id="' + foodNameID + '_price">' + price + '</span>' +
@@ -159,14 +159,14 @@
 
 	function getNewDeadline(duration) {
 	    var deadline;
-	    if (duration == "biweekly") {
-	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
-	    } else if (duration == "weekly") {
-	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
-	    } else {
-	    	// implied to be "monthly"
+	    if (duration == "monthly") {
 	        deadline = new Date(+new Date + (12096e5*2) );
-	    } 
+	    } else if (duration == "biweekly") {
+	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days
+	    } else {
+	    	// implied to be "weekly"
+	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
+	    }
 	    return deadline;
 	}
 	function addCycle() {
@@ -179,11 +179,11 @@
 			var cycleIndex = "cycle" + count;
 			var duration = snap.val().cycleDuration;
 			if (typeof duration === "undefined")
-				duration = "monthly"
+				duration = "weekly"
 			var deadline = getNewDeadline(duration);
 			// console.log("deadline in days:" + deadline.getDate())
 			// alert("Cycle set to end in: " + deadline.getDate() " days")
-			
+
 			userNode.child(cycleIndex).update({ "cycleEndDate" : deadline})
 			userNode.child("cycleDuration").set( duration )
 			userNode.child("cycleCount").set(count);
@@ -194,13 +194,13 @@
 <!-- Add 4 categories -->
 	<div class="row">
 		<!-- For cancelling purchase -->
-		<div class="col s4 left-align">
-			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
+		<div class="col s6 left-align">
+			<a href="notes.php" class="btn waves-effect waves-light red darken-4">Cancel</a>
 		</div>
 		<!-- For submitting -->
-		<div class="col s4 right-align">
+		<div class="col s6 right-align">
 			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
-			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green accent-4">Finalize</a>
+			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light red darken-4">Finalize</a>
 		</div>
 	</div>
 	<div class="row">

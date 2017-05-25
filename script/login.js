@@ -25,7 +25,7 @@ $(function(){
 			  	db.ref("users").child(userID).set(snap.val());
 			  	child.remove();
 			}
-		});	
+		});
       } else {
         console.log("not logged in");
       }
@@ -55,6 +55,7 @@ $(function(){
 			firebase.database().ref("users").push({
 				"email" : email,
 				"cycleCount" : 0
+				"cycleDuration" : "weekly"
 			});
 		}
 	});
@@ -65,9 +66,6 @@ $(function(){
 			alert("Please enter the email you signed up with, then try again")
 			return;
 		}
-		// var promise = firebase.auth().signInWithEmailAndPassword("admin", "admin1");
-		// promise.catch(function(e){ alert(e.message); });
-		// 	firebase.database().ref("users")
 		var auth = firebase.auth();
 		auth.sendPasswordResetEmail(email).then(function() {
 			alert("A password reset email has been sent to above address.")		  
@@ -75,7 +73,6 @@ $(function(){
 		  //tried to use try block, caught nothing	
 		  alert(e.message);
 		});        
-        // firebase.auth().signOut();
 	});
 
 	$("#loginBtnSubmit").click(function(){

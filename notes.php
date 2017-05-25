@@ -52,11 +52,11 @@
 		//bug here
 		if (typeof lastCycle !== "undefined") {
 			populateCurrentList("Fruit");
+			populateCurrentList("Meat");
+			populateCurrentList("Vegetable");
+			populateCurrentList("Dairy");
 			once = false;
-			// populateCurrentList("Meat");
-			// populateCurrentList("Vegetable");
-			// populateCurrentList("Dairy");
-			setDate();
+	    	setDate();
 		} else {
 			console.log("no cycles in record");
 		}
@@ -85,9 +85,9 @@
 						'<span>' + foodName + '</span>' +
 					'</div>'+
 					'<div class="col s3 push-s2">'+
-						'<span>price:</span>' + 
+						'<span>price:</span>' +
 					'</div>' +
-					'<div class="col s4 push-s2">'+ 
+					'<div class="col s4 push-s2">'+
 						'<span id="' + foodNameID + '_price" name="' + wastedPrice +'" >' + price + '</span>' +
 					'</div>' +
 					'<div class="col s2 push-s1">'+
@@ -121,21 +121,58 @@
 
 	function setDate() {
 		lastCycleNode.once("value", function(snap){
-			var deadline = snap.val().cycleEndDate;
-			if (typeof deadline !== "undefined")
-				displayDate(deadline);
+			var deadline;
+			try {
+				deadline = snap.val().cycleEndDate;
+			} catch(e) {
+				console.log("deadline unset")
+			}
+			if (typeof deadline !== "undefined") {
+				var todayIsTheDeadline = checkDeadline(deadline);
+				if (todayIsTheDeadline) {	
+					console.log("the end is here!");
+					alert("Cycle ended!")
+					finalize();
+				}
+				if (!todayIsTheDeadline) {
+					var deadline = new Date(deadline)
+					var deadline_days = deadline.getDate();
+					var daysLeft = deadline.toDate() - deadline_days;
+					console.log("cycle still has" + daysLeft);
+					displayDate(deadline);				
+				}
+			} 
 		});
+	}
+
+	function checkDeadline(timeObj) {
+		var today = new Date();
+		var deadline = new Date(timeObj);
+		var deadline_dd = deadline.getDate();
+		var deadline_mm = deadline.getMonth();
+		var deadline_yyyy = deadline.getFullYear();
+		var deadline_str = deadline_dd + "," + deadline_mm + "," + deadline_yyyy;
+
+		var today_dd = today.getDate();
+		var today_mm = today.getMonth();
+		var today_yyyy = today.getFullYear();
+		var today_str = today_dd + "," + today_mm + "," + today_yyyy;
+		console.log("todayStr:" + today_str)
+		console.log("deadlineStr:" + deadline_str)
+		if ( today_str == deadline_str)
+			return true;
+		return false;
 	}
 
 	function displayDate(timeObj) {
 		var deadline = new Date(timeObj);
 		var dd = deadline.getDate();
 		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-		var mm = monthNames[ deadline.getMonth() ]; 
+		var mm = monthNames[ deadline.getMonth() ];
 		var yyyy = deadline.getFullYear();
 		// var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
 		// var ww = weekDays[ deadline.getDay() ];
-		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);		
+		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);
 	}
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
@@ -168,10 +205,10 @@
 	// note:  total spent price is only updated once, in populateCurrentList
 	function updateTotal(foodGroupID) {
 		var sum = 0;
-		$("#"+foodGroupID).find("[id$='_price']").each(function(){				
+		$("#"+foodGroupID).find("[id$='_price']").each(function(){
 			var itemPriceStr = $(this).attr("name");
 			console.log(itemPriceStr)
-			var itemPrice = parseFloat(itemPriceStr); 
+			var itemPrice = parseFloat(itemPriceStr);
 			sum += itemPrice;
 		});
 		console.log(foodGroupID + " foodGroup wasted sum: " + sum);
@@ -180,78 +217,26 @@
 	}
 
 	function updatePercent() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
 		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
 
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
-		
+
 		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
 		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
 		var percent = (curr_sum / orig_sum) * 100
 		if (isNaN(percent))
 			percent = 0
-		$("#total_waste_percent").text( percent.toFixed(2) + " %" )	
+		$("#total_waste_percent").text( percent.toFixed(2) + " %" )
 		$("#orig_total").text( "$" + orig_sum );
 		$("#curr_total").text( "$" + curr_sum );
-	}	
-
-	function finalize() {
-		finalizeStats();
-		addCycle();
-		// location.replace("records.php");
 	}
 
-	function finalizeStats() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
-		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
-		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
-		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
-
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
-		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
-		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
-		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
-
-		var Meat_percent = current_meat_total / old_meat_total;
-			if ( isNaN(Meat_percent) ) {
-				Meat_percent = 0
-			}
-		var Fruit_percent = current_fruit_total / old_fruit_total;
-			if ( isNaN(Fruit_percent) )
-				Fruit_percent = 0			
-		var Vegetable_percent = current_veg_total / old_fruit_total;
-			if ( isNaN(Vegetable_percent) )
-				Vegetable_percent = 0
-		var Dairy_percent = current_dairy_total / old_dairy_total;
-			if ( isNaN(Dairy_percent) )
-				Dairy_percent = 0
-
-		// var curr_sum = $("#curr_total").text().replace("$", "")
-		// var orig_sum = $("#orig_total").text().replace("$", "")
-		var percent_wasted = $("#total_waste_percent").text().replace("%", "");
-
-    	lastCycle.update({"percent_wasted" : percent_wasted });
-    	lastCycle.update({"Meat_percent" : Meat_percent.toFixed(2) });
-    	lastCycle.update({"Fruit_percent" : Fruit_percent.toFixed(2) });
-    	lastCycle.update({"Vegetable_percent" : Vegetable_percent.toFixed(2) });
-    	lastCycle.update({"Dairy_percent" : Dairy_percent.toFixed(2) });
-	}
-	function addCycle() {
-		var user = firebase.auth().currentUser;
-		var userNode = users.child(user.uid);
-
-		userNode.once("value", function(snap){
-			var count = snap.val().cycleCount;
-			var cycleIndex = "cycle" + count;
-			count++;
-			userNode.child("cycleCount").set(count);
-		});
-	}
 </script>
 
 	<div id="notes">
@@ -333,14 +318,16 @@
 			</div>
 		</li>
 	</ul>
-	<div class="row center-align">
+	<div class="container center-align red darken-4 z-depth-5">
+		<div class="row">
 		<h4 class="col s6">Spent</h4>
 		<h4 class="col s6">Wasted</h4>
 		<h5 class="col s6" id="orig_total">$100</h5>
 		<h5 class="col s6" id="curr_total">$0</h5>
-		<h5 class="col s6" style="font-size: 5vw">This cycle ends on:</h5>
+		<h5 class="col s6">Cycle ends:</h5>
 		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 	</div>
+</div>
 
 	</div>
 <?php include("include/footer.php");?>

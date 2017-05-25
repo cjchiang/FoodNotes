@@ -1,7 +1,7 @@
 <?php include("include/header.php"); ?>
     <script type="text/javascript"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script src="settings.js"></script>
+    <script src="script/settings.js"></script>
     <div class="row">
         <div class="col s12 center">
             <h1>Settings</h1>
@@ -34,13 +34,20 @@
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
-              <a class="waves-effect waves-light btn green accent-4 reviveMe">
+              <a class="waves-effect waves-light btn red darken-4 reviveMe">
                 <input type="submit" onclick="checkOption()">
               </a>
             </div>
             <div class="col s6">
-              <a class="waves-effect waves-light btn green accent-4 reviveMe">
+              <a class="waves-effect waves-light btn red darken-4 reviveMe">
                 <input value="LogOut" type="submit" id="logoutBtn">
+              </a>
+            </div>
+        </div>
+        <div class="row center-align">
+            <div class="col s12">
+              <a class="waves-effect waves-light btn red darken-4 reviveMe">
+                <span onclick="requestFinalize()" >Manually end current cycle</span>
               </a>
             </div>
         </div>

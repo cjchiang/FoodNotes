@@ -2,7 +2,13 @@
 <!--About Us-->
   <div class="row">
     <div class="col s12 center-align">
-      <p class="flow-text">FoodNotes is a behaviour change purchase-tracker app that allows the users to keep track of how much of their food is not eaten, in term of money.  All leftover or unused food is counted towards a wasted total amount. We also show users's previous cycles for them to improve their progress</p>
+      <h3>What is Food Notes?</h3>
+      <p class="flow-text">
+        FoodNotes is a food diary app that allows the users
+        to keep track of how much of their food is not eaten, in term of money.
+        All leftover or unused food is counted towards a wasted total amount.
+        We also show users's previous cycles for them to improve their progress
+      </p>
     </div>
   </div>
 <div class="container center-align">
