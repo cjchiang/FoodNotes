@@ -194,11 +194,11 @@
 <!-- Add 4 categories -->
 	<div class="row">
 		<!-- For cancelling purchase -->
-		<div class="col s4 left-align">
+		<div class="col s6 left-align">
 			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
 		</div>
 		<!-- For submitting -->
-		<div class="col s4 right-align">
+		<div class="col s6 right-align">
 			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
 			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green accent-4">Finalize</a>
 		</div>
