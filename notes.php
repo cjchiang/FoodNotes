@@ -94,7 +94,7 @@
 						'<span>0%</span>' +
 					'</div>' +
 					'<div class="col s6 push-s2">'+
-						'<span>Wasted</span>' +
+						'<span>Waste</span>' +
 					'</div>' +
 					'<div class="col s1">'+
 						'<span>100%</span>' +
@@ -259,16 +259,8 @@
 			<button onclick="finalize()">End cycle test</button>
 		</div>
 		<div class="row center-align">
-			<h3>Wasted this cycle:</h3>
+			<h3>Waste this cycle:</h3>
 			<h3 id="total_waste_percent">0 %</h3>
-		</div>
-		<div class="row center-align">
-			<h4 class="col s6">Spent</h4>
-			<h4 class="col s6">Wasted</h4>
-			<h5 class="col s6" id="orig_total">$100</h5>
-			<h5 class="col s6" id="curr_total">$0</h5>
-			<h5 class="col s6" style="font-size: 5vw">This cycle ends on:</h5>
-			<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 		</div>
 	<h4 class ="row center-align">Cycle items</h4>
 	<ul class="collapsible" data-collapsible="expandable">
@@ -341,5 +333,14 @@
 			</div>
 		</li>
 	</ul>
+	<div class="row center-align">
+		<h4 class="col s6">Spent</h4>
+		<h4 class="col s6">Wasted</h4>
+		<h5 class="col s6" id="orig_total">$100</h5>
+		<h5 class="col s6" id="curr_total">$0</h5>
+		<h5 class="col s6" style="font-size: 5vw">This cycle ends on:</h5>
+		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
+	</div>
+
 	</div>
 <?php include("include/footer.php");?>
