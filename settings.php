@@ -19,18 +19,6 @@
                 </select>
             </div>
         </div>
-    <!--Settings for Theme-->
-        <div class="row">
-            <label class ="white-text">Theme</label>
-            <div class="input-field col s12  z-depth-2">
-            <select id="myBackgroundChoice">
-                <option value="" disabled selected>Choose your background theme</option>
-                <option value="1">Gray</option>
-                <option value="2">Pink</option>
-                <option value="3">Blue</option>
-            </select>
-            </div>
-        </div>
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
@@ -41,6 +29,13 @@
             <div class="col s6">
               <a class="waves-effect waves-light btn red darken-4 reviveMe">
                 <input value="LogOut" type="submit" id="logoutBtn">
+              </a>
+            </div>
+        </div>
+        <div class="row center-align">
+            <div class="col s12">
+              <a class="waves-effect waves-light btn red darken-4 reviveMe">
+                <span onclick="requestFinalize()" >Manually end current cycle</span>
               </a>
             </div>
         </div>
