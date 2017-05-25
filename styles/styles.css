@@ -395,11 +395,11 @@ table, td, tr, th {
       margin: 0% auto;
       left: 0;
       right: 0;
-    }   
+    }
     .specialButton {
         width: 75%;
     }
     .collapsible-header:nth-child(n){
         font-size: 25px;
-    
+
 }

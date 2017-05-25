@@ -160,13 +160,13 @@
 	function getNewDeadline(duration) {
 	    var deadline;
 	    if (duration == "biweekly") {
-	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
+	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days
 	    } else if (duration == "weekly") {
 	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
 	    } else {
 	    	// implied to be "monthly"
 	        deadline = new Date(+new Date + (12096e5*2) );
-	    } 
+	    }
 	    return deadline;
 	}
 	function addCycle() {
@@ -183,7 +183,7 @@
 			var deadline = getNewDeadline(duration);
 			// console.log("deadline in days:" + deadline.getDate())
 			// alert("Cycle set to end in: " + deadline.getDate() " days")
-			
+
 			userNode.child(cycleIndex).update({ "cycleEndDate" : deadline})
 			userNode.child("cycleDuration").set( duration )
 			userNode.child("cycleCount").set(count);
@@ -195,12 +195,12 @@
 	<div class="row">
 		<!-- For cancelling purchase -->
 		<div class="col s4 left-align">
-			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
+			<a href="notes.php" class="btn waves-effect waves-light red darken-4">Cancel</a>
 		</div>
 		<!-- For submitting -->
 		<div class="col s4 right-align">
 			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
-			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light green accent-4">Finalize</a>
+			<a id="link_finalize" onclick="finalize()" class="btn waves-effect waves-light red darken-4">Finalize</a>
 		</div>
 	</div>
 	<div class="row">
