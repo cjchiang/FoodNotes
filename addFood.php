@@ -175,7 +175,7 @@
 
 		userNode.once("value", function(snap){
 			var count = snap.val().cycleCount;
-			count++;
+			// count++;
 			var cycleIndex = "cycle" + count;
 			var duration = snap.val().cycleDuration;
 			if (typeof duration === "undefined")
@@ -186,7 +186,7 @@
 
 			userNode.child(cycleIndex).update({ "cycleEndDate" : deadline})
 			userNode.child("cycleDuration").set( duration )
-			userNode.child("cycleCount").set(count);
+			// userNode.child("cycleCount").set(count);
 		});
 	}
 
