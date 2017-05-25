@@ -192,7 +192,7 @@
 				var old_price = parseFloat( snapData.your_price ) ;
 
 				price = (price + old_price).toFixed(2);
-
+				console.log("newprice:" + price);
 				appendTarget.update({"your_price" : price });
 			});
 		});

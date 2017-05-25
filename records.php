@@ -51,7 +51,7 @@ the running count of total items wasted
   }
 
   function findTemp(){
-    if ( lastCycleCount - 1 <= 0) {
+    if ( lastCycleCount - 1 < 0) {
       displayEmptyRecord();
       return;
     }
@@ -91,15 +91,35 @@ the running count of total items wasted
      '<li>'+
       '<div class="collapsible-header">'+
         '<div class="row">' +
-          '<div class="col s2">'+ 
-          '<i class="material-icons" style="font-size: 35px">add_circle</i>' +
+          '<div class="col s1">'+ 
+            '<i class="material-icons" style="font-size: 35px">add_circle</i>' +
           '</div>' +
-          '<div class ="col s8">' +
-            '<span id="cycleEndDate" style="font-size: 6vw">Cycle_End_Date</span>'+
+
+          '<div class ="col s10 push-s1">' +
+            '<span style="font-size: 6vw">% of money wasted: </span>'+
           '</div>' +
-          '<div class ="col s2 pull-s1">' +
+        
+          '<div class ="col s1 pull-s1">' +
             '<span id="percent_wasted" style="font-size: 6vw"> 0% </span>'+
           '</div>' +
+        
+        '</div>' +
+        '<div class="row">' +
+
+          '<div class ="col s6">' +
+            '<span style="font-size: 6vw">Cycle started:</span>'+
+          '</div>' +
+          '<div class ="col s6">' +
+            '<span id="cycleStartDate" style="font-size: 6vw">Cycle_Start_Date</span>'+
+          '</div>' +
+
+          '<div class ="col s6">' +
+            '<span style="font-size: 6vw">Cycle ended:</span>'+
+          '</div>' +
+          '<div class ="col s6">' +
+            '<span id="cycleEndDate" style="font-size: 6vw">Cycle_End_Date</span>'+
+          '</div>' +
+
         '</div>' +
       '</div>' +
       //body portion
@@ -182,18 +202,24 @@ the running count of total items wasted
       if ( isNaN(foodCategory_percent))
         foodCategory_percent = 0;
 
-      var deadline;
+      var enddate;
+      var startdate;
       try {
-       deadline = snapData.cycleEndDate;
+        enddate = snapData.cycleEndDate;
+        startdate = snapData.cycleStartDate;
       } catch(e){}
 
-      if (typeof deadline === "undefined")
-        deadline = "End date unset"
-      else 
-        deadline = formatDate(deadline);
+      if (typeof enddate === "undefined") {
+        enddate = "End date unset"
+        startdate = "Start date unset"
+      } else {
+        enddate = formatDate(enddate);
+        startdate = formatDate(startdate);
+      }
      $("#" + cycleKey).find("#percent_wasted").text( percent_wasted + "%");
      $("#" + cycleKey).find("#" +foodCategory+"_percent").text( foodCategory_percent + "%");      
-     $("#" + cycleKey).find("#cycleEndDate").text( deadline );      
+     $("#" + cycleKey).find("#cycleEndDate").text( enddate );      
+     $("#" + cycleKey).find("#cycleStartDate").text( startdate );      
     });
 
     // var total = 0;
