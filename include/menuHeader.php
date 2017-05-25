@@ -46,8 +46,6 @@
 					<div class="nav-wrapper">
 							<ul id="nav-mobile" class="left">
 									<li><a href="index.php">Home</a><li>
-									<li><a href="aboutUsDevs.php">About Us</a></li>
-									<li><a href="Contact.php">Contact Us</a></li>
 									<li><a href="affiliatedApps.php">Affiliates</a></li>
 							</ul>
 					</div>

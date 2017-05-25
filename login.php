@@ -32,7 +32,7 @@
   <br/>
   <div class ="row">
     <div class="col s12 center-align">
-      <a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Logo"/></a>
+      <a href="index.php"><img id="logo" src="images/HorizontalLogo_BlackOutline.png" alt="Logo"/></a>
     </div>
   </div>
   <div class="container white-text center-align">
@@ -58,10 +58,10 @@
           <br />
           <center>
             <div class='row'>
-              <button id="loginBtnSubmit" name='btn_login' class='col s12 btn btn-large waves-effect green accent-4'>Login</button>
+              <button id="loginBtnSubmit" name='btn_login' class='col s12 btn btn-large waves-effect red darken-4'>Login</button>
               </div>
               <div class="row">
-                <a href="resetPW.php" ="forgotPWBtn" class='col s12 btn btn-large waves-effect green accent-4'>Forgot your password</a>
+                <a href="resetPW.php" ="forgotPWBtn" class='col s12 btn btn-large waves-effect red darken-4'>Forgot your password</a>
               </div>
           </center>
         <!-- </form> -->
