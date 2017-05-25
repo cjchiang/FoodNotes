@@ -370,6 +370,12 @@ table, td, tr, th {
   left: 38%;
   right: 38%;
 }
+
+#clearMe {
+    display: block;
+    margin: 15%;
+    visibility: hidden;
+}
 @media only screen and (min-width:768px) {
     html{
         border: 1px solid;
