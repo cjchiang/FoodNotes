@@ -127,7 +127,7 @@
 				if (todayIsTheDeadline)
 					finalize();
 				if (!todayIsTheDeadline)
-					displayDate(deadline);				
+					displayDate(deadline);
 			}
 		});
 	}
@@ -136,16 +136,16 @@
 		var today = new Date();
 		var deadline = new Date(timeObj);
 		var deadline_dd = deadline.getDate();
-		var deadline_mm = deadline.getMonth(); 
+		var deadline_mm = deadline.getMonth();
 		var deadline_yyyy = deadline.getFullYear();
 		var deadline_str = deadline_dd + "," + deadline_mm + "," + deadline_yyyy;
-		
+
 		var today_dd = today.getDate();
-		var today_mm = today.getMonth(); 
+		var today_mm = today.getMonth();
 		var today_yyyy = today.getFullYear();
 		var today_str = today_dd + "," + today_mm + "," + today_yyyy;
 		console.log("todayStr:" + today_str)
-		console.log("deadlineStr:" + deadline_str) 
+		console.log("deadlineStr:" + deadline_str)
 		if ( today_str == deadline_str)
 			return true;
 		return false;
@@ -363,7 +363,7 @@
 		<h4 class="col s6">Wasted</h4>
 		<h5 class="col s6" id="orig_total">$100</h5>
 		<h5 class="col s6" id="curr_total">$0</h5>
-		<h5 class="col s6" style="font-size: 5vw">Cycle ends on:</h5>
+		<h5 class="col s6">Cycle ends:</h5>
 		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 	</div>
 </div>

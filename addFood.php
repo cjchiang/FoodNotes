@@ -193,9 +193,9 @@
 </script>
 <!-- Add 4 categories -->
 	<div class="row">
-		<!-- For cancelling purchase --
+		<!-- For cancelling purchase -->
 		<div class="col s6 left-align">
-			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
+			<a href="notes.php" class="btn waves-effect waves-light red darken-4">Cancel</a>
 		</div>
 		<!-- For submitting -->
 		<div class="col s6 right-align">
