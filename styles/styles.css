@@ -377,3 +377,29 @@ table, td, tr, th {
   left: 38%;
   right: 38%;
 }
+@media only screen and (min-width:768px) {
+    html{
+        border: 1px solid;
+        margin: auto;
+        width: 768px;
+    }
+    .bottomNavi {
+        width: 768px;
+        margin: auto;
+    }
+    #specialNavi {
+      position: fixed;
+      width: 10%;
+      height: 15%;
+      bottom: 0;
+      margin: 0% auto;
+      left: 0;
+      right: 0;
+    }   
+    .specialButton {
+        width: 75%;
+    }
+    .collapsible-header:nth-child(n){
+        font-size: 25px;
+    
+}

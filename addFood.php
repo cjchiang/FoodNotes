@@ -121,12 +121,10 @@
 		var ancestorKey = $("#" + src.id).parents("[id^='anchor_head_']").attr("id");
 		console.log("deleted: " + foodKey);
 		console.log("deleted: " + foodName);
-		//delete entry from page, with animation
-		$("#" + foodKey).fadeOut(500, function(){
-			// $("#" + foodKey).remove();
-			$(this).remove();
-		});
+		//delete entry from page, animation breaks code so removed it
+		$("#" + foodKey).remove();
 
+		updateTotal(ancestorKey, foodName);
 		//delete entry from db as well
 		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
 				tempCycle.child(snap.key).remove();
@@ -199,9 +197,6 @@
 		<div class="col s4 left-align">
 			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
 		</div>
-		<div class="col s3 center-align" style="color: black">
-			<button onclick="finalize()">Kill cycle</button>
-		</div>
 		<!-- For submitting -->
 		<div class="col s4 right-align">
 			<!-- <a id="link_finalize" href="notes.php" class="btn waves-effect waves-light green">Finalize</a> -->
@@ -232,7 +227,7 @@
 			</a>
 		</div>
 		<div class="col s6 food_group">
-			<a class="btn waves-effect waves-light yellow accent-4">
+			<a href="addDairy.php" class="btn waves-effect waves-light yellow accent-4">
 				Dairy
 			</a>
 		</div>

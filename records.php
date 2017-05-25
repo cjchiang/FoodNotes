@@ -92,12 +92,12 @@ the running count of total items wasted
       '<div class="collapsible-header">'+
         '<div class="row">' +
           '<div class="col s2">'+ 
-          '<i class="material-icons large" style="font-size: 45px">keyboard_arrow_down</i>' +
+          '<i class="material-icons" style="font-size: 35px">add_circle</i>' +
           '</div>' +
-          '<div class ="col s6">' +
-            '<span style="font-size: 6vw">Cycle_End_Date</span>'+
+          '<div class ="col s8">' +
+            '<span id="cycleEndDate" style="font-size: 6vw">Cycle_End_Date</span>'+
           '</div>' +
-          '<div class ="col s4 push-s1">' +
+          '<div class ="col s2 pull-s1">' +
             '<span id="percent_wasted" style="font-size: 6vw"> 0% </span>'+
           '</div>' +
         '</div>' +
@@ -134,14 +134,17 @@ the running count of total items wasted
   }
 
   function createCycleCategoryHeaderOnPage(CycleKey, foodCategory) {
+    var foodCategoryName = foodCategory;
+    if (foodCategory == "Vegetable")
+      foodCategoryName = "Veggies"
     $('.collapsible').collapsible();
      $("#" + CycleKey).find("#" +foodCategory+"_anchor_head").append(
           '<div class="row">' +
             '<div class="col s2">' +
-              '<i class="material-icons" style="font-size: 45px">keyboard_arrow_down</i>' +
+              '<i class="material-icons" style="font-size: 35px">add_circle</i>' +
             '</div>' +
             '<div class="col s4">' +
-              '<span>' + foodCategory + '</span>'+
+              '<span>' + foodCategoryName + '</span>'+
             '</div>' +
             '<div class="col s6 alt-right">' +
               '<span class="alt-right" id="' + foodCategory +'_percent" >0%</span>'+
@@ -150,11 +153,14 @@ the running count of total items wasted
           );
   }
  
+  function roundStringAsFloat(str) {
+     return Math.round( parseFloat(str) );
+   } 
   function populateCycleCategory(foodCategory, cycleRef) {
     var cycleKey = cycleRef.key;
     cycleRef.once("value", function(snap){
       var snapData = snap.val();
-      var percent_wasted = snapData.percent_wasted;
+      var percent_wasted = roundStringAsFloat( snapData.percent_wasted );
         if ( isNaN(percent_wasted))
           percent_wasted = 0;
       // var foodCategory_percentStr = foodCategory + "_percent";
@@ -164,19 +170,24 @@ the running count of total items wasted
 
       var foodCategory_percent;
       switch(foodCategory) {
-        case "Meat" : foodCategory_percent = snapData.Meat_percent;
+        case "Meat" : foodCategory_percent = roundStringAsFloat( snapData.Meat_percent);
             break;
-        case "Fruit" : foodCategory_percent = snapData.Fruit_percent;
+        case "Fruit" : foodCategory_percent = roundStringAsFloat( snapData.Fruit_percent);
             break;
-        case "Vegetable" : foodCategory_percent = snapData.Vegetable_percent;
+        case "Vegetable" : foodCategory_percent = roundStringAsFloat( snapData.Vegetable_percent);
             break;
-        case "Dairy" : foodCategory_percent = snapData.Dairy_percent;
+        case "Dairy" : foodCategory_percent = roundStringAsFloat( snapData.Dairy_percent);
             break;
       }
       if ( isNaN(foodCategory_percent))
         foodCategory_percent = 0;
+
+      var deadline = snapData.cycleEndDate;
+      if (typeof deadline === "undefined")
+        deadline = "End date unset"
      $("#" + cycleKey).find("#percent_wasted").text( percent_wasted + "%");
      $("#" + cycleKey).find("#" +foodCategory+"_percent").text( foodCategory_percent + "%");      
+     $("#" + cycleKey).find("#cycleEndDate").text( deadline );      
     });
 
     // var total = 0;

@@ -87,7 +87,7 @@
 					'<div class="col s3 push-s2">'+
 						'<span>price:</span>' +
 					'</div>' +
-					'<div class="col s4 push-s2">'+
+					'<div class="col s4 push-s2">'+ 
 						'<span id="' + foodNameID + '_price" name="' + wastedPrice +'" >' + price + '</span>' +
 					'</div>' +
 					'<div class="col s2 push-s1">'+
@@ -112,7 +112,7 @@
 				$("#slider_" + foodNameID).val( parseInt(wasted) );
 			});
 		// update foodCategory total in db
-		lastCycleNode.child(foodCategory + "_total").set(sum);
+		// lastCycleNode.child(foodCategory + "_total").set(sum);
 
 		// update text of foodCategory total on page
 		$("#" + foodCategory + "_body_total").text("$ " + sum.toFixed(2) );
@@ -131,11 +131,11 @@
 		var deadline = new Date(timeObj);
 		var dd = deadline.getDate();
 		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-		var mm = monthNames[ deadline.getMonth() ];
+		var mm = monthNames[ deadline.getMonth() ]; 
 		var yyyy = deadline.getFullYear();
 		// var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
 		// var ww = weekDays[ deadline.getDay() ];
-		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);
+		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);		
 	}
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
@@ -168,10 +168,10 @@
 	// note:  total spent price is only updated once, in populateCurrentList
 	function updateTotal(foodGroupID) {
 		var sum = 0;
-		$("#"+foodGroupID).find("[id$='_price']").each(function(){
+		$("#"+foodGroupID).find("[id$='_price']").each(function(){				
 			var itemPriceStr = $(this).attr("name");
 			console.log(itemPriceStr)
-			var itemPrice = parseFloat(itemPriceStr);
+			var itemPrice = parseFloat(itemPriceStr); 
 			sum += itemPrice;
 		});
 		console.log(foodGroupID + " foodGroup wasted sum: " + sum);
@@ -195,10 +195,10 @@
 		var percent = (curr_sum / orig_sum) * 100
 		if (isNaN(percent))
 			percent = 0
-		$("#total_waste_percent").text( percent.toFixed(2) + " %" )
+		$("#total_waste_percent").text( percent.toFixed(2) + " %" )	
 		$("#orig_total").text( "$" + orig_sum );
 		$("#curr_total").text( "$" + curr_sum );
-	}
+	}	
 
 	function finalize() {
 		finalizeStats();
@@ -207,12 +207,12 @@
 	}
 
 	function finalizeStats() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
 		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
 
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
@@ -223,7 +223,7 @@
 			}
 		var Fruit_percent = current_fruit_total / old_fruit_total;
 			if ( isNaN(Fruit_percent) )
-				Fruit_percent = 0
+				Fruit_percent = 0			
 		var Vegetable_percent = current_veg_total / old_fruit_total;
 			if ( isNaN(Vegetable_percent) )
 				Vegetable_percent = 0
