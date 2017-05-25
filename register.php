@@ -61,7 +61,7 @@
 				<br />
 				<center>
 					<div class='row'>
-						<button id="registerBtn" name='btn_register' class='col s12 btn btn-large waves-effect green accent-4'>Sign Up</button>
+						<button id="registerBtn" name='btn_register' class='col s12 btn btn-large waves-effect red darken-4'>Sign Up</button>
 					</div>
 				</center>
 				<!-- </form> -->
