@@ -20,8 +20,8 @@
     <body background="images/lined_paper.png">
 		</br>
 		<div class="row">
-				<div class="col s12 center-align">
-						<a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
-				</div>
+            <div class="col s12 center-align">
+                    <a href="index.php"><img id="logo" src="images/horizontalLogo.png" alt="Apple" /></a>
+            </div>
 		</div>
 		<div class="container green darken-2 white-text">

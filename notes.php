@@ -82,7 +82,7 @@
 			$("#" + foodCategory + "_body").append(
 				'<div class="row">' +
 					'<div class="col s4 push-s1">' +
-						'<span>' + foodName + '</span>' +
+						'<span class="truncate">' + foodName + '</span>' +
 					'</div>'+
 					'<div class="col s3 push-s2">'+
 						'<span>price:</span>' +
@@ -120,16 +120,21 @@
 	}
 
 	function setDate() {
+		setDuration();
 		lastCycleNode.once("value", function(snap){
-			var deadline;
+			var enddate;
+			var startdate;
+			// var duration = 
 			try {
-				deadline = snap.val().cycleEndDate;
+				enddate = snap.val().cycleEndDate;
+				startdate = snap.val().cycleStartDate;
 			} catch(e) {
-				console.log("deadline unset")
+				console.log("enddate / start date unset")
 			}
-			console.log("deadline set:" +deadline)
-			if (typeof deadline !== "undefined") {
-				var todayIsTheDeadline = checkDeadline(deadline);
+			console.log("enddate set:" +enddate)
+			console.log("startdate set:" +startdate)
+			if (typeof enddate !== "undefined") {
+				var todayIsTheDeadline = checkDeadline(enddate);
 				if (todayIsTheDeadline) {	
 					console.log("the end is here!");
 					alert("Cycle ended!")
@@ -137,15 +142,30 @@
 				}
 				if (!todayIsTheDeadline) {
 					var today = new Date();
-					var deadline_date = new Date(deadline);
+					var deadline_date = new Date(enddate);
 					var daysLeft = deadline_date.getDate() - today.getDate();
 					console.log("cycle still has" + daysLeft);
-					displayDate(deadline);				
+					displayDate(startdate, enddate);								
 				}
 			} 
 		});
 	}
 
+	function setDuration() {
+		userNode.on("value", function(snap){
+			var duration = snap.val().cycleDuration;
+			var durationTxt;
+			switch(duration) {
+			case "monthly" : durationTxt = "30 days";
+				break;
+			case "weekly" : durationTxt = "7 days";
+				break;
+			case "biweekly" : durationTxt = "14 days";
+				break;
+			}
+			$("#cycle_duration").text(durationTxt);
+		});
+	}
 	function checkDeadline(timeObj) {
 		var today = new Date();
 		var deadline = new Date(timeObj);
@@ -165,15 +185,24 @@
 		return false;
 	}
 
-	function displayDate(timeObj) {
-		var deadline = new Date(timeObj);
-		var dd = deadline.getDate();
+	function displayDate(timeObj1, timeObj2) {
 		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-		var mm = monthNames[ deadline.getMonth() ];
-		var yyyy = deadline.getFullYear();
+
+		var startdate = new Date(timeObj1);
+		var enddate = new Date(timeObj2);
+		
+		var dd1 = startdate.getDate();
+		var mm1 = monthNames[ startdate.getMonth() ];
+		var yyyy1 = startdate.getFullYear();
+
+		var dd2 = enddate.getDate();
+		var mm2 = monthNames[ enddate.getMonth() ];
+		var yyyy2 = enddate.getFullYear();
+
 		// var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
 		// var ww = weekDays[ deadline.getDay() ];
-		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);
+		$("#cycle_start_date").text( mm1 + ' ' + dd1 + ' ' + yyyy1);
+		$("#cycle_end_date").text( mm2 + ' ' + dd2 + ' ' + yyyy2);
 	}
 
 	function finalize() {
@@ -290,16 +319,13 @@
 		if (isNaN(percent))
 			percent = 0
 		$("#total_waste_percent").text( percent.toFixed(2) + " %" )
-		$("#orig_total").text( "$" + orig_sum );
-		$("#curr_total").text( "$" + curr_sum );
+		$("#orig_total").text( "$" + orig_sum.toFixed(2) );
+		$("#curr_total").text( "$" + curr_sum.toFixed(2) );
 	}
 
 </script>
 
 	<div id="notes">
-		<div class="row center-align">
-			<button onclick="finalize()">End cycle test</button>
-		</div>
 		<div class="row center-align">
 			<h3>Waste this cycle:</h3>
 			<h3 id="total_waste_percent">0 %</h3>
@@ -381,8 +407,16 @@
 		<h4 class="col s6">Wasted</h4>
 		<h5 class="col s6" id="orig_total">$100</h5>
 		<h5 class="col s6" id="curr_total">$0</h5>
+		<h5 class="col s6">Cycle starts:</h5>
+		<h5 class="col s6" id="cycle_start_date"> NOT SET </h5>
 		<h5 class="col s6">Cycle ends:</h5>
 		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
+		<h5 class="col s6" >Cycle duration:</h5>
+		<h5 class="col s6" id="cycle_duration"> NOT SET </h5>
+
+	</div>
+	<div class="row center-align">
+		<button class="btn waves-effect waves-light grey darken-3 text-black" onclick="finalize()">Debug End Cycle</button>
 	</div>
 </div>
 

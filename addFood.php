@@ -75,9 +75,9 @@
 			$("#anchor_head_"+ foodCategory).append(
 				'<div class="row" id="'+ foodNameID +'">' +
 					'<div class="col s6">' +
-						'<span class="truncate" style="font-size: responsive">' + foodName + '</span>' +
+						'<span style="margin-left:2vw">' + foodName + '</span>' +
 					'</div>' +
-					'<div class="col s3">' +
+					'<div class="col s3 push-s1">' +
 						'<span id="' + foodNameID + '_price">' + price + '</span>' +
 					'</div>' +
 					'<div class="col s2">' +
@@ -160,12 +160,12 @@
 	function getNewDeadline(duration) {
 	    var deadline;
 	    if (duration == "monthly") {
-	        deadline = new Date(+new Date + (12096e5*2) );
+	        deadline = new Date(+new Date + (2.592e+9) );
 	    } else if (duration == "biweekly") {
-	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days
+	        deadline = new Date(+new Date + 1.21e+9); // 12096e5 is 12 days
 	    } else {
 	    	// implied to be "weekly"
-	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
+	        deadline = new Date(+new Date + 6.048e+8); // 6048e5 is 7 days
 	    }
 	    return deadline;
 	}
@@ -183,8 +183,9 @@
 			var deadline = getNewDeadline(duration);
 			// console.log("deadline in days:" + deadline.getDate())
 			// alert("Cycle set to end in: " + deadline.getDate() " days")
-
+			var today = new Date();
 			userNode.child(cycleIndex).update({ "cycleEndDate" : deadline})
+			userNode.child(cycleIndex).update({ "cycleStartDate" : today})
 			userNode.child("cycleDuration").set( duration )
 			// userNode.child("cycleCount").set(count);
 		});
@@ -249,7 +250,7 @@
 						<span>Meat</span>
 					</div>
 					<div class="col s6 alt-right">
-						<span class="alt-right" id="total_Meat"> $ 0.00 </span>
+						<span class="alt-right" id="Meat_total"> $ 0.00 </span>
 					</div>
 				</div>
 			</div>
@@ -290,8 +291,8 @@
 			<div class="collapsible-body note_body center-align" id="anchor_head_Vegetable">
 			</div>
 		</li>
-		<li class="yellow accent-4">
-			<div class="collapsible-header yellow accent-4">
+		<li class="#d4e157 lime lighten-1">
+			<div class="collapsible-header lime lighten-1">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 40px">add_circle</i>

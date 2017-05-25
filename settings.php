@@ -13,9 +13,9 @@
             <div class="input-field col s12  z-depth-2">
                 <select id="myCalendarChoice">
                     <option value="" disabled selected>Choose your cycle duration</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="biweekly">Biweekly</option>
-                    <option value="monthly">Monthly</option>
+                    <option value="weekly">7 days</option>
+                    <option value="biweekly">14 days</option>
+                    <option value="monthly">30 days</option>
                 </select>
             </div>
         </div>
