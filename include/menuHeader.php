@@ -4,8 +4,8 @@
 	<title>FoodNotes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="../images/HorizontalLogo.png">
-    <meta property="og:image:type" content="../images/logo.png">
+    <meta property="og:image" content="http://foodnotes.azurewebsites.net/images/HorizontalLogo.png">
+    <meta property="og:image:type" content="../images/HorizontalLogo.png">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
