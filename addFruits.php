@@ -32,6 +32,7 @@
 	function addItem(foodName, refKey){
 		var foodName = foodNameID.split("_").join(" ");
 		var price;
+
 		var priceStr = $("#" + foodNameID + "_bought").attr("placeholder");
 		var price_default = priceStr.replace("$", "");	
 		
@@ -60,6 +61,7 @@
 	function appendItem(foodNameID, refKey){
 		var foodName = foodNameID.split("_").join(" ");
 		var price;
+
 		var priceStr = $("#" + foodNameID + "_bought").attr("placeholder");
 		var price_default = priceStr.replace("$", "");	
 		
