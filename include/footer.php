@@ -4,6 +4,7 @@
     <hr/>
     <div class="row">
         <p>&copy;Group 13</p>
+        <a href="mailto:&#102;&#111;&#111;&#x64;&#110;&#111;&#116;&#x65;&#x31;&#x33;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">Contact us</a>
     </div>
 </div>
 <br/>
