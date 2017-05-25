@@ -21,7 +21,7 @@
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	    console.log("logged in");
-	    setUpNodes();
+	    getLastCycle();
 	  } else {
 	    console.log("not logged in");
 		alert("You're not logged in you hacker! Go home!");
@@ -33,14 +33,9 @@
 	var userNode;
 	var lastCycle;
 	var lastCycleNode;
-	function setUpNodes(){
+	function getLastCycle() {
 		user = firebase.auth().currentUser;
 		userNode = users.child(user.uid);
-
-		getLastCycle(userNode);
-	}
-
-	function getLastCycle(userNode) {
 		var count;
 		userNode.on("value", function(snap){
 			console.log("inner cycleIndex: " + snap.val().cycleCount);
@@ -61,6 +56,7 @@
 			// populateCurrentList("Meat");
 			// populateCurrentList("Vegetable");
 			// populateCurrentList("Dairy");
+			setDate();
 		} else {
 			console.log("no cycles in record");
 		}
@@ -80,6 +76,7 @@
 			var price = parseFloat( snapData.your_price);
 			var wasted = parseInt( snapData.wasted);
 			var wastedPrice = price * (wasted * 0.01)
+
 			console.log("foodNameID:" + foodNameID);
 			console.log("val wasted" + wasted);
 			$("#" + foodCategory + "_body").append(
@@ -116,9 +113,29 @@
 			});
 		// update foodCategory total in db
 		lastCycleNode.child(foodCategory + "_total").set(sum);
+
 		// update text of foodCategory total on page
-		$("#" + foodCategory + "_body_total").text( sum.toFixed(2) );
+		$("#" + foodCategory + "_body_total").text("$ " + sum.toFixed(2) );
 		updateTotal(foodCategory + "_body");
+	}
+
+	function setDate() {
+		lastCycleNode.once("value", function(snap){
+			var deadline = snap.val().cycleEndDate;
+			if (typeof deadline !== "undefined")
+				displayDate(deadline);
+		});
+	}
+
+	function displayDate(timeObj) {
+		var deadline = new Date(timeObj);
+		var dd = deadline.getDate();
+		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		var mm = monthNames[ deadline.getMonth() ]; 
+		var yyyy = deadline.getFullYear();
+		// var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
+		// var ww = weekDays[ deadline.getDay() ];
+		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);		
 	}
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
@@ -176,13 +193,71 @@
 		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
 		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
 		var percent = (curr_sum / orig_sum) * 100
+		if (isNaN(percent))
+			percent = 0
 		$("#total_waste_percent").text( percent.toFixed(2) + " %" )	
 		$("#orig_total").text( "$" + orig_sum );
 		$("#curr_total").text( "$" + curr_sum );
 	}	
+
+	function finalize() {
+		finalizeStats();
+		addCycle();
+		// location.replace("records.php");
+	}
+
+	function finalizeStats() {
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
+		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
+		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
+
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
+		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
+		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
+		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
+
+		var Meat_percent = current_meat_total / old_meat_total;
+			if ( isNaN(Meat_percent) ) {
+				Meat_percent = 0
+			}
+		var Fruit_percent = current_fruit_total / old_fruit_total;
+			if ( isNaN(Fruit_percent) )
+				Fruit_percent = 0			
+		var Vegetable_percent = current_veg_total / old_fruit_total;
+			if ( isNaN(Vegetable_percent) )
+				Vegetable_percent = 0
+		var Dairy_percent = current_dairy_total / old_dairy_total;
+			if ( isNaN(Dairy_percent) )
+				Dairy_percent = 0
+
+		// var curr_sum = $("#curr_total").text().replace("$", "")
+		// var orig_sum = $("#orig_total").text().replace("$", "")
+		var percent_wasted = $("#total_waste_percent").text().replace("%", "");
+
+    	lastCycle.update({"percent_wasted" : percent_wasted });
+    	lastCycle.update({"Meat_percent" : Meat_percent.toFixed(2) });
+    	lastCycle.update({"Fruit_percent" : Fruit_percent.toFixed(2) });
+    	lastCycle.update({"Vegetable_percent" : Vegetable_percent.toFixed(2) });
+    	lastCycle.update({"Dairy_percent" : Dairy_percent.toFixed(2) });
+	}
+	function addCycle() {
+		var user = firebase.auth().currentUser;
+		var userNode = users.child(user.uid);
+
+		userNode.once("value", function(snap){
+			var count = snap.val().cycleCount;
+			var cycleIndex = "cycle" + count;
+			count++;
+			userNode.child("cycleCount").set(count);
+		});
+	}
 </script>
 
 	<div id="notes">
+		<div class="row center-align">
+			<button onclick="finalize()">End cycle test</button>
+		</div>
 		<div class="row center-align">
 			<h3>Wasted this cycle:</h3>
 			<h3 id="total_waste_percent">0 %</h3>
@@ -192,7 +267,8 @@
 			<h4 class="col s6">Wasted</h4>
 			<h5 class="col s6" id="orig_total">$100</h5>
 			<h5 class="col s6" id="curr_total">$0</h5>
-			<h5 class="col s12" id="cycle_end_date">This cycle ends on: NOT SET </h5>
+			<h5 class="col s6" style="font-size: 5vw">This cycle ends on:</h5>
+			<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 		</div>
 	<h4 class ="row center-align">Cycle items</h4>
 	<ul class="collapsible" data-collapsible="expandable">
