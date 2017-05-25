@@ -182,9 +182,15 @@ the running count of total items wasted
       if ( isNaN(foodCategory_percent))
         foodCategory_percent = 0;
 
-      var deadline = snapData.cycleEndDate;
+      var deadline;
+      try {
+       deadline = snapData.cycleEndDate;
+      } catch(e){}
+
       if (typeof deadline === "undefined")
         deadline = "End date unset"
+      else 
+        deadline = formatDate(deadline);
      $("#" + cycleKey).find("#percent_wasted").text( percent_wasted + "%");
      $("#" + cycleKey).find("#" +foodCategory+"_percent").text( foodCategory_percent + "%");      
      $("#" + cycleKey).find("#cycleEndDate").text( deadline );      
@@ -208,6 +214,17 @@ the running count of total items wasted
         '</div> '
       );
     });
+  }
+
+  function formatDate(timeObj) {
+    var deadline = new Date(timeObj);
+    var dd = deadline.getDate();
+    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var mm = monthNames[ deadline.getMonth() ];
+    var yyyy = deadline.getFullYear();
+    // var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
+    // var ww = weekDays[ deadline.getDay() ];
+    return dd + ' ' + mm + ' ' + yyyy; 
   }
 
   var tempNode;

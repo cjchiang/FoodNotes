@@ -121,14 +121,27 @@
 
 	function setDate() {
 		lastCycleNode.once("value", function(snap){
-			var deadline = snap.val().cycleEndDate;
+			var deadline;
+			try {
+				deadline = snap.val().cycleEndDate;
+			} catch(e) {
+				console.log("deadline unset")
+			}
 			if (typeof deadline !== "undefined") {
 				var todayIsTheDeadline = checkDeadline(deadline);
-				if (todayIsTheDeadline)
+				if (todayIsTheDeadline) {	
+					console.log("the end is here!");
+					alert("Cycle ended!")
 					finalize();
-				if (!todayIsTheDeadline)
-					displayDate(deadline);
-			}
+				}
+				if (!todayIsTheDeadline) {
+					var deadline = new Date(deadline)
+					var deadline_days = deadline.getDate();
+					var daysLeft = deadline.toDate() - deadline_days;
+					console.log("cycle still has" + daysLeft);
+					displayDate(deadline);				
+				}
+			} 
 		});
 	}
 
@@ -224,58 +237,6 @@
 		$("#curr_total").text( "$" + curr_sum );
 	}
 
-	function finalize() {
-		finalizeStats();
-		addCycle();
-		location.replace("records.php");
-	}
-
-	function finalizeStats() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
-		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
-		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
-		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
-
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
-		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
-		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
-		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
-
-		var Meat_percent = current_meat_total / old_meat_total;
-			if ( isNaN(Meat_percent) ) {
-				Meat_percent = 0
-			}
-		var Fruit_percent = current_fruit_total / old_fruit_total;
-			if ( isNaN(Fruit_percent) )
-				Fruit_percent = 0
-		var Vegetable_percent = current_veg_total / old_fruit_total;
-			if ( isNaN(Vegetable_percent) )
-				Vegetable_percent = 0
-		var Dairy_percent = current_dairy_total / old_dairy_total;
-			if ( isNaN(Dairy_percent) )
-				Dairy_percent = 0
-
-		// var curr_sum = $("#curr_total").text().replace("$", "")
-		// var orig_sum = $("#orig_total").text().replace("$", "")
-		var percent_wasted = $("#total_waste_percent").text().replace("%", "");
-
-    	lastCycle.update({"percent_wasted" : percent_wasted });
-    	lastCycle.update({"Meat_percent" : Meat_percent.toFixed(2) });
-    	lastCycle.update({"Fruit_percent" : Fruit_percent.toFixed(2) });
-    	lastCycle.update({"Vegetable_percent" : Vegetable_percent.toFixed(2) });
-    	lastCycle.update({"Dairy_percent" : Dairy_percent.toFixed(2) });
-	}
-	function addCycle() {
-		var user = firebase.auth().currentUser;
-		var userNode = users.child(user.uid);
-
-		userNode.once("value", function(snap){
-			var count = snap.val().cycleCount;
-			var cycleIndex = "cycle" + count;
-			count++;
-			userNode.child("cycleCount").set(count);
-		});
-	}
 </script>
 
 	<div id="notes">
