@@ -46,6 +46,8 @@
 
 		currentUserNode.once("value", function(){
 			var tempCycle = currentUserNode.child("temp");
+			tempCycle.update({ "cycle": true });
+
 			tempCycle.once("value", function(){
 				var item = foods.child(refKey);
 				item.once("value", function(snap){
@@ -76,6 +78,8 @@
 
 		currentUserNode.once("value", function(){
 			var tempCycle = currentUserNode.child("temp");
+			tempCycle.update({ "cycle": true });
+			
 			tempCycle.orderByChild("product").equalTo( foodName ).on("child_added", function(snap){
 				var snapData = snap.val();
 				var appendTarget = tempCycle.child(snap.key);

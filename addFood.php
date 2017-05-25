@@ -111,7 +111,7 @@
 	}
 
 	function copyMe(snap){
-		lastCycle.set(snap.val());
+		lastCycle.update(snap.val());
 	}
 
 	//delete a food item from temp list
@@ -122,10 +122,10 @@
 		console.log("deleted: " + foodKey);
 		console.log("deleted: " + foodName);
 		//delete entry from page, with animation
-		// $("#" + foodKey).fadeOut(500, function(){
-			$("#" + foodKey).remove();
-			// $(this).remove();
-		// });
+		$("#" + foodKey).fadeOut(500, function(){
+			// $("#" + foodKey).remove();
+			$(this).remove();
+		});
 
 		//delete entry from db as well
 		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
@@ -159,14 +159,35 @@
 		return userNode.child(cycleIndex);
 	}
 
+	function getNewDeadline(duration) {
+	    var deadline;
+	    if (duration == "biweekly") {
+	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
+	    } else if (duration == "weekly") {
+	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
+	    } else {
+	    	// implied to be "monthly"
+	        deadline = new Date(+new Date + (12096e5*2) );
+	    } 
+	    return deadline;
+	}
 	function addCycle() {
 		var user = firebase.auth().currentUser;
 		var userNode = users.child(user.uid);
 
 		userNode.once("value", function(snap){
 			var count = snap.val().cycleCount;
-			var cycleIndex = "cycle" + count;
 			count++;
+			var cycleIndex = "cycle" + count;
+			var duration = snap.val().cycleDuration;
+			if (typeof duration === "undefined")
+				duration = "monthly"
+			var deadline = getNewDeadline(duration);
+			// console.log("deadline in days:" + deadline.getDate())
+			// alert("Cycle set to end in: " + deadline.getDate() " days")
+			
+			userNode.child(cycleIndex).update({ "cycleEndDate" : deadline})
+			userNode.child("cycleDuration").set( duration )
 			userNode.child("cycleCount").set(count);
 		});
 	}
