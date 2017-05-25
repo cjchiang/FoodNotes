@@ -200,7 +200,14 @@ hr {
   left: 0;
   right: 0;
   bottom: 0%;
-  background-color:#00c853;
+  background-color:#b71c1c;
+}
+.affLogo {
+  max-height:100px;
+  max-width:300px;
+}
+#navButtons {
+  display:none;
 }
 
 /*Sets the input fields*/

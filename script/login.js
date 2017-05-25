@@ -11,11 +11,11 @@ firebase.initializeApp(config);
 
 //main function: runs onload
 $(function(){
-	
+
 	firebase.auth().onAuthStateChanged(function(user) {
       if (user != null) {
         console.log("logged in");
-		
+
 		var db = firebase.database()	;
 		db.ref("users").orderByChild("email").equalTo(user.email).on('child_added', function(snap){
 		   	var childKey = snap.key;
@@ -25,7 +25,7 @@ $(function(){
 			  	db.ref("users").child(userID).set(snap.val());
 			  	child.remove();
 			}
-		});	
+		});
       } else {
         console.log("not logged in");
       }
@@ -33,7 +33,7 @@ $(function(){
 
 	firebase.auth().onAuthStateChanged(function(user) {
       if (user != null) {
-        $("#navButtons").css("display", "none");
+    $("#navButtons").css("display", "none");
 		$("#specialNavi").css("display","block");
 		$("#allbtn").css("display","block");
       } else {
@@ -51,7 +51,7 @@ $(function(){
 		var promise = firebase.auth().createUserWithEmailAndPassword(email, password);
 		promise.catch(function(e){ alert(e.message); valid = false; });
 
-		if ( valid ) {		
+		if ( valid ) {
 			firebase.database().ref("users").push({
 				"email" : email,
 				"cycleCount" : 0
@@ -70,18 +70,18 @@ $(function(){
 		// 	firebase.database().ref("users")
 		var auth = firebase.auth();
 		auth.sendPasswordResetEmail(email).then(function() {
-			alert("A password reset email has been sent to above address.")		  
+			alert("A password reset email has been sent to above address.")
 		}, function(e) {
-		  //tried to use try block, caught nothing	
+		  //tried to use try block, caught nothing
 		  alert(e.message);
-		});        
+		});
         // firebase.auth().signOut();
 	});
 
 	$("#loginBtnSubmit").click(function(){
 		attempted = true;
-		var email = $("#email").val() 
-		var password = $("#password").val() 
+		var email = $("#email").val()
+		var password = $("#password").val()
 
 		var promise = firebase.auth().signInWithEmailAndPassword(email, password);
 		promise.catch(function(e){ alert(e.message); });

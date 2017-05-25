@@ -85,9 +85,9 @@
 						'<span>' + foodName + '</span>' +
 					'</div>'+
 					'<div class="col s3 push-s2">'+
-						'<span>price:</span>' + 
+						'<span>price:</span>' +
 					'</div>' +
-					'<div class="col s4 push-s2">'+ 
+					'<div class="col s4 push-s2">'+
 						'<span id="' + foodNameID + '_price" name="' + wastedPrice +'" >' + price + '</span>' +
 					'</div>' +
 					'<div class="col s2 push-s1">'+
@@ -131,11 +131,11 @@
 		var deadline = new Date(timeObj);
 		var dd = deadline.getDate();
 		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-		var mm = monthNames[ deadline.getMonth() ]; 
+		var mm = monthNames[ deadline.getMonth() ];
 		var yyyy = deadline.getFullYear();
 		// var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
 		// var ww = weekDays[ deadline.getDay() ];
-		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);		
+		$("#cycle_end_date").text( mm + ' ' + dd + ' ' + yyyy);
 	}
 	function moveMe(src) {
     	console.log("moved:" + $(src).val() );
@@ -168,10 +168,10 @@
 	// note:  total spent price is only updated once, in populateCurrentList
 	function updateTotal(foodGroupID) {
 		var sum = 0;
-		$("#"+foodGroupID).find("[id$='_price']").each(function(){				
+		$("#"+foodGroupID).find("[id$='_price']").each(function(){
 			var itemPriceStr = $(this).attr("name");
 			console.log(itemPriceStr)
-			var itemPrice = parseFloat(itemPriceStr); 
+			var itemPrice = parseFloat(itemPriceStr);
 			sum += itemPrice;
 		});
 		console.log(foodGroupID + " foodGroup wasted sum: " + sum);
@@ -180,25 +180,25 @@
 	}
 
 	function updatePercent() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
 		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
 
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
-		
+
 		var curr_sum = current_meat_total  + current_fruit_total + current_veg_total + current_dairy_total
 		var orig_sum = old_meat_total + old_fruit_total + old_veg_total + old_dairy_total
 		var percent = (curr_sum / orig_sum) * 100
 		if (isNaN(percent))
 			percent = 0
-		$("#total_waste_percent").text( percent.toFixed(2) + " %" )	
+		$("#total_waste_percent").text( percent.toFixed(2) + " %" )
 		$("#orig_total").text( "$" + orig_sum );
 		$("#curr_total").text( "$" + curr_sum );
-	}	
+	}
 
 	function finalize() {
 		finalizeStats();
@@ -207,12 +207,12 @@
 	}
 
 	function finalizeStats() {
-		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") ); 
+		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
 		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
 
-		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") ); 
+		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
 		var current_dairy_total = parseFloat ( $("#Dairy_body_total").attr("name") );
@@ -223,7 +223,7 @@
 			}
 		var Fruit_percent = current_fruit_total / old_fruit_total;
 			if ( isNaN(Fruit_percent) )
-				Fruit_percent = 0			
+				Fruit_percent = 0
 		var Vegetable_percent = current_veg_total / old_fruit_total;
 			if ( isNaN(Vegetable_percent) )
 				Vegetable_percent = 0
@@ -333,14 +333,16 @@
 			</div>
 		</li>
 	</ul>
-	<div class="row center-align">
+	<div class="container center-align green z-depth-5">
+		<div class="row">
 		<h4 class="col s6">Spent</h4>
 		<h4 class="col s6">Wasted</h4>
 		<h5 class="col s6" id="orig_total">$100</h5>
 		<h5 class="col s6" id="curr_total">$0</h5>
-		<h5 class="col s6" style="font-size: 5vw">This cycle ends on:</h5>
+		<h5 class="col s6" style="font-size: 5vw">Cycle ends on:</h5>
 		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 	</div>
+</div>
 
 	</div>
 <?php include("include/footer.php");?>
