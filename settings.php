@@ -34,12 +34,12 @@
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
-              <a class="waves-effect waves-light btn green accent-4 reviveMe">
+              <a class="waves-effect waves-light btn red darken-4 reviveMe">
                 <input type="submit" onclick="checkOption()">
               </a>
             </div>
             <div class="col s6">
-              <a class="waves-effect waves-light btn green accent-4 reviveMe">
+              <a class="waves-effect waves-light btn red darken-4 reviveMe">
                 <input value="LogOut" type="submit" id="logoutBtn">
               </a>
             </div>

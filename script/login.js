@@ -25,7 +25,7 @@ $(function(){
 			  	db.ref("users").child(userID).set(snap.val());
 			  	child.remove();
 			}
-		});	
+		});
       } else {
         console.log("not logged in");
       }
