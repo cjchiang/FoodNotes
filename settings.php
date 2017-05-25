@@ -19,18 +19,6 @@
                 </select>
             </div>
         </div>
-    <!--Settings for Theme-->
-        <div class="row">
-            <label class ="white-text">Theme</label>
-            <div class="input-field col s12  z-depth-2">
-            <select id="myBackgroundChoice">
-                <option value="" disabled selected>Choose your background theme</option>
-                <option value="1">Gray</option>
-                <option value="2">Pink</option>
-                <option value="3">Blue</option>
-            </select>
-            </div>
-        </div>
     <!--Confirm and Logout-->
         <div class="row center-align">
             <div class="col s6">
