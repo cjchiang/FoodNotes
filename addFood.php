@@ -159,13 +159,13 @@
 
 	function getNewDeadline(duration) {
 	    var deadline;
-	    if (duration == "biweekly") {
-	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days
-	    } else if (duration == "weekly") {
-	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
-	    } else {
-	    	// implied to be "monthly"
+	    if (duration == "monthly") {
 	        deadline = new Date(+new Date + (12096e5*2) );
+	    } else if (duration == "biweekly") {
+	        deadline = new Date(+new Date + 12096e5); // 12096e5 is 12 days
+	    } else {
+	    	// implied to be "weekly"
+	        deadline = new Date(+new Date + 6048e5); // 6048e5 is 7 days
 	    }
 	    return deadline;
 	}
@@ -179,7 +179,7 @@
 			var cycleIndex = "cycle" + count;
 			var duration = snap.val().cycleDuration;
 			if (typeof duration === "undefined")
-				duration = "monthly"
+				duration = "weekly"
 			var deadline = getNewDeadline(duration);
 			// console.log("deadline in days:" + deadline.getDate())
 			// alert("Cycle set to end in: " + deadline.getDate() " days")
@@ -193,7 +193,7 @@
 </script>
 <!-- Add 4 categories -->
 	<div class="row">
-		<!-- For cancelling purchase --
+		<!-- For cancelling purchase -->
 		<div class="col s6 left-align">
 			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
 		</div>
