@@ -33,21 +33,19 @@
 		</br>
 			<div class="row" id="navButtons">
 					<div id="loginBtn" class="col s5 left-align">
-							<a href="login.php" class="btn waves-effect waves-light green accent-4" hidden>Login</a>
+							<a href="login.php" class="btn waves-effect waves-light red darken-4" hidden>Login</a>
 					</div>
 					<div id="easterEggBtn" class="col s2 center-align">
 							<a class="btn waves-effect waves-light green"></a>
 					</div>
 					<div id="signupBtn" class="col s5 right-align">
-							<a href="register.php" class="btn waves-effect waves-light green accent-4" hidden>Sign Up</a>
+							<a href="register.php" class="btn waves-effect waves-light red darken-4" hidden>Sign Up</a>
 					</div>
 			</div>
 			<nav class="green darken-2">
 					<div class="nav-wrapper">
 							<ul id="nav-mobile" class="left">
 									<li><a href="index.php">Home</a><li>
-									<li><a href="aboutUsDevs.php">About Us</a></li>
-									<li><a href="Contact.php">Contact Us</a></li>
 									<li><a href="affiliatedApps.php">Affiliates</a></li>
 							</ul>
 					</div>
