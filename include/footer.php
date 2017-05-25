@@ -9,6 +9,10 @@
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
     <div class="row bottomNavi" style="z-index: 2;" id="allbtn">
         <div style="padding:0px" class="col s2 buttonHolder" id ="homebtn">
           <a href="../index.php"><button class="btn waves-effect waves-slide green accent-4 bottomButton" style="height:100%"><img class="navImg" src="images/home.png" alt="home"/></button></a>

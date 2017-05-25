@@ -10,6 +10,16 @@
 	const database = firebase.database();
 	const foods = database.ref("foods");
 	const users = database.ref("users");
+<<<<<<< HEAD
+=======
+	
+	firebase.auth().onAuthStateChanged(function(firebaseUser){
+    if (!firebaseUser) {
+		alert("You're not logged in you hacker! Go home!");
+        location.replace("index.php");
+   		} 
+	});
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 
 	/*Populates a drop down with fruit food itemns, based on text inside search bar*/
 	function populateList(foodCategory) {
@@ -26,26 +36,38 @@
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
 					//food name col
+<<<<<<< HEAD
 					'<div class="input-field col s4 ">' +
+=======
+					'<div class="input-field col s8 ">' +
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 						'<input class="check_tick" id="' + foodName + '" type="checkbox" '+
 						// 'onchange="logMe(this);"'+
 						'name="checkbox"/>' +
 						'<label for="' + foodName+ '">' + snapData.product + '</label>' +
 					'</div>' +
+<<<<<<< HEAD
 						//quantity col
 					'<div class="input-field col s4" >' +
 						'<input type="number" id="' + foodName + '_quantity" '+
 						'" min="1" max="100" placeholder="' + quantity + ' ' + unit + '" name="' + unit + '"/>' +
 					'</div>' +
 						//unit price col
+=======
+						// price col
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 					'<div class="input-field col s4">' +
 						'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price +
 						'"/>' +
 					'</div>' +
 				'</div> '
 				); 
+<<<<<<< HEAD
 		    	$("#"+foodName+"_bought").val(snapData.price);
 		    	$("#"+foodName+"_quanity").val(1);
+=======
+		    	// $("#"+foodName+"_bought").val(snapData.price);
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 		    }
 		});
 	}
@@ -132,4 +154,91 @@
 			bool = true;
 		});
 		return bool;
+<<<<<<< HEAD
 	}
+=======
+	}
+		//add new item to temporary list
+	function addItem(foodNameID, refKey){
+		var foodName = foodNameID.split("_").join(" ");
+		var price;
+
+		var priceStr = $("#" + foodNameID + "_bought").attr("placeholder");
+		var price_default = priceStr.replace("$", "");	
+		
+		var price_set = $("#" + foodNameID + "_bought").val();
+		// use default price if set price is empty string or not numeric
+		if (price_set == "" || !isNumeric(price_set) ) {
+			price = parseFloat(price_default) ;
+		} else {
+			price = parseFloat(price_set) ;
+		}
+
+		currentUserNode.once("value", function(){
+			var tempCycle = currentUserNode.child("temp");
+			tempCycle.update({ "cycle": true });
+
+			tempCycle.once("value", function(){
+				var item = foods.child(refKey);
+				item.once("value", function(snap){
+					var newKey = tempCycle.push( snap.val() ).key;
+
+					tempCycle.child(newKey).update({"your_price" : price});
+				});
+			});
+		});
+	}
+
+	//add more of an existing item to temporary list
+	function appendItem(foodNameID, refKey){
+
+		var foodName = foodNameID.split("_").join(" ");
+		var price;
+
+		var priceStr = $("#" + foodNameID + "_bought").attr("placeholder");
+		var price_default = priceStr.replace("$", "");	
+		
+		var price_set = $("#" + foodNameID + "_bought").val();
+		// use default price if set price is empty string or not numeric
+		if (price_set == "" || !isNumeric(price_set) ) {
+			price = parseFloat(price_default) ;
+		} else {
+			price = parseFloat(price_set) ;
+		}
+
+		currentUserNode.once("value", function(){
+			var tempCycle = currentUserNode.child("temp");
+			tempCycle.update({ "cycle": true });
+			
+			tempCycle.orderByChild("product").equalTo( foodName ).on("child_added", function(snap){
+				var snapData = snap.val();
+				var appendTarget = tempCycle.child(snap.key);
+				var old_price = parseFloat( snapData.your_price ) ;
+
+				price = (price + old_price).toFixed(2);
+
+				appendTarget.update({"your_price" : price });
+			});
+		});
+	}
+
+	// function i pulled from stack overflow(not mine):
+	// https://stackoverflow.com/questions/18082/validate-decimal-numbers-in-javascript-isnumeric
+	function isNumeric(n) {
+	  return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+
+	function noCyclesFound(){
+		var count;
+		currentUserNode.on("value", function(snap){
+			count = snap.val().cycleCount;
+		});
+		console.log(count);
+		return count;
+	}
+	function setUpCycleCount() {
+		currentUserNode.once("value", function(snap){
+			userNode.child("cycleCount").set(1);
+		});
+	}
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759

@@ -2,6 +2,7 @@
 
 <?php include("include/menuHeader.php"); ?>
 <!--Contact Us form for users-->
+<<<<<<< HEAD
 
 <?php 
 
@@ -29,6 +30,8 @@ $header = "From: $email";
         mail($to,$subject,$message,$header);
 }
 ?>
+=======
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
   <div class="row white-text center-align">
     <h3><strong>Contact Us</strong></h3>
   </div>

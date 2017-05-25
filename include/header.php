@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <link rel="icon" href="../images/favicon.png"/>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="../script/amIsignedIn.js"></script>
+=======
+    <!-- <script type="text/javascript" src="../script/amIsignedIn.js"></script> -->
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 	</head>
     <body background="images/lined_paper.png">
 		</br>

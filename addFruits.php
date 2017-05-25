@@ -4,6 +4,7 @@
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user != null) {
 	  	currentUser = firebase.auth().currentUser;
@@ -24,6 +25,23 @@
 	  }
 	});
 
+=======
+	var currentUser;
+	var currentUserNode;
+	firebase.auth().onAuthStateChanged(function(user) {
+	if (user != null) {
+		currentUser = firebase.auth().currentUser;
+		currentUserNode = users.child(currentUser.uid);
+
+		if ( noCyclesFound() ) {
+			console.log("creating cycle");
+			setUpCycleCount();
+		} else {
+			console.log("cycle exists");
+		}
+	} 
+	});
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 
 	$("#search").ready(function(){
 		$(document).keyup( function(key) {
@@ -32,6 +50,7 @@
 		populateList("Fruit");
 	});
 
+<<<<<<< HEAD
 	var currentUser;
 	var currentUserNode;
 	//add new item to temporary list
@@ -114,12 +133,18 @@
 		});
 	}
 
+=======
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 </script>
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
+<<<<<<< HEAD
 			<!-- <a href="addFood.php" class="btn waves-effect waves-light green" onclick="logAllItems()">Back</a> -->
 			<a class="btn waves-effect waves-light green accent-4" onclick="logAllItems()">Back</a>
+=======
+			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 		</div>
 	</div>
 	<div class="row">
@@ -136,6 +161,9 @@
 					<label for="search"><i class="material-icons">search</i></label>
 					<input id="search" type="search">
 				</div>
+				<div class="col s12 center-align">
+					<a class="btn waves-effect waves-light green" onclick="logAllItems()">Add Items</a>
+				</div>
 			</div>
 		</form>
 	</div>
@@ -144,6 +172,7 @@
 		<form action="#" class="col s12" id="anchor_head">
 			<!-- <input type="submit" value="Add" id="submitBtn" hidden/> -->
             <div class="row center">
+<<<<<<< HEAD
                 <div class="col s4">
                     Product Name
                 </div>
@@ -152,6 +181,13 @@
                 </div>
                 <div class="col s4">
                     Unit Price $
+=======
+                <div class="col s6">
+                    Product Name
+                </div>
+                <div class="col s6">
+                    Price $ 
+>>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
                 </div>
             </div>
    		</form>
