@@ -1,5 +1,5 @@
 <?php include("include/header.php");
-	session_start();
+	// session_start();
 ?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 
@@ -29,8 +29,8 @@
 	    findTemp();
 	  } else {
 	    console.log("not logged in");
-		// alert("You're not logged in you hacker! Go home!");
-		// location.replace("index.php");
+		alert("You're not logged in you hacker! Go home!");
+		location.replace("index.php");
 	  }
 	});
 

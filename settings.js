@@ -10,7 +10,7 @@ firebase.initializeApp(config);
 
 firebase.auth().onAuthStateChanged(function(firebaseUser){
     if (!firebaseUser) {
-        alert("Not logged in");
+        console.log("not logged in");
         location.replace("index.php");
    } 
 });
@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
 $(function(){ 
     $("#logoutBtn").click(function(){
         firebase.auth().signOut();
-        console.log("signed out");
+        alert("signed out");
     });
 });
 
