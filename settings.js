@@ -10,11 +10,7 @@ firebase.initializeApp(config);
 
 firebase.auth().onAuthStateChanged(function(firebaseUser){
     if (!firebaseUser) {
-<<<<<<< HEAD
-        alert("Not logged in");
-=======
         console.log("not logged in");
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
         location.replace("index.php");
    } 
 });
@@ -22,11 +18,7 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
 $(function(){ 
     $("#logoutBtn").click(function(){
         firebase.auth().signOut();
-<<<<<<< HEAD
-        console.log("signed out");
-=======
         alert("signed out");
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
     });
 });
 
@@ -37,21 +29,6 @@ function checkOption() {
     var dateOption = document.getElementById("myCalendarChoice");
     if (dateOption.value === "biweekly") {
         window.alert("you choose Biweekly option");
-<<<<<<< HEAD
-        duration = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
-        canLeave = true;
-        document.getElementById("test").innerHTML = "2 week is" + " " + duration.getDate();
-    } else if (dateOption.value === "weekly") {
-        window.alert("you choose Weekly option");
-        duration = new Date(+new Date + 6048e5); // 6048e5 is 7 days
-        canLeave = true;
-        document.getElementById("test").innerHTML = "1 week is" + " " + duration.getDate();
-    } else if (dateOption.value === "monthly") {
-        window.alert("you choose Monthly option");
-        duration = new Date(+new Date + (12096e5*2) );
-        canLeave = true;
-        document.getElementById("test").innerHTML = "1 month is" + " " + duration.getDate();
-=======
         // duration = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
         duration = "biweekly";
         canLeave = true;
@@ -68,7 +45,6 @@ function checkOption() {
         duration = "monthly";
         canLeave = true;
         // document.getElementById("test").innerHTML = "1 month is" + " " + duration.getDate();
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
     }
     if (canLeave) {
         logDuration(duration);

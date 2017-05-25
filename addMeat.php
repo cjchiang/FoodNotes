@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-<?php include("include/header.php");?>
-<!-- main body will go here, body tags are already distributed to header and footer-->
-=======
 <?php include("include/header.php"); ?>
     <!-- main body will go here, body tags are already distributed to header and footer-->
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-<script src="script/addItemsForMeat.js" type="text/javascript"></script>
+<script src="script/addItems.js" type="text/javascript"></script>
 <script type="text/javascript">
 	var currentUser;
 	var currentUserNode;
@@ -65,16 +60,8 @@
 	</div>
 <!-- List the items of veggies for the users to choose and enter the price-->
 	<div class="row">
-<<<<<<< HEAD
-		<form action="processFood.php" method="POST" class="col s12" id="anchor_head">
-						<div class="row center-align">
-	            <input type="submit"  value="Add" class="btn waves-effect waves-light green"/>
-							<br/>
-						</div>
-=======
 		<form action="#" class="col s12" id="anchor_head">
 			<input type="submit" value="Add" id="submitBtn" hidden/>
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
             <div class="row center">
                 <div class="col s4">
                     Product Name
@@ -86,15 +73,10 @@
                     Unit Price $ 
                 </div>
             </div>
-<<<<<<< HEAD
-		</form>
-	</div>
-=======
    		</form>
 	</div>
 </div>
 
 </script>
 
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 <?php include("include/footer.php"); ?>

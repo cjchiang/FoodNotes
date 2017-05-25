@@ -76,45 +76,7 @@
    		</form>
 	</div>
 </div>
-<<<<<<< HEAD
-<script type="text/javascript">
-	
-	$(".checkbox").on("change", function(){
-		console.log("clicked");
-		var input ="#" + this.id.replace("check", "");
-		console.log(input);
-		// if (this.checked) {
-		// 	$(input).prop("disabled", false);
-		// } else {
-		// 	$(input).val("");
-		// 	$(input).prop("disabled", true);
-		// }
-
-	});
-		// $( "input:checkbox" ).ready(function(){
-		// console.log("me weddy");
-
-			// var foodName = this.id.replace("check_", "");
-			// console.log(input);
-		// if (this.checked) {
-		// 	$(input).prop("disabled", false);
-		// } else {
-		// 	$(input).val("");
-		// 	$(input).prop("disabled", true);
-		// }
-		// });
-	// });
-
-</script>
-    <!--<div class="container-fluid ourContent">
-        <div id="canvasSelect col-xs-12">
-            <canvas id="canvasSelection" width="500px" height="500px" style="border:1px solid black"></canvas>
-        </div>
-    </div>-->
-
-=======
 
 </script>
 
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 <?php include("include/footer.php"); ?>

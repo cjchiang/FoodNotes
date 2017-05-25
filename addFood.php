@@ -1,9 +1,5 @@
 <?php include("include/header.php");
-<<<<<<< HEAD
-	session_start();
-=======
 	// session_start();
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 ?>
 <!-- main body will go here, body tags are already distributed to header and footer-->
 
@@ -33,13 +29,8 @@
 	    findTemp();
 	  } else {
 	    console.log("not logged in");
-<<<<<<< HEAD
-		// alert("You're not logged in you hacker! Go home!");
-		// location.replace("index.php");
-=======
 		alert("You're not logged in you hacker! Go home!");
 		location.replace("index.php");
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 	  }
 	});
 
@@ -120,11 +111,7 @@
 	}
 
 	function copyMe(snap){
-<<<<<<< HEAD
-		lastCycle.set(snap.val());
-=======
 		lastCycle.update(snap.val());
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 	}
 
 	//delete a food item from temp list
@@ -134,19 +121,10 @@
 		var ancestorKey = $("#" + src.id).parents("[id^='anchor_head_']").attr("id");
 		console.log("deleted: " + foodKey);
 		console.log("deleted: " + foodName);
-<<<<<<< HEAD
-		//delete entry from page, with animation
-		// $("#" + foodKey).fadeOut(500, function(){
-			$("#" + foodKey).remove();
-			// $(this).remove();
-		// });
-
-=======
 		//delete entry from page, animation breaks code so removed it
 		$("#" + foodKey).remove();
 
 		updateTotal(ancestorKey, foodName);
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 		//delete entry from db as well
 		tempCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
 				tempCycle.child(snap.key).remove();
@@ -179,19 +157,6 @@
 		return userNode.child(cycleIndex);
 	}
 
-<<<<<<< HEAD
-	function addCycle() {
-		var user = firebase.auth().currentUser;
-		var userNode = users.child(user.uid);
-
-		userNode.once("value", function(snap){
-			var count = snap.val().cycleCount;
-			var cycleIndex = "cycle" + count;
-			count++;
-			userNode.child("cycleCount").set(count);
-		});
-	}
-=======
 	function getNewDeadline(duration) {
 	    var deadline;
 	    if (duration == "biweekly") {
@@ -224,7 +189,6 @@
 			userNode.child("cycleCount").set(count);
 		});
 	}
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 
 </script>
 <!-- Add 4 categories -->
@@ -232,12 +196,6 @@
 		<!-- For cancelling purchase -->
 		<div class="col s4 left-align">
 			<a href="notes.php" class="btn waves-effect waves-light green accent-4">Cancel</a>
-<<<<<<< HEAD
-		</div>
-		<div class="col s3 center-align" style="color: black">
-			<button onclick="finalize()">Kill cycle</button>
-=======
->>>>>>> 7dad581f0226bdd8e606429f8e1f191ad96b5759
 		</div>
 		<!-- For submitting -->
 		<div class="col s4 right-align">
