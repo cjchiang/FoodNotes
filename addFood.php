@@ -55,9 +55,9 @@
 			tempCycle = userNode.child("temp");
 			// bug here, if fruit isn't first, it repeats 4x, idk y
 
+			populateTempList("Dairy", userNode.child("temp"));
 			populateTempList("Fruit", userNode.child("temp"));
 			populateTempList("Vegetable", userNode.child("temp"));
-			populateTempList("Diary", userNode.child("temp"));
 			populateTempList("Meat", userNode.child("temp"));
 		}
 		});
@@ -75,7 +75,7 @@
 			$("#anchor_head_"+ foodCategory).append(
 				'<div class="row" id="'+ foodNameID +'">' +
 					'<div class="col s6">' +
-						'<span>' + foodName + '</span>' +
+						'<span class="truncate" style="font-size: responsive">' + foodName + '</span>' +
 					'</div>' +
 					'<div class="col s3">' +
 						'<span id="' + foodNameID + '_price">' + price + '</span>' +
