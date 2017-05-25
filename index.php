@@ -2,6 +2,7 @@
 <!--About Us-->
   <div class="row">
     <div class="col s12 center-align">
+      <h3>What is Food Notes?</h3>
       <p class="flow-text">
         FoodNotes is a food diary app that allows the users
         to keep track of how much of their food is not eaten, in term of money.

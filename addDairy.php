@@ -17,7 +17,7 @@
 		} else {
 			console.log("cycle exists");
 		}
-	} 
+	}
 	});
 
 	/*When search bar is loaded, populate page with a list of meats
@@ -34,7 +34,7 @@
 	<div class="row">
 		<!-- for the icon arrow -->
 		<div class="col s6 left-align">
-			<a href="addFood.php" class="btn waves-effect waves-light green">Back</a>
+			<a href="addFood.php" class="btn waves-effect waves-light red darken-4">Back</a>
 		</div>
 	</div>
 	<div class="row">
@@ -50,9 +50,9 @@
 				<div class="input-field col s12">
 					<label for="search"><i class="material-icons">search</i></label>
 					<input id="search" type="search">
-				<div>
+				</div>
 				<div class="col s12 center-align">
-					<a class="btn waves-effect waves-light green" onclick="logAllItems()">Add Items</a>
+					<a class="btn waves-effect waves-light red darken-4" onclick="logAllItems()">Add Items</a>
 				</div>
 			</div>
 		</form>
@@ -66,7 +66,7 @@
                     Product Name
                 </div>
                 <div class="col s6">
-                    Price $ 
+                    Price $
                 </div>
             </div>
    		</form>
