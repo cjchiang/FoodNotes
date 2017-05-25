@@ -1,8 +1,6 @@
 <?php include("include/menuHeader.php"); ?>
     <div class="row center-align">
-        <div class="col s12">
-          <h3 style="font-size: 10vw;">About the Developers</h3>
-        </div>
+      <h3 style="font-size: 10vw;">About the Developers</h3>
     </div>
     <!--Descriptions about the developers-->
     <div class="row center-align flow-text">
@@ -30,7 +28,7 @@
         <div class="row center-align">
             <div class="col s12">
                 <p>Quincy</p>
-                <p>Quincy is a Pizza Hut Guy</p>
+                <p>Quincy is cool</p>
             </div>
         </div>
     </div>

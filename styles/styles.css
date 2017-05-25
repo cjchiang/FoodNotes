@@ -377,7 +377,7 @@ table, td, tr, th {
   left: 38%;
   right: 38%;
 }
-@media only screen and (min-width:768px) {
+@media screen and (min-width:768px) {
     html{
         border: 1px solid;
         margin: auto;
