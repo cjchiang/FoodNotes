@@ -54,7 +54,7 @@ $(function(){
 		if ( valid ) {		
 			firebase.database().ref("users").push({
 				"email" : email,
-				"cycleCount" : 0
+				"cycleCount" : 0,
 				"cycleDuration" : "weekly"
 			});
 		}
