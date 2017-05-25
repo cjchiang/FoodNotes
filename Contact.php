@@ -3,11 +3,38 @@
 <?php include("include/menuHeader.php"); ?>
 <!--Contact Us form for users-->
 
+<?php 
+
+if ($_POST) {
+$to = 'foodnote13@gmail.com';
+$subject = 'testing';
+$firstN = $_POST['first_name'];
+$lastN = $_POST['last_name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
+    
+$body = <<<EMAIL
+
+Hi, My name is $firstN . $lastN.
+    
+$message
+    
+    
+From $firstN . $lastN.
+Sender's email: $email
+    
+EMAIL;
+    
+$header = "From: $email";
+        mail($to,$subject,$message,$header);
+}
+
+?>
   <div class="row white-text center-align">
     <h3><strong>Contact Us</strong></h3>
   </div>
   <div class="row">
-    <form class ="col s12" method="post" action="mailto:&#102;&#111;&#111;&#x64;&#110;&#111;&#116;&#x65;&#x31;&#x33;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;" enctype="text/plain">
+    <form class ="col s12" action="?" method="post">
       <div class="row">
         <div class="input-field col s6">
           <label for="first_name">First Name</label>
