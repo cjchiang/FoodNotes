@@ -29,7 +29,7 @@
 	});
 
 	//add new item to temporary list
-	function addItem(foodName, refKey){
+	function addItem(foodNameID, refKey){
 		var foodName = foodNameID.split("_").join(" ");
 		var price;
 
@@ -59,6 +59,7 @@
 
 	//add more of an existing item to temporary list
 	function appendItem(foodNameID, refKey){
+
 		var foodName = foodNameID.split("_").join(" ");
 		var price;
 
