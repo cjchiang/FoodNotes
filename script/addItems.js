@@ -10,6 +10,13 @@
 	const database = firebase.database();
 	const foods = database.ref("foods");
 	const users = database.ref("users");
+	
+	firebase.auth().onAuthStateChanged(function(firebaseUser){
+    if (!firebaseUser) {
+		alert("You're not logged in you hacker! Go home!");
+        location.replace("index.php");
+   		} 
+	});
 
 	/*Populates a drop down with fruit food itemns, based on text inside search bar*/
 	function populateList(foodCategory) {
@@ -26,26 +33,20 @@
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
 					//food name col
-					'<div class="input-field col s4 ">' +
+					'<div class="input-field col s8 ">' +
 						'<input class="check_tick" id="' + foodName + '" type="checkbox" '+
 						// 'onchange="logMe(this);"'+
 						'name="checkbox"/>' +
 						'<label for="' + foodName+ '">' + snapData.product + '</label>' +
 					'</div>' +
-						//quantity col
-					'<div class="input-field col s4" >' +
-						'<input type="number" id="' + foodName + '_quantity" '+
-						'" min="1" max="100" placeholder="' + quantity + ' ' + unit + '" name="' + unit + '"/>' +
-					'</div>' +
-						//unit price col
+						// price col
 					'<div class="input-field col s4">' +
 						'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price +
 						'"/>' +
 					'</div>' +
 				'</div> '
 				); 
-		    	$("#"+foodName+"_bought").val(snapData.price);
-		    	$("#"+foodName+"_quanity").val(1);
+		    	// $("#"+foodName+"_bought").val(snapData.price);
 		    }
 		});
 	}
