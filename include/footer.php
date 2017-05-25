@@ -5,10 +5,16 @@
     <div class="row">
         <p>&copy;Group 13</p>
     </div>
-        <div class="row">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=foodnotes.azurewebsites.net">Share on Facebook</a>
-        <a href="https://twitter.com/home?status=foodnotes.azurewebsites.net">Share on Twitter</a>
-        <a href="https://plus.google.com/share?url=foodnotes.azurewebsites.net">Share on Google+</a>
+    <div class="row">
+        <div class="col s4">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=foodnotes.azurewebsites.net">Share on Facebook</a>
+        </div>
+        <div class="col s4">
+            <a href="https://twitter.com/home?status=foodnotes.azurewebsites.net">Share on Twitter</a>
+        </div>
+        <div class="col s4">
+            <a href="https://plus.google.com/share?url=foodnotes.azurewebsites.net">Share on Google+</a>
+        </div>
     </div>
 </div>
 <br/>
