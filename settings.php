@@ -1,7 +1,7 @@
 <?php include("include/header.php"); ?>
     <script type="text/javascript"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script src="settings.js"></script>
+    <script src="script/settings.js"></script>
     <div class="row">
         <div class="col s12 center">
             <h1>Settings</h1>

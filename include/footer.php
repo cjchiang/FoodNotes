@@ -4,15 +4,9 @@
     <hr/>
     <div class="row">
         <p>&copy;Group 13</p>
+        <hr id="clearMe"/>
     </div>
 </div>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
     <div class="row bottomNavi" style="z-index: 2;" id="allbtn">
         <div style="padding:0px" class="col s2 buttonHolder" id ="homebtn">
           <a href="../index.php"><button class="btn waves-effect waves-slide red darken-4 bottomButton" style="height:100%"><img class="navImg" src="images/home.png" alt="home"/></button></a>
