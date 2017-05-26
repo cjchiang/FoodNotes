@@ -215,7 +215,7 @@
 		// var yyyy2 = enddate.getFullYear();
 
 		$("#cycle_start_date").text( ww1 + ' ' + mm1 + ' ' + dd1);
-		$("#cycle_end_date").text( mm2 + ' ' + mm2 + ' ' + dd2);
+		$("#cycle_end_date").text( ww2 + ' ' + mm2 + ' ' + dd2);
 	}
 
 	/*Called to end a cycle*/
@@ -223,7 +223,7 @@
         alert("Ending current cycle");
         finalizeStats();
         addCycle();
-        location.replace("notes.php");
+        location.replace("records.php");
     }
 
     /*Increments cycle counter in firebase by 1.
