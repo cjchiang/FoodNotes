@@ -8,6 +8,7 @@ var config = {
   };
 firebase.initializeApp(config);
 
+// Once user signed out or if user came via typing in url, brings them back home
 firebase.auth().onAuthStateChanged(function(firebaseUser){
     if (!firebaseUser) {
         console.log("not logged in");
@@ -15,6 +16,7 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
    } 
 });
 
+// onclick function for logout btn, doesn't work unless i put it into document ready
 $(function(){ 
     $("#logoutBtn").click(function(){
         firebase.auth().signOut();
@@ -22,6 +24,8 @@ $(function(){
     });
 });
 
+/*Check the drop down list and act on their value;
+  Changes the cycle duration settings for the user. */
 function checkOption() {
     var duration;
     var canLeave = false;
@@ -48,6 +52,7 @@ function checkOption() {
     }
 }
 
+/*Leave for homepage about a count down. Should be called with a timeOut*/
 function leaveAfterCount(duration) {
     location.replace("index.php");        
 }

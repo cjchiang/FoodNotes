@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- A registration page for new users; new accounts are created here: features include confirmation of password(rudimentary anti-bot measure) and a link to a page to reset user password. -->
 	<title>FoodNotes</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +15,9 @@
 	<script src="script/easterEgg.js" type="text/javascript"></script>
 	<link rel="icon" href="../images/favicon.png"/>
 	<script type="text/javascript">
+
+	// When registered user comes here, sets up account for them to enable other features
+	// ie adding items need cycleCount, adding new cycles need cycleDuration 
 	firebase.auth().onAuthStateChanged(function(thisUser){
 		var database = firebase.database();
 		var users = database.ref("users");

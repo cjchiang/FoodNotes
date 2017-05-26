@@ -6,12 +6,13 @@ var config = {
 	storageBucket: "food-notes-test.appspot.com",
 	messagingSenderId: "106608811518"
 };
-
 firebase.initializeApp(config);
 
 //main function: runs onload
 $(function(){
 
+	// hides navBar with links to user-exclusive content when accessed
+	// without logging into firebase, unhides it on login
 	firebase.auth().onAuthStateChanged(function(user) {
       if (user != null) {
         console.log("logged in");
@@ -26,7 +27,8 @@ $(function(){
       }
 });
 
-
+	// Creates a new user account given an email and a password
+	// If errors occur, alerts user of them.
 	$("#registerBtn").click(function(){
 		var email = $("#email").val()
 		var password1 = $("#password1").val()
@@ -41,6 +43,8 @@ $(function(){
 
 	});
 
+	// Sends a password reset email to email associated with user
+	// If errors occur (ie. no account associated with email), alerts user of them.
 	$("#forgotPWBtn").click(function(){
 		var email = $("#email").val()
 		if (email == "") {
@@ -51,11 +55,13 @@ $(function(){
 		auth.sendPasswordResetEmail(email).then(function() {
 			alert("A password reset email has been sent to above address.")		  
 		}, function(e) {
-		  //tried to use try block, caught nothing	
+		  //tried to use try block here, doesn't work	
 		  alert(e.message);
 		});        
 	});
 
+	// Logs a user into firebase given email and password
+	// If errors occur, alerts user of them.
 	$("#loginBtnSubmit").click(function(){
 		attempted = true;
 		var email = $("#email").val() 
@@ -65,6 +71,8 @@ $(function(){
 		promise.catch(function(e){ alert(e.message); });
 	});
 
+	// Nate removed cancel button from login and register.php
+	// Now users must click on
 	$("#cancelBtn").click(function(){
 		location.replace("index.php");
 	});

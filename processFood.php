@@ -1,3 +1,4 @@
+<!-- Unused PHP post-processor page, its creater will remain unnamed and it will unfinished -->
 <?php include("include/header.php"); session_start(); ?>
 <?php 
 $storeOnOrOff = array();

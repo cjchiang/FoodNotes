@@ -1,8 +1,10 @@
+<!-- Footer file for all pages used by Food Notes -->
 </div>
 <br/>
 <div class="container-fluid bottomRow">
     <hr/>
     <div class="row">
+    <!-- Email feature Ron added. Utilizes user's default email client, which is usually Outlook. -->
         <p>&copy;Group 13</p>
         <a href="mailto:&#102;&#111;&#x6f;&#x64;&#x6e;&#111;&#x74;&#x65;&#49;&#51;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;">Contact us</a>
         <hr id="clearMe"/>

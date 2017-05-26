@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Page where users who've forgotten their passwords come. Sends a confirmation to user email for them to reset password to their account; all JS code involved is in login.js-->
   <title>FoodNotes</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,20 +14,6 @@
   <script src="script/login.js" type="text/javascript"></script>
   <script src="script/easterEgg.js" type="text/javascript"></script>
   <link rel="icon" href="../images/favicon.png"/>
-  <script type="text/javascript">
-  	var attempted = false;
-	firebase.auth().onAuthStateChanged(function(firebaseUser){
-		if (firebaseUser) {
-			console.log("signed in")
-			location.replace("index.php");
-		} else if (attempted) {
-			alert("Invalid username or password!");
-		} else {
-			console.log(firebaseUser + " is not a valid user");
-		}
-	});
-
-  </script>
 </head>
 <body style="background-image: url(images/food_background3.jpg); background-size: 100%">
   <br/>

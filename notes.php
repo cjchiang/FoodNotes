@@ -29,10 +29,14 @@
 	  }
 	});
 
+	// these would've been global constants, however
+	// JS doesn't like undefined const so vars they are
 	var user;
 	var userNode;
 	var lastCycle;
 	var lastCycleNode;
+
+	/*Returns last cycle to populate page with.*/
 	function getLastCycle() {
 		user = firebase.auth().currentUser;
 		userNode = users.child(user.uid);
@@ -44,11 +48,15 @@
 			var cycleIndex = "cycle" + count;
 			lastCycleNode = userNode.child(cycleIndex);
 			lastCycle = database.ref("users/"+user.uid+"/" + lastCycleNode.key);
-			findCurrentList();
+			fillLists();
 		});
 	}
+
+	// tries to stop a bug from happening with firebase functions triggering
+	// uncontrollable
 	var once = true;
-	function findCurrentList(){
+	/*Fill out all food categories*/
+	function fillLists(){
 		//bug here
 		if (typeof lastCycle !== "undefined") {
 			populateCurrentList("Fruit");
@@ -62,6 +70,8 @@
 		}
 	}
 
+	// Append a list of a specific foodCategory to its respective location
+	// at the bottom of this page. I don't know a way around the huge string. 
 	function populateCurrentList(foodCategory) {
 		if (!once)
 			return;
@@ -111,7 +121,7 @@
 				sum += parseFloat( price);
 				$("#slider_" + foodNameID).val( parseInt(wasted) );
 			});
-		// update foodCategory total in db
+		// update foodCategory total in db, bug src, but I need it and I couldn't find fix
 		lastCycleNode.child(foodCategory + "_total").set(sum);
 
 		// update text of foodCategory total on page
@@ -119,13 +129,14 @@
 		updateTotal(foodCategory + "_body");
 	}
 
+	/*Handles appending date information to bottom of this page*/
 	function setDate() {
 		setDuration();
 		lastCycleNode.once("value", function(snap){
 			var enddate;
 			var startdate;
-			// var duration = 
 			try {
+				// firebase doesn't like when u try to access undefined members
 				enddate = snap.val().cycleEndDate;
 				startdate = snap.val().cycleStartDate;
 			} catch(e) {
@@ -147,6 +158,7 @@
 		});
 	}
 
+	/*Sets the duration part of the date info at this page bottom*/
 	function setDuration() {
 		userNode.on("value", function(snap){
 			var duration = snap.val().cycleDuration;
@@ -162,6 +174,9 @@
 			$("#cycle_duration").text(durationTxt);
 		});
 	}
+
+	/* Compares cycle deadline with today's date.
+	  Returns if equal. */
 	function checkDeadline(timeObj) {
 		var today = new Date();
 		var deadline = new Date(timeObj);
@@ -181,26 +196,29 @@
 		return false;
 	}
 
+	/* Formats display of start and stop dates, and appends it to its rightful place */
 	function displayDate(timeObj1, timeObj2) {
 		var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
 
 		var startdate = new Date(timeObj1);
 		var enddate = new Date(timeObj2);
 		
 		var dd1 = startdate.getDate();
 		var mm1 = monthNames[ startdate.getMonth() ];
-		var yyyy1 = startdate.getFullYear();
+		var ww1 = weekDays[ startdate.getDay() ];
+		// var yyyy1 = startdate.getFullYear();
 
 		var dd2 = enddate.getDate();
 		var mm2 = monthNames[ enddate.getMonth() ];
-		var yyyy2 = enddate.getFullYear();
+		var ww2 = weekDays[ enddate.getDay() ];
+		// var yyyy2 = enddate.getFullYear();
 
-		// var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
-		// var ww = weekDays[ deadline.getDay() ];
-		$("#cycle_start_date").text( mm1 + ' ' + dd1 + ' ' + yyyy1);
-		$("#cycle_end_date").text( mm2 + ' ' + dd2 + ' ' + yyyy2);
+		$("#cycle_start_date").text( ww1 + ' ' + mm1 + ' ' + dd1);
+		$("#cycle_end_date").text( mm2 + ' ' + mm2 + ' ' + dd2);
 	}
 
+	/*Called to end a cycle*/
 	function finalize() {
         alert("Ending current cycle");
         finalizeStats();
@@ -208,7 +226,11 @@
         location.replace("notes.php");
     }
 
-     function addCycle() {
+    /*Increments cycle counter in firebase by 1.
+      The cycle counter is index of the current cycle.
+      When it increments, the former current cycle is 
+      no longer current cycle. */
+    function addCycle() {
         var user = firebase.auth().currentUser;
         var userNode = users.child(user.uid);
 
@@ -220,6 +242,7 @@
         });
     }
 
+    /*Calculates percentages of wastage by type, and pushes the values to firebase. */
     function finalizeStats() {
         var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
         var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
@@ -262,9 +285,11 @@
         lastCycle.update({"Dairy_percent" : Dairy_percent.toFixed(2) });
     }
 
+
+    /* Converts slider value into % of $ wasted.
+    	Called when slider moved. */
 	function moveMe(src) {
 		var value = $(src).val();
-    	// convert slider into % value
     	var leftPercent = value * 0.01;
     	var foodNameID = src.id.replace("slider_", "");
     	var foodName = foodNameID.split("_").join(" ");
@@ -302,14 +327,16 @@
 		console.log(foodGroupID + " foodGroup wasted sum: " + sum);
 		$("#" + foodGroupID + "_total").attr("name", sum.toFixed(2) );
 		updatePercent();
-	}
+	} 
 
+	/*update percentages of waste on page by type, given $ spent and $ wasted.  */
 	function updatePercent() {
 		var old_meat_total = parseFloat ( $("#Meat_body_total").text().replace("$", "") );
 		var old_fruit_total = parseFloat ( $("#Fruit_body_total").text().replace("$", "") );
 		var old_veg_total = parseFloat ( $("#Vegetable_body_total").text().replace("$", "") );
 		var old_dairy_total = parseFloat ( $("#Dairy_body_total").text().replace("$", "") );
 
+		// hid the wasted $ amount in name attributes of elem with original amount as text 
 		var current_meat_total = parseFloat ( $("#Meat_body_total").attr("name") );
 		var current_fruit_total = parseFloat ( $("#Fruit_body_total").attr("name") );
 		var current_veg_total = parseFloat ( $("#Vegetable_body_total").attr("name") );
@@ -326,7 +353,6 @@
 	}
 
 </script>
-
 	<div id="notes">
 		<div class="row center-align">
 			<h3>Waste this cycle:</h3>
@@ -403,6 +429,7 @@
 			</div>
 		</li>
 	</ul>
+	<!-- Date info blurb -->
 	<div class="container center-align red darken-4 z-depth-5">
 		<div class="row">
 		<h4 class="col s6">Spent</h4>
@@ -415,7 +442,6 @@
 		<h5 class="col s6" id="cycle_end_date"> NOT SET </h5>
 		<h5 class="col s6" >Cycle duration:</h5>
 		<h5 class="col s6" id="cycle_duration"> NOT SET </h5>
-
 	</div>
 	<div class="row center-align">
 		<button class="btn waves-effect waves-light grey darken-3 text-black" onclick="finalize()">Debug End Cycle</button>
