@@ -50,9 +50,9 @@
 			<nav class="green darken-2">
 					<div class="nav-wrapper">
 							<ul id="nav-mobile" class="left">
-									<li><a href="index.php" style="font-size: 5vw">Home</a><li>
-									<li><a href="affiliatedApps.php" style="font-size: 5vw">Affiliates</a></li>
-									<li><a href="aboutUsDevs.php" style="font-size: 5vw">About Us</a></li>
+									<li><a href="index.php" style="font-size: 4vw">Home</a><li>
+									<li><a href="affiliatedApps.php" style="font-size: 4vw">Affiliates</a></li>
+									<li><a href="aboutUsDevs.php" style="font-size: 4vw">About Us</a></li>
 							</ul>
 					</div>
 			</nav>
