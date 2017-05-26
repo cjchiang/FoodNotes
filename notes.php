@@ -66,7 +66,7 @@
 			console.log("no cycles in record");
 		}
 		// bug fix		
-		if (localStorage.getItem('isLoaded') !== 'yes') {
+		if (localStorage.getItem('isLoaded') !== 'yes')
 			refreshMe();
 		else
 			localStorage.setItem('isLoaded', 'no');
