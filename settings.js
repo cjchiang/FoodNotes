@@ -29,22 +29,16 @@ function checkOption() {
     var dateOption = document.getElementById("myCalendarChoice");
     if (dateOption.value === "biweekly") {
         window.alert("You've chosen the 14 day option");
-        // duration = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
         duration = "biweekly";
         canLeave = true;
-        // document.getElementById("test").innerHTML = "2 week is" + " " + duration.getDate();
     } else if (dateOption.value === "weekly") {
         window.alert("You've chosen the 7 day option");
-        // duration = new Date(+new Date + 6048e5); // 6048e5 is 7 days
         duration = "weekly";
         canLeave = true;
-        // document.getElementById("test").innerHTML = "1 week is" + " " + duration.getDate();
     } else if (dateOption.value === "monthly") {
         window.alert("You've chosen the 30 day option");
-        // duration = new Date(+new Date + (12096e5*2) );
         duration = "monthly";
         canLeave = true;
-        // document.getElementById("test").innerHTML = "1 month is" + " " + duration.getDate();
     }
     if (canLeave) {
         logDuration(duration);
@@ -59,29 +53,5 @@ function logDuration(duration) {
     database.ref("users/" + currentUser.uid).update({"cycleDuration" : duration});    
 }
 
-function requestFinalize() {
-    var userConfirmation = confirm("Are you sure\nCurrent cycle will early");
-    if (userConfirmation)
-        finalize();
-}
 
-function finalize() {
-    alert("Ending current cycle");
-    location.replace("notes.php");
-    finalizeStats();
-    addCycle();
-}
 
-   
-   
-    function addCycle() {
-        var user = firebase.auth().currentUser;
-        var userNode = users.child(user.uid);
-
-        userNode.once("value", function(snap){
-            var count = snap.val().cycleCount;
-            var cycleIndex = "cycle" + count;
-            count++;
-            userNode.child("cycleCount").set(count);
-        });
-    }

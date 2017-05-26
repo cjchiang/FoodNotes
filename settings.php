@@ -38,7 +38,6 @@
         $('select').material_select();
     });
 
-    // $(" :submit").click(function(){
     $("#logoutBtn").click(function(){
         console.log("signed out");
         firebase.auth().signOut();
