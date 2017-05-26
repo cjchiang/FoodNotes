@@ -14,6 +14,7 @@
   <link rel="icon" href="../images/favicon.png"/>
   <script type="text/javascript">
   var attempted = false;
+  // firebase function for acting based if user can successfully login to firebase
 	firebase.auth().onAuthStateChanged(function(firebaseUser){
 		if (firebaseUser) {
 			console.log("signed in")
@@ -37,7 +38,7 @@
   <div class="container white-text center-align">
     <div id="login_form" class="z-depth-1 green darken-2">
       <div class="row">
-        <!-- <form class="col s12" method="post"> -->
+        <!-- <form class="col s12" method="post"> firebase login does not like form elems -->
           <div class='row'>
             <div class='input-field col s12'>
               <input class='validate' type='email' name='email' id='email' />
@@ -50,9 +51,6 @@
               <input class='validate' type='password' name='password' id='password' />
               <label for='password'>Enter your password</label>
             </div>
-            <label style='float: right;'>
-              <!-- <a class='white-text' href='#!'><b>Forgot Password?</b></a> -->
-            </label>
           </div>
           <br />
           <center>
