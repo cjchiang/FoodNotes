@@ -4,8 +4,6 @@ The current cycle does not show up here, but all non-100%
 used items from the past show up here. Items here are added to
 the running count of total items wasted
 -->
-  <!-- TODO: replace w. inline or dedicated js file -->
-  <!-- <script type="text/javascript" src="../script/amIsignedIn.js"></script> -->
   <script type="text/javascript">
   var config = {
       apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
@@ -23,6 +21,8 @@ the running count of total items wasted
   var currentUserNode;
   var lastCycleCount;
 
+  // Set up page for loading cycles, but if user not logged in,
+  // redirect them to home page
   firebase.auth().onAuthStateChanged(function(user) {
     if (user != null) {
       console.log("logged in");
@@ -38,6 +38,8 @@ the running count of total items wasted
     }
   });
 
+  /*Make sure user child in firebase has user ID as key,
+  instead of default random Hash */
   function confirmUserAccountReadyForCycles(user) {
     users.orderByChild("email").equalTo(user.email).on('child_added', function(snap){
         var childKey = snap.key;
@@ -50,13 +52,13 @@ the running count of total items wasted
     });
   }
 
-  function findTemp(){
+  /* Checks firebase for previous cycles, or displays an empty page container if none found*/
+  function checkIfCyclesExist (){
     if ( lastCycleCount - 1 < 0) {
       displayEmptyRecord();
       return;
     }
     var lastCycleKey = "cycle" + (lastCycleCount-1);
-    // currentUserNode.orderByKey().endAt(lastCycleKey).orderByChild("cycle").equalTo(true).on("child_added", function(snap){  
     currentUserNode.orderByKey().endAt(lastCycleKey).on("child_added", function(snap){  
      var snapData = snap.val()
         cycle = currentUserNode.child(snap.key);
@@ -69,6 +71,7 @@ the running count of total items wasted
     });
   }
 
+  /* Display an empty records container on page.*/
   function displayEmptyRecord() {
     $("#cycle_anchor_head").append(
       '<div class="container white grey-text">'+
@@ -76,6 +79,9 @@ the running count of total items wasted
       '</div>'
       );
   }
+
+  /* Appends a new empty cycle to page. Apologies for ungodly string, materialize 
+     doesn't like dynamically generated pages very much. */
   function createCycleHeaderOnPage(CycleKey) {
     $("#cycle_anchor_head").append(
     '<ul class="collapsible" data-collapsible="expandable" id="'+ CycleKey+ '">'+
@@ -109,7 +115,6 @@ the running count of total items wasted
 
         '</div>' +
       '</div>' +
-      //body portion
        '<div class="collapsible-body">' +
           '<ul class="collapsible" data-collapsible="expandable" id="cycle_anchor_body">' +
         
@@ -140,8 +145,10 @@ the running count of total items wasted
     createCycleCategoryHeaderOnPage(CycleKey, "Dairy");
   }
 
+  /* Fill in a newly created with a specific food category*/
   function createCycleCategoryHeaderOnPage(CycleKey, foodCategory) {
     var foodCategoryName = foodCategory;
+    // vegetable as a string can't fit on line, so replaced with veggies instead
     if (foodCategory == "Vegetable")
       foodCategoryName = "Veggies"
     $('.collapsible').collapsible();
@@ -159,11 +166,14 @@ the running count of total items wasted
           '</div>' 
           );
   }
- 
+  
+  /* returns string as float, used to make finalizeStat for readable*/ 
   function roundStringAsFloat(str) {
-     // return Math.round( parseFloat(str) );
      return parseFloat(str) ;
    } 
+
+  /* Populates a food category of a newly created cycle with foods from that cycle and category, as
+  well as percents and dates of that cycle*/
   function populateCycleCategory(foodCategory, cycleRef) {
     var cycleKey = cycleRef.key;
     cycleRef.once("value", function(snap){
@@ -227,6 +237,7 @@ the running count of total items wasted
     });
   }
 
+  /* formats a time object and returns a displayable string representing it*/
   function formatDate(timeObj) {
     var deadline = new Date(timeObj);
     var dd = deadline.getDate();
@@ -240,25 +251,13 @@ the running count of total items wasted
 
   var tempNode;
   var lastCycle;
-  function updateTotal(foodGroupID, childID) {
-    var sum = 0;
-    var foodGroupPriceKey = foodGroupID.replace("anchor_head_", "");
-    $("#"+foodGroupID).find("[id$='_price']").each(function(){
-      var itemPriceStr = $(this).text();
-      var itemPrice = parseFloat( itemPriceStr.replace("$", "") );
-      sum += itemPrice;
-    });
-    console.log("foodGroupID:" +  foodGroupID)
-    console.log("sum: " + sum);
-    $("#" + foodGroupPriceKey + "_total").text("$ " + sum.toFixed(2) );
-  }
 
+  /* A gateway function for getting javascript to access last cycle from firebase */
   function setUpLastCycle(userNode) {
-    // console.log(userNode.key)
     userNode.orderByKey().once("value", function(snap){
       console.log("set: " + snap.val().cycleCount);
       lastCycleCount = snap.val().cycleCount;
-      findTemp();
+      checkIfCyclesExist();
     });
   }
 

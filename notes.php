@@ -52,9 +52,6 @@
 		});
 	}
 
-	// tries to stop a bug from happening with firebase functions triggering
-	// uncontrollable
-	var once = true;
 	/*Fill out all food categories*/
 	function fillLists(){
 		//bug here
@@ -68,8 +65,22 @@
 		} else {
 			console.log("no cycles in record");
 		}
+		// bug fix		
+		if (localStorage.getItem('isLoaded') !== 'yes') {
+			refreshMe();
+		else
+			localStorage.setItem('isLoaded', 'no');
+	}
+	
+	/* refreshes page and fixes bug*/	
+	function refreshMe() {
+		localStorage.setItem('isLoaded', 'yes');
+		location.reload();
 	}
 
+	// tries to stop a bug from happening with firebase functions triggering
+	// uncontrollable
+	var once = true;
 	// Append a list of a specific foodCategory to its respective location
 	// at the bottom of this page. I don't know a way around the huge string. 
 	function populateCurrentList(foodCategory) {
