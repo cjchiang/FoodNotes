@@ -27,7 +27,7 @@
             </div>
             <div class="container col s12" style="text-align: justify">
                 <h5 class="container orange accent-2 black-text col">Quincy</h5>
-                <p>Quincy is cool, and he likes PHP very much. Sadly, PHP meshes with firebase about as well as wasting food while saving money. Maybe next time, Quincy. </p>
+                <p>Quincy is cool, and he likes PHP very much. Sadly, PHP goes with firebase about as well as practicums with sleep. Maybe next time, Quincy you can sleep. </p>
             </div>
         </div>
     </div>
