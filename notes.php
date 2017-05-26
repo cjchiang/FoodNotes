@@ -444,7 +444,7 @@
 		<h5 class="col s6" id="cycle_duration"> NOT SET </h5>
 	</div>
 	<div class="row center-align">
-		<button class="btn waves-effect waves-light grey darken-3 text-black" onclick="finalize()">Debug End Cycle</button>
+		<button class="btn waves-effect waves-light grey darken-3 text-black" onclick="finalize()">End Cycle</button>
 	</div>
 </div>
 
