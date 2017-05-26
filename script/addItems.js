@@ -1,3 +1,7 @@
+	/** 
+	Support code for all add<foodCategory>.php files, where foodCategory is Fruit, Vegetable, Meat, and Dairy
+	@written mostly by Alex....
+	*/
 	var config = {
 	    apiKey: "AIzaSyBLFamIM2JEo2ESjIEn1PIhbkuKyaXF9Ds",
 	    authDomain: "food-notes-test.firebaseapp.com",
@@ -11,6 +15,8 @@
 	const foods = database.ref("foods");
 	const users = database.ref("users");
 	
+	// If a user arrived at this page via URL(not logged in), they must leave
+	// Page will break if user tried to use it without loggin in
 	firebase.auth().onAuthStateChanged(function(firebaseUser){
     if (!firebaseUser) {
 		alert("You're not logged in you hacker! Go home!");
@@ -32,27 +38,23 @@
 		    if (!newFoodBlock) {
 	      		$("#anchor_head").append(
 				'<div class="row" id ="' + snap.key + '">' +
-					//food name col
 					'<div class="input-field col s8 ">' +
 						'<input class="check_tick" id="' + foodName + '" type="checkbox" '+
-						// 'onchange="logMe(this);"'+
 						'name="checkbox"/>' +
 						'<label for="' + foodName+ '">' + snapData.product + '</label>' +
 					'</div>' +
-						// price col
 					'<div class="input-field col s4">' +
 						'<input type="text" id="' + foodName + '_bought" placeholder="$' + snapData.price +
 						'"/>' +
 					'</div>' +
 				'</div> '
 				); 
-		    	// $("#"+foodName+"_bought").val(snapData.price);
 		    }
 		});
 	}
 
-	// queries for a specific product, based on search term (name) and category
-	// then hides everything else
+	/* queries for a specific product, based on search term (name) and category
+	   then hides everything else */
 	function filterProducts( searchTerm, searchCategory ) {
 		foods.orderByChild("category").equalTo(searchCategory).on("child_added", function(snap){
 			var snapData = snap.val();
@@ -65,7 +67,7 @@
 		});
 	}
 
-	// hide or display an element with animation
+ 	/* hide or display an element with animation */
 	function hideme(elemID, toggle){
 		if( toggle)
 			$("#" + elemID).fadeOut(500);
@@ -73,7 +75,7 @@
 			$("#" + elemID).fadeIn(1000);
 	}
 
-	// returns true if target contains query string, strings are case insensitive
+	/* returns true if target contains query string, strings are case insensitive */
 	function contains( queryStr, targetStr) {
 		queryStr = queryStr.toLowerCase();
 		targetStr = targetStr.toLowerCase();

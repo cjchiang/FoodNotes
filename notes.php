@@ -141,10 +141,6 @@
 					finalize();
 				}
 				if (!todayIsTheDeadline) {
-					var today = new Date();
-					var deadline_date = new Date(enddate);
-					var daysLeft = deadline_date.getDate() - today.getDate();
-					console.log("cycle still has" + daysLeft);
 					displayDate(startdate, enddate);								
 				}
 			} 
@@ -252,6 +248,12 @@
         // var curr_sum = $("#curr_total").text().replace("$", "")
         // var orig_sum = $("#orig_total").text().replace("$", "")
         var percent_wasted = $("#total_waste_percent").text().replace("%", "");
+        console.log("percent_wasted:" + percent_wasted );
+
+		console.log("Meat_percent:" + Meat_percent.toFixed(2) );
+        console.log("Fruit_percent:" + Fruit_percent.toFixed(2) );
+        console.log("Vegetable_percent:" + Vegetable_percent.toFixed(2) );
+        console.log("Dairy_percent:" + Dairy_percent.toFixed(2) );
 
         lastCycle.update({"percent_wasted" : percent_wasted });
         lastCycle.update({"Meat_percent" : Meat_percent.toFixed(2) });
@@ -261,26 +263,26 @@
     }
 
 	function moveMe(src) {
-    	console.log("moved:" + $(src).val() );
-    	console.log("moved:" + src.id );
+		var value = $(src).val();
     	// convert slider into % value
-    	var leftPercent = $(src).val() * 0.01;
-    	var foodName = src.id.replace("slider_", "");
+    	var leftPercent = value * 0.01;
+    	var foodNameID = src.id.replace("slider_", "");
+    	var foodName = foodNameID.split("_").join(" ");
+    	console.log("fn:" + foodName)
     	var foodKey;
-    	var pl;
     	lastCycle.orderByChild("product").equalTo(foodName).on("child_added", function(snap){
     		foodKey = snap.key;
     	})
     	// update wasted % in db for food item
-    	lastCycle.child(foodKey).update({ "wasted" : $(src).val() });
+    	lastCycle.child(foodKey).update({ "wasted" : value });
 
-    	var origPriceStr = $("#" + foodName + "_price").text().replace("$", "");
+    	var origPriceStr = $("#" + foodNameID + "_price").text().replace("$", "");
     	var origPrice = parseFloat( origPriceStr );
     	// $ of paid price thrown away
     	var wastedPrice = leftPercent * origPrice;
     	// store wastedPrice in hidden name attribute
-    	$("#" + foodName + "_price").attr("name", wastedPrice.toFixed(2) );
-    	console.log(foodName + " updated w. waste: $" + wastedPrice.toFixed(2))
+    	$("#" + foodNameID + "_price").attr("name", wastedPrice.toFixed(2) );
+    	console.log(foodNameID + " updated w. waste: $" + wastedPrice.toFixed(2))
 
     	var parentID = $(src).parents(".row").parent().attr("id");
     	console.log("food group of item:" + $(src).parents(".row").parent().attr("id") );
@@ -383,8 +385,8 @@
 			<div class="collapsible-body note_body" id="Vegetable_body">
 			</div>
 		</li>
-		<li class= "yellow accent-4">
-			<div class="collapsible-header yellow accent-4">
+		<li class= "orange accent-2">
+			<div class="collapsible-header orange accent-2 ">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 40px">add_circle</i>

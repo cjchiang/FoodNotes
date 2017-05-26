@@ -291,8 +291,8 @@
 			<div class="collapsible-body note_body center-align" id="anchor_head_Vegetable">
 			</div>
 		</li>
-		<li class="#d4e157 lime lighten-1">
-			<div class="collapsible-header lime lighten-1">
+		<li class="orange accent-2">
+			<div class="collapsible-header orange accent-2">
 				<div class="row">
 					<div class="col s2">
 						<i class="material-icons" style="font-size: 40px">add_circle</i>

@@ -374,8 +374,9 @@ table, td, tr, th {
 #specialNavi {
   position: fixed;
   bottom: 0;
-  left: 38%;
-  right: 38%;
+  left: 41%;
+  right: 41%;
+  up: ;
 }
 #clearMe {
     display: block;
