@@ -32,20 +32,12 @@
               </a>
             </div>
         </div>
-        <div class="row center-align">
-            <div class="col s12">
-              <a class="waves-effect waves-light btn red darken-4 reviveMe">
-                <span onclick="requestFinalize()" >Manually end current cycle</span>
-              </a>
-            </div>
-        </div>
     <div id ="test"></div>
    <script>
     $(document).ready(function() {
         $('select').material_select();
     });
 
-    // $(" :submit").click(function(){
     $("#logoutBtn").click(function(){
         console.log("signed out");
         firebase.auth().signOut();
