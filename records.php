@@ -60,21 +60,13 @@ the running count of total items wasted
     currentUserNode.orderByKey().endAt(lastCycleKey).on("child_added", function(snap){  
      var snapData = snap.val()
         cycle = currentUserNode.child(snap.key);
-      // populateCyclesList(cycle)
       createCycleHeaderOnPage(snap.key);  
       console.log("started:" + snap.key);    
       populateCycleCategory("Fruit", cycle);
       populateCycleCategory("Vegetable", cycle);
       populateCycleCategory("Dairy", cycle);
       populateCycleCategory("Meat", cycle);
-     // });
     });
-      // populateTempList("Fruit", userNode.child("temp"));
-      // populateTempList("Vegetable", userNode.child("temp"));
-      // populateTempList("Dairy", userNode.child("temp"));
-      // populateTempList("Meat", userNode.child("temp"));
-    // }
-    // });
   }
 
   function displayEmptyRecord() {
@@ -95,28 +87,23 @@ the running count of total items wasted
             '<i class="material-icons" style="font-size: 35px">add_circle</i>' +
           '</div>' +
 
-          '<div class ="col s10 push-s1">' +
-            '<span style="font-size: 6vw">% of money wasted: </span>'+
+          '<div class ="col s8 push-s1">' +
+            '<span style="font-size: 6vw">% of $ wasted: </span>'+
           '</div>' +
         
-          '<div class ="col s1 pull-s1">' +
-            '<span id="percent_wasted" style="font-size: 6vw"> 0% </span>'+
+          '<div class ="col s1">' +
+            '<span id="percent_wasted" style="font-size: 6vw"> 0 % </span>'+
           '</div>' +
         
-        '</div>' +
-        '<div class="row">' +
-
-          '<div class ="col s6">' +
-            '<span style="font-size: 6vw">Cycle started:</span>'+
-          '</div>' +
-          '<div class ="col s6">' +
+          '<div class ="col s6 left">' +
             '<span id="cycleStartDate" style="font-size: 6vw">Cycle_Start_Date</span>'+
           '</div>' +
+          // CANT FIT 
+          // '<div class ="col s1 offset-s1">' +
+          //   '<span style="font-size: 6vw">-</span>'+
+          // '</div>' +
 
-          '<div class ="col s6">' +
-            '<span style="font-size: 6vw">Cycle ended:</span>'+
-          '</div>' +
-          '<div class ="col s6">' +
+          '<div class ="col s6 pull-s1">' +
             '<span id="cycleEndDate" style="font-size: 6vw">Cycle_End_Date</span>'+
           '</div>' +
 
@@ -161,10 +148,10 @@ the running count of total items wasted
      $("#" + CycleKey).find("#" +foodCategory+"_anchor_head").append(
           '<div class="row">' +
             '<div class="col s2">' +
-              '<i class="material-icons" style="font-size: 35px">add_circle</i>' +
+              '<i class="material-icons" style="font-size: 27px">add_circle</i>' +
             '</div>' +
             '<div class="col s4">' +
-              '<span>' + foodCategoryName + '</span>'+
+              '<span style="font-size:8vw">' + foodCategoryName + '</span>'+
             '</div>' +
             '<div class="col s6 alt-right">' +
               '<span class="alt-right" id="' + foodCategory +'_percent" >0%</span>'+
@@ -174,7 +161,8 @@ the running count of total items wasted
   }
  
   function roundStringAsFloat(str) {
-     return Math.round( parseFloat(str) );
+     // return Math.round( parseFloat(str) );
+     return parseFloat(str) ;
    } 
   function populateCycleCategory(foodCategory, cycleRef) {
     var cycleKey = cycleRef.key;
@@ -183,10 +171,6 @@ the running count of total items wasted
       var percent_wasted = roundStringAsFloat( snapData.percent_wasted );
         if ( isNaN(percent_wasted))
           percent_wasted = 0;
-      // var foodCategory_percentStr = foodCategory + "_percent";
-      // var foodCategory_percent = snapData.foodCategory_percentStr;
-        // if ( isNaN(foodCategory_percent))
-          // foodCategory_percent = 0;
 
       var foodCategory_percent;
       switch(foodCategory) {
@@ -216,10 +200,11 @@ the running count of total items wasted
         enddate = formatDate(enddate);
         startdate = formatDate(startdate);
       }
+      console.log("#" +foodCategory+"_percent:" + foodCategory_percent)
      $("#" + cycleKey).find("#percent_wasted").text( percent_wasted + "%");
      $("#" + cycleKey).find("#" +foodCategory+"_percent").text( foodCategory_percent + "%");      
-     $("#" + cycleKey).find("#cycleEndDate").text( enddate );      
-     $("#" + cycleKey).find("#cycleStartDate").text( startdate );      
+     $("#" + cycleKey).find("#cycleStartDate").text( startdate + "<");      
+     $("#" + cycleKey).find("#cycleEndDate").text( "--->" + enddate );      
     });
 
     // var total = 0;
@@ -247,10 +232,10 @@ the running count of total items wasted
     var dd = deadline.getDate();
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var mm = monthNames[ deadline.getMonth() ];
-    var yyyy = deadline.getFullYear();
-    // var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
-    // var ww = weekDays[ deadline.getDay() ];
-    return dd + ' ' + mm + ' ' + yyyy; 
+    // var yyyy = deadline.getFullYear();
+    var weekDays = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
+    var ww = weekDays[ deadline.getDay() ];
+    return ww + ', ' + mm + ' ' + dd; 
   }
 
   var tempNode;

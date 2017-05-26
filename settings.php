@@ -9,8 +9,8 @@
     </div>
     <!--Settings for the Cycle-->
         <div class="row">
-            <label class="white-text">Cycle Duration</label>
-            <div class="input-field col s12  z-depth-2">
+            <h5 class="white-text center">Cycle Duration</h5>
+            <div class="input-field col s12 z-depth-2">
                 <select id="myCalendarChoice">
                     <option value="" disabled selected>Choose your cycle duration</option>
                     <option value="weekly">7 days</option>

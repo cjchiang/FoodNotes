@@ -18,43 +18,39 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
 $(function(){ 
     $("#logoutBtn").click(function(){
         firebase.auth().signOut();
-        alert("Signed Out");
+        alert("signed out");
     });
 });
-
 
 function checkOption() {
     var duration;
     var canLeave = false;
     var dateOption = document.getElementById("myCalendarChoice");
     if (dateOption.value === "biweekly") {
-        window.alert("you choose Biweekly option");
-        // duration = new Date(+new Date + 12096e5); // 12096e5 is 12 days 
+        window.alert("You've chosen the 14 day option");
         duration = "biweekly";
         canLeave = true;
-        // document.getElementById("test").innerHTML = "2 week is" + " " + duration.getDate();
     } else if (dateOption.value === "weekly") {
-        window.alert("you choose Weekly option");
-        // duration = new Date(+new Date + 6048e5); // 6048e5 is 7 days
+        window.alert("You've chosen the 7 day option");
         duration = "weekly";
         canLeave = true;
-        // document.getElementById("test").innerHTML = "1 week is" + " " + duration.getDate();
     } else if (dateOption.value === "monthly") {
-        window.alert("you choose Monthly option");
-        // duration = new Date(+new Date + (12096e5*2) );
+        window.alert("You've chosen the 30 day option");
         duration = "monthly";
         canLeave = true;
-        // document.getElementById("test").innerHTML = "1 month is" + " " + duration.getDate();
     }
     if (canLeave) {
-        logDuration(duration);
-        location.replace("index.php")        
+        firebase.database().ref("users/" + firebase.auth().currentUser.uid).child("cycleDuration").set(duration);    
+        // 750 ms is fastest firebase updates its value(w. my wifi) before we can leave (duration var destroyed)
+        setTimeout(leaveAfterCount, 750);
     } else {
         alert("Must choose a valid cycle duration!")
     }
 }
 
-function logDuration(duration) {
-    if (typeof currentUser !== "undefined")
-    database.ref("users/" + currentUser.uid).update({"cycleDuration" : duration});    
+function leaveAfterCount(duration) {
+    location.replace("index.php");        
 }
+
+
+
