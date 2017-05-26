@@ -11,32 +11,15 @@ firebase.initializeApp(config);
 
 //main function: runs onload
 $(function(){
-	
-	firebase.auth().onAuthStateChanged(function(user) {
-      if (user != null) {
-        console.log("logged in");
-		
-		var db = firebase.database()	;
-		db.ref("users").orderByChild("email").equalTo(user.email).on('child_added', function(snap){
-		   	var childKey = snap.key;
-		   	var userID = user.uid;
-			if( childKey != userID) {
-				var child = db.ref("users").child(childKey);
-			  	db.ref("users").child(userID).set(snap.val());
-			  	child.remove();
-			}
-		});
-      } else {
-        console.log("not logged in");
-      }
-	});
 
 	firebase.auth().onAuthStateChanged(function(user) {
       if (user != null) {
+        console.log("logged in");
         $("#navButtons").css("display", "none");
 		$("#specialNavi").css("display","block");
 		$("#allbtn").css("display","block");
       } else {
+        console.log("not logged in");
 		$("#navButtons").css("display", "block");
 		$("#specialNavi").css("display","none");
 		$("#allbtn").css("display","none");
@@ -46,18 +29,16 @@ $(function(){
 
 	$("#registerBtn").click(function(){
 		var email = $("#email").val()
-		var password = $("#password").val()
-		var valid = true
-		var promise = firebase.auth().createUserWithEmailAndPassword(email, password);
-		promise.catch(function(e){ alert(e.message); valid = false; });
-
-		if ( valid ) {		
-			firebase.database().ref("users").push({
-				"email" : email,
-				"cycleCount" : 0,
-				"cycleDuration" : "weekly"
-			});
+		var password1 = $("#password1").val()
+		var password2 = $("#password2").val()
+		
+		if (password1 != password2) {
+			alert("Password fields do not match. Please try again");
+			return;
 		}
+		var promise = firebase.auth().createUserWithEmailAndPassword(email, password1);
+		promise.catch(function(e){ alert(e.message); });
+
 	});
 
 	$("#forgotPWBtn").click(function(){
