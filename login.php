@@ -13,7 +13,7 @@
   <script src="script/login.js" type="text/javascript"></script>
   <link rel="icon" href="../images/favicon.png"/>
   <script type="text/javascript">
-  	var attempted = false;
+  var attempted = false;
 	firebase.auth().onAuthStateChanged(function(firebaseUser){
 		if (firebaseUser) {
 			console.log("signed in")

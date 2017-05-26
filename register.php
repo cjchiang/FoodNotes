@@ -14,15 +14,29 @@
 	<script src="script/easterEgg.js" type="text/javascript"></script>
 	<link rel="icon" href="../images/favicon.png"/>
 	<script type="text/javascript">
-	var attempted = false;
-	firebase.auth().onAuthStateChanged(function(firebaseUser){
-		if (firebaseUser) {
+	firebase.auth().onAuthStateChanged(function(thisUser){
+		var database = firebase.database();
+		var users = database.ref("users");
+		if (thisUser) {
+			users.push({
+				"email" : thisUser.email,
+				"cycleCount" : 0,
+				"cycleDuration" : "weekly"
+			});
+			
+			users.orderByChild("email").equalTo(thisUser.email).on('child_added', function(snap){
+			   	var childKey = snap.key;
+			   	var userID = thisUser.uid;
+				if( childKey != userID) {
+					var userFormerNode = users.child(childKey);
+				  	users.child(userID).set(snap.val());
+				  	userFormerNode.remove();
+				}
+			});	
 			console.log("signed in")
 			location.replace("index.php");
-		} else if (attempted) {
-			alert("Invalid username or password!");
 		} else {
-			console.log(firebaseUser + " is not a valid user");
+			console.log(thisUser + " is not a valid user");
 		}
 	});
 
@@ -48,13 +62,13 @@
 
 				<div class='row'>
 					<div class='input-field col s12'>
-						<input class='validate' type='password' name='password' id='password' />
+						<input class='validate' type='password' name='password' id='password1' />
 						<label for='password'>Enter your password</label>
 					</div>
 				</div>
 				<div class='row'>
 					<div class='input-field col s12'>
-						<input class='validate' type='password' name='password' id='password' />
+						<input class='validate' type='password' name='password' id='password2' />
 						<label for='password'>Confirm your password</label>
 					</div>
 				</div>
