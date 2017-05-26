@@ -204,7 +204,7 @@ the running count of total items wasted
      $("#" + cycleKey).find("#percent_wasted").text( percent_wasted + "%");
      $("#" + cycleKey).find("#" +foodCategory+"_percent").text( foodCategory_percent + "%");      
      $("#" + cycleKey).find("#cycleStartDate").text( startdate);      
-     $("#" + cycleKey).find("#cycleEndDate").text( "-" + enddate );      
+     $("#" + cycleKey).find("#cycleEndDate").text( "-> " + enddate );      
     });
 
     // var total = 0;
