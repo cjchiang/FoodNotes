@@ -11,6 +11,14 @@ body {
   color: black;
 }
 
+/*Login form to be a block*/
+#login_form{
+  display: inline-block;
+  padding: 32px 48px 0px 48px;
+  border: 1px solid #EEE;
+  width:100%;
+}
+
 /*Sets the logo size*/
 #logo {
   height: 100%;
@@ -37,7 +45,6 @@ input[type=range]::-webkit-slider-thumb {
 #easterEgg {
   border-bottom: 1px solid white;
 }
-
 /* Color of the slider */
 input[type=range]::-moz-range-thumb {
   background-color: white;
@@ -74,11 +81,10 @@ input[type=range] + .thumb.active .value {
   text-align: right;
 }
 
-/*Sets heading*/
-h2 {
-  padding-left: 10%;
+/*Border for the nav bar*/
+#nav_mobile {
+  border: 2px solid black;
 }
-
 /*increase size of drop down chevron*/
 label.largo_svg {
   margin: 30px;
@@ -194,7 +200,14 @@ hr {
   left: 0;
   right: 0;
   bottom: 0%;
-  background-color:#a5d6a7;
+  background-color:#b71c1c;
+}
+.affLogo {
+  max-height:100px;
+  max-width:300px;
+}
+#navButtons {
+  display:none;
 }
 
 /*Sets the input fields*/
@@ -217,6 +230,29 @@ hr {
   border-bottom: 1px solid white;
   box-shadow: 0 1px 0 0 white;
 }
+
+/*default format of the input type text*/
+.input-field input[type=number]{
+  border: 1px solid white;
+  border-radius: 5px;
+  }
+/*focus format of the label type number*/
+.input-field input[type=number]:focus + label {
+  color:white;
+}
+/*focus format of the input type number*/
+.input-field input[type=number]:focus {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  box-shadow: 1px 1px 1px 1px white;
+}
+
+/*Adds a the look for the container*/
+.container {
+   border-radius: 5px;
+   padding: 15px;
+ }
+
 /*default format of the input type email*/
 .input-field input[type=email] {
   border-bottom: 1px solid white;
@@ -229,6 +265,27 @@ hr {
 .input-field input[type=email]:focus {
   border-bottom: 1px solid white;
   box-shadow: 0 1px 0 0 white;
+}
+
+/*default format of the input type password*/
+.input-field input[type=password] {
+  border-bottom: 1px solid white;
+}
+/*focus format of the label type password*/
+.input-field input[type=password]:focus + label {
+  color: white;
+}
+/*focus format of the input type password*/
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+/**/
+.input-field input[type=number]{
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom: 1px solid white;
 }
 /*default format of the textarea*/
 textarea.materialize-textarea {
@@ -291,12 +348,6 @@ input[type=submit]:hover {
   background-color: grey;
 }
 
-.container {
-  border-radius: 5px;
-  background-color:#f2f2f2;
-  padding: 20px;
-}
-
 .submit0 {
   text-align: center;
   background-color: lightgray;
@@ -323,6 +374,38 @@ table, td, tr, th {
 #specialNavi {
   position: fixed;
   bottom: 0;
-  left: 38%;
-  right: 38%;
+  left: 41%;
+  right: 41%;
+  up: ;
+}
+#clearMe {
+    display: block;
+    margin: 15%;
+    visibility: hidden;
+}
+@media screen and (min-width:768px) {
+    html{
+        border: 1px solid;
+        margin: auto;
+        width: 768px;
+    }
+    .bottomNavi {
+        width: 768px;
+        margin: auto;
+    }
+    #specialNavi {
+      position: fixed;
+      width: 10%;
+      height: 15%;
+      bottom: 0;
+      margin: 0% auto;
+      left: 0;
+      right: 0;
+    }
+    .specialButton {
+        width: 75%;
+    }
+    .collapsible-header:nth-child(n){
+        font-size: 25px;
+
 }
